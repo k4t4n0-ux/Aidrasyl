@@ -11,10 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function actualizarPG(nuevoValor) {
-        const { maximos } = obtenerValores();
 
         if (nuevoValor < 0) nuevoValor = 0;
-        if (nuevoValor > maximos) nuevoValor = maximos;
 
         pgActualesInput.value = nuevoValor;
     }

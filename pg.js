@@ -1,5 +1,6 @@
 const pgActualesInput = document.getElementById("pgActuales");
 const pgMaximosInput = document.getElementById("pgMaximos");
+const pgTemporalesInput = document.getElementById("pgTemporales");
 
 function obtenerValores() {
     const actuales = parseInt(pgActualesInput.value) || 0;
@@ -32,3 +33,22 @@ pgActualesInput.addEventListener("input", function () {
     const { actuales } = obtenerValores();
     actualizarPG(actuales);
 });
+
+function obtenerPGTemp() {
+    return parseInt(pgTemporalesInput.value) || 0;
+}
+
+function actualizarPGTemp(nuevoValor) {
+    if (nuevoValor < 0) nuevoValor = 0;
+    pgTemporalesInput.value = nuevoValor;
+}
+
+function restarPGTemp(cantidad) {
+    const actuales = obtenerPGTemp();
+    actualizarPGTemp(actuales - cantidad);
+}
+
+function sumarPGTemp(cantidad) {
+    const actuales = obtenerPGTemp();
+    actualizarPGTemp(actuales + cantidad);
+}

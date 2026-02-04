@@ -1,54 +1,56 @@
-const pgActualesInput = document.getElementById("pgActuales");
-const pgMaximosInput = document.getElementById("pgMaximos");
-const pgTemporalesInput = document.getElementById("pgTemporales");
+document.addEventListener("DOMContentLoaded", function() {
 
-function obtenerValores() {
-    const actuales = parseInt(pgActualesInput.value) || 0;
-    const maximos = parseInt(pgMaximosInput.value) || 0;
-    return { actuales, maximos };
-}
+    const pgActualesInput = document.getElementById("pgActuales");
+    const pgMaximosInput = document.getElementById("pgMaximos");
+    const pgTemporalesInput = document.getElementById("pgTemporales");
 
-function actualizarPG(nuevoValor) {
-    const { maximos } = obtenerValores();
+    function obtenerValores() {
+        const actuales = parseInt(pgActualesInput.value) || 0;
+        const maximos = parseInt(pgMaximosInput.value) || 0;
+        return { actuales, maximos };
+    }
 
-    // Limitar entre 0 y máximo
-    if (nuevoValor < 0) nuevoValor = 0;
-    if (nuevoValor > maximos) nuevoValor = maximos;
+    function actualizarPG(nuevoValor) {
+        const { maximos } = obtenerValores();
 
-    pgActualesInput.value = nuevoValor;
-}
+        if (nuevoValor < 0) nuevoValor = 0;
+        if (nuevoValor > maximos) nuevoValor = maximos;
 
-function restarPG(cantidad) {
-    const { actuales } = obtenerValores();
-    actualizarPG(actuales - cantidad);
-}
+        pgActualesInput.value = nuevoValor;
+    }
 
-function sumarPG(cantidad) {
-    const { actuales } = obtenerValores();
-    actualizarPG(actuales + cantidad);
-}
+    window.restarPG = function(cantidad) {
+        const { actuales } = obtenerValores();
+        actualizarPG(actuales - cantidad);
+    }
 
-// Control cuando el usuario escribe manualmente
-pgActualesInput.addEventListener("input", function () {
-    const { actuales } = obtenerValores();
-    actualizarPG(actuales);
+    window.sumarPG = function(cantidad) {
+        const { actuales } = obtenerValores();
+        actualizarPG(actuales + cantidad);
+    }
+
+    pgActualesInput.addEventListener("input", function () {
+        const { actuales } = obtenerValores();
+        actualizarPG(actuales);
+    });
+
+    function obtenerPGTemp() {
+        return parseInt(pgTemporalesInput.value) || 0;
+    }
+
+    function actualizarPGTemp(nuevoValor) {
+        if (nuevoValor < 0) nuevoValor = 0;
+        pgTemporalesInput.value = nuevoValor;
+    }
+
+    window.restarPGTemp = function(cantidad) {
+        const actuales = obtenerPGTemp();
+        actualizarPGTemp(actuales - cantidad);
+    }
+
+    window.sumarPGTemp = function(cantidad) {
+        const actuales = obtenerPGTemp();
+        actualizarPGTemp(actuales + cantidad);
+    }
+
 });
-
-function obtenerPGTemp() {
-    return parseInt(pgTemporalesInput.value) || 0;
-}
-
-function actualizarPGTemp(nuevoValor) {
-    if (nuevoValor < 0) nuevoValor = 0;
-    pgTemporalesInput.value = nuevoValor;
-}
-
-function restarPGTemp(cantidad) {
-    const actuales = obtenerPGTemp();
-    actualizarPGTemp(actuales - cantidad);
-}
-
-function sumarPGTemp(cantidad) {
-    const actuales = obtenerPGTemp();
-    actualizarPGTemp(actuales + cantidad);
-}

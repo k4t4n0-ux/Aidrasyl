@@ -16,22 +16,40 @@
     </textarea>
     <br><br>
 
-    <div style="border: 1px solid #000; padding: 10px; margin: 10px 0; width: 300px;">
+    <div>
         <label>Nombre:</label>
         <input type="text" id="nombre" placeholder="Nombre del personaje">
     </div>
 
-    <div style="border: 1px solid #000; padding: 10px; margin: 10px 0; width: 300px;">
+    <div>
         <label>Clase:</label>
-        <input type="text" id="clase" placeholder="Clase (Guerrero, Mago, etc)">
-    </div>
+        
+<select id="clase" placeholder="Selecciona una clase">
+    <option value="">-- Selecciona una clase --</option>
+    <option value="artificiero">Artificiero</option>
+    <option value="barbaro">Bárbaro</option>
+    <option value="bardo">Bardo</option>
+    <option value="clerigo">Clérigo</option>
+    <option value="druida">Druida</option>
+    <option value="luchador">Luchador</option>
+    <option value="monje">Monje</option>
+    <option value="paladin">Paladín</option>
+    <option value="explorador">Explorador</option>
+    <option value="picaro">Pícaro</option>
+    <option value="hechicero">Hechicero</option>
+    <option value="brujo">Brujo</option>
+    <option value="mago">Mago</option>
+    <option value="cazador_sangre">Cazador de Sangre</option>
+    <option value="psionico">Psiónico</option>
+</select>
+</div>
 
-    <div style="border: 1px solid #000; padding: 10px; margin: 10px 0; width: 300px;">
+    <div>
         <label>Trasfondo:</label>
         <input type="text" id="trasfondo" placeholder="Trasfondo del personaje">
     </div>
 
-    <div style="border: 1px solid #000; padding: 10px; margin: 10px 0; width: 300px;">
+    <div>
         <label>Nivel:</label>
         <input type="number" id="nivel" placeholder="Nivel" min="1" max="20">
     </div>

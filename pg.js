@@ -18,11 +18,6 @@ function actualizarPG(nuevoValor) {
 
     const maximos = parseInt(pgMaximosInput.value) || 0;
 
-    if (nuevoValor > maximos) {
-        pgActualesInput.style.color = "green";
-    } else {
-        pgActualesInput.style.color = "black";
-    }
 }
 
     window.restarPG = function(cantidad) {

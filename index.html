@@ -89,18 +89,21 @@
 
     <br><br>
 
-    <div>
+    <div> 
         <label>Puntos de Golpe:</label>
         <div>
             <button type="button" onclick="restarPG(10)">-10</button>
             <button type="button" onclick="restarPG(1)">-1</button>
+
             <input type="number" id="pgActuales" value="100" min="0">
             <span> / </span>
             <input type="number" id="pgMaximos" value="100" min="0" readonly>
+
             <button type="button" onclick="sumarPG(10)">+10</button>
             <button type="button" onclick="sumarPG(1)">+1</button>
         </div>
     </div>
+
 
     <br><br>
 
@@ -108,6 +111,7 @@
     <script src="script.js"></script>
     <script src="subclases.js"></script>
     <script src="ca.js"></script>
+    <script src="pg.js"></script>
 
 </body>
 </html>

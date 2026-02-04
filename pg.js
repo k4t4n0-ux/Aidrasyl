@@ -10,20 +10,20 @@ document.addEventListener("DOMContentLoaded", function() {
         return { actuales, maximos };
     }
 
-function actualizarPG(nuevoValor) {
+    function actualizarPG(nuevoValor) {
 
-    if (nuevoValor < 0) nuevoValor = 0;
+        if (nuevoValor < 0) nuevoValor = 0;
 
-    pgActualesInput.value = nuevoValor;
+        pgActualesInput.value = nuevoValor;
 
-    const maximos = parseInt(pgMaximosInput.value) || 0;
+        const maximos = parseInt(pgMaximosInput.value) || 0;
 
-    if (nuevoValor > maximos) {
-        pgActualesInput.style.color = "green";
-    } else {
-        pgActualesInput.style.color = "black";
+        if (nuevoValor > maximos) {
+            pgActualesInput.style.color = "green";
+        } else {
+            pgActualesInput.style.color = "black";
+        }
     }
-}
 
     window.restarPG = function(cantidad) {
         const { actuales } = obtenerValores();

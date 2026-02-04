@@ -55,8 +55,6 @@
         </select>
     </div>
 
-    <br>
-
     <div>
         <label>Subclase:</label>
         <select id="subclase">
@@ -64,7 +62,8 @@
         </select>
     </div>
 
-    <script src="subclases.js"></script>
+    <br><br>
+
     <div>
         <label>Nivel:</label>
         <input type="number" id="nivel" placeholder="Nivel" min="1" max="30">
@@ -75,8 +74,22 @@
         <input type="text" id="experiencia" placeholder="Puntos de experiencia">
     </div>
 
-    <!-- Conectar el archivo JavaScript -->
-    <script src="script.js"></script>
+    <br><br>
 
+    <div>
+        <label>CA:</label>
+        <input type="number" id="ca" placeholder="Clase de Armadura" min="0">
+    </div>
+
+    <div>
+        <label>
+            <input type="checkbox" id="escudo"> Escudo (+2)
+        </label>
+    </div>
+
+    <!-- Archivos JavaScript -->
+    <script src="script.js"></script>
+    <script src="subclases.js"></script>
+    <script src="ca.js"></script>
 </body>
 </html>

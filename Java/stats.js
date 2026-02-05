@@ -87,18 +87,21 @@ document.addEventListener("DOMContentLoaded", function() {
                 saveTotal >= 0 ? "+" + saveTotal : saveTotal;
         });
 
-        // Habilidades
-        document.querySelectorAll(".skill-total").forEach(span => {
+            // Habilidades
+            document.querySelectorAll(".skill-total").forEach(span => {
 
             const skill = span.dataset.skillTotal;
 
-            const profCheck = document.querySelector(`[data-skill="${skill}"]`);
+            // Buscar dentro del mismo bloque (más seguro)
+            const contenedorSkill = span.parentElement;
+
+            const profCheck = contenedorSkill.querySelector(".skill-prof");
+            const expCheck = contenedorSkill.querySelector(".skill-exp");
+
             const base = profCheck.dataset.base;
 
             const statInput = document.querySelector(`[data-stat="${base}"]`);
             const mod = calcularMod(parseInt(statInput.value) || 10);
-
-            const expCheck = document.querySelector(`[data-exp="${skill}"]`);
 
             let total = mod;
 
@@ -107,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             span.textContent = total >= 0 ? "+" + total : total;
         });
+
     }
 
     document.addEventListener("input", actualizarTodo);

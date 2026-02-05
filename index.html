@@ -109,23 +109,46 @@
             </div>
         </div>
 
-        <div style="margin-top:10px;">
-            <label>PG Temporales:</label>
-            <div>
-                <button type="button" onclick="restarPGTemp(1)">-1</button>
-                <button type="button" onclick="restarPGTemp(10)">-10</button>
+    <div style="margin-top:10px;">
+        <label>PG Temporales:</label>
+        <div>
+            <button type="button" onclick="restarPGTemp(1)">-1</button>
+            <button type="button" onclick="restarPGTemp(10)">-10</button>
 
-                <input type="number" id="pgTemporales" value="0" min="0">
+            <input type="number" id="pgTemporales" value="0" min="0">
 
-                <button type="button" onclick="sumarPGTemp(10)">+10</button>
-                <button type="button" onclick="sumarPGTemp(1)">+1</button>
-            </div>
+            <button type="button" onclick="sumarPGTemp(10)">+10</button>
+            <button type="button" onclick="sumarPGTemp(1)">+1</button>
         </div>
+    </div>
+
+    <div style="margin-top:20px;">
+    <label>Dados de Golpe:</label>
+    
+    <div>
+        Nivel: <input type="number" id="nivel" value="1" min="1" style="width:60px;">
+        <span id="tipoDado">D6</span>
+    </div>
+
+    <div style="margin-top:5px;">
+        Disponibles: <span id="dadosDisponibles">1</span>
+    </div>
+
+    <div style="margin-top:5px;">
+        <button type="button" onclick="tirarUnDado()">Tirar 1</button>
+        <button type="button" onclick="tirarTodosDados()">Tirar todos</button>
+    </div>
+
+    <div style="margin-top:5px;">
+        Resultado: <span id="resultadoDados">-</span>
+    </div>
+</div>
 
 
     <br><br>
 
     <!-- Archivos JavaScript -->
+    <script src="Java/dadosgolpe.js"></script>
     <script src="Java/script.js"></script>
     <script src="Java/subclases.js"></script>
     <script src="Java/ca.js"></script>

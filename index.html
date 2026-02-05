@@ -8,11 +8,12 @@
 <body>
 <div class="hoja">
 
-        <h1>Hoja Aidrasyl</h1>
+<h1>Hoja Aidrasyl</h1>
 
     <div class="cabecera">
 
         <div class="columna-izquierda">
+
             <label>Nombre</label>
             <input type="text">
 
@@ -23,27 +24,59 @@
             <input type="text">
 
             <label>Alineamiento</label>
-            <select id="alineamiento">...</select>
+            <select id="alineamiento">
+                <option value="">-- Alineamiento --</option>
+                <option value="legal_bueno">Legal Bueno</option>
+                <option value="neutral_bueno">Neutral Bueno</option>
+                <option value="caotico_bueno">Caótico Bueno</option>
+                <option value="legal_neutral">Legal Neutral</option>
+                <option value="neutral_verdadero">Neutral Verdadero</option>
+                <option value="caotico_neutral">Caótico Neutral</option>
+                <option value="legal_maligno">Legal Maligno</option>
+                <option value="neutral_maligno">Neutral Maligno</option>
+                <option value="caotico_maligno">Caótico Maligno</option>
+            </select>
+
         </div>
 
         <div class="columna-derecha">
+
             <label>Clase</label>
-            <select id="clase">...</select>
+            <select id="clase">
+                <option value="">-- Clase --</option>
+                <option value="artificiero">Artificiero</option>
+                <option value="barbaro">Bárbaro</option>
+                <option value="bardo">Bardo</option>
+                <option value="clerigo">Clérigo</option>
+                <option value="druida">Druida</option>
+                <option value="luchador">Luchador</option>
+                <option value="monje">Monje</option>
+                <option value="paladin">Paladín</option>
+                <option value="explorador">Explorador</option>
+                <option value="picaro">Pícaro</option>
+                <option value="hechicero">Hechicero</option>
+                <option value="brujo">Brujo</option>
+                <option value="mago">Mago</option>
+                <option value="cazador_sangre">Cazador de Sangre</option>
+                <option value="psionico">Psiónico</option>
+            </select>
 
             <label>Subclase</label>
-            <select id="subclase">...</select>
+            <select id="subclase">
+                <option value="">-- Subclase --</option>
+            </select>
 
             <label>Nivel</label>
-            <input type="number" id="nivel" min="1" max="30">
+            <input type="number" id="nivel" placeholder="Nivel" min="1" max="30">
 
             <label>Experiencia</label>
-            <input type="number" id="experiencia" min="1">
+            <input type="number" id="experiencia" placeholder="Puntos de experiencia" min="1">
+
         </div>
 
     </div>
 
     <div class="combate">
-
         <div><label>CA:</label><input type="number" id="ca" placeholder="Clase de Armadura" min="0"></div>
 
         <div><label><input type="checkbox" id="escudo"> Escudo (+2)</label></div><br><br>
@@ -98,42 +131,26 @@
         <br><br>
 
         </div>
-
     </div>
+        <label>Bonificador de Competencia:</label>
+        <input type="text" id="competencia" value="+2" readonly>
 
-    <div class="col-secundaria">
+    <div id="caracteristicas"></div><br><br>
 
-        <div class="bloque-secundario">
-            <label>Bonificador de Competencia</label>
-            <input type="text" id="competencia" value="+2" readonly>
-        </div>
+    Iniciativa: <span id="iniciativa">+0</span><br><br>
 
-        <div class="bloque-secundario">
-            <label>Iniciativa</label>
-            <span id="iniciativa" class="valor-grande">+0</span>
-        </div>
+    Velocidad: <input type="number" id="velocidad" min="1" value="30"><br><br>
 
-        <div class="bloque-secundario">
-            <label>Velocidad</label>
-            <input type="number" id="velocidad" min="1" value="30">
-        </div>
+    Tamaño:
+    <select>
+    <option>Pequeño</option>
+    <option selected>Mediano</option>
+    <option>Grande</option>
+    </select><br><br>
 
-        <div class="bloque-secundario">
-            <label>Tamaño</label>
-            <select id="tamano">
-                <option>Pequeño</option>
-                <option selected>Mediano</option>
-                <option>Grande</option>
-            </select>
-        </div>
+    Percepción Pasiva: <span id="percepcionPasiva">10</span><br><br>
 
-        <div class="bloque-secundario">
-            <label>Percepción Pasiva</label>
-            <span id="percepcionPasiva" class="valor-grande">10</span>
-        </div>
-
-</div>
-
+    <!-- Archivos JavaScript -->
     <script src="Java/stats.js"></script>
     <script src="Java/competencia.js"></script>
     <script src="Java/dadosgolpe.js"></script>
@@ -142,6 +159,7 @@
     <script src="Java/ca.js"></script>
     <script src="Java/pg.js"></script>
     <script src="Java/iniciativapp.js"></script>
+
 </div>
 </body>
 </html>

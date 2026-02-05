@@ -89,15 +89,16 @@
 
     <br><br>
 
+    <div>
+                <input type="number" id="pgMaximos" value="100" min="0" readonly>
+    </div>
         <div> 
-            <label>Puntos de Golpe:</label>
+            <label>Puntos de Golpe Actuales:</label>
             <div>
                 <button type="button" onclick="restarPG(1)">-1</button>
                 <button type="button" onclick="restarPG(10)">-10</button>
 
                 <input type="number" id="pgActuales" value="100" min="0">
-                <span> / </span>
-                <input type="number" id="pgMaximos" value="100" min="0" readonly>
 
                 <button type="button" onclick="sumarPG(10)">+10</button>
                 <button type="button" onclick="sumarPG(1)">+1</button>

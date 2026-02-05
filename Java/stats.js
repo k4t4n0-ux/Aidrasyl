@@ -111,6 +111,43 @@ document.addEventListener("DOMContentLoaded", function() {
             span.textContent = total >= 0 ? "+" + total : total;
         });
 
+        // ----- INICIATIVA (igual que modificador de Destreza) -----
+
+        const destrezaInput = document.querySelector('[data-stat="Destreza"]');
+        const modDestreza = calcularMod(parseInt(destrezaInput.value) || 10);
+
+        document.getElementById("iniciativa").textContent =
+            modDestreza >= 0 ? "+" + modDestreza : modDestreza;
+
+
+        // ----- VELOCIDAD (no permitir 0 o negativo) -----
+
+        const velocidadInput = document.getElementById("velocidad");
+        let velocidad = parseInt(velocidadInput.value) || 1;
+
+        if (velocidad < 1) velocidad = 1;
+
+        velocidadInput.value = velocidad;
+
+
+        // ----- PERCEPCIÓN PASIVA -----
+
+        // Buscar datos de Percepción
+        const percepcionProf = document.querySelector('[data-skill="Percepción"]');
+        const percepcionExp = document.querySelector('[data-exp="Percepción"]');
+
+        const sabiduriaInput = document.querySelector('[data-stat="Sabiduria"]');
+        const modSab = calcularMod(parseInt(sabiduriaInput.value) || 10);
+
+        let percepcionTotal = modSab;
+
+        if (percepcionProf.checked) percepcionTotal += competencia;
+        if (percepcionExp.checked) percepcionTotal += competencia;
+
+        const percepcionPasiva = 10 + percepcionTotal;
+
+        document.getElementById("percepcionPasiva").textContent = percepcionPasiva;
+
     }
 
     document.addEventListener("input", actualizarTodo);

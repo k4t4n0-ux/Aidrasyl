@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         div.innerHTML = `
             <h3>${nombre}</h3>
-            Valor: <input type="number" value="10" class="stat" data-stat="${nombre}">
+            Valor: <input type="number" value="10" min="1" max="30" class="stat" data-stat="${nombre}">
             Mod: <span class="mod" data-mod="${nombre}">0</span>
             Salvación:
             <input type="checkbox" class="save-prof" data-save="${nombre}">

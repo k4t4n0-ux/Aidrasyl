@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const nivelInput = document.getElementById("nivel");
     const competenciaInput = document.getElementById("competencia");
     const contenedor = document.getElementById("caracteristicas");
 
@@ -12,6 +11,10 @@ document.addEventListener("DOMContentLoaded", function() {
         Carisma: ["Engaño", "Interpretación", "Intimidación", "Persuasión"]
     };
 
+    const formato = n => n >= 0 ? "+" + n : n;
+    const calcularMod = v => Math.floor((v - 10) / 2);
+    const getCompetencia = () => parseInt(competenciaInput.value.replace("+", "")) || 0;
+
     function crearSeccion(nombre, habilidades) {
 
         const div = document.createElement("div");
@@ -20,21 +23,21 @@ document.addEventListener("DOMContentLoaded", function() {
         div.innerHTML = `
             <h3>${nombre}</h3>
             Valor: <input type="number" value="10" min="1" max="30" class="stat" data-stat="${nombre}">
-            Mod: <span class="mod" data-mod="${nombre}">0</span>
+            Mod: <span class="mod" data-mod="${nombre}">+0</span>
             Salvación:
             <input type="checkbox" class="save-prof" data-save="${nombre}">
-            <span class="save-total" data-save-total="${nombre}">0</span>
+            <span class="save-total" data-save-total="${nombre}">+0</span>
             <br><br>
         `;
 
         habilidades.forEach(hab => {
             div.innerHTML += `
-                ${hab} 
-                <input type="checkbox" class="skill-prof" data-skill="${hab}" data-base="${nombre}">
+                ${hab}
+                <input type="checkbox" class="skill-prof" data-base="${nombre}">
                 C
-                <input type="checkbox" class="skill-exp" data-exp="${hab}" data-base="${nombre}">
+                <input type="checkbox" class="skill-exp">
                 E
-                <span class="skill-total" data-skill-total="${hab}">0</span>
+                <span class="skill-total">+0</span>
                 <br>
             `;
         });
@@ -42,112 +45,83 @@ document.addEventListener("DOMContentLoaded", function() {
         contenedor.appendChild(div);
     }
 
-    Object.entries(datos).forEach(([stat, habilidades]) => {
-        crearSeccion(stat, habilidades);
-    });
-
-    function getCompetencia() {
-        return parseInt(competenciaInput.value.replace("+", "")) || 0;
-    }
-
-    function calcularMod(valor) {
-        return Math.floor((valor - 10) / 2);
-    }
+    Object.entries(datos).forEach(([stat, habilidades]) =>
+        crearSeccion(stat, habilidades)
+    );
 
     function actualizarTodo() {
 
         const competencia = getCompetencia();
 
+        // ===== CARACTERÍSTICAS Y SALVACIONES =====
         document.querySelectorAll(".stat").forEach(input => {
 
-            const stat = input.dataset.stat;
-
             let valor = parseInt(input.value) || 10;
-
-            // Limitar entre 1 y 30
-            if (valor < 1) valor = 1;
-            if (valor > 30) valor = 30;
-
+            valor = Math.min(30, Math.max(1, valor));
             input.value = valor;
 
+            const stat = input.dataset.stat;
             const mod = calcularMod(valor);
 
-            document.querySelector(`[data-mod="${stat}"]`).textContent =
-                mod >= 0 ? "+" + mod : mod;
+            document.querySelector(`[data-mod="${stat}"]`).textContent = formato(mod);
 
-            // Salvación
             const saveCheck = document.querySelector(`[data-save="${stat}"]`);
-            let saveTotal = mod;
+            const saveTotal = mod + (saveCheck.checked ? competencia : 0);
 
-            if (saveCheck.checked) {
-                saveTotal += competencia;
-            }
-
-            document.querySelector(`[data-save-total="${stat}"]`).textContent =
-                saveTotal >= 0 ? "+" + saveTotal : saveTotal;
+            document.querySelector(`[data-save-total="${stat}"]`)
+                .textContent = formato(saveTotal);
         });
 
-            // Habilidades
-            document.querySelectorAll(".skill-total").forEach(span => {
+        // ===== HABILIDADES =====
+        document.querySelectorAll(".skill-total").forEach(span => {
 
-            const skill = span.dataset.skillTotal;
+            const bloque = span.parentElement;
+            const prof = bloque.querySelector(".skill-prof");
+            const exp = bloque.querySelector(".skill-exp");
 
-            // Buscar dentro del mismo bloque (más seguro)
-            const contenedorSkill = span.parentElement;
+            const baseStat = prof.dataset.base;
+            const statInput = document.querySelector(`[data-stat="${baseStat}"]`);
 
-            const profCheck = contenedorSkill.querySelector(".skill-prof");
-            const expCheck = contenedorSkill.querySelector(".skill-exp");
-
-            const base = profCheck.dataset.base;
-
-            const statInput = document.querySelector(`[data-stat="${base}"]`);
             const mod = calcularMod(parseInt(statInput.value) || 10);
 
             let total = mod;
+            if (prof.checked) total += competencia;
+            if (exp.checked) total += competencia;
 
-            if (profCheck.checked) total += competencia;
-            if (expCheck.checked) total += competencia;
-
-            span.textContent = total >= 0 ? "+" + total : total;
+            span.textContent = formato(total);
         });
 
-        // ----- INICIATIVA (igual que modificador de Destreza) -----
+        // ===== INICIATIVA =====
+        const modDes = calcularMod(
+            parseInt(document.querySelector('[data-stat="Destreza"]').value) || 10
+        );
+        document.getElementById("iniciativa").textContent = formato(modDes);
 
-        const destrezaInput = document.querySelector('[data-stat="Destreza"]');
-        const modDestreza = calcularMod(parseInt(destrezaInput.value) || 10);
-
-        document.getElementById("iniciativa").textContent =
-            modDestreza >= 0 ? "+" + modDestreza : modDestreza;
-
-
-        // ----- VELOCIDAD (no permitir 0 o negativo) -----
-
+        // ===== VELOCIDAD =====
         const velocidadInput = document.getElementById("velocidad");
-        let velocidad = parseInt(velocidadInput.value) || 1;
+        velocidadInput.value = Math.max(1, parseInt(velocidadInput.value) || 1);
 
-        if (velocidad < 1) velocidad = 1;
+        // ===== PERCEPCIÓN PASIVA =====
+        const modSab = calcularMod(
+            parseInt(document.querySelector('[data-stat="Sabiduria"]').value) || 10
+        );
 
-        velocidadInput.value = velocidad;
+        const percepcionBloque = [...document.querySelectorAll(".skill-total")]
+            .find(span => span.previousSibling?.textContent?.includes("Percepción"));
 
+        let percepcionBonus = modSab;
 
-        // ----- PERCEPCIÓN PASIVA -----
+        if (percepcionBloque) {
+            const bloque = percepcionBloque.parentElement;
+            const prof = bloque.querySelector(".skill-prof");
+            const exp = bloque.querySelector(".skill-exp");
 
-        // Buscar datos de Percepción
-        const percepcionProf = document.querySelector('[data-skill="Percepción"]');
-        const percepcionExp = document.querySelector('[data-exp="Percepción"]');
+            if (prof.checked) percepcionBonus += competencia;
+            if (exp.checked) percepcionBonus += competencia;
+        }
 
-        const sabiduriaInput = document.querySelector('[data-stat="Sabiduria"]');
-        const modSab = calcularMod(parseInt(sabiduriaInput.value) || 10);
-
-        let percepcionTotal = modSab;
-
-        if (percepcionProf.checked) percepcionTotal += competencia;
-        if (percepcionExp.checked) percepcionTotal += competencia;
-
-        const percepcionPasiva = 10 + percepcionTotal;
-
-        document.getElementById("percepcionPasiva").textContent = percepcionPasiva;
-
+        document.getElementById("percepcionPasiva").textContent =
+            10 + percepcionBonus;
     }
 
     document.addEventListener("input", actualizarTodo);

@@ -56,6 +56,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function actualizarTodo() {
 
+        let valor = parseInt(input.value) || 10;
+
+        if (valor < 1) valor = 1;
+        if (valor > 30) valor = 30;
+
+        input.value = valor;
+
+        const mod = calcularMod(valor);
+
+
         const competencia = getCompetencia();
 
         document.querySelectorAll(".stat").forEach(input => {

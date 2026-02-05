@@ -24,7 +24,7 @@ claseSelect.addEventListener("change", function() {
     const claseSeleccionada = this.value;
 
     // Reiniciar subclases
-    subclaseSelect.innerHTML = '<option value="">-- Selecciona una subclase --</option>';
+    subclaseSelect.innerHTML = '<option value="">-- Subclase --</option>';
 
     if (subclases[claseSeleccionada]) {
         subclases[claseSeleccionada].forEach(function(sub) {

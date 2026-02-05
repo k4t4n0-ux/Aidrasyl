@@ -22,6 +22,8 @@
 
         Especie: <input type="text"><br><br>
 
+        Transfondo: <input type="text"><br><br>
+
     <div>
         <label>Clase:</label>
         <select id="clase">
@@ -46,37 +48,15 @@
 
     <div><label>Subclase:</label><select id="subclase"><option value="">-- Subclase --</option></select></div><br><br>
 
-    <div>
-        <label>Nivel:</label>
-        <input type="number" id="nivel" placeholder="Nivel" min="1" max="30">
-    </div>
+    <div><label>Nivel:</label><input type="number" id="nivel" placeholder="Nivel" min="1" max="30"></div>
 
-    <div>
-        <label>Experiencia:</label>
-        <input type="text" id="experiencia" placeholder="Puntos de experiencia">
-    </div>
+    <div><label>Experiencia:</label><input type="number" id="experiencia" placeholder="Puntos de experiencia" min="1"></div><br><br>
 
-    <br><br>
+    <div><label>CA:</label><input type="number" id="ca" placeholder="Clase de Armadura" min="0"></div>
 
-    <div>
-        <label>CA:</label>
-        <input type="number" id="ca" placeholder="Clase de Armadura" min="0">
-    </div>
+    <div><label><input type="checkbox" id="escudo"> Escudo (+2)</label></div><br><br>
 
-    <div>
-        <label>
-            <input type="checkbox" id="escudo"> Escudo (+2)
-        </label>
-    </div>
-
-    <br><br>
-
-        <div>
-            <label>Puntos de Golpe Máximos:</label>
-            <div>
-            <input type="number" id="pgMaximos" value="100" min="0" readonly>
-            </div>
-        </div>
+        <div><label>Puntos de Golpe Máximos:</label><div><input type="number" id="pgMaximos" value="100" min="0" readonly></div></div>
 
         <div> 
             <label>Puntos de Golpe Actuales:</label>
@@ -104,24 +84,27 @@
         </div>
     </div>
 
-    <div style="margin-top:20px;">
+    <div>
         <label>Dados de Golpe:</label>
 
         <div>
-            Tipo: <span id="tipoDado">D6</span>
+            Tipo: <span id="tipoDado">DX</span>
         </div>
 
-        <div style="margin-top:5px;">
+        <div>
             En reserva: <span id="dadosDisponibles">0</span>
         </div>
 
-        <div style="margin-top:5px;">
+        <div>
             <button type="button" onclick="tirarUnDado()">Tirar 1</button>
         </div>
 
-        <div style="margin-top:5px;">
-            Resultado: <span id="resultadoDados">-</span>
+        <div>
+            Resultado: <span id="resultadoDados">0</span>
         </div>
+
+    <br><br>
+
     </div>
 
         <label>Bonificador de Competencia:</label>
@@ -129,12 +112,9 @@
 
     <div id="caracteristicas"></div>
 
-    <h2>Combate y Datos Generales</h2>
-
     Iniciativa: <span id="iniciativa">+0</span><br><br>
 
-    Velocidad:
-    <input type="number" id="velocidad" min="1" value="30">
+    Velocidad: <input type="number" id="velocidad" min="1" value="30">
 
     Tamaño:
     <select>
@@ -143,10 +123,7 @@
     <option>Grande</option>
     </select>
 
-    Percepción Pasiva:
-    <span id="percepcionPasiva">10</span>
-
-    <br><br>
+    Percepción Pasiva: <span id="percepcionPasiva">10</span><br><br>
 
     <!-- Archivos JavaScript -->
     <script src="Java/stats.js"></script>

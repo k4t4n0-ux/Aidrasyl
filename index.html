@@ -1,98 +1,192 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Hoja DnD</title>
+    <meta charset="UTF-8">
+    <title>Mi Hoja Personal</title>
 </head>
 <body>
 
-<h1>Hoja Muelte</h1>
+    <h1>Hoja Tuto Muelte</h1>
 
-Nombre: <input type="text"><br><br>
+    <textarea 
+        id="miHoja" 
+        placeholder="Escribe aquí..." 
+        rows="15" 
+        cols="50">
+    </textarea>
+    <br><br>
 
-Nivel: <input type="number" id="nivel" min="1" max="30" value="1"><br><br>
+    <div>
+        <label>Nombre:</label>
+        <input type="text" id="nombre" placeholder="Nombre del personaje">
+    </div>
 
-Bonificador de Competencia:
-<input type="text" id="competencia" value="+2" readonly>
-<br><br>
 
-<div id="caracteristicas"></div>
+    <div>
+        <label>Trasfondo:</label>
+        <input type="text" id="trasfondo" placeholder="Trasfondo del personaje">
+    </div>
 
-<hr>
+    <div>
+        <label>Especie:</label>
+        <input type="text" id="especie" placeholder="Especie del personaje">
+    </div>
 
-<h2>Combate</h2>
+    <div>
+        <label>Clase:</label>
+    
+        <select id="clase">
+            <option value="">-- Selecciona una clase --</option>
+            <option value="artificiero">Artificiero</option>
+            <option value="barbaro">Bárbaro</option>
+            <option value="bardo">Bardo</option>
+            <option value="clerigo">Clérigo</option>
+            <option value="druida">Druida</option>
+            <option value="luchador">Luchador</option>
+            <option value="monje">Monje</option>
+            <option value="paladin">Paladín</option>
+            <option value="explorador">Explorador</option>
+            <option value="picaro">Pícaro</option>
+            <option value="hechicero">Hechicero</option>
+            <option value="brujo">Brujo</option>
+            <option value="mago">Mago</option>
+            <option value="cazador_sangre">Cazador de Sangre</option>
+            <option value="psionico">Psiónico</option>
+        </select>
+    </div>
 
-Iniciativa: <span id="iniciativa">+0</span><br><br>
+    <div>
+        <label>Subclase:</label>
+        <select id="subclase">
+            <option value="">-- Selecciona una subclase --</option>
+        </select>
+    </div>
 
-Velocidad:
-<input type="number" id="velocidad" min="1" value="30"><br><br>
+    <br><br>
 
-Tamaño:
-<select>
-<option>Pequeño</option>
-<option selected>Mediano</option>
-<option>Grande</option>
-</select>
-<br><br>
+    <div>
+        <label>Nivel:</label>
+        <input type="number" id="nivel" placeholder="Nivel" min="1" max="30">
+    </div>
 
-Percepción Pasiva:
-<span id="percepcionPasiva">10</span>
+    <div>
+        <label>Experiencia:</label>
+        <input type="text" id="experiencia" placeholder="Puntos de experiencia">
+    </div>
 
-<!-- Stats -->
-<script src="Java/stats.js"></script>
+    <br><br>
 
-<!-- Script independiente de iniciativa y percepción -->
-<script>
+    <div>
+        <label>CA:</label>
+        <input type="number" id="ca" placeholder="Clase de Armadura" min="0">
+    </div>
 
-document.addEventListener("input", actualizarCombate);
-document.addEventListener("change", actualizarCombate);
+    <div>
+        <label>
+            <input type="checkbox" id="escudo"> Escudo (+2)
+        </label>
+    </div>
 
-function calcularMod(valor){
-    return Math.floor((valor - 10) / 2);
-}
+    <br><br>
 
-function actualizarCombate(){
+        <div>
+            <label>Puntos de Golpe Máximos:</label>
+            <div>
+            <input type="number" id="pgMaximos" value="100" min="0" readonly>
+            </div>
+        </div>
 
-    const competencia = parseInt(
-        document.getElementById("competencia").value.replace("+","")
-    ) || 0;
+        <div> 
+            <label>Puntos de Golpe Actuales:</label>
+            <div>
+                <button type="button" onclick="restarPG(1)">-1</button>
+                <button type="button" onclick="restarPG(10)">-10</button>
 
-    // ===== INICIATIVA =====
-    const destreza = document.querySelector('[data-stat="Destreza"]');
-    if(destreza){
-        const modDes = calcularMod(parseInt(destreza.value) || 10);
-        document.getElementById("iniciativa").textContent =
-            modDes >= 0 ? "+" + modDes : modDes;
-    }
+                <input type="number" id="pgActuales" value="100" min="0">
 
-    // ===== PERCEPCIÓN PASIVA =====
-    const sabiduria = document.querySelector('[data-stat="Sabiduria"]');
-    if(!sabiduria) return;
+                <button type="button" onclick="sumarPG(10)">+10</button>
+                <button type="button" onclick="sumarPG(1)">+1</button>
+            </div>
+        </div>
 
-    const modSab = calcularMod(parseInt(sabiduria.value) || 10);
+    <div style="margin-top:10px;">
+        <label>PG Temporales:</label>
+        <div>
+            <button type="button" onclick="restarPGTemp(1)">-1</button>
+            <button type="button" onclick="restarPGTemp(10)">-10</button>
 
-    let bonus = modSab;
+            <input type="number" id="pgTemporales" value="0" min="0">
 
-    // buscar skill Percepción correctamente
-    const skills = document.querySelectorAll(".skill-row");
+            <button type="button" onclick="sumarPGTemp(10)">+10</button>
+            <button type="button" onclick="sumarPGTemp(1)">+1</button>
+        </div>
+    </div>
 
-    skills.forEach(row=>{
-        if(row.dataset.skill === "Percepción"){
-            const prof = row.querySelector(".skill-prof").checked;
-            const exp = row.querySelector(".skill-exp").checked;
+    <div style="margin-top:20px;">
+        <label>Dados de Golpe:</label>
 
-            if(prof) bonus += competencia;
-            if(exp) bonus += competencia;
-        }
-    });
+        <div>
+            Tipo: <span id="tipoDado">D6</span>
+        </div>
 
-    document.getElementById("percepcionPasiva").textContent =
-        10 + bonus;
-}
+        <div style="margin-top:5px;">
+            En reserva: <span id="dadosDisponibles">0</span>
+        </div>
 
-actualizarCombate();
+        <div style="margin-top:5px;">
+            <button type="button" onclick="tirarUnDado()">Tirar 1</button>
+        </div>
 
-</script>
+        <div style="margin-top:5px;">
+            Resultado: <span id="resultadoDados">-</span>
+        </div>
+    </div>
+
+    <div>
+        <label>Bonificador de Competencia:</label>
+        <input type="text" id="competencia" value="+2" readonly>
+    </div>
+
+    <div id="caracteristicas"></div>
+
+    <br><br>
+
+    <hr>
+
+    <h2>Combate y Datos Generales</h2>
+
+    Iniciativa:
+    <span id="iniciativa">+0</span>
+
+    <br><br>
+
+    Velocidad:
+    <input type="number" id="velocidad" min="1" value="30">
+
+    <br><br>
+
+    Tamaño:
+    <select id="tamano">
+        <option value="Pequeño">Pequeño</option>
+        <option value="Mediano" selected>Mediano</option>
+        <option value="Grande">Grande</option>
+    </select>
+
+    <br><br>
+
+    Percepción Pasiva:
+    <span id="percepcionPasiva">10</span>
+
+    <br><br>
+
+    <!-- Archivos JavaScript -->
+    <script src="Java/stats.js"></script>
+    <script src="Java/competencia.js"></script>
+    <script src="Java/dadosgolpe.js"></script>
+    <script src="Java/script.js"></script>
+    <script src="Java/subclases.js"></script>
+    <script src="Java/ca.js"></script>
+    <script src="Java/pg.js"></script>
 
 </body>
 </html>

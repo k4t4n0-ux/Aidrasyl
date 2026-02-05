@@ -56,22 +56,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function actualizarTodo() {
 
-        let valor = parseInt(input.value) || 10;
-
-        if (valor < 1) valor = 1;
-        if (valor > 30) valor = 30;
-
-        input.value = valor;
-
-        const mod = calcularMod(valor);
-
-
         const competencia = getCompetencia();
 
         document.querySelectorAll(".stat").forEach(input => {
 
             const stat = input.dataset.stat;
-            const valor = parseInt(input.value) || 10;
+
+            let valor = parseInt(input.value) || 10;
+
+            // Limitar entre 1 y 30
+            if (valor < 1) valor = 1;
+            if (valor > 30) valor = 30;
+
+            input.value = valor;
+
             const mod = calcularMod(valor);
 
             document.querySelector(`[data-mod="${stat}"]`).textContent =
@@ -93,15 +91,13 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelectorAll(".skill-total").forEach(span => {
 
             const skill = span.dataset.skillTotal;
-            const base = document.querySelector(`[data-skill-total="${skill}"]`)
-                .closest("div")
-                .querySelector(`[data-skill="${skill}"]`)
-                ?.dataset.base;
+
+            const profCheck = document.querySelector(`[data-skill="${skill}"]`);
+            const base = profCheck.dataset.base;
 
             const statInput = document.querySelector(`[data-stat="${base}"]`);
             const mod = calcularMod(parseInt(statInput.value) || 10);
 
-            const profCheck = document.querySelector(`[data-skill="${skill}"]`);
             const expCheck = document.querySelector(`[data-exp="${skill}"]`);
 
             let total = mod;

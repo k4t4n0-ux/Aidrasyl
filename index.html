@@ -123,26 +123,25 @@
     </div>
 
     <div style="margin-top:20px;">
-    <label>Dados de Golpe:</label>
-    
-    <div>
-        Nivel: <input type="number" id="nivel" value="1" min="1" style="width:60px;">
-        <span id="tipoDado">D6</span>
+        <label>Dados de Golpe:</label>
+
+        <div>
+            Tipo: <span id="tipoDado">D6</span>
+        </div>
+
+        <div style="margin-top:5px;">
+            En reserva: <span id="dadosDisponibles">0</span>
+        </div>
+
+        <div style="margin-top:5px;">
+            <button type="button" onclick="tirarUnDado()">Tirar 1</button>
+        </div>
+
+        <div style="margin-top:5px;">
+            Resultado: <span id="resultadoDados">-</span>
+        </div>
     </div>
 
-    <div style="margin-top:5px;">
-        Disponibles: <span id="dadosDisponibles">1</span>
-    </div>
-
-    <div style="margin-top:5px;">
-        <button type="button" onclick="tirarUnDado()">Tirar 1</button>
-        <button type="button" onclick="tirarTodosDados()">Tirar todos</button>
-    </div>
-
-    <div style="margin-top:5px;">
-        Resultado: <span id="resultadoDados">-</span>
-    </div>
-</div>
 
 
     <br><br>

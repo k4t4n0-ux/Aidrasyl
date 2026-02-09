@@ -211,3 +211,73 @@ input[type="checkbox"] {
     font-weight: bold;
     margin-left: 5px;
 }
+
+/* =============================
+   BLOQUE COMBATE ORDENADO
+============================= */
+
+.bloque-combate {
+    background: #26263a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CA + ESCUDO PEGADOS */
+.fila-ca {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ca-box input {
+    width: 70px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.escudo-box {
+    display: flex;
+    align-items: center;
+}
+
+/* PG BLOQUE MÁS COMPACTO */
+.pg-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.pg-box input {
+    width: 70px;
+    text-align: center;
+}
+
+.controles {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* DADOS */
+.dados-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* REDUCIR TAMAÑO GENERAL DE INPUTS */
+input[type="text"],
+input[type="number"],
+select {
+    font-size: 14px;
+    padding: 4px 6px;
+}
+
+/* QUITAR EXCESO DE ESPACIADO GLOBAL */
+div {
+    margin-bottom: 5px;
+}

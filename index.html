@@ -74,68 +74,66 @@
 
         </div>
 
-    </div>
+        <div><label>CA:</label><input type="number" id="ca" placeholder="Clase de Armadura" min="0"></div>
 
-    <div class="combate">
-    <div><label>CA:</label><input type="number" id="ca" placeholder="Clase de Armadura" min="0"></div>
+        <div><label><input type="checkbox" id="escudo"> Escudo (+2)</label></div><br><br>
 
-    <div><label><input type="checkbox" id="escudo"> Escudo (+2)</label></div><br><br>
+            <div><label>Puntos de Golpe Máximos:</label><div><input type="number" id="pgMaximos" value="100" min="0" readonly></div></div>
 
-        <div><label>Puntos de Golpe Máximos:</label><div><input type="number" id="pgMaximos" value="100" min="0" readonly></div></div>
+            <div> 
+                <label>Puntos de Golpe Actuales:</label>
+                <div>
+                    <button type="button" onclick="restarPG(1)">-1</button>
+                    <button type="button" onclick="restarPG(10)">-10</button>
 
-        <div> 
-            <label>Puntos de Golpe Actuales:</label>
-            <div>
-                <button type="button" onclick="restarPG(1)">-1</button>
-                <button type="button" onclick="restarPG(10)">-10</button>
+                    <input type="number" id="pgActuales" value="100" min="0">
 
-                <input type="number" id="pgActuales" value="100" min="0">
-
-                <button type="button" onclick="sumarPG(10)">+10</button>
-                <button type="button" onclick="sumarPG(1)">+1</button>
+                    <button type="button" onclick="sumarPG(10)">+10</button>
+                    <button type="button" onclick="sumarPG(1)">+1</button>
+                </div>
             </div>
-        </div>
-
-    <div>
-        <label>PG Temporales:</label>
-        <div>
-            <button type="button" onclick="restarPGTemp(1)">-1</button>
-            <button type="button" onclick="restarPGTemp(10)">-10</button>
-
-            <input type="number" id="pgTemporales" value="0" min="0">
-
-            <button type="button" onclick="sumarPGTemp(10)">+10</button>
-            <button type="button" onclick="sumarPGTemp(1)">+1</button>
-        </div>
-    </div><br><br>
-
-    <div>
-        <label>Dados de Golpe:</label>
 
         <div>
-            Tipo: <span id="tipoDado">DX</span>
-        </div>
+            <label>PG Temporales:</label>
+            <div>
+                <button type="button" onclick="restarPGTemp(1)">-1</button>
+                <button type="button" onclick="restarPGTemp(10)">-10</button>
+
+                <input type="number" id="pgTemporales" value="0" min="0">
+
+                <button type="button" onclick="sumarPGTemp(10)">+10</button>
+                <button type="button" onclick="sumarPGTemp(1)">+1</button>
+            </div>
+        </div><br><br>
 
         <div>
-            En reserva: <span id="dadosDisponibles">0</span>
-        </div>
+            <label>Dados de Golpe:</label>
 
-        <div>
-            <button type="button" onclick="tirarUnDado()">Tirar 1</button>
-        </div>
+            <div>
+                Tipo: <span id="tipoDado">DX</span>
+            </div>
 
-        <div>
-            Resultado: <span id="resultadoDados">0</span>
-        </div>
+            <div>
+                En reserva: <span id="dadosDisponibles">0</span>
+            </div>
 
-    <br><br>
+            <div>
+                <button type="button" onclick="tirarUnDado()">Tirar 1</button>
+            </div>
+
+            <div>
+                Resultado: <span id="resultadoDados">0</span>
+            </div>
+
+        <br><br>
 
     </div>
+
+    sadsda
+    <div id="caracteristicas"></div><br><br>
 
         <label>Bonificador de Competencia:</label>
         <input type="text" id="competencia" value="+2" readonly>
-
-    <div id="caracteristicas"></div><br><br>
 
     Iniciativa: <span id="iniciativa">+0</span><br><br>
 

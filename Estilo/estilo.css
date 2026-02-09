@@ -281,3 +281,115 @@ select {
 div {
     margin-bottom: 5px;
 }
+/* ===============================
+   CABECERA SUPERIOR ESTILO OFICIAL
+================================= */
+
+.cabecera-superior {
+    display: grid;
+    grid-template-columns: 2fr 150px 1.5fr 2fr;
+    gap: 25px;
+    align-items: start;
+    margin-bottom: 25px;
+}
+
+/* DATOS PERSONALES */
+.datos-personales .fila-doble {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* NIVEL CENTRAL */
+.nivel-box {
+    background: #1f1f30;
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+.nivel-box input {
+    width: 70px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* COMBATE SUPERIOR */
+.bloque-combate-superior {
+    background: #26263a;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* CA DESTACADA */
+.ca-destacada {
+    text-align: center;
+    font-size: 14px;
+}
+
+.ca-destacada input {
+    width: 70px;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ESCUDO INLINE */
+.escudo-inline {
+    font-size: 13px;
+}
+
+/* PG MINI */
+.pg-mini {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.pg-mini input {
+    width: 60px;
+    text-align: center;
+}
+
+/* DADOS MINI */
+.dados-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* BARRA SECUNDARIA */
+.barra-secundaria {
+    display: flex;
+    justify-content: space-between;
+    background: #26263a;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    margin-bottom: 20px;
+}
+
+.mini-box {
+    text-align: center;
+    font-size: 13px;
+}
+
+.mini-box input,
+.mini-box select {
+    width: 70px;
+    text-align: center;
+}
+
+/* CARACTERÍSTICAS BLOQUE */
+#caracteristicas {
+    background: #26263a;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #444;
+}

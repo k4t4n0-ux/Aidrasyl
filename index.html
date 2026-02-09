@@ -8,7 +8,7 @@
 <body>
 <div class="hoja">
 
-<h1>sbrdvs</h1>
+<h1>pg</h1>
 
     <div class="cabecera-superior">
 
@@ -103,8 +103,14 @@
                     <input type="number" id="pgMaximos" value="100" readonly>
                 </div>
                 <div>
-                    <label>PG Act</label>
-                    <input type="number" id="pgActuales" value="100">
+                    <div class="pg-botones">
+                        <button onclick="modificarPG(-1)">-1</button>
+                        <button onclick="modificarPG(-10)">-10</button>
+                        <label>PG Act</label>
+                        <input type="number" id="pgActuales" value="100">
+                        <button onclick="modificarPG(+10)">+10</button>
+                        <button onclick="modificarPG(+1)">+1</button>
+                    </div>
                 </div>
                 <div>
                     <label>Temp</label>
@@ -113,7 +119,7 @@
             </div>
 
             <div class="dados-mini">
-                <div>DX: <span id="tipoDado">DX</span></div>
+                <div>Dados de Golpe: <span id="tipoDado">DX</span></div>
                 <div>Reserva: <span id="dadosDisponibles">0</span></div>
                 <button onclick="tirarUnDado()">Tirar</button>
                 <div>Resultado: <span id="resultadoDados">0</span></div>

@@ -1,20 +1,26 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const dadosDisponiblesSpan = document.getElementById("dadosDisponibles");
+    const dadosSpan = document.getElementById("dadosDisponibles");
+
+    // Inicializar a 0 si está vacío
+    if (!dadosSpan.textContent.trim()) {
+        dadosSpan.textContent = "0";
+    }
 
     function obtenerDados() {
-        return parseInt(dadosDisponiblesSpan.textContent) || 0;
+        return parseInt(dadosSpan.textContent) || 0;
     }
 
-    function actualizarDados(nuevoValor) {
-        if (nuevoValor < 0) nuevoValor = 0;
-        dadosDisponiblesSpan.textContent = nuevoValor;
+    function setDados(valor) {
+        if (valor < 0) valor = 0;
+        dadosSpan.textContent = valor;
     }
 
-    window.gastoDado = function() {
+    // Función global para el botón
+    window.gastoDado = function () {
         const actuales = obtenerDados();
         if (actuales > 0) {
-            actualizarDados(actuales - 1);
+            setDados(actuales - 1);
         }
     };
 

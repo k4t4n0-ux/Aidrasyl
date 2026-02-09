@@ -4,62 +4,55 @@ document.addEventListener("DOMContentLoaded", function() {
     const pgMaximosInput = document.getElementById("pgMaximos");
     const pgTemporalesInput = document.getElementById("pgTemporales");
 
-    // Inicializar PG actuales al máximo al cargar
-    pgActualesInput.value = pgMaximosInput.value;
+    /* =========================
+       FUNCIONES PG ACTUALES
+    ========================== */
 
-    // Si cambia el máximo, ajustar actuales si se pasa
-    pgMaximosInput.addEventListener("change", function() {
-        if (parseInt(pgActualesInput.value) > parseInt(pgMaximosInput.value)) {
-            pgActualesInput.value = pgMaximosInput.value;
-        }
+    function obtenerPGMaximos() {
+        return parseInt(pgMaximosInput.value) || 0;
+    }
+
+    function obtenerPGActuales() {
+        return parseInt(pgActualesInput.value) || 0;
+    }
+
+    function actualizarPG(valor) {
+        const max = obtenerPGMaximos();
+
+        if (valor < 0) valor = 0;
+        if (valor > max) valor = max;
+
+        pgActualesInput.value = valor;
+    }
+
+    // FUNCIÓN GLOBAL para los botones
+    window.modificarPG = function(cantidad) {
+        const actuales = obtenerPGActuales();
+        actualizarPG(actuales + cantidad);
+    };
+
+    // Si alguien intenta escribir manualmente
+    pgActualesInput.addEventListener("input", function () {
+        actualizarPG(obtenerPGActuales());
     });
 
-    function modificarPG(cantidad) {
-        let actual = parseInt(pgActualesInput.value);
-        let maximo = parseInt(pgMaximosInput.value);
 
-        actual += cantidad;
-
-        // Limitar entre 0 y máximo
-        if (actual < 0) actual = 0;
-        if (actual > maximo) actual = maximo;
-
-        pgActualesInput.value = actual;
-    }
-
-    window.restarPG = function(cantidad) {
-        modificarPG(-cantidad);
-    }
-
-    window.sumarPG = function(cantidad) {
-        modificarPG(cantidad);
-    }
-
-    pgActualesInput.addEventListener("input", function() {
-        const actual = parseInt(pgActualesInput.value) || 0;
-        const maximo = parseInt(pgMaximosInput.value) || 0;
-        if (actual > maximo) {
-            pgActualesInput.value = maximo;
-        }
-    });
+    /* =========================
+       FUNCIONES PG TEMPORALES
+    ========================== */
 
     function obtenerPGTemp() {
         return parseInt(pgTemporalesInput.value) || 0;
     }
 
-    function actualizarPGTemp(nuevoValor) {
-        if (nuevoValor < 0) nuevoValor = 0;
-        pgTemporalesInput.value = nuevoValor;
+    function actualizarPGTemp(valor) {
+        if (valor < 0) valor = 0;
+        pgTemporalesInput.value = valor;
     }
 
-    window.restarPGTemp = function(cantidad) {
-        const actuales = obtenerPGTemp();
-        actualizarPGTemp(actuales - cantidad);
-    }
-
-    window.sumarPGTemp = function(cantidad) {
+    window.modificarPGTemp = function(cantidad) {
         const actuales = obtenerPGTemp();
         actualizarPGTemp(actuales + cantidad);
-    }
+    };
 
 });

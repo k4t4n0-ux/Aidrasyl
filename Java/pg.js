@@ -4,35 +4,43 @@ document.addEventListener("DOMContentLoaded", function() {
     const pgMaximosInput = document.getElementById("pgMaximos");
     const pgTemporalesInput = document.getElementById("pgTemporales");
 
-    function obtenerValores() {
-        const actuales = parseInt(pgActualesInput.value) || 0;
-        const maximos = parseInt(pgMaximosInput.value) || 0;
-        return { actuales, maximos };
+    // Inicializar PG actuales al máximo al cargar
+    pgActualesInput.value = pgMaximosInput.value;
+
+    // Si cambia el máximo, ajustar actuales si se pasa
+    pgMaximosInput.addEventListener("change", function() {
+        if (parseInt(pgActualesInput.value) > parseInt(pgMaximosInput.value)) {
+            pgActualesInput.value = pgMaximosInput.value;
+        }
+    });
+
+    function modificarPG(cantidad) {
+        let actual = parseInt(pgActualesInput.value);
+        let maximo = parseInt(pgMaximosInput.value);
+
+        actual += cantidad;
+
+        // Limitar entre 0 y máximo
+        if (actual < 0) actual = 0;
+        if (actual > maximo) actual = maximo;
+
+        pgActualesInput.value = actual;
     }
 
-function actualizarPG(nuevoValor) {
-
-    if (nuevoValor < 0) nuevoValor = 0;
-
-    pgActualesInput.value = nuevoValor;
-
-    const maximos = parseInt(pgMaximosInput.value) || 0;
-
-}
-
     window.restarPG = function(cantidad) {
-        const { actuales } = obtenerValores();
-        actualizarPG(actuales - cantidad);
+        modificarPG(-cantidad);
     }
 
     window.sumarPG = function(cantidad) {
-        const { actuales } = obtenerValores();
-        actualizarPG(actuales + cantidad);
+        modificarPG(cantidad);
     }
 
-    pgActualesInput.addEventListener("input", function () {
-        const { actuales } = obtenerValores();
-        actualizarPG(actuales);
+    pgActualesInput.addEventListener("input", function() {
+        const actual = parseInt(pgActualesInput.value) || 0;
+        const maximo = parseInt(pgMaximosInput.value) || 0;
+        if (actual > maximo) {
+            pgActualesInput.value = maximo;
+        }
     });
 
     function obtenerPGTemp() {

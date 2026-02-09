@@ -101,36 +101,35 @@
                 <label>PG Máx</label>
                 <input type="number" id="pgMaximos" value="100" readonly>
             </div>
+        </div>
 
-            <div class="pg-actuales">
-                <label>PG Act</label>
-                <input type="number" id="pgActuales" value="100" readonly>
-                <div class="pg-botones">
-                    <button type="button" onclick="modificarPG(-10)">-10</button>
-                    <button type="button" onclick="modificarPG(-1)">-1</button>
-                    <button type="button" onclick="modificarPG(1)">+1</button>
-                    <button type="button" onclick="modificarPG(10)">+10</button>
-                </div>
+        <div class="pg-actuales">
+            <label>PG Act</label>
+            <input type="number" id="pgActuales" value="100" readonly>
+            <div class="pg-botones">
+                <button type="button" onclick="modificarPG(-10)">-10</button>
+                <button type="button" onclick="modificarPG(-1)">-1</button>
+                <button type="button" onclick="modificarPG(1)">+1</button>
+                <button type="button" onclick="modificarPG(10)">+10</button>
             </div>
+        </div>
 
-            <div class="pg-temporales">
-                <label>Temp</label>
-                <input type="number" id="pgTemporales" value="0" min="0">
-                <div class="pg-botones">
-                    <button type="button" onclick="modificarPGTemp(-10)">-10</button>
-                    <button type="button" onclick="modificarPGTemp(-1)">-1</button>
-                    <button type="button" onclick="modificarPGTemp(1)">+1</button>
-                    <button type="button" onclick="modificarPGTemp(10)">+10</button>
-                </div>
+        <div class="pg-temporales">
+            <label>Temp</label>
+            <input type="number" id="pgTemporales" value="0" min="0">
+            <div class="pg-botones">
+                <button type="button" onclick="modificarPGTemp(-10)">-10</button>
+                <button type="button" onclick="modificarPGTemp(-1)">-1</button>
+                <button type="button" onclick="modificarPGTemp(1)">+1</button>
+                <button type="button" onclick="modificarPGTemp(10)">+10</button>
             </div>
+        </div>
 
-            <div class="dados-mini">
-                <div>Dados de Golpe: <span id="tipoDado">DX</span></div>
-                <div>Reserva: <span id="dadosDisponibles">0</span></div>
-                <button type="button" onclick="gastoDado()">Gastar Dado</button>
-            </div>
-
-
+        <div class="dados-mini">
+            <span id="dadosDisponibles">0</span>
+            <div>Dados de Golpe: <span id="tipoDado">DX</span></div>
+            <div>Reserva: <span id="dadosDisponibles">0</span></div>
+            <button type="button" onclick="gastoDado()">Gastar Dado</button>
         </div>
     </div>
 

@@ -1,29 +1,21 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    const nivelInput = document.getElementById("nivel");
     const dadosDisponiblesSpan = document.getElementById("dadosDisponibles");
-    const tipoDadoSpan = document.getElementById("tipoDado");
 
-    let dadosDisponibles = 0;
-
-    function actualizarDadosPorNivel() {
-        const nivel = parseInt(nivelInput.value) || 1;
-        dadosDisponibles = nivel; // En D&D normal: 1 dado por nivel
-        dadosDisponiblesSpan.textContent = dadosDisponibles;
+    function obtenerDados() {
+        return parseInt(dadosDisponiblesSpan.textContent) || 0;
     }
 
-    // GASTAR DADO
+    function actualizarDados(nuevoValor) {
+        if (nuevoValor < 0) nuevoValor = 0;
+        dadosDisponiblesSpan.textContent = nuevoValor;
+    }
+
     window.gastoDado = function() {
-        if (dadosDisponibles > 0) {
-            dadosDisponibles--;
-            dadosDisponiblesSpan.textContent = dadosDisponibles;
+        const actuales = obtenerDados();
+        if (actuales > 0) {
+            actualizarDados(actuales - 1);
         }
     };
-
-    // Cuando cambie el nivel
-    nivelInput.addEventListener("input", actualizarDadosPorNivel);
-
-    // Inicializar al cargar
-    actualizarDadosPorNivel();
 
 });

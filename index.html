@@ -90,52 +90,47 @@
                 </div>
             </div>
 
-            <div class="pg-box">
+            <div class="pg-max">
+                <label>PG Máximos</label>
+                <input type="number" id="pgMaximos" value="100" readonly>
+            </div>
 
-                <div class="pg-max">
-                    <label>PG Máximos</label>
-                    <input type="number" id="pgMaximos" value="100" readonly>
+            <div class="pg-actual">
+                <label>PG Actuales</label>
+                <div class="controles">
+                    <button onclick="restarPG(10)">-10</button>
+                    <button onclick="restarPG(1)">-1</button>
+                    <input type="number" id="pgActuales" value="100">
+                    <button onclick="sumarPG(1)">+1</button>
+                    <button onclick="sumarPG(10)">+10</button>
                 </div>
+            </div>
 
-                <div class="pg-actual">
-                    <label>PG Actuales</label>
-                    <div class="controles">
-                        <button onclick="restarPG(10)">-10</button>
-                        <button onclick="restarPG(1)">-1</button>
-                        <input type="number" id="pgActuales" value="100">
-                        <button onclick="sumarPG(1)">+1</button>
-                        <button onclick="sumarPG(10)">+10</button>
-                    </div>
+            <div class="pg-temp">
+                <label>PG Temporales</label>
+                <div class="controles">
+                    <button onclick="restarPGTemp(10)">-10</button>
+                    <button onclick="restarPGTemp(1)">-1</button>
+                    <input type="number" id="pgTemporales" value="0">
+                    <button onclick="sumarPGTemp(1)">+1</button>
+                    <button onclick="sumarPGTemp(10)">+10</button>
                 </div>
+            </div>
 
-                <div class="pg-temp">
-                    <label>PG Temporales</label>
-                    <div class="controles">
-                        <button onclick="restarPGTemp(10)">-10</button>
-                        <button onclick="restarPGTemp(1)">-1</button>
-                        <input type="number" id="pgTemporales" value="0">
-                        <button onclick="sumarPGTemp(1)">+1</button>
-                        <button onclick="sumarPGTemp(10)">+10</button>
-                    </div>
-                </div>
+            <div class="dados-box">
+                <label>Dados de Golpe</label>
+                <div>Tipo: <span id="tipoDado">DX</span></div>
+                <div>En reserva: <span id="dadosDisponibles">0</span></div>
+                <button onclick="tirarUnDado()">Tirar 1</button>
+                <div>Resultado: <span id="resultadoDados">0</span></div>
             </div>
         </div>
     </div>
-
-        <div class="dados-box">
-            <label>Dados de Golpe</label>
-            <div>Tipo: <span id="tipoDado">DX</span></div>
-            <div>En reserva: <span id="dadosDisponibles">0</span></div>
-            <button onclick="tirarUnDado()">Tirar 1</button>
-            <div>Resultado: <span id="resultadoDados">0</span></div>
-        </div>
-
-    </div>
-
-    <div id="caracteristicas"></div>
-
+    
         <label>Bonificador de Competencia:</label>
         <input type="text" id="competencia" value="+2" readonly>
+
+    <div id="caracteristicas"></div>
 
     Iniciativa: <span id="iniciativa">+0</span><br><br>
 

@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const claseSelect = document.getElementById("clase");
-    const nivelInput = document.getElementById("nivel");
+    const clase1 = document.getElementById("clase");
+    const nivel1 = document.getElementById("nivel");
 
-    const tipoDadoSpan = document.getElementById("tipoDado");
-    const dadosSpan = document.getElementById("dadosDisponibles");
+    const clase2 = document.getElementById("clase2");
+    const nivel2 = document.getElementById("nivel2");
 
-    // Tabla de dados por clase
+    const dadosContainer = document.getElementById("dadosContainer");
+
     const dadosPorClase = {
         artificiero: "d8",
         barbaro: "d12",
@@ -25,33 +26,59 @@ document.addEventListener("DOMContentLoaded", function () {
         psionico: "d8"
     };
 
-    function actualizarDados() {
-        const clase = claseSelect.value;
-        const nivel = parseInt(nivelInput.value) || 0;
+    let reservas = {};
 
-        // Actualizar tipo de dado
-        if (dadosPorClase[clase]) {
-            tipoDadoSpan.textContent = dadosPorClase[clase];
-        } else {
-            tipoDadoSpan.textContent = "—";
+    function actualizarDados() {
+
+        reservas = {};
+
+        const c1 = clase1.value;
+        const n1 = parseInt(nivel1.value) || 0;
+
+        const c2 = clase2.value;
+        const n2 = parseInt(nivel2.value) || 0;
+
+        if (c1 && dadosPorClase[c1]) {
+            const dado = dadosPorClase[c1];
+            reservas[dado] = (reservas[dado] || 0) + n1;
         }
 
-        // Actualizar reserva = nivel
-        dadosSpan.textContent = nivel > 0 ? nivel : 0;
+        if (c2 && dadosPorClase[c2] && n2 > 0) {
+            const dado = dadosPorClase[c2];
+            reservas[dado] = (reservas[dado] || 0) + n2;
+        }
+
+        renderDados();
     }
 
-    // Función para gastar dado
-    window.gastoDado = function () {
-        let actuales = parseInt(dadosSpan.textContent) || 0;
-        if (actuales > 0) {
-            dadosSpan.textContent = actuales - 1;
+    function renderDados() {
+        dadosContainer.innerHTML = "";
+
+        Object.keys(reservas).forEach(dado => {
+
+            const div = document.createElement("div");
+            div.innerHTML = `
+                <span>${dado}</span>
+                <span id="reserva-${dado}">${reservas[dado]}</span>
+                <button onclick="gastarDado('${dado}')">Gastar</button>
+            `;
+
+            dadosContainer.appendChild(div);
+        });
+    }
+
+    window.gastarDado = function(dado) {
+
+        if (reservas[dado] > 0) {
+            reservas[dado]--;
+            document.getElementById("reserva-" + dado).textContent = reservas[dado];
         }
-    };
+    }
 
-    // Eventos
-    claseSelect.addEventListener("change", actualizarDados);
-    nivelInput.addEventListener("input", actualizarDados);
+    clase1.addEventListener("change", actualizarDados);
+    clase2.addEventListener("change", actualizarDados);
+    nivel1.addEventListener("input", actualizarDados);
+    nivel2.addEventListener("input", actualizarDados);
 
-    // Inicializar al cargar
     actualizarDados();
 });

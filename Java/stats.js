@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="skill-row" data-skill="${hab}">
                     ${hab}
                     <input type="checkbox" class="skill-prof"> C
-                    <input type="checkbox" class="skill-exp"> E
+                    <input type="checkbox" class="skill-exp"> P
                     <span class="skill-total">+0</span>
                 </div>
             `;

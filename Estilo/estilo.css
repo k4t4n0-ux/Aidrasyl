@@ -1,4 +1,4 @@
-/* ===== RESET BÁSICO ===== */
+/* ================= RESET ================= */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,74 +6,72 @@
     font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
-/* ===== FONDO GENERAL ===== */
+/* ================= FONDO ================= */
 body {
-    background: linear-gradient(135deg, #1e1e2f, #2c2c44);
+    background: linear-gradient(135deg, #1c1c2b, #2a2a44);
     color: #f2f2f2;
     padding: 20px;
     min-height: 100vh;
 }
 
-/* ===== TÍTULO ===== */
+/* ================= TÍTULO ================= */
 h1 {
     text-align: center;
-    margin-bottom: 25px;
-    font-size: 36px;
+    margin-bottom: 30px;
+    font-size: 38px;
     letter-spacing: 3px;
     color: #d4af37;
-    text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+    text-shadow: 0 3px 12px rgba(212,175,55,0.4);
 }
 
-/* ===== CONTENEDOR PRINCIPAL ===== */
+/* ================= CONTENEDOR ================= */
 .hoja {
-    max-width: 1400px;
-    margin: 0 auto;
+    max-width: 1500px;
+    margin: auto;
 }
 
-/* ===== INPUTS Y LABELS GLOBALES ===== */
+/* ================= INPUTS ================= */
 input[type="text"],
 input[type="number"],
 select {
     background: #2b2b3d;
     color: #fff;
-    border: 1px solid #555;
-    padding: 8px 10px;
-    border-radius: 5px;
+    border: 1px solid #444;
+    padding: 7px 10px;
+    border-radius: 6px;
     transition: all 0.2s ease;
     font-size: 14px;
 }
 
 input:focus,
-select:focus,
-textarea:focus {
+select:focus {
     outline: none;
     border-color: #d4af37;
-    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
-    background: #323245;
+    box-shadow: 0 0 10px rgba(212,175,55,0.5);
+    background: #32324a;
 }
 
 label {
     display: block;
-    font-size: 12px;
+    font-size: 11px;
     margin-bottom: 4px;
     color: #d4af37;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
-/* ===== BOTONES ===== */
+/* ================= BOTONES ================= */
 button {
     background: #3a3a55;
     color: #fff;
     border: 1px solid #555;
-    padding: 8px 12px;
-    border-radius: 5px;
+    padding: 6px 10px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     font-weight: 600;
-    text-transform: uppercase;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 button:hover {
@@ -87,291 +85,188 @@ button:active {
     transform: translateY(0);
 }
 
-/* ===== CABECERA SUPERIOR ===== */
+/* ================= CABECERA SUPERIOR ================= */
 .cabecera-superior {
     display: grid;
-    grid-template-columns: 1.5fr 180px 1.5fr 1.5fr;
-    gap: 20px;
-    align-items: start;
-    margin-bottom: 20px;
+    grid-template-columns: 1.3fr 160px 1.3fr 1.3fr;
+    gap: 25px;
+    margin-bottom: 25px;
 }
 
-/* ===== DATOS PERSONALES ===== */
+/* ================= DATOS PERSONALES ================= */
 .datos-personales .fila-doble {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
-.datos-personales > div:last-child {
-    margin-bottom: 0;
-}
-
-/* ===== NIVEL BOX ===== */
-.nivel-box {
-    background: linear-gradient(135deg, #1f1f30, #26263a);
+/* ================= NIVEL TOTAL ================= */
+.nivel-total {
+    background: linear-gradient(145deg, #202035, #2a2a44);
     border: 2px solid #d4af37;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-.nivel-box label {
-    margin-bottom: 8px;
-}
-
-.nivel-box input {
+.nivel-total input {
     width: 100%;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.nivel-box span {
-    display: block;
-    font-size: 12px;
-    margin: 10px 0 8px;
-    color: #d4af37;
-    font-weight: 600;
-}
-
-/* ===== DATOS CLASE ===== */
-.datos-clase select {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-/* ===== BLOQUE COMBATE SUPERIOR ===== */
+/* ================= BLOQUE COMBATE ================= */
 .bloque-combate-superior {
-    background: #26263a;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #555;
+    background: #252538;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 160px 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* ================= CA ================= */
+.ca-destacada {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* CA DESTACADA */
-.ca-destacada {
-    text-align: center;
-    padding: 10px;
-    background: rgba(212, 175, 55, 0.1);
-    border-radius: 8px;
-}
-
-.ca-destacada span {
-    display: block;
-    font-size: 11px;
-    color: #d4af37;
-    margin-bottom: 5px;
-    font-weight: 600;
+    align-items: center;
+    background: rgba(212,175,55,0.08);
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .ca-destacada input {
-    width: 80px;
-    font-size: 28px;
+    width: 85px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
-    margin: 0 auto;
-    display: block;
     color: #d4af37;
+    border: 2px solid #d4af37;
+    background: #1f1f2e;
 }
 
-/* ESCUDO INLINE */
 .escudo-inline {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.escudo-inline input {
-    width: auto;
-    cursor: pointer;
-}
-
-/* PG MINI */
-.pg-mini {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-}
-
-.pg-mini > div {
+    grid-column: 1;
     text-align: center;
+    margin-top: 10px;
 }
 
-.pg-mini input {
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-}
-
-/* DADOS MINI */
-.dados-mini {
+/* ================= PG BLOQUES ================= */
+.pg-maximos,
+.pg-actuales,
+.pg-temporales {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 8px;
-    padding-top: 8px;
-    border-top: 1px solid #444;
+}
+
+.pg-maximos input,
+.pg-actuales input,
+.pg-temporales input {
+    width: 90px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Botones debajo */
+.pg-botones {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ================= DADOS ================= */
+.dados-mini {
+    border-left: 1px solid #444;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .dados-mini div {
-    font-size: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 8px;
+    font-size: 13px;
 }
 
 .dados-mini span {
     color: #d4af37;
     font-weight: bold;
-    font-size: 14px;
 }
 
-.dados-mini button {
-    width: 100%;
-    padding: 6px;
-}
-
-/* ===== BARRA SECUNDARIA ===== */
+/* ================= BARRA SECUNDARIA ================= */
 .barra-secundaria {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-    background: #26263a;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #555;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    gap: 20px;
+    background: #252538;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 30px 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
 .mini-box {
     text-align: center;
 }
 
-.mini-box input,
-.mini-box select {
-    width: 100%;
-}
-
 .mini-box span {
     display: block;
-    font-size: 14px;
+    margin-top: 6px;
     font-weight: bold;
     color: #d4af37;
-    margin-top: 6px;
 }
 
-/* ===== CARACTERÍSTICAS BLOQUE ===== */
+/* ================= CARACTERÍSTICAS ================= */
 #caracteristicas {
-    background: #26263a;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #555;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: #252538;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
-#caracteristicas h3 {
-    color: #d4af37;
-    margin-bottom: 10px;
-    font-size: 14px;
-    text-transform: uppercase;
-    border-bottom: 2px solid #d4af37;
-    padding-bottom: 8px;
-}
-
-/* ===== CHECKBOX ===== */
+/* ================= CHECKBOX ================= */
 input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
     accent-color: #d4af37;
+    transform: scale(1.1);
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1100px) {
     .cabecera-superior {
         grid-template-columns: 1fr 1fr;
     }
-    
+
+    .bloque-combate-superior {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .barra-secundaria {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    body {
-        padding: 10px;
+    .cabecera-superior,
+    .bloque-combate-superior,
+    .barra-secundaria {
+        grid-template-columns: 1fr;
     }
-    
+
     h1 {
         font-size: 28px;
     }
-    
-    .cabecera-superior {
-        grid-template-columns: 1fr;
-    }
-    
-    .barra-secundaria {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .datos-personales .fila-doble {
-        grid-template-columns: 1fr;
-    }
-}
-
-.bloque-combate-superior {
-    display: grid;
-    grid-template-columns: 150px 1fr 1fr 1fr;
-    gap: 25px;
-    align-items: start;
-}
-
-/* ===== CA ===== */
-.ca-destacada {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.escudo-inline {
-    grid-column: 1;
-    text-align: center;
-    margin-top: -10px;
-}
-
-/* ===== PG BLOQUES ===== */
-.pg-maximos,
-.pg-actuales,
-.pg-temporales,
-.dados-mini {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-}
-
-/* Botones debajo del input */
-.pg-botones {
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.pg-maximos input,
-.pg-actuales input,
-.pg-temporales input {
-    width: 80px;
-    text-align: center;
 }

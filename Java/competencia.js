@@ -1,6 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const nivelInput = document.getElementById("nivel");
+    const nivel1 = document.getElementById("nivel1");
+    const nivel2 = document.getElementById("nivel2");
+    const nivelTotal = document.getElementById("nivelTotal");
     const competenciaInput = document.getElementById("competencia");
 
     function calcularCompetencia(nivel) {
@@ -13,18 +15,30 @@ document.addEventListener("DOMContentLoaded", function() {
         if (nivel >= 9) return 4;
         if (nivel >= 5) return 3;
 
-        return 2; // nivel 1-4
+        return 2;
     }
 
-    function actualizarCompetencia() {
+    function actualizarTodo() {
 
-        const nivel = parseInt(nivelInput.value) || 1;
-        const bono = calcularCompetencia(nivel);
+        const n1 = parseInt(nivel1.value) || 0;
+        const n2 = parseInt(nivel2.value) || 0;
 
+        if (n1 + n2 > 30) {
+            n2 = 30 - n1;
+            if (n2 < 0) n2 = 0;
+            nivel2.value = n2;
+        }
+
+        const total = n1 + n2;
+
+        nivelTotal.value = total;
+
+        const bono = calcularCompetencia(total);
         competenciaInput.value = "+" + bono;
     }
 
-    nivelInput.addEventListener("input", actualizarCompetencia);
+    nivel1.addEventListener("input", actualizarTodo);
+    nivel2.addEventListener("input", actualizarTodo);
 
-    actualizarCompetencia(); // inicializar al cargar
+    actualizarTodo();
 });

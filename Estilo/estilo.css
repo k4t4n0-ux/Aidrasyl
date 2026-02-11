@@ -329,3 +329,49 @@ input[type="checkbox"] {
         grid-template-columns: 1fr;
     }
 }
+
+.bloque-combate-superior {
+    display: grid;
+    grid-template-columns: 150px 1fr 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+/* ===== CA ===== */
+.ca-destacada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.escudo-inline {
+    grid-column: 1;
+    text-align: center;
+    margin-top: -10px;
+}
+
+/* ===== PG BLOQUES ===== */
+.pg-maximos,
+.pg-actuales,
+.pg-temporales,
+.dados-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Botones debajo del input */
+.pg-botones {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pg-maximos input,
+.pg-actuales input,
+.pg-temporales input {
+    width: 80px;
+    text-align: center;
+}

@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const c2 = clase2.value;
         const n2 = parseInt(nivel2.value) || 0;
 
-        if (c1 && dadosPorClase[c1]) {
+        if (c1 && dadosPorClase[c1] && n1 > 0) {
             const dado = dadosPorClase[c1];
             reservas[dado] = (reservas[dado] || 0) + n1;
         }
@@ -52,27 +52,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function renderDados() {
+
         dadosContainer.innerHTML = "";
+
+        if (Object.keys(reservas).length === 0) {
+            dadosContainer.innerHTML = "<div>Sin dados disponibles</div>";
+            return;
+        }
 
         Object.keys(reservas).forEach(dado => {
 
             const div = document.createElement("div");
+            div.classList.add("dado-linea");
+
             div.innerHTML = `
                 <span>${dado}</span>
                 <span id="reserva-${dado}">${reservas[dado]}</span>
-                <button onclick="gastarDado('${dado}')">Gastar</button>
+                <button type="button">Gastar</button>
             `;
+
+            const boton = div.querySelector("button");
+
+            boton.addEventListener("click", function () {
+                if (reservas[dado] > 0) {
+                    reservas[dado]--;
+                    document.getElementById("reserva-" + dado).textContent = reservas[dado];
+                }
+            });
 
             dadosContainer.appendChild(div);
         });
-    }
-
-    window.gastarDado = function(dado) {
-
-        if (reservas[dado] > 0) {
-            reservas[dado]--;
-            document.getElementById("reserva-" + dado).textContent = reservas[dado];
-        }
     }
 
     clase1.addEventListener("change", actualizarDados);

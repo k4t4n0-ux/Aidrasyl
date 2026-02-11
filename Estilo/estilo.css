@@ -121,17 +121,11 @@ button:active {
 
 /* ================= BLOQUE COMBATE ================= */
 .bloque-combate-superior {
-    background: #252538;
-    border: 1px solid #444;
-    border-radius: 12px;
-    padding: 20px;
     display: grid;
-    grid-template-columns: 160px 1fr 1fr 1fr;
+    grid-template-columns: 180px 1fr 1fr 1fr;
     gap: 30px;
-    align-items: start;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-    margin-top: 25px;
 }
+
 
 /* ================= CA ================= */
 .ca-destacada {
@@ -153,10 +147,11 @@ button:active {
     background: #1f1f2e;
 }
 
-.escudo-inline {
-    grid-column: 1;
-    text-align: center;
-    margin-top: 10px;
+.bloque-ca {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 /* ================= PG BLOQUES ================= */

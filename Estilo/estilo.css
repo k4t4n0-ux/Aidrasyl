@@ -183,11 +183,11 @@ button:active {
 
 /* ================= DADOS ================= */
 .dados-mini {
-    border-left: 1px solid #444;
-    padding-left: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    padding-left: 25px;
+    border-left: 1px solid #444;
 }
 
 .dados-mini div {
@@ -200,6 +200,37 @@ button:active {
 .dados-mini span {
     color: #d4af37;
     font-weight: bold;
+}
+
+.dado-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(212,175,55,0.08);
+    border: 1px solid #444;
+    padding: 12px 15px;
+    border-radius: 10px;
+    min-width: 150px;
+}
+
+.dado-info {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d4af37;
+    letter-spacing: 1px;
+}
+
+.dado-item button {
+    font-size: 12px;
+    padding: 6px 10px;
+}
+
+.dados-titulo {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #d4af37;
+    font-weight: 600;
 }
 
 /* ================= BARRA SECUNDARIA ================= */

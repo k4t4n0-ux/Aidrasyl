@@ -233,6 +233,12 @@ button:active {
     font-weight: 600;
 }
 
+.dados-bloque {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 /* ================= BARRA SECUNDARIA ================= */
 .barra-secundaria {
     display: grid;

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const clase1 = document.getElementById("clase");
-    const nivel1 = document.getElementById("nivel");
+    const nivel1 = document.getElementById("nivel1");
 
     const clase2 = document.getElementById("clase2");
     const nivel2 = document.getElementById("nivel2");

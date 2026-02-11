@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function actualizarTodo() {
 
-        const n1 = parseInt(nivel1.value) || 0;
-        const n2 = parseInt(nivel2.value) || 0;
+        let n1 = parseInt(nivel1.value) || 0;
+        let n2 = parseInt(nivel2.value) || 0;
 
         if (n1 + n2 > 30) {
             n2 = 30 - n1;

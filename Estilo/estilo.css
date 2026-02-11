@@ -122,8 +122,9 @@ button:active {
 /* ================= BLOQUE COMBATE ================= */
 .bloque-combate-superior {
     display: grid;
-    grid-template-columns: 180px 1fr 1fr 1fr;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
     gap: 30px;
+    align-items: start;
 }
 
 

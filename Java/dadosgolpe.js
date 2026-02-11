@@ -66,8 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
             div.classList.add("dado-linea");
 
             div.innerHTML = `
-                <span>${dado}</span>
-                <span id="reserva-${dado}">${reservas[dado]}</span>
+                <span class="cantidad" id="reserva-${dado}">${reservas[dado]}</span>
+                <span class="tipo">${dado.toUpperCase()}</span>
                 <button type="button">Gastar</button>
             `;
 

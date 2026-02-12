@@ -78,10 +78,23 @@ function mostrarDetalleArma(tipo, nombre) {
             <div>Daño: ${arma.dano}</div>
             <div>Distancia: ${arma.distancia}</div>
             <div>Propiedades: ${arma.propiedad}</div>
-            <div>${resolverModificador(arma.caracteristica)}</div>
+
+            <div id="modificadorArma"></div>
+
+            <label>
+                <input type="checkbox" id="competenteArma">
+                Competente
+            </label>
+
+            <div>
+                Total Ataque: <span id="totalAtaque">+0</span>
+            </div>
         </div>
     `;
+
+    configurarCalculoAtaque(arma.caracteristica);
 }
+
 
 function resolverModificador(tipo) {
 
@@ -115,6 +128,78 @@ function resolverModificador(tipo) {
     }
 
     return "";
+}
+
+function configurarCalculoAtaque(tipoCar) {
+
+    const check = document.getElementById("competenteArma");
+    const totalSpan = document.getElementById("totalAtaque");
+    const modDiv = document.getElementById("modificadorArma");
+
+    function obtenerMod(statNombre) {
+        const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
+        if (!input) return 0;
+
+        const modSpan = input.nextElementSibling;
+        return parseInt(modSpan.textContent.replace("+","")) || 0;
+    }
+
+    let selectorCar = null;
+
+    if (tipoCar === "fuerza_dest") {
+        modDiv.innerHTML = `
+            <label>Característica</label>
+            <select id="selectorCaracteristica">
+                <option value="Fuerza">Fuerza</option>
+                <option value="Destreza">Destreza</option>
+            </select>
+            <div id="modBaseTexto"></div>
+        `;
+        selectorCar = document.getElementById("selectorCaracteristica");
+    } else {
+        modDiv.innerHTML = `<div id="modBaseTexto"></div>`;
+    }
+
+    const modBaseTexto = document.getElementById("modBaseTexto");
+
+    function actualizar() {
+
+        let statElegida;
+
+        if (tipoCar === "fuerza") statElegida = "Fuerza";
+        if (tipoCar === "destreza") statElegida = "Destreza";
+        if (tipoCar === "fuerza_dest") statElegida = selectorCar.value;
+
+        const modBase = obtenerMod(statElegida);
+
+        const competencia = parseInt(
+            document.getElementById("competencia").value.replace("+","")
+        ) || 0;
+
+        let total = modBase;
+
+        if (check.checked) {
+            total += competencia;
+        }
+
+        modBaseTexto.textContent =
+            `Modificador Base: ${modBase >= 0 ? "+" : ""}${modBase}`;
+
+        totalSpan.textContent =
+            `${total >= 0 ? "+" : ""}${total}`;
+    }
+
+    check.addEventListener("change", actualizar);
+
+    if (selectorCar) {
+        selectorCar.addEventListener("change", actualizar);
+    }
+
+    // Escuchar cambios en TODAS las stats
+    document.addEventListener("input", actualizar);
+    document.addEventListener("change", actualizar);
+
+    actualizar();
 }
 
 function mostrarDesarmado() {

@@ -1,0 +1,307 @@
+/* ================= RESET ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ================= FONDO ================= */
+body {
+    background: linear-gradient(135deg, #1c1c2b, #2a2a44);
+    color: #f2f2f2;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* ================= TÍTULO ================= */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 38px;
+    letter-spacing: 3px;
+    color: #d4af37;
+    text-shadow: 0 3px 12px rgba(212,175,55,0.4);
+}
+
+/* ================= CONTENEDOR ================= */
+.hoja {
+    max-width: 1500px;
+    margin: auto;
+}
+
+/* ================= INPUTS ================= */
+input[type="text"],
+input[type="number"],
+select {
+    background: #2b2b3d;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 7px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212,175,55,0.5);
+    background: #32324a;
+}
+
+label {
+    display: block;
+    font-size: 11px;
+    margin-bottom: 4px;
+    color: #d4af37;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ================= BOTONES ================= */
+button {
+    background: #3a3a55;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    font-size: 11px;
+}
+
+button:hover {
+    background: #d4af37;
+    color: #000;
+    border-color: #d4af37;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ================= CABECERA SUPERIOR ================= */
+.cabecera-superior {
+    display: grid;
+    grid-template-columns: 1.3fr 160px 1.3fr 1.3fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+/* ================= DATOS PERSONALES ================= */
+.datos-personales .fila-doble {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* ================= NIVEL TOTAL ================= */
+.nivel-total {
+    background: linear-gradient(145deg, #202035, #2a2a44);
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.nivel-total input {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ================= BLOQUE COMBATE ================= */
+.bloque-combate-superior {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+
+/* ================= CA ================= */
+.ca-destacada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(212,175,55,0.08);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.ca-destacada input {
+    width: 85px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    background: #1f1f2e;
+}
+
+.bloque-ca {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ================= PG BLOQUES ================= */
+.pg-maximos,
+.pg-actuales,
+.pg-temporales {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.pg-maximos input,
+.pg-actuales input,
+.pg-temporales input {
+    width: 90px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Botones debajo */
+.pg-botones {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ================= DADOS ================= */
+.dados-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 25px;
+    border-left: 1px solid #444;
+}
+
+.dados-mini div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.dados-mini span {
+    color: #d4af37;
+    font-weight: bold;
+}
+
+.dado-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(212,175,55,0.08);
+    border: 1px solid #444;
+    padding: 12px 15px;
+    border-radius: 10px;
+    min-width: 150px;
+}
+
+.dado-info {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d4af37;
+    letter-spacing: 1px;
+}
+
+.dado-item button {
+    font-size: 12px;
+    padding: 6px 10px;
+}
+
+.dados-titulo {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #d4af37;
+    font-weight: 600;
+}
+
+.dados-bloque {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ================= BARRA SECUNDARIA ================= */
+.barra-secundaria {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    background: #252538;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 30px 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+.mini-box {
+    text-align: center;
+}
+
+.mini-box span {
+    display: block;
+    margin-top: 6px;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+/* ================= CARACTERÍSTICAS ================= */
+#caracteristicas {
+    background: #252538;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* ================= CHECKBOX ================= */
+input[type="checkbox"] {
+    accent-color: #d4af37;
+    transform: scale(1.1);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1100px) {
+    .cabecera-superior {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .bloque-combate-superior {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .barra-secundaria {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cabecera-superior,
+    .bloque-combate-superior,
+    .barra-secundaria {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+

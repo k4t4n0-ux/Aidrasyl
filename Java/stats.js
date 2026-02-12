@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         Fuerza: ["Atletismo"],
         Destreza: ["Acrobacias", "Juego de Manos", "Sigilo"],
         Constitucion: [],
-        Inteligencia: ["Arcanos", "Historia", "Investigación", "Naturaleza", "Religión"],
+        Inteligencia: ["C. Arcano", "Historia", "Investigación", "Naturaleza", "Religión"],
         Sabiduria: ["T. con Animales", "Medicina", "Percepción", "Perspicacia", "Supervivencia"],
         Carisma: ["Engaño", "Interpretación", "Intimidación", "Persuasión"]
     };

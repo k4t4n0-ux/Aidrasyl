@@ -84,23 +84,39 @@ function mostrarDetalleArma(tipo, nombre) {
 }
 
 function resolverModificador(tipo) {
-    const modFue = parseInt(document.getElementById("modFuerza")?.value || 0);
-    const modDes = parseInt(document.getElementById("modDestreza")?.value || 0);
 
-    if (tipo === "fuerza") return `Fue +${modFue}`;
-    if (tipo === "destreza") return `Des +${modDes}`;
+    function obtenerMod(statNombre) {
+        const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
+        if (!input) return 0;
+
+        const modSpan = input.nextElementSibling;
+        return parseInt(modSpan.textContent.replace("+","")) || 0;
+    }
+
+    const modFue = obtenerMod("Fuerza");
+    const modDes = obtenerMod("Destreza");
+
+    if (tipo === "fuerza") {
+        return `Fue ${modFue >= 0 ? "+" : ""}${modFue}`;
+    }
+
+    if (tipo === "destreza") {
+        return `Des ${modDes >= 0 ? "+" : ""}${modDes}`;
+    }
 
     if (tipo === "fuerza_dest") {
         return `
-            <select>
-                <option>Fue +${modFue}</option>
-                <option>Des +${modDes}</option>
+            <label>Característica</label>
+            <select id="selectorCaracteristica">
+                <option value="fuerza">Fue ${modFue >= 0 ? "+" : ""}${modFue}</option>
+                <option value="destreza">Des ${modDes >= 0 ? "+" : ""}${modDes}</option>
             </select>
         `;
     }
 
     return "";
 }
+
 function mostrarDesarmado() {
     contenido.innerHTML = `
         <div class="combate-grid">

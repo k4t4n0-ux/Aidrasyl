@@ -253,3 +253,26 @@ input[type="checkbox"] {
         font-size: 26px;
     }
 }
+.bloque-combate-detalle {
+    border: 2px solid #000;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.combate-selector {
+    width: 250px;
+}
+
+.combate-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.propiedades {
+    font-size: 12px;
+}

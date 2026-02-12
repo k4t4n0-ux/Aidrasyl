@@ -214,7 +214,21 @@
 
     <!-- CARACTERÍSTICAS -->
     <div id="caracteristicas"></div>
+    <div class="bloque-combate-detalle">
 
+        <div class="combate-selector">
+            <label>Tipo</label>
+            <select id="tipoCombate">
+                <option value="">-- Seleccionar --</option>
+                <option value="armas">Armas</option>
+                <option value="desarmado">Golpe Desarmado</option>
+                <option value="trucos">Trucos</option>
+            </select>
+        </div>
+
+        <div id="combateContenido"></div>
+
+    </div>
     <!-- Archivos JavaScript -->
     <script src="Java/stats.js"></script>
     <script src="Java/competencia.js"></script>
@@ -224,6 +238,9 @@
     <script src="Java/ca.js"></script>
     <script src="Java/pg.js"></script>
     <script src="Java/iniciativapp.js"></script>
+    <script>src="Java/armas.js"</script>
+    <script>src="Java/combate.js"</script>
+    <script>src="Java/trucos.js"</script>
 
 </div>
 </body>

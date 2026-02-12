@@ -78,91 +78,10 @@ function mostrarDetalleArma(tipo, nombre) {
             <div>Daño: ${arma.dano}</div>
             <div>Distancia: ${arma.distancia}</div>
             <div>Propiedades: ${arma.propiedad}</div>
-
-            <div id="modificadorArma"></div>
-
-            <label>
-                <input type="checkbox" id="competenteArma">
-                Competente
-            </label>
-
-            <div>
-                Total Ataque: <span id="totalAtaque">+0</span>
-            </div>
+            <div>${resolverModificador(arma.caracteristica)}</div>
         </div>
     `;
-
-    configurarCalculoAtaque(arma.caracteristica);
 }
-
-function configurarCalculoAtaque(tipoCar) {
-
-    const check = document.getElementById("competenteArma");
-    const totalSpan = document.getElementById("totalAtaque");
-    const modDiv = document.getElementById("modificadorArma");
-
-    let selectorCar = null;
-
-    // Si es sutil, crear selector
-    if (tipoCar === "fuerza_dest") {
-        modDiv.innerHTML = `
-            <label>Característica</label>
-            <select id="selectorCaracteristica">
-                <option value="fuerza">Fuerza</option>
-                <option value="destreza">Destreza</option>
-            </select>
-            <div id="modBaseTexto"></div>
-        `;
-        selectorCar = document.getElementById("selectorCaracteristica");
-    } else {
-        modDiv.innerHTML = `
-            <div id="modBaseTexto"></div>
-        `;
-    }
-
-    const modBaseTexto = document.getElementById("modBaseTexto");
-
-    function obtenerModBase() {
-
-        const modFue = parseInt(document.getElementById("modFuerza")?.textContent || 0);
-        const modDes = parseInt(document.getElementById("modDestreza")?.textContent || 0);
-
-        if (tipoCar === "fuerza") return modFue;
-        if (tipoCar === "destreza") return modDes;
-
-        if (tipoCar === "fuerza_dest") {
-            const eleccion = selectorCar.value;
-            return eleccion === "fuerza" ? modFue : modDes;
-        }
-
-        return 0;
-    }
-
-    function actualizar() {
-
-        const modBase = obtenerModBase();
-        const competencia = parseInt(document.getElementById("competencia")?.value.replace("+", "") || 0);
-
-        let total = modBase;
-
-        if (check.checked) {
-            total += competencia;
-        }
-
-        modBaseTexto.textContent = `Modificador Base: ${modBase >= 0 ? "+" : ""}${modBase}`;
-        totalSpan.textContent = `${total >= 0 ? "+" : ""}${total}`;
-    }
-
-    check.addEventListener("change", actualizar);
-
-    if (selectorCar) {
-        selectorCar.addEventListener("change", actualizar);
-    }
-
-    actualizar();
-}
-
-
 
 function resolverModificador(tipo) {
     const modFue = parseInt(document.getElementById("modFuerza")?.value || 0);

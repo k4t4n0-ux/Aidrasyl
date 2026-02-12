@@ -78,10 +78,66 @@ function mostrarDetalleArma(tipo, nombre) {
             <div>Daño: ${arma.dano}</div>
             <div>Distancia: ${arma.distancia}</div>
             <div>Propiedades: ${arma.propiedad}</div>
-            <div>${resolverModificador(arma.caracteristica)}</div>
+
+            <div id="modificadorArma"></div>
+
+            <label>
+                <input type="checkbox" id="competenteArma">
+                Competente
+            </label>
+
+            <div>
+                Total Ataque: <span id="totalAtaque">+0</span>
+            </div>
         </div>
     `;
+
+    configurarCalculoAtaque(arma.caracteristica);
 }
+
+function configurarCalculoAtaque(tipoCar) {
+
+    const check = document.getElementById("competenteArma");
+    const totalSpan = document.getElementById("totalAtaque");
+    const modDiv = document.getElementById("modificadorArma");
+
+    function obtenerModBase() {
+        const modFue = parseInt(document.getElementById("modFuerza")?.value || 0);
+        const modDes = parseInt(document.getElementById("modDestreza")?.value || 0);
+
+        if (tipoCar === "fuerza") return modFue;
+        if (tipoCar === "destreza") return modDes;
+
+        if (tipoCar === "fuerza_dest") {
+            return Math.max(modFue, modDes);
+        }
+
+        return 0;
+    }
+
+    function actualizar() {
+        const modBase = obtenerModBase();
+        const competencia = parseInt(document.getElementById("competencia")?.value.replace("+", "") || 0);
+
+        let total = modBase;
+
+        if (check.checked) {
+            total += competencia;
+        }
+
+        modDiv.innerHTML = `Modificador Base: ${modBase >= 0 ? "+" : ""}${modBase}`;
+        totalSpan.textContent = `${total >= 0 ? "+" : ""}${total}`;
+    }
+
+    check.addEventListener("change", actualizar);
+
+    // Recalcular si cambian stats
+    document.getElementById("modFuerza")?.addEventListener("input", actualizar);
+    document.getElementById("modDestreza")?.addEventListener("input", actualizar);
+
+    actualizar();
+}
+
 
 function resolverModificador(tipo) {
     const modFue = parseInt(document.getElementById("modFuerza")?.value || 0);

@@ -101,21 +101,45 @@ function configurarCalculoAtaque(tipoCar) {
     const totalSpan = document.getElementById("totalAtaque");
     const modDiv = document.getElementById("modificadorArma");
 
+    let selectorCar = null;
+
+    // Si es sutil, crear selector
+    if (tipoCar === "fuerza_dest") {
+        modDiv.innerHTML = `
+            <label>Característica</label>
+            <select id="selectorCaracteristica">
+                <option value="fuerza">Fuerza</option>
+                <option value="destreza">Destreza</option>
+            </select>
+            <div id="modBaseTexto"></div>
+        `;
+        selectorCar = document.getElementById("selectorCaracteristica");
+    } else {
+        modDiv.innerHTML = `
+            <div id="modBaseTexto"></div>
+        `;
+    }
+
+    const modBaseTexto = document.getElementById("modBaseTexto");
+
     function obtenerModBase() {
-        const modFue = parseInt(document.getElementById("modFuerza")?.value || 0);
-        const modDes = parseInt(document.getElementById("modDestreza")?.value || 0);
+
+        const modFue = parseInt(document.getElementById("modFuerza")?.textContent || 0);
+        const modDes = parseInt(document.getElementById("modDestreza")?.textContent || 0);
 
         if (tipoCar === "fuerza") return modFue;
         if (tipoCar === "destreza") return modDes;
 
         if (tipoCar === "fuerza_dest") {
-            return Math.max(modFue, modDes);
+            const eleccion = selectorCar.value;
+            return eleccion === "fuerza" ? modFue : modDes;
         }
 
         return 0;
     }
 
     function actualizar() {
+
         const modBase = obtenerModBase();
         const competencia = parseInt(document.getElementById("competencia")?.value.replace("+", "") || 0);
 
@@ -125,18 +149,19 @@ function configurarCalculoAtaque(tipoCar) {
             total += competencia;
         }
 
-        modDiv.innerHTML = `Modificador Base: ${modBase >= 0 ? "+" : ""}${modBase}`;
+        modBaseTexto.textContent = `Modificador Base: ${modBase >= 0 ? "+" : ""}${modBase}`;
         totalSpan.textContent = `${total >= 0 ? "+" : ""}${total}`;
     }
 
     check.addEventListener("change", actualizar);
 
-    // Recalcular si cambian stats
-    document.getElementById("modFuerza")?.addEventListener("input", actualizar);
-    document.getElementById("modDestreza")?.addEventListener("input", actualizar);
+    if (selectorCar) {
+        selectorCar.addEventListener("change", actualizar);
+    }
 
     actualizar();
 }
+
 
 
 function resolverModificador(tipo) {

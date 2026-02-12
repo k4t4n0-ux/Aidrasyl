@@ -25,34 +25,64 @@ function mostrarSelectorArmas() {
             <option value="marcial">Marcial</option>
         </select>
 
-        <div id="listaArmas"></div>
+        <div id="armaSelector"></div>
+        <div id="armaDetalle"></div>
     `;
 
     document.getElementById("tipoArma").addEventListener("change", function() {
-        mostrarArmas(this.value);
+        mostrarSelectorIndividual(this.value);
     });
 }
 
-function mostrarArmas(tipo) {
-    const lista = document.getElementById("listaArmas");
-    lista.innerHTML = "";
+function mostrarSelectorIndividual(tipo) {
+    const selectorDiv = document.getElementById("armaSelector");
+    const detalleDiv = document.getElementById("armaDetalle");
+
+    detalleDiv.innerHTML = "";
+    selectorDiv.innerHTML = "";
+
+    if (!tipo) return;
 
     const armas = armasDB[tipo];
 
-    for (let nombre in armas) {
-        const arma = armas[nombre];
+    let html = `
+        <label>Arma</label>
+        <select id="armaElegida">
+            <option value="">-- Seleccionar arma --</option>
+    `;
 
-        lista.innerHTML += `
-            <div class="combate-grid">
-                <div><strong>${nombre}</strong></div>
-                <div>${arma.dano}</div>
-                <div>${arma.distancia}</div>
-                <div>${arma.propiedad}</div>
-                <div>${resolverModificador(arma.caracteristica)}</div>
-            </div>
-        `;
+    for (let nombre in armas) {
+        html += `<option value="${nombre}">${nombre}</option>`;
     }
+
+    html += `</select>`;
+
+    selectorDiv.innerHTML = html;
+
+    document.getElementById("armaElegida").addEventListener("change", function() {
+        mostrarDetalleArma(tipo, this.value);
+    });
 }
+
+function mostrarDetalleArma(tipo, nombre) {
+    const detalleDiv = document.getElementById("armaDetalle");
+    detalleDiv.innerHTML = "";
+
+    if (!nombre) return;
+
+    const arma = armasDB[tipo][nombre];
+
+    detalleDiv.innerHTML = `
+        <div class="combate-grid">
+            <div><strong>${nombre}</strong></div>
+            <div>Daño: ${arma.dano}</div>
+            <div>Distancia: ${arma.distancia}</div>
+            <div>Propiedades: ${arma.propiedad}</div>
+            <div>${resolverModificador(arma.caracteristica)}</div>
+        </div>
+    `;
+}
+
 function resolverModificador(tipo) {
     const modFue = parseInt(document.getElementById("modFuerza")?.value || 0);
     const modDes = parseInt(document.getElementById("modDestreza")?.value || 0);

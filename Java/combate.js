@@ -205,27 +205,47 @@ function configurarCalculoAtaque(tipoCar) {
 function mostrarDesarmado() {
     contenido.innerHTML = `
         <div class="combate-grid">
+
             <div>
                 <label>Dado</label>
-                <select>
-                    <option>1d4</option>
-                    <option>1d6</option>
-                    <option>1d8</option>
+                <select id="dadoDesarmado">
+                    <option value="1d4">1d4</option>
+                    <option value="1d6">1d6</option>
+                    <option value="1d8">1d8</option>
                 </select>
             </div>
 
             <div>
                 <label>Característica</label>
-                <select>
-                    <option>Fuerza</option>
-                    <option>Destreza</option>
+                <select id="caracteristicaDesarmado">
+                    <option value="Fuerza">Fuerza</option>
+                    <option value="Destreza">Destreza</option>
                 </select>
             </div>
 
+            <label>
+                <input type="checkbox" id="competenteDesarmado">
+                Competente
+            </label>
+
             <div>Distancia: Toque</div>
+
+            <div id="modBaseDesarmado"></div>
+
+            <div>
+                Total Ataque: <span id="totalAtaqueDesarmado">+0</span>
+            </div>
+
+            <div>
+                Daño Total: <span id="danioTotalDesarmado">1d4 +0</span>
+            </div>
+
         </div>
     `;
+
+    configurarDesarmado();
 }
+
 function mostrarTrucos() {
     let html = `
         <label>Seleccionar Truco</label>
@@ -256,4 +276,59 @@ function mostrarTrucos() {
             </div>
         `;
     });
+}
+
+function configurarDesarmado() {
+
+    const dadoSelect = document.getElementById("dadoDesarmado");
+    const statSelect = document.getElementById("caracteristicaDesarmado");
+    const check = document.getElementById("competenteDesarmado");
+
+    const modBaseTexto = document.getElementById("modBaseDesarmado");
+    const totalAtaqueSpan = document.getElementById("totalAtaqueDesarmado");
+    const danioTotalSpan = document.getElementById("danioTotalDesarmado");
+
+    function obtenerMod(statNombre) {
+        const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
+        if (!input) return 0;
+
+        const modSpan = input.nextElementSibling;
+        return parseInt(modSpan.textContent.replace("+","")) || 0;
+    }
+
+    function actualizar() {
+
+        const statElegida = statSelect.value;
+        const modBase = obtenerMod(statElegida);
+
+        const competencia = parseInt(
+            document.getElementById("competencia").value.replace("+","")
+        ) || 0;
+
+        let totalAtaque = modBase;
+
+        if (check.checked) {
+            totalAtaque += competencia;
+        }
+
+        const dado = dadoSelect.value;
+
+        modBaseTexto.textContent =
+            `Modificador Base: ${modBase >= 0 ? "+" : ""}${modBase}`;
+
+        totalAtaqueSpan.textContent =
+            `${totalAtaque >= 0 ? "+" : ""}${totalAtaque}`;
+
+        danioTotalSpan.textContent =
+            `${dado} ${modBase >= 0 ? "+" : ""}${modBase}`;
+    }
+
+    dadoSelect.addEventListener("change", actualizar);
+    statSelect.addEventListener("change", actualizar);
+    check.addEventListener("change", actualizar);
+
+    document.addEventListener("input", actualizar);
+    document.addEventListener("change", actualizar);
+
+    actualizar();
 }

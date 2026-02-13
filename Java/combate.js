@@ -75,7 +75,7 @@ function mostrarDetalleArma(tipo, nombre) {
     detalleDiv.innerHTML = `
         <div class="combate-grid">
             <div><strong>${nombre}</strong></div>
-            <div>Daño: ${arma.dano}</div>
+            <div>Daño Base: ${arma.dano}</div>
             <div>Distancia: ${arma.distancia}</div>
             <div>Propiedades: ${arma.propiedad}</div>
 
@@ -89,11 +89,16 @@ function mostrarDetalleArma(tipo, nombre) {
             <div>
                 Total Ataque: <span id="totalAtaque">+0</span>
             </div>
+
+            <div>
+                Daño Total: <span id="danioTotalArma">${arma.dano} +0</span>
+            </div>
         </div>
     `;
 
-    configurarCalculoAtaque(arma.caracteristica);
+    configurarCalculoAtaque(arma.caracteristica, arma.dano);
 }
+
 
 
 function resolverModificador(tipo) {
@@ -130,11 +135,12 @@ function resolverModificador(tipo) {
     return "";
 }
 
-function configurarCalculoAtaque(tipoCar) {
+function configurarCalculoAtaque(tipoCar, danoBase) {
 
     const check = document.getElementById("competenteArma");
     const totalSpan = document.getElementById("totalAtaque");
     const modDiv = document.getElementById("modificadorArma");
+    const danioTotalSpan = document.getElementById("danioTotalArma");
 
     function obtenerMod(statNombre) {
         const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
@@ -176,17 +182,23 @@ function configurarCalculoAtaque(tipoCar) {
             document.getElementById("competencia").value.replace("+","")
         ) || 0;
 
-        let total = modBase;
+        let totalAtaque = modBase;
 
         if (check.checked) {
-            total += competencia;
+            totalAtaque += competencia;
         }
 
+        // Texto modificador
         modBaseTexto.textContent =
             `Modificador Base: ${modBase >= 0 ? "+" : ""}${modBase}`;
 
+        // Total ataque
         totalSpan.textContent =
-            `${total >= 0 ? "+" : ""}${total}`;
+            `${totalAtaque >= 0 ? "+" : ""}${totalAtaque}`;
+
+        // Daño total (NO suma competencia)
+        danioTotalSpan.textContent =
+            `${danoBase} ${modBase >= 0 ? "+" : ""}${modBase}`;
     }
 
     check.addEventListener("change", actualizar);
@@ -195,12 +207,12 @@ function configurarCalculoAtaque(tipoCar) {
         selectorCar.addEventListener("change", actualizar);
     }
 
-    // Escuchar cambios en TODAS las stats
     document.addEventListener("input", actualizar);
     document.addEventListener("change", actualizar);
 
     actualizar();
 }
+
 
 function mostrarDesarmado() {
     contenido.innerHTML = `

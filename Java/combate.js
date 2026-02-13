@@ -259,6 +259,7 @@ function mostrarDesarmado() {
 }
 
 function mostrarTrucos() {
+
     let html = `
         <label>Seleccionar Truco</label>
         <select id="trucoSelect">
@@ -274,6 +275,7 @@ function mostrarTrucos() {
     contenido.innerHTML = html;
 
     document.getElementById("trucoSelect").addEventListener("change", function() {
+
         const truco = trucosDB[this.value];
         const detalle = document.getElementById("trucoDetalle");
 
@@ -281,14 +283,80 @@ function mostrarTrucos() {
 
         detalle.innerHTML = `
             <div class="combate-grid">
+
                 <div>Componentes: ${truco.componentes}</div>
                 <div>Distancia: ${truco.distancia}</div>
                 <div>Tipo: ${truco.tipo}</div>
                 <div>${truco.dano || truco.efecto}</div>
+
+                <div>
+                    <label>Característica</label>
+                    <select id="statTruco">
+                        <option value="Inteligencia">Inteligencia</option>
+                        <option value="Sabiduria">Sabiduria</option>
+                        <option value="Carisma">Carisma</option>
+                    </select>
+                </div>
+
+                <div id="resultadoTruco"></div>
+
             </div>
         `;
+
+        configurarCalculoTruco(truco.tipo);
     });
 }
+
+function configurarCalculoTruco(tipoTruco) {
+
+    const statSelect = document.getElementById("statTruco");
+    const resultado = document.getElementById("resultadoTruco");
+
+    function obtenerMod(statNombre) {
+
+        const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
+        if (!input) return 0;
+
+        const modSpan = input.nextElementSibling;
+        return parseInt(modSpan.textContent.replace("+","")) || 0;
+    }
+
+    function actualizar() {
+
+        const statElegida = statSelect.value;
+
+        const mod = obtenerMod(statElegida);
+
+        const competencia = parseInt(
+            document.getElementById("competencia").value.replace("+","")
+        ) || 0;
+
+        if (tipoTruco === "ataque") {
+
+            const total = mod + competencia;
+
+            resultado.innerHTML =
+                `Bonificador Ataque: ${total >= 0 ? "+" : ""}${total}`;
+
+        }
+
+        if (tipoTruco === "salvacion") {
+
+            const cd = 8 + competencia + mod;
+
+            resultado.innerHTML =
+                `CD Salvación: ${cd}`;
+
+        }
+    }
+
+    statSelect.addEventListener("change", actualizar);
+    document.addEventListener("input", actualizar);
+    document.addEventListener("change", actualizar);
+
+    actualizar();
+}
+
 
 function configurarDesarmado() {
 

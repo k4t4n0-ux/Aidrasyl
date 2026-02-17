@@ -276,3 +276,22 @@ input[type="checkbox"] {
 .propiedades {
     font-size: 12px;
 }
+
+.zona-inferior {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* CARACTERÍSTICAS MÁS DELGADA */
+#caracteristicas {
+    width: 350px;
+    flex-shrink: 0;
+}
+
+/* BLOQUE DE ARMAS A LA DERECHA */
+.bloque-combate-detalle {
+    flex: 1;
+    min-width: 400px;
+}

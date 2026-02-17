@@ -401,9 +401,33 @@ input[type="checkbox"] {
 /* Hacer que Ataque + Tipo + Arma estén en una misma línea */
 
 .bloque-combate-detalle {
+    border: 2px solid #000;
+    padding: 20px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
 }
+
+/* Unificar selector Ataque + Tipo + Arma */
+
+.combate-selector {
+    display: inline-flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+#combateContenido {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.bloque-combate-detalle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 30px;
+}
+
 
 .combate-selector,
 .fila-selectores-armas {

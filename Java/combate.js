@@ -21,15 +21,6 @@ function mostrarSelectorArmas() {
         <div class="fila-selectores-armas">
 
             <div class="selector-box">
-                <label>Ataque</label>
-                <select id="tipoCombate">
-                    <option value="armas" selected>Armas</option>
-                    <option value="desarmado">Golpe Desarmado</option>
-                    <option value="trucos">Trucos</option>
-                </select>
-            </div>
-
-            <div class="selector-box">
                 <label>Tipo</label>
                 <select id="tipoArma">
                     <option value="">-- Seleccionar --</option>
@@ -49,15 +40,7 @@ function mostrarSelectorArmas() {
         .addEventListener("change", function() {
             mostrarSelectorIndividual(this.value);
         });
-
-    document.getElementById("tipoCombate")
-        .addEventListener("change", function() {
-            tipoCombate.value = this.value;
-            tipoCombate.dispatchEvent(new Event("change"));
-        });
 }
-
-
 
 function mostrarSelectorIndividual(tipo) {
 

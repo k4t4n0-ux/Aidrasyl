@@ -397,3 +397,27 @@ input[type="checkbox"] {
     flex-direction: column;
     min-width: 170px;
 }
+
+/* Hacer que Ataque + Tipo + Arma estén en una misma línea */
+
+.bloque-combate-detalle {
+    display: flex;
+    flex-direction: column;
+}
+
+.combate-selector,
+.fila-selectores-armas {
+    display: flex;
+    gap: 30px;
+    align-items: flex-end;
+}
+
+/* Eliminar margen vertical innecesario */
+.combate-selector {
+    margin-bottom: 15px;
+}
+
+/* Que Tipo y Arma no salten abajo */
+.fila-selectores-armas {
+    margin-bottom: 15px;
+}

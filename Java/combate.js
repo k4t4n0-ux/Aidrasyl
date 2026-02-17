@@ -39,7 +39,7 @@ function mostrarSelectorArmas() {
 function mostrarSelectorIndividual(tipo) {
 
     const selectorDiv = document.getElementById("armaSelector");
-    const detalleDiv = document.getElementById("armaDetalle");
+    const detalleDiv = document.getElementById("combateContenido");
 
     detalleDiv.innerHTML = "";
     selectorDiv.innerHTML = "";
@@ -69,7 +69,8 @@ function mostrarSelectorIndividual(tipo) {
 }
 
 function mostrarDetalleArma(tipo, nombre) {
-    const detalleDiv = document.getElementById("armaDetalle");
+    const detalleDiv = document.getElementById("combateContenido");
+
     detalleDiv.innerHTML = "";
 
     if (!nombre) return;

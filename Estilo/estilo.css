@@ -384,3 +384,16 @@ input[type="checkbox"] {
     grid-column: 1 / -1;
     font-size: 14px;
 }
+
+.fila-selectores-armas {
+    display: flex;
+    gap: 30px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.selector-box {
+    display: flex;
+    flex-direction: column;
+    min-width: 170px;
+}

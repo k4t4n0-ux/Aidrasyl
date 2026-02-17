@@ -17,23 +17,17 @@ tipoCombate.addEventListener("change", () => {
     }
 });
 function mostrarSelectorArmas() {
-    contenido.innerHTML = `
-        <div class="fila-selectores-armas">
-
-            <div class="selector-box">
-                <label>Tipo</label>
-                <select id="tipoArma">
-                    <option value="">-- Seleccionar --</option>
-                    <option value="simple">Simple</option>
-                    <option value="marcial">Marcial</option>
-                </select>
-            </div>
-
-            <div class="selector-box" id="armaSelector"></div>
-
+    document.getElementById("contenedorSelectoresDinamicos").innerHTML = `
+        <div class="selector-box">
+            <label>Tipo</label>
+            <select id="tipoArma">
+                <option value="">-- Seleccionar --</option>
+                <option value="simple">Simple</option>
+                <option value="marcial">Marcial</option>
+            </select>
         </div>
 
-        <div id="armaDetalle"></div>
+        <div class="selector-box" id="armaSelector"></div>
     `;
 
     document.getElementById("tipoArma")

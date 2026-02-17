@@ -445,3 +445,15 @@ input[type="checkbox"] {
 .fila-selectores-armas {
     margin-bottom: 15px;
 }
+
+.fila-superior-combate {
+    display: flex;
+    gap: 30px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+#contenedorSelectoresDinamicos {
+    display: flex;
+    gap: 30px;
+}

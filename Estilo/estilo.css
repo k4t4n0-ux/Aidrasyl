@@ -295,3 +295,27 @@ input[type="checkbox"] {
     flex: 1;
     min-width: 400px;
 }
+
+.fila-selectores {
+    display: flex;
+    gap: 25px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.selector {
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+}
+
+.selector label {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.selector select {
+    padding: 4px 6px;
+    font-size: 13px;
+}

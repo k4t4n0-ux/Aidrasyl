@@ -338,3 +338,49 @@ input[type="checkbox"] {
 .combate-grid div {
     white-space: nowrap;
 }
+
+/* ============================= */
+/* SELECTORES ARMAS EN HORIZONTAL */
+/* ============================= */
+
+.fila-selectores-armas {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 30px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.selector-box {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+}
+
+.selector-box select {
+    width: 180px;
+}
+
+/* ============================= */
+/* COMPACTAR BLOQUE DETALLE     */
+/* ============================= */
+
+.combate-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, auto);
+    gap: 8px 25px;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.combate-grid > div,
+.combate-grid > label {
+    white-space: nowrap;
+}
+
+/* Nombre arma ocupa toda la fila */
+.combate-grid strong {
+    grid-column: 1 / -1;
+    font-size: 14px;
+}

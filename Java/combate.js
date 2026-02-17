@@ -18,23 +18,33 @@ tipoCombate.addEventListener("change", () => {
 });
 function mostrarSelectorArmas() {
     contenido.innerHTML = `
-        <label>Tipo</label>
-        <select id="tipoArma">
-            <option value="">-- Seleccionar --</option>
-            <option value="simple">Simple</option>
-            <option value="marcial">Marcial</option>
-        </select>
+        <div class="fila-selectores-armas">
 
-        <div id="armaSelector"></div>
+            <div class="selector-box">
+                <label>Tipo</label>
+                <select id="tipoArma">
+                    <option value="">-- Seleccionar --</option>
+                    <option value="simple">Simple</option>
+                    <option value="marcial">Marcial</option>
+                </select>
+            </div>
+
+            <div class="selector-box" id="armaSelector"></div>
+
+        </div>
+
         <div id="armaDetalle"></div>
     `;
 
-    document.getElementById("tipoArma").addEventListener("change", function() {
-        mostrarSelectorIndividual(this.value);
-    });
+    document.getElementById("tipoArma")
+        .addEventListener("change", function() {
+            mostrarSelectorIndividual(this.value);
+        });
 }
 
+
 function mostrarSelectorIndividual(tipo) {
+
     const selectorDiv = document.getElementById("armaSelector");
     const detalleDiv = document.getElementById("armaDetalle");
 
@@ -59,9 +69,10 @@ function mostrarSelectorIndividual(tipo) {
 
     selectorDiv.innerHTML = html;
 
-    document.getElementById("armaElegida").addEventListener("change", function() {
-        mostrarDetalleArma(tipo, this.value);
-    });
+    document.getElementById("armaElegida")
+        .addEventListener("change", function() {
+            mostrarDetalleArma(tipo, this.value);
+        });
 }
 
 function mostrarDetalleArma(tipo, nombre) {

@@ -70,19 +70,21 @@ function agregarBloqueVacio() {
 
     const tipoSelect = wrapper.querySelector(".tipoBloque");
     const contenidoBloque = wrapper.querySelector(".contenidoBloque");
+    const contenidoInline = wrapper.querySelector(".contenidoInline");
 
     tipoSelect.addEventListener("change", () => {
 
         contenidoBloque.innerHTML = "";
+        contenidoInline.innerHTML = "";
 
         if (tipoSelect.value === "armas")
-            renderArmas(contenidoBloque);
+            renderArmas(contenidoBloque, contenidoInline);
 
         if (tipoSelect.value === "desarmado")
             renderDesarmado(contenidoBloque);
 
         if (tipoSelect.value === "trucos")
-            renderTrucos(contenidoBloque);
+            renderTrucos(contenidoBloque, contenidoInline);
     });
 }
 
@@ -90,24 +92,18 @@ function agregarBloqueVacio() {
    ARMAS
 ================================ */
 
-function renderArmas(container) {
+function renderArmas(container, inlineContainer) {
 
-    container.innerHTML = `
-        <div class="fila-lineal">
-            <label>Tipo</label>
-            <select class="tipoArma">
-                <option value="">--</option>
-                <option value="simple">Simple</option>
-                <option value="marcial">Marcial</option>
-            </select>
+    inlineContainer.innerHTML = `
+        <select class="tipoArma">
+            <option value="">Tipo arma</option>
+            <option value="simple">Simple</option>
+            <option value="marcial">Marcial</option>
+        </select>
 
-            <label>Arma</label>
-            <select class="armaSelect">
-                <option value="">--</option>
-            </select>
-        </div>
-
-        <div class="detalleArma"></div>
+        <select class="armaSelect">
+            <option value="">Arma</option>
+        </select>
     `;
 
     const tipoSelect = container.querySelector(".tipoArma");
@@ -143,25 +139,6 @@ function renderArmas(container) {
                 <span>${arma.dano}</span>
                 <span>${arma.distancia}</span>
                 <span>${arma.propiedad}</span>
-            </div>
-
-            <div class="fila-lineal">
-
-                <div class="selectorStat"></div>
-
-                <label>
-                    <input type="checkbox" class="competenteCheck">
-                    Competente
-                </label>
-
-                <div>
-                    Ataque: <strong class="totalAtaque">+0</strong>
-                </div>
-
-                <div>
-                    Daño: <strong class="totalDanio">${arma.dano} +0</strong>
-                </div>
-
             </div>
         `;
 

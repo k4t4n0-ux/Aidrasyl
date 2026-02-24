@@ -48,13 +48,15 @@ function crearBloque() {
         <div class="fila-lineal">
 
             <select class="tipoGeneral">
-                <option value="">Ataque</option>
+                <option value="">Tipo</option>
                 <option value="armas">Armas</option>
                 <option value="desarmado">Desarmado</option>
                 <option value="trucos">Trucos</option>
             </select>
 
             <div class="inlineExtra"></div>
+
+            <button type="button" class="btnEliminar">✖</button>
 
         </div>
 
@@ -67,19 +69,25 @@ function crearBloque() {
     const inlineExtra = bloque.querySelector(".inlineExtra");
     const detalle = bloque.querySelector(".detalleAtaque");
 
+    const btnEliminar = bloque.querySelector(".btnEliminar");
+
+    btnEliminar.addEventListener("click", () => {
+        bloque.remove();
+    });
+
     tipoGeneral.addEventListener("change", () => {
 
         inlineExtra.innerHTML = "";
         detalle.innerHTML = "";
 
         if (tipoGeneral.value === "armas")
-            renderArmas(bloque, inlineExtra, detalle);
+            renderArmas(inlineExtra, detalle);
 
         if (tipoGeneral.value === "desarmado")
             renderDesarmado(detalle);
 
         if (tipoGeneral.value === "trucos")
-            renderTrucos(bloque, inlineExtra, detalle);
+            renderTrucos(inlineExtra, detalle);
     });
 }
 
@@ -87,13 +95,14 @@ function crearBloque() {
    ARMAS
 ========================== */
 
-function renderArmas(bloque, inlineExtra, detalle) {
+function renderArmas(inlineExtra, detalle) {
 
     inlineExtra.innerHTML = `
         <select class="tipoArma">
             <option value="">Tipo</option>
             <option value="simple">Simple</option>
             <option value="marcial">Marcial</option>
+            <option value="personalizada">Personalizada</option>
         </select>
 
         <select class="armaSelect">
@@ -109,6 +118,11 @@ function renderArmas(bloque, inlineExtra, detalle) {
         armaSelect.innerHTML = `<option value="">Arma</option>`;
         detalle.innerHTML = "";
 
+        if (tipoArma.value === "personalizada") {
+            renderPersonalizada(detalle);
+            return;
+        }
+
         const armas = armasDB[tipoArma.value];
         if (!armas) return;
 
@@ -120,6 +134,7 @@ function renderArmas(bloque, inlineExtra, detalle) {
     armaSelect.addEventListener("change", () => {
 
         detalle.innerHTML = "";
+
         if (!tipoArma.value || !armaSelect.value) return;
 
         const arma = armasDB[tipoArma.value][armaSelect.value];
@@ -133,12 +148,17 @@ function renderArmas(bloque, inlineExtra, detalle) {
                 <span>${arma.propiedad}</span>
 
                 <select class="statSelect">
-                    ${arma.caracteristica === "fuerza_dest"
-                        ? `<option value="Fuerza">Fuerza</option>
-                           <option value="Destreza">Destreza</option>`
-                        : `<option value="${arma.caracteristica === "fuerza" ? "Fuerza" : "Destreza"}">
-                           ${arma.caracteristica === "fuerza" ? "Fuerza" : "Destreza"}
-                           </option>`
+                    ${
+                        arma.caracteristica === "fuerza_dest"
+                        ? `
+                        <option value="Fuerza">Fuerza</option>
+                        <option value="Destreza">Destreza</option>
+                        `
+                        : `
+                        <option value="${arma.caracteristica === "fuerza" ? "Fuerza" : "Destreza"}">
+                        ${arma.caracteristica === "fuerza" ? "Fuerza" : "Destreza"}
+                        </option>
+                        `
                     }
                 </select>
 
@@ -153,8 +173,50 @@ function renderArmas(bloque, inlineExtra, detalle) {
             </div>
         `;
 
-        configurarCalculo(detalle, arma.dano);
+        configurarCalculoArma(detalle, arma.dano);
     });
+}
+
+/* ==========================
+   ARMA PERSONALIZADA
+========================== */
+
+function renderPersonalizada(detalle) {
+
+    detalle.innerHTML = `
+        <div class="fila-lineal ataque-detalle">
+
+            <input type="text" class="nombreCustom" placeholder="Nombre">
+
+            <input type="text" class="dadoCustom" placeholder="1d8">
+
+            <input type="text" class="distanciaCustom" placeholder="Distancia">
+
+            <input type="text" class="propiedadCustom" placeholder="Propiedades">
+
+            <select class="statSelect">
+                <option value="Fuerza">Fuerza</option>
+                <option value="Destreza">Destreza</option>
+                <option value="Constitucion">Constitucion</option>
+                <option value="Inteligencia">Inteligencia</option>
+                <option value="Sabiduria">Sabiduria</option>
+                <option value="Carisma">Carisma</option>
+            </select>
+
+            <input type="number" class="bonusMagico" value="0" min="0">
+
+            <label>
+                <input type="checkbox" class="competente">
+                Competente
+            </label>
+
+            <span>Ataque: <strong class="totalAtaque">+0</strong></span>
+            <span>Daño: <strong class="totalDanio">1d8 +0</strong></span>
+
+        </div>
+    `;
+
+    configurarCalculoPersonalizado(detalle);
 }
 
 /* ==========================
@@ -193,14 +255,14 @@ function renderDesarmado(detalle) {
         </div>
     `;
 
-    configurarCalculo(detalle, "1d4", true);
+    configurarCalculoArma(detalle, "1d4", true);
 }
 
 /* ==========================
    TRUCOS
 ========================== */
 
-function renderTrucos(bloque, inlineExtra, detalle) {
+function renderTrucos(inlineExtra, detalle) {
 
     inlineExtra.innerHTML = `
         <select class="trucoSelect">
@@ -226,6 +288,7 @@ function renderTrucos(bloque, inlineExtra, detalle) {
                 <strong>${select.value}</strong>
                 <span>${truco.distancia}</span>
                 <span>${truco.tipo}</span>
+                <span>${truco.dano || truco.efecto}</span>
 
                 <select class="statSelect">
                     <option value="Inteligencia">Inteligencia</option>
@@ -246,7 +309,7 @@ function renderTrucos(bloque, inlineExtra, detalle) {
    CÁLCULOS
 ========================== */
 
-function configurarCalculo(detalle, danoBase, esDesarmado = false) {
+function configurarCalculoArma(detalle, danoBase, esDesarmado = false) {
 
     const stat = detalle.querySelector(".statSelect");
     const check = detalle.querySelector(".competente");
@@ -268,6 +331,36 @@ function configurarCalculo(detalle, danoBase, esDesarmado = false) {
     stat?.addEventListener("change", actualizar);
     check?.addEventListener("change", actualizar);
     dado?.addEventListener("change", actualizar);
+
+    document.addEventListener("input", actualizar);
+    document.addEventListener("change", actualizar);
+
+    actualizar();
+}
+
+function configurarCalculoPersonalizado(detalle) {
+
+    const stat = detalle.querySelector(".statSelect");
+    const check = detalle.querySelector(".competente");
+    const total = detalle.querySelector(".totalAtaque");
+    const danio = detalle.querySelector(".totalDanio");
+    const dado = detalle.querySelector(".dadoCustom");
+    const bonus = detalle.querySelector(".bonusMagico");
+
+    function actualizar() {
+
+        const mod = obtenerMod(stat.value);
+        const comp = check?.checked ? obtenerCompetencia() : 0;
+        const magico = parseInt(bonus.value) || 0;
+
+        total.textContent = f(mod + comp + magico);
+        danio.textContent = `${dado.value || "1d8"} ${f(mod + magico)}`;
+    }
+
+    stat.addEventListener("change", actualizar);
+    check.addEventListener("change", actualizar);
+    bonus.addEventListener("input", actualizar);
+    dado.addEventListener("input", actualizar);
 
     document.addEventListener("input", actualizar);
     document.addEventListener("change", actualizar);

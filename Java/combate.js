@@ -87,29 +87,44 @@ function crearBloque() {
    ARMAS
 ========================== */
 
-function renderArmas(bloque, inlineExtra, detalle) {
+function renderArmas(container) {
 
-    inlineExtra.innerHTML = `
-        <select class="tipoArma">
-            <option value="">Tipo</option>
-            <option value="simple">Simple</option>
-            <option value="marcial">Marcial</option>
-        </select>
+    container.innerHTML = `
+        <div class="fila-lineal">
 
-        <select class="armaSelect">
-            <option value="">Arma</option>
-        </select>
+            <label>Tipo</label>
+            <select class="tipoArma">
+                <option value="">--</option>
+                <option value="simple">Simple</option>
+                <option value="marcial">Marcial</option>
+                <option value="personalizada">Personalizada</option>
+            </select>
+
+            <label>Arma</label>
+            <select class="armaSelect">
+                <option value="">--</option>
+            </select>
+
+        </div>
+
+        <div class="detalleArma"></div>
     `;
 
-    const tipoArma = inlineExtra.querySelector(".tipoArma");
-    const armaSelect = inlineExtra.querySelector(".armaSelect");
+    const tipoSelect = container.querySelector(".tipoArma");
+    const armaSelect = container.querySelector(".armaSelect");
+    const detalleDiv = container.querySelector(".detalleArma");
 
-    tipoArma.addEventListener("change", () => {
+    tipoSelect.addEventListener("change", () => {
 
-        armaSelect.innerHTML = `<option value="">Arma</option>`;
-        detalle.innerHTML = "";
+        armaSelect.innerHTML = `<option value="">--</option>`;
+        detalleDiv.innerHTML = "";
 
-        const armas = armasDB[tipoArma.value];
+        if (tipoSelect.value === "personalizada") {
+            renderArmaPersonalizada(detalleDiv);
+            return;
+        }
+
+        const armas = armasDB[tipoSelect.value];
         if (!armas) return;
 
         for (let nombre in armas) {
@@ -119,42 +134,128 @@ function renderArmas(bloque, inlineExtra, detalle) {
 
     armaSelect.addEventListener("change", () => {
 
-        detalle.innerHTML = "";
-        if (!tipoArma.value || !armaSelect.value) return;
+        detalleDiv.innerHTML = "";
 
-        const arma = armasDB[tipoArma.value][armaSelect.value];
+        const tipo = tipoSelect.value;
+        const nombre = armaSelect.value;
+        if (!tipo || !nombre) return;
 
-        detalle.innerHTML = `
-            <div class="fila-lineal ataque-detalle">
+        const arma = armasDB[tipo][nombre];
 
-                <strong>${armaSelect.value}</strong>
+        detalleDiv.innerHTML = `
+            <div class="fila-lineal encabezado-ataque">
+                <strong>${nombre}</strong>
                 <span>${arma.dano}</span>
                 <span>${arma.distancia}</span>
                 <span>${arma.propiedad}</span>
+            </div>
 
-                <select class="statSelect">
-                    ${arma.caracteristica === "fuerza_dest"
-                        ? `<option value="Fuerza">Fuerza</option>
-                           <option value="Destreza">Destreza</option>`
-                        : `<option value="${arma.caracteristica === "fuerza" ? "Fuerza" : "Destreza"}">
-                           ${arma.caracteristica === "fuerza" ? "Fuerza" : "Destreza"}
-                           </option>`
-                    }
-                </select>
+            <div class="fila-lineal">
+
+                <div class="selectorStat"></div>
 
                 <label>
-                    <input type="checkbox" class="competente">
+                    <input type="checkbox" class="competenteCheck">
                     Competente
                 </label>
 
-                <span>Ataque: <strong class="totalAtaque">+0</strong></span>
-                <span>Daño: <strong class="totalDanio">${arma.dano} +0</strong></span>
+                <div>
+                    Ataque: <strong class="totalAtaque">+0</strong>
+                </div>
+
+                <div>
+                    Daño: <strong class="totalDanio">${arma.dano} +0</strong>
+                </div>
 
             </div>
         `;
 
-        configurarCalculo(detalle, arma.dano);
+        configurarCalculoArma(detalleDiv, arma);
     });
+}
+
+function renderArmaPersonalizada(container) {
+
+    container.innerHTML = `
+        <div class="fila-lineal">
+
+            <input type="text" class="nombreCustom" placeholder="Nombre">
+
+            <input type="text" class="dadoCustom" placeholder="1d8">
+
+            <input type="text" class="distanciaCustom" placeholder="Toque / 30ft">
+
+            <input type="text" class="propiedadCustom" placeholder="Propiedades">
+
+        </div>
+
+        <div class="fila-lineal">
+
+            <label>Característica</label>
+            <select class="statCustom">
+                <option value="Fuerza">Fuerza</option>
+                <option value="Destreza">Destreza</option>
+                <option value="Constitucion">Constitucion</option>
+                <option value="Inteligencia">Inteligencia</option>
+                <option value="Sabiduria">Sabiduria</option>
+                <option value="Carisma">Carisma</option>
+            </select>
+
+            <label>Bono mágico</label>
+            <input type="number" class="bonusCustom" value="0" min="0">
+
+            <label>
+                <input type="checkbox" class="competenteCheck">
+                Competente
+            </label>
+
+            <div>
+                Ataque: <strong class="totalAtaque">+0</strong>
+            </div>
+
+            <div>
+                Daño: <strong class="totalDanio">1d8 +0</strong>
+            </div>
+
+        </div>
+    `;
+
+    configurarCalculoPersonalizado(container);
+}
+
+function configurarCalculoPersonalizado(container) {
+
+    const statSelect = container.querySelector(".statCustom");
+    const bonusInput = container.querySelector(".bonusCustom");
+    const check = container.querySelector(".competenteCheck");
+    const dadoInput = container.querySelector(".dadoCustom");
+
+    const totalSpan = container.querySelector(".totalAtaque");
+    const danioSpan = container.querySelector(".totalDanio");
+
+    function actualizar() {
+
+        const mod = obtenerMod(statSelect.value);
+        const competencia = check.checked ? obtenerCompetencia() : 0;
+        const bonusMagico = parseInt(bonusInput.value) || 0;
+
+        const totalAtaque = mod + competencia + bonusMagico;
+
+        totalSpan.textContent = formatear(totalAtaque);
+
+        danioSpan.textContent =
+            `${dadoInput.value || "1d8"} ${formatear(mod + bonusMagico)}`;
+    }
+
+    statSelect.addEventListener("change", actualizar);
+    bonusInput.addEventListener("input", actualizar);
+    check.addEventListener("change", actualizar);
+    dadoInput.addEventListener("input", actualizar);
+
+    document.addEventListener("input", actualizar);
+    document.addEventListener("change", actualizar);
+
+    actualizar();
 }
 
 /* ==========================
@@ -173,6 +274,8 @@ function renderDesarmado(detalle) {
                 <option>1d4</option>
                 <option>1d6</option>
                 <option>1d8</option>
+                <option>1d10</option>
+                <option>1d12</option>
             </select>
 
             <select class="statSelect">

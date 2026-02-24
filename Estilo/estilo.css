@@ -14,12 +14,15 @@
 /* ===================================================== */
 
 body {
-    background: #f4f6f9;
+    background: #f3f6fb;
     color: #2c3440;
     padding: 40px;
 }
 
-/* Contenedor principal */
+/* ===================================================== */
+/* ================= CONTENEDOR ======================== */
+/* ===================================================== */
+
 .hoja {
     max-width: 1400px;
     margin: auto;
@@ -46,8 +49,8 @@ input[type="text"],
 input[type="number"],
 select {
     background: #ffffff;
-    border: 1px solid #d5dee9;
-    border-radius: 12px;
+    border: 1px solid #d6dfeb;
+    border-radius: 14px;
     padding: 8px 12px;
     font-size: 14px;
     transition: 0.2s ease;
@@ -56,11 +59,10 @@ select {
 input:focus,
 select:focus {
     outline: none;
-    border: 1px solid #7a9cc6;
+    border-color: #7a9cc6;
     box-shadow: 0 0 0 3px rgba(122,156,198,0.15);
 }
 
-/* Checkboxes */
 input[type="checkbox"] {
     transform: scale(1.1);
     accent-color: #7a9cc6;
@@ -71,9 +73,9 @@ input[type="checkbox"] {
 /* ===================================================== */
 
 button {
-    background: #e3eaf5;
-    border: 1px solid #c5d3e6;
-    border-radius: 12px;
+    background: #e4edf7;
+    border: 1px solid #cbd8ea;
+    border-radius: 14px;
     padding: 8px 14px;
     font-size: 12px;
     font-weight: 600;
@@ -87,6 +89,18 @@ button:hover {
     border-color: #7a9cc6;
 }
 
+/* Botón eliminar */
+.btnEliminar {
+    background: #ffe5e5;
+    border: 1px solid #ffb5b5;
+}
+
+.btnEliminar:hover {
+    background: #ff6b6b;
+    color: white;
+    border-color: #ff6b6b;
+}
+
 /* ===================================================== */
 /* ================= BLOQUES GENERALES ================= */
 /* ===================================================== */
@@ -96,43 +110,11 @@ button:hover {
 .barra-secundaria,
 #caracteristicas,
 .bloque-combate-detalle {
-    flex: 1;
-    min-width: 400px;
-
-    display: flex;
-    flex-direction: column;
-
-    border: 2px solid #000;
-    border-radius: 18px;
-    padding: 25px;
-
-    height: auto;
-}
-#listaAtaques {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-}
-.bloque-ataque {
-    width: 100%;
-    padding: 15px;
-    border-radius: 14px;
-    background: #f8fafc;
+    background: #ffffff;
     border: 1px solid #d9e2ec;
-
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    height: auto;
-}
-
-.zona-inferior {
-    display: flex;
-    align-items: flex-start; /* MUY IMPORTANTE */
-    gap: 40px;
-    margin-top: 40px;
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
 
 /* Separaciones */
@@ -143,7 +125,7 @@ button:hover {
 }
 
 /* ===================================================== */
-/* ================= GRID CABECERA ===================== */
+/* ================= CABECERA ========================== */
 /* ===================================================== */
 
 .cabecera-superior {
@@ -187,10 +169,7 @@ button:hover {
     gap: 25px;
 }
 
-/* ===================================================== */
-/* ================= CA ================================ */
-/* ===================================================== */
-
+/* CA */
 .ca-destacada input {
     width: 90px;
     font-size: 26px;
@@ -224,50 +203,42 @@ button:hover {
 
 .zona-inferior {
     display: flex;
+    align-items: flex-start;
     gap: 40px;
     margin-top: 40px;
 }
 
+/* Características */
 #caracteristicas {
-    width: 350px;         /* ancho fijo */
-    flex-shrink: 0;       /* que no se comprima */
-    
-    border: 2px solid #000;
-    border-radius: 18px;
-    padding: 20px;
-
-    height: auto;         /* importante */
-}
-
-/* ===================================================== */
-/* ================= COMBATE DETALLE =================== */
-/* ===================================================== */
-
-.bloque-combate-detalle {
-    flex: 1;              /* ocupa todo lo que queda */
-    min-width: 400px;
-
+    width: 350px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
-
-    border: 2px solid #000;
-    border-radius: 18px;
-    padding: 25px;
-
-    height: auto;
+    gap: 12px;
 }
 
-/* Lista ataques */
-#listaAtaques {
+/* Combate detalle */
+.bloque-combate-detalle {
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* Tarjeta ataque */
-.bloque-wrapper {
-    background: #f9fbff;
-    border: 1px solid #e3eaf5;
+/* ===================================================== */
+/* ================= ATAQUES =========================== */
+/* ===================================================== */
+
+#listaAtaques {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.bloque-ataque {
+    background: #f8fbff;
+    border: 1px solid #d9e6f5;
     border-radius: 18px;
     padding: 18px 22px;
     display: flex;
@@ -279,7 +250,7 @@ button:hover {
 .fila-lineal {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
     flex-wrap: wrap;
 }
 
@@ -290,17 +261,9 @@ button:hover {
     color: #3b4a5a;
 }
 
-/* Selectores dentro del bloque */
-.selector-tipo-bloque {
-    background: #eef3fa;
-    padding: 12px 15px;
-    border-radius: 14px;
-}
-
 /* Totales */
 .totalAtaque,
 .totalDanio {
-    font-size: 14px;
     font-weight: 600;
     color: #2c3e55;
 }
@@ -369,18 +332,3 @@ label {
         font-size: 26px;
     }
 }
-
-.btnEliminar {
-    background: none;
-    border: 1px solid #000;
-    padding: 4px 8px;
-    cursor: pointer;
-    font-size: 12px;
-    transition: 0.2s;
-}
-
-.btnEliminar:hover {
-    background: #000;
-    color: #fff;
-}
-

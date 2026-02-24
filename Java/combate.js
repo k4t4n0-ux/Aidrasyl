@@ -2,7 +2,7 @@ const tipoCombate = document.getElementById("tipoCombate");
 const contenido = document.getElementById("combateContenido");
 
 /* ================================
-   UTILIDADES GENERALES
+   UTILIDADES
 ================================ */
 
 function obtenerMod(statNombre) {
@@ -24,39 +24,66 @@ function formatear(num) {
 }
 
 /* ================================
-   SISTEMA MULTI-ATAQUE
+   INICIAR SISTEMA
 ================================ */
 
 tipoCombate.addEventListener("change", () => {
 
     contenido.innerHTML = `
         <div id="listaAtaques"></div>
-        <button id="agregarAtaqueBtn" class="btn-ataque">
-            + Añadir Ataque
-        </button>
+        <button id="agregarAtaqueBtn">+ Añadir Ataque</button>
     `;
 
-    agregarNuevoBloque(tipoCombate.value);
-
     document.getElementById("agregarAtaqueBtn")
-        .addEventListener("click", () => {
-            agregarNuevoBloque(tipoCombate.value);
-        });
+        .addEventListener("click", agregarBloqueVacio);
+
+    agregarBloqueVacio(); // Primer bloque automático
 });
 
-function agregarNuevoBloque(tipo) {
+/* ================================
+   CREAR BLOQUE INDEPENDIENTE
+================================ */
 
-    if (!tipo) return;
+function agregarBloqueVacio() {
 
     const lista = document.getElementById("listaAtaques");
+
     const wrapper = document.createElement("div");
     wrapper.classList.add("bloque-wrapper");
 
+    wrapper.innerHTML = `
+        <div class="fila-lineal selector-tipo-bloque">
+            <label>Tipo</label>
+            <select class="tipoBloque">
+                <option value="">--</option>
+                <option value="armas">Armas</option>
+                <option value="desarmado">Desarmado</option>
+                <option value="trucos">Trucos</option>
+            </select>
+        </div>
+
+        <div class="contenidoBloque"></div>
+        <hr>
+    `;
+
     lista.appendChild(wrapper);
 
-    if (tipo === "armas") renderArmas(wrapper);
-    if (tipo === "desarmado") renderDesarmado(wrapper);
-    if (tipo === "trucos") renderTrucos(wrapper);
+    const tipoSelect = wrapper.querySelector(".tipoBloque");
+    const contenidoBloque = wrapper.querySelector(".contenidoBloque");
+
+    tipoSelect.addEventListener("change", () => {
+
+        contenidoBloque.innerHTML = "";
+
+        if (tipoSelect.value === "armas")
+            renderArmas(contenidoBloque);
+
+        if (tipoSelect.value === "desarmado")
+            renderDesarmado(contenidoBloque);
+
+        if (tipoSelect.value === "trucos")
+            renderTrucos(contenidoBloque);
+    });
 }
 
 /* ================================
@@ -66,25 +93,21 @@ function agregarNuevoBloque(tipo) {
 function renderArmas(container) {
 
     container.innerHTML = `
-        <div class="bloque-ataque">
+        <div class="fila-lineal">
+            <label>Tipo</label>
+            <select class="tipoArma">
+                <option value="">--</option>
+                <option value="simple">Simple</option>
+                <option value="marcial">Marcial</option>
+            </select>
 
-            <div class="fila-lineal">
-                <label>Tipo</label>
-                <select class="tipoArma">
-                    <option value="">--</option>
-                    <option value="simple">Simple</option>
-                    <option value="marcial">Marcial</option>
-                </select>
-
-                <label>Arma</label>
-                <select class="armaSelect">
-                    <option value="">--</option>
-                </select>
-            </div>
-
-            <div class="detalleArma"></div>
-
+            <label>Arma</label>
+            <select class="armaSelect">
+                <option value="">--</option>
+            </select>
         </div>
+
+        <div class="detalleArma"></div>
     `;
 
     const tipoSelect = container.querySelector(".tipoArma");
@@ -122,7 +145,7 @@ function renderArmas(container) {
                 <span>${arma.propiedad}</span>
             </div>
 
-            <div class="fila-lineal controles-ataque">
+            <div class="fila-lineal">
 
                 <div class="selectorStat"></div>
 
@@ -153,17 +176,21 @@ function configurarCalculoArma(detalleDiv, arma) {
     const totalSpan = detalleDiv.querySelector(".totalAtaque");
     const danioSpan = detalleDiv.querySelector(".totalDanio");
 
-    let statActual = "";
+    let statActual;
 
     if (arma.caracteristica === "fuerza_dest") {
+
         statDiv.innerHTML = `
             <select class="statSelect">
                 <option value="Fuerza">Fuerza</option>
                 <option value="Destreza">Destreza</option>
             </select>
         `;
+
         statActual = "Fuerza";
+
     } else {
+
         statActual = arma.caracteristica === "fuerza" ? "Fuerza" : "Destreza";
         statDiv.innerHTML = `<span>${statActual}</span>`;
     }
@@ -197,39 +224,35 @@ function configurarCalculoArma(detalleDiv, arma) {
 function renderDesarmado(container) {
 
     container.innerHTML = `
-        <div class="bloque-ataque">
+        <div class="fila-lineal encabezado-ataque">
+            <strong>Golpe Desarmado</strong>
+            <span>Distancia: Toque</span>
+        </div>
 
-            <div class="fila-lineal encabezado-ataque">
-                <strong>Golpe Desarmado</strong>
-                <span>Distancia: Toque</span>
+        <div class="fila-lineal">
+
+            <select class="dadoSelect">
+                <option>1d4</option>
+                <option>1d6</option>
+                <option>1d8</option>
+            </select>
+
+            <select class="statSelect">
+                <option value="Fuerza">Fuerza</option>
+                <option value="Destreza">Destreza</option>
+            </select>
+
+            <label>
+                <input type="checkbox" class="competenteCheck">
+                Competente
+            </label>
+
+            <div>
+                Ataque: <strong class="totalAtaque">+0</strong>
             </div>
 
-            <div class="fila-lineal controles-ataque">
-
-                <select class="dadoSelect">
-                    <option>1d4</option>
-                    <option>1d6</option>
-                    <option>1d8</option>
-                </select>
-
-                <select class="statSelect">
-                    <option value="Fuerza">Fuerza</option>
-                    <option value="Destreza">Destreza</option>
-                </select>
-
-                <label>
-                    <input type="checkbox" class="competenteCheck">
-                    Competente
-                </label>
-
-                <div>
-                    Ataque: <strong class="totalAtaque">+0</strong>
-                </div>
-
-                <div>
-                    Daño: <strong class="totalDanio">1d4 +0</strong>
-                </div>
-
+            <div>
+                Daño: <strong class="totalDanio">1d4 +0</strong>
             </div>
 
         </div>
@@ -267,18 +290,14 @@ function renderDesarmado(container) {
 function renderTrucos(container) {
 
     container.innerHTML = `
-        <div class="bloque-ataque">
-
-            <div class="fila-lineal">
-                <label>Truco</label>
-                <select class="trucoSelect">
-                    <option value="">--</option>
-                </select>
-            </div>
-
-            <div class="detalleTruco"></div>
-
+        <div class="fila-lineal">
+            <label>Truco</label>
+            <select class="trucoSelect">
+                <option value="">--</option>
+            </select>
         </div>
+
+        <div class="detalleTruco"></div>
     `;
 
     const select = container.querySelector(".trucoSelect");
@@ -303,7 +322,7 @@ function renderTrucos(container) {
                 <span>${truco.tipo}</span>
             </div>
 
-            <div class="fila-lineal controles-ataque">
+            <div class="fila-lineal">
 
                 <select class="statSelect">
                     <option value="Inteligencia">Inteligencia</option>
@@ -331,13 +350,11 @@ function configurarTruco(detalle, truco) {
         const competencia = obtenerCompetencia();
 
         if (truco.tipo === "ataque") {
-            resultado.textContent =
-                `Ataque: ${formatear(mod + competencia)}`;
+            resultado.textContent = `Ataque: ${formatear(mod + competencia)}`;
         }
 
         if (truco.tipo === "salvacion") {
-            resultado.textContent =
-                `CD: ${8 + competencia + mod}`;
+            resultado.textContent = `CD: ${8 + competencia + mod}`;
         }
     }
 

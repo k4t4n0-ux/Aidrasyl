@@ -1,4 +1,7 @@
-/* ================= RESET ================= */
+/* ===================================================== */
+/* ================= RESET GLOBAL ====================== */
+/* ===================================================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,84 +9,117 @@
     font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
-/* ================= FONDO GENERAL ================= */
+/* ===================================================== */
+/* ================= PALETA BASE ======================= */
+/* ===================================================== */
+
 body {
-    background: #ffffff;
-    color: #111;
-    padding: 30px;
+    background: #f4f6f9;
+    color: #2c3440;
+    padding: 40px;
 }
 
-/* ================= CONTENEDOR PRINCIPAL ================= */
+/* Contenedor principal */
 .hoja {
     max-width: 1400px;
     margin: auto;
 }
 
-/* ================= TÍTULO ================= */
+/* ===================================================== */
+/* ================= TITULO ============================ */
+/* ===================================================== */
+
 h1 {
     text-align: center;
-    margin-bottom: 35px;
-    font-size: 34px;
+    margin-bottom: 40px;
+    font-size: 32px;
     letter-spacing: 2px;
     font-weight: 600;
+    color: #3a4a5f;
 }
 
-/* ================= INPUTS ================= */
+/* ===================================================== */
+/* ================= INPUTS ============================ */
+/* ===================================================== */
+
 input[type="text"],
 input[type="number"],
 select {
-    background: #fff;
-    color: #111;
-    border: 1px solid #000;
-    padding: 6px 10px;
-    border-radius: 4px;
+    background: #ffffff;
+    border: 1px solid #d5dee9;
+    border-radius: 12px;
+    padding: 8px 12px;
     font-size: 14px;
+    transition: 0.2s ease;
 }
 
 input:focus,
 select:focus {
     outline: none;
-    border: 2px solid #000;
+    border: 1px solid #7a9cc6;
+    box-shadow: 0 0 0 3px rgba(122,156,198,0.15);
 }
 
-/* ================= LABELS ================= */
-label {
-    display: block;
-    font-size: 11px;
-    margin-bottom: 4px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* Checkboxes */
+input[type="checkbox"] {
+    transform: scale(1.1);
+    accent-color: #7a9cc6;
 }
 
-/* ================= BOTONES ================= */
+/* ===================================================== */
+/* ================= BOTONES =========================== */
+/* ===================================================== */
+
 button {
-    background: #f2f2f2;
-    border: 1px solid #000;
-    padding: 5px 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 11px;
+    background: #e3eaf5;
+    border: 1px solid #c5d3e6;
+    border-radius: 12px;
+    padding: 8px 14px;
+    font-size: 12px;
     font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
 button:hover {
-    background: #000;
-    color: #fff;
+    background: #7a9cc6;
+    color: white;
+    border-color: #7a9cc6;
 }
 
-/* ================= CABECERA SUPERIOR ================= */
+/* ===================================================== */
+/* ================= BLOQUES GENERALES ================= */
+/* ===================================================== */
+
+.cabecera-superior,
+.bloque-combate-superior,
+.barra-secundaria,
+#caracteristicas,
+.bloque-combate-detalle {
+    background: #ffffff;
+    border: 1px solid #dde6f2;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+/* Separaciones */
+.cabecera-superior,
+.bloque-combate-superior,
+.barra-secundaria {
+    margin-bottom: 30px;
+}
+
+/* ===================================================== */
+/* ================= GRID CABECERA ===================== */
+/* ===================================================== */
+
 .cabecera-superior {
     display: grid;
     grid-template-columns: 1.3fr 160px 1.3fr 1.3fr;
     gap: 30px;
-
-    border: 2px solid #000;
-    padding: 25px;
-    margin-bottom: 30px;
 }
 
-/* ================= DATOS PERSONALES ================= */
 .datos-personales .fila-doble {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -91,12 +127,15 @@ button:hover {
     margin-bottom: 15px;
 }
 
-/* ================= NIVEL TOTAL ================= */
+/* ===================================================== */
+/* ================= NIVEL ============================= */
+/* ===================================================== */
+
 .nivel-total {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .nivel-total input {
@@ -106,103 +145,35 @@ button:hover {
     font-weight: bold;
 }
 
-/* ================= BLOQUE COMBATE ================= */
+/* ===================================================== */
+/* ================= COMBATE SUPERIOR ================== */
+/* ===================================================== */
+
 .bloque-combate-superior {
     display: grid;
-    grid-template-columns: 180px 1fr 1fr 1fr 1fr;
-    gap: 30px;
-    align-items: start;
-
-    border: 2px solid #000;
-    padding: 25px;
-    margin-bottom: 25px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
 }
 
-/* ================= CA ================= */
-.bloque-ca {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.ca-destacada {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+/* ===================================================== */
+/* ================= CA ================================ */
+/* ===================================================== */
 
 .ca-destacada input {
-    width: 80px;
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    border: 2px solid #000;
-}
-
-/* ================= PG BLOQUES ================= */
-.pg-maximos,
-.pg-actuales,
-.pg-temporales {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.pg-maximos input,
-.pg-actuales input,
-.pg-temporales input {
     width: 90px;
+    font-size: 26px;
+    font-weight: bold;
     text-align: center;
-    font-weight: bold;
 }
 
-.pg-botones {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+/* ===================================================== */
+/* ================= BARRA SECUNDARIA ================== */
+/* ===================================================== */
 
-/* ================= DADOS ================= */
-.dados-mini {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding-left: 15px;
-    border-left: 1px solid #000;
-}
-
-.dados-titulo {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.dado-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #000;
-    padding: 8px 10px;
-    border-radius: 4px;
-}
-
-.dado-info {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* ================= BARRA SECUNDARIA ================= */
 .barra-secundaria {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
-
-    border: 2px solid #000;
-    padding: 15px 20px;
-    margin: 25px 0;
 }
 
 .mini-box {
@@ -212,23 +183,108 @@ button:hover {
 .mini-box span {
     display: block;
     margin-top: 6px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
-/* ================= CARACTERÍSTICAS ================= */
+/* ===================================================== */
+/* ================= ZONA INFERIOR ===================== */
+/* ===================================================== */
+
+.zona-inferior {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
 #caracteristicas {
-    border: 2px solid #000;
-    padding: 15px 20px;
-    margin-top: 20px;
+    width: 360px;
+    flex-shrink: 0;
 }
 
-/* ================= CHECKBOX ================= */
-input[type="checkbox"] {
-    transform: scale(1.1);
+/* ===================================================== */
+/* ================= COMBATE DETALLE =================== */
+/* ===================================================== */
+
+.bloque-combate-detalle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* Lista ataques */
+#listaAtaques {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Tarjeta ataque */
+.bloque-wrapper {
+    background: #f9fbff;
+    border: 1px solid #e3eaf5;
+    border-radius: 18px;
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Fila horizontal */
+.fila-lineal {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Encabezado ataque */
+.encabezado-ataque {
+    font-weight: 600;
+    font-size: 14px;
+    color: #3b4a5a;
+}
+
+/* Selectores dentro del bloque */
+.selector-tipo-bloque {
+    background: #eef3fa;
+    padding: 12px 15px;
+    border-radius: 14px;
+}
+
+/* Totales */
+.totalAtaque,
+.totalDanio {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e55;
+}
+
+/* Separador */
+hr {
+    border: none;
+    height: 1px;
+    background: #e3eaf5;
+}
+
+/* ===================================================== */
+/* ================= LABELS ============================ */
+/* ===================================================== */
+
+label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #5b6572;
+    margin-bottom: 4px;
+}
+
+/* ===================================================== */
+/* ================= RESPONSIVE ======================== */
+/* ===================================================== */
+
 @media (max-width: 1100px) {
+
     .cabecera-superior {
         grid-template-columns: 1fr 1fr;
     }
@@ -240,358 +296,31 @@ input[type="checkbox"] {
     .barra-secundaria {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .zona-inferior {
+        flex-direction: column;
+    }
+
+    #caracteristicas {
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
+
     .cabecera-superior,
     .bloque-combate-superior,
     .barra-secundaria {
         grid-template-columns: 1fr;
     }
 
-    h1 {
-        font-size: 26px;
-    }
-}
-.bloque-combate-detalle {
-    border: 2px solid #000;
-    padding: 20px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.combate-selector {
-    width: 250px;
-}
-
-.combate-grid {
-    display: grid;
-    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    align-items: center;
-}
-
-.propiedades {
-    font-size: 12px;
-}
-
-.zona-inferior {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-    margin-top: 40px;
-}
-
-/* CARACTERÍSTICAS MÁS DELGADA */
-#caracteristicas {
-    width: 350px;
-    flex-shrink: 0;
-}
-
-/* BLOQUE DE ARMAS A LA DERECHA */
-.bloque-combate-detalle {
-    flex: 1;
-    min-width: 400px;
-}
-
-.fila-selectores-armas {
-    display: flex;
-    gap: 30px;
-    align-items: flex-end;
-    margin-bottom: 20px;
-}
-
-.selector-box {
-    display: flex;
-    flex-direction: column;
-    min-width: 180px;
-}
-
-.selector-box label {
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 4px;
-}
-
-/* Compactar combate */
-.combate-grid {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    gap: 12px 25px;
-    align-items: center;
-    font-size: 13px;
-    margin-top: 15px;
-}
-
-.combate-grid strong {
-    grid-column: span 4;
-    font-size: 14px;
-}
-
-.combate-grid label {
-    font-size: 12px;
-}
-
-/* Espaciado más compacto */
-.combate-grid div {
-    white-space: nowrap;
-}
-
-/* ============================= */
-/* SELECTORES ARMAS EN HORIZONTAL */
-/* ============================= */
-
-.fila-selectores-armas {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 30px;
-    align-items: flex-end;
-    margin-bottom: 20px;
-}
-
-.selector-box {
-    display: flex;
-    flex-direction: column;
-    min-width: 180px;
-}
-
-.selector-box select {
-    width: 180px;
-}
-
-/* ============================= */
-/* COMPACTAR BLOQUE DETALLE     */
-/* ============================= */
-
-.combate-grid {
-    display: grid !important;
-    grid-template-columns: repeat(4, auto);
-    gap: 8px 25px;
-    align-items: center;
-    margin-top: 10px;
-    font-size: 13px;
-}
-
-.combate-grid > div,
-.combate-grid > label {
-    white-space: nowrap;
-}
-
-/* Nombre arma ocupa toda la fila */
-.combate-grid strong {
-    grid-column: 1 / -1;
-    font-size: 14px;
-}
-
-.fila-selectores-armas {
-    display: flex;
-    gap: 30px;
-    align-items: flex-end;
-    margin-bottom: 20px;
-}
-
-.selector-box {
-    display: flex;
-    flex-direction: column;
-    min-width: 170px;
-}
-
-/* Hacer que Ataque + Tipo + Arma estén en una misma línea */
-
-.bloque-combate-detalle {
-    border: 2px solid #000;
-    padding: 20px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Unificar selector Ataque + Tipo + Arma */
-
-.combate-selector {
-    display: inline-flex;
-    flex-direction: column;
-    margin-right: 30px;
-}
-
-#combateContenido {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.bloque-combate-detalle {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 30px;
-}
-
-
-.combate-selector,
-.fila-selectores-armas {
-    display: flex;
-    gap: 30px;
-    align-items: flex-end;
-}
-
-/* Eliminar margen vertical innecesario */
-.combate-selector {
-    margin-bottom: 15px;
-}
-
-/* Que Tipo y Arma no salten abajo */
-.fila-selectores-armas {
-    margin-bottom: 15px;
-}
-
-.fila-superior-combate {
-    display: flex;
-    gap: 30px;
-    align-items: flex-end;
-    margin-bottom: 20px;
-}
-
-#contenedorSelectoresDinamicos {
-    display: flex;
-    gap: 30px;
-}
-
-/* ===================================================== */
-/* ================= NUEVO ESTILO COMBATE ============== */
-/* ===================================================== */
-
-/* Fondo más suave */
-body {
-    background: #f4f6f9;
-    color: #2b2e34;
-}
-
-/* Bordes generales más suaves */
-input[type="text"],
-input[type="number"],
-select {
-    border: 1px solid #cfd6e0;
-    border-radius: 10px;
-    background: #ffffff;
-    padding: 8px 12px;
-    transition: all 0.2s ease;
-}
-
-input:focus,
-select:focus {
-    border: 1px solid #7a9cc6;
-    box-shadow: 0 0 0 2px rgba(122,156,198,0.15);
-}
-
-/* Botones suaves */
-button {
-    background: #e3eaf5;
-    border: 1px solid #c5d3e6;
-    border-radius: 10px;
-    padding: 8px 14px;
-    font-size: 12px;
-    transition: all 0.2s ease;
-}
-
-button:hover {
-    background: #7a9cc6;
-    color: white;
-    border-color: #7a9cc6;
-}
-
-/* Contenedor combate */
-.bloque-combate-detalle {
-    background: #ffffff;
-    border: 1px solid #d9e1ec;
-    border-radius: 18px;
-    padding: 25px;
-    margin-top: 20px;
-}
-
-/* Lista de ataques */
-#listaAtaques {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-/* Cada bloque independiente */
-.bloque-wrapper {
-    background: #f9fbff;
-    border: 1px solid #dde6f2;
-    border-radius: 16px;
-    padding: 18px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* Línea horizontal limpia */
-.fila-lineal {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-/* Encabezado del ataque */
-.encabezado-ataque {
-    font-weight: 600;
-    color: #3b4a5a;
-    font-size: 14px;
-    gap: 40px;
-}
-
-/* Selectores tipo dentro de bloque */
-.selector-tipo-bloque {
-    background: #eef3fa;
-    padding: 12px 15px;
-    border-radius: 12px;
-}
-
-/* Reducir tamaño labels */
-label {
-    font-size: 10px;
-    letter-spacing: 1px;
-    color: #5b6572;
-}
-
-/* Texto ataque y daño más limpio */
-.totalAtaque,
-.totalDanio {
-    font-size: 14px;
-    font-weight: 600;
-    color: #2c3e55;
-}
-
-/* Separador sutil */
-hr {
-    border: none;
-    height: 1px;
-    background: #e3eaf5;
-    margin-top: 10px;
-}
-
-/* Compactar espacios verticales */
-.bloque-wrapper > * {
-    margin: 0;
-}
-
-/* Botón añadir ataque centrado */
-#agregarAtaqueBtn {
-    align-self: flex-start;
-    margin-top: 10px;
-}
-
-/* Responsive limpio */
-@media (max-width: 900px) {
-
     .fila-lineal {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        gap: 12px;
     }
 
+    h1 {
+        font-size: 26px;
+    }
 }

@@ -74,4 +74,11 @@ document.addEventListener("DOMContentLoaded", function() {
         pgTemporalesInput.value = nuevo;
     };
 
+    pgTemporalesInput.addEventListener("input", function() {
+        let valor = parseInt(pgTemporalesInput.value);
+        if (isNaN(valor) || valor < 0) {
+            pgTemporalesInput.value = 0;
+        }
+    });
+
 });

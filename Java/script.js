@@ -1,16 +1,21 @@
-// 1. Obtener el textarea
-const textarea = document.getElementById("miHoja");
+function clampInputMin(input, min = 0) {
+    let valor = parseInt(input.value);
 
-// 2. Cargar datos al abrir la página
-window.addEventListener("DOMContentLoaded", () => {
-    const datosGuardados = localStorage.getItem("miHojaDatos");
-
-    if (datosGuardados !== null) {
-        textarea.value = datosGuardados;
+    if (isNaN(valor) || valor < min) {
+        input.value = min;
     }
-});
+}
 
-// 3. Guardar automáticamente cuando el usuario escriba
-textarea.addEventListener("input", () => {
-    localStorage.setItem("miHojaDatos", textarea.value);
-});
+function bloquearNegativos(id, min = 0) {
+    const input = document.getElementById(id);
+    if (!input) return;
+
+    input.addEventListener("input", () => {
+        clampInputMin(input, min);
+    });
+}
+
+bloquearNegativos("nivel1", 1); // mínimo 1
+bloquearNegativos("nivel2", 0); // mínimo 0
+
+clampRango("velocidad", 0, 999);

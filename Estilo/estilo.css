@@ -212,7 +212,6 @@ button:hover {
 
 .zona-inferior {
     display: flex;
-    align-items: flex-start; /* importante */
     gap: 40px;
     margin-top: 40px;
 }

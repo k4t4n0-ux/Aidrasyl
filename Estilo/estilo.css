@@ -130,7 +130,7 @@ button:hover {
 
 .zona-inferior {
     display: flex;
-    align-items: flex-start; /* importante */
+    align-items: flex-start; /* MUY IMPORTANTE */
     gap: 40px;
     margin-top: 40px;
 }
@@ -229,8 +229,14 @@ button:hover {
 }
 
 #caracteristicas {
-    width: 360px;
-    flex-shrink: 0;
+    width: 350px;         /* ancho fijo */
+    flex-shrink: 0;       /* que no se comprima */
+    
+    border: 2px solid #000;
+    border-radius: 18px;
+    padding: 20px;
+
+    height: auto;         /* importante */
 }
 
 /* ===================================================== */
@@ -238,10 +244,17 @@ button:hover {
 /* ===================================================== */
 
 .bloque-combate-detalle {
-    flex: 1;
+    flex: 1;              /* ocupa todo lo que queda */
+    min-width: 400px;
+
     display: flex;
     flex-direction: column;
-    gap: 20px;
+
+    border: 2px solid #000;
+    border-radius: 18px;
+    padding: 25px;
+
+    height: auto;
 }
 
 /* Lista ataques */

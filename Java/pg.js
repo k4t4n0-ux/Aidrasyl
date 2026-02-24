@@ -5,19 +5,23 @@ document.addEventListener("DOMContentLoaded", function() {
     const pgTemporalesInput = document.getElementById("pgTemporales");
 
     /* =========================
-       FUNCIONES PG ACTUALES
+       UTILIDADES
     ========================== */
 
-    function obtenerPGMaximos() {
+    function getMax() {
         return parseInt(pgMaximosInput.value) || 0;
     }
 
-    function obtenerPGActuales() {
+    function getActual() {
         return parseInt(pgActualesInput.value) || 0;
     }
 
-    function actualizarPG(valor) {
-        const max = obtenerPGMaximos();
+    function getTemp() {
+        return parseInt(pgTemporalesInput.value) || 0;
+    }
+
+    function clampActual(valor) {
+        const max = getMax();
 
         if (valor < 0) valor = 0;
         if (valor > max) valor = max;
@@ -25,34 +29,49 @@ document.addEventListener("DOMContentLoaded", function() {
         pgActualesInput.value = valor;
     }
 
-    // FUNCIÓN GLOBAL para los botones
-    window.modificarPG = function(cantidad) {
-        const actuales = obtenerPGActuales();
-        actualizarPG(actuales + cantidad);
-    };
+    function clampMax(valor) {
+        if (valor < 0) valor = 0;
 
-    // Si alguien intenta escribir manualmente
-    pgActualesInput.addEventListener("input", function () {
-        actualizarPG(obtenerPGActuales());
-    });
+        pgMaximosInput.value = valor;
 
+        // Si bajas los máximos y los actuales lo superan → ajustar
+        if (getActual() > valor) {
+            pgActualesInput.value = valor;
+        }
+    }
 
     /* =========================
-       FUNCIONES PG TEMPORALES
+       PG ACTUALES
     ========================== */
 
-    function obtenerPGTemp() {
-        return parseInt(pgTemporalesInput.value) || 0;
-    }
+    window.modificarPG = function(cantidad) {
+        clampActual(getActual() + cantidad);
+    };
 
-    function actualizarPGTemp(valor) {
-        if (valor < 0) valor = 0;
-        pgTemporalesInput.value = valor;
-    }
+    pgActualesInput.addEventListener("input", function() {
+        clampActual(getActual());
+    });
+
+    /* =========================
+       PG MÁXIMOS
+    ========================== */
+
+    window.modificarPGMax = function(cantidad) {
+        clampMax(getMax() + cantidad);
+    };
+
+    pgMaximosInput.addEventListener("input", function() {
+        clampMax(getMax());
+    });
+
+    /* =========================
+       PG TEMPORALES
+    ========================== */
 
     window.modificarPGTemp = function(cantidad) {
-        const actuales = obtenerPGTemp();
-        actualizarPGTemp(actuales + cantidad);
+        let nuevo = getTemp() + cantidad;
+        if (nuevo < 0) nuevo = 0;
+        pgTemporalesInput.value = nuevo;
     };
 
 });

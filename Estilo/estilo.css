@@ -457,3 +457,141 @@ input[type="checkbox"] {
     display: flex;
     gap: 30px;
 }
+
+/* ===================================================== */
+/* ================= NUEVO ESTILO COMBATE ============== */
+/* ===================================================== */
+
+/* Fondo más suave */
+body {
+    background: #f4f6f9;
+    color: #2b2e34;
+}
+
+/* Bordes generales más suaves */
+input[type="text"],
+input[type="number"],
+select {
+    border: 1px solid #cfd6e0;
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 8px 12px;
+    transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    border: 1px solid #7a9cc6;
+    box-shadow: 0 0 0 2px rgba(122,156,198,0.15);
+}
+
+/* Botones suaves */
+button {
+    background: #e3eaf5;
+    border: 1px solid #c5d3e6;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: #7a9cc6;
+    color: white;
+    border-color: #7a9cc6;
+}
+
+/* Contenedor combate */
+.bloque-combate-detalle {
+    background: #ffffff;
+    border: 1px solid #d9e1ec;
+    border-radius: 18px;
+    padding: 25px;
+    margin-top: 20px;
+}
+
+/* Lista de ataques */
+#listaAtaques {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Cada bloque independiente */
+.bloque-wrapper {
+    background: #f9fbff;
+    border: 1px solid #dde6f2;
+    border-radius: 16px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Línea horizontal limpia */
+.fila-lineal {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Encabezado del ataque */
+.encabezado-ataque {
+    font-weight: 600;
+    color: #3b4a5a;
+    font-size: 14px;
+    gap: 40px;
+}
+
+/* Selectores tipo dentro de bloque */
+.selector-tipo-bloque {
+    background: #eef3fa;
+    padding: 12px 15px;
+    border-radius: 12px;
+}
+
+/* Reducir tamaño labels */
+label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #5b6572;
+}
+
+/* Texto ataque y daño más limpio */
+.totalAtaque,
+.totalDanio {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e55;
+}
+
+/* Separador sutil */
+hr {
+    border: none;
+    height: 1px;
+    background: #e3eaf5;
+    margin-top: 10px;
+}
+
+/* Compactar espacios verticales */
+.bloque-wrapper > * {
+    margin: 0;
+}
+
+/* Botón añadir ataque centrado */
+#agregarAtaqueBtn {
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+/* Responsive limpio */
+@media (max-width: 900px) {
+
+    .fila-lineal {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+}

@@ -15,6 +15,7 @@ const trucosDB = {
         componentes: "V, S",
         distancia: "60 pies",
         tipo: "salvacion",
+        dano: "1d8 fuego",
         efecto: "Salvación Destreza"
     }
 };

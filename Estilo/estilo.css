@@ -96,11 +96,31 @@ button:hover {
 .barra-secundaria,
 #caracteristicas,
 .bloque-combate-detalle {
-    background: #ffffff;
-    border: 1px solid #dde6f2;
-    border-radius: 20px;
+    flex: 1;
+    min-width: 400px;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid #000;
+    border-radius: 18px;
     padding: 25px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+
+    height: auto;
+}
+
+#listaAtaques {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+#listaAtaques {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
 }
 
 /* Separaciones */
@@ -192,6 +212,7 @@ button:hover {
 
 .zona-inferior {
     display: flex;
+    align-items: flex-start; /* importante */
     gap: 40px;
     margin-top: 40px;
 }
@@ -338,3 +359,4 @@ label {
     background: #000;
     color: #fff;
 }
+

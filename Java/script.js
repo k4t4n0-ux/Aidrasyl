@@ -15,7 +15,4 @@ function bloquearNegativos(id, min = 0) {
     });
 }
 
-bloquearNegativos("nivel1", 1); // mínimo 1
-bloquearNegativos("nivel2", 0); // mínimo 0
-
-clampRango("velocidad", 0, 999);
+bloquearNegativos("velocidad", 0);

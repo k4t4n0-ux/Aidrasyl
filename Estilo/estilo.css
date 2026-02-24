@@ -108,19 +108,31 @@ button:hover {
 
     height: auto;
 }
-
 #listaAtaques {
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 100%;
 }
+.bloque-ataque {
+    width: 100%;
+    padding: 15px;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1px solid #d9e2ec;
 
-#listaAtaques {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    width: 100%;
+    gap: 10px;
+
+    height: auto;
+}
+
+.zona-inferior {
+    display: flex;
+    align-items: flex-start; /* importante */
+    gap: 40px;
+    margin-top: 40px;
 }
 
 /* Separaciones */

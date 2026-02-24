@@ -1,417 +1,347 @@
 const tipoCombate = document.getElementById("tipoCombate");
 const contenido = document.getElementById("combateContenido");
 
-tipoCombate.addEventListener("change", () => {
-    contenido.innerHTML = "";
+/* ================================
+   UTILIDADES GENERALES
+================================ */
 
-    if (tipoCombate.value === "armas") {
-        mostrarSelectorArmas();
-    }
+function obtenerMod(statNombre) {
+    const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
+    if (!input) return 0;
 
-    if (tipoCombate.value === "desarmado") {
-        mostrarDesarmado();
-    }
-
-    if (tipoCombate.value === "trucos") {
-        mostrarTrucos();
-    }
-});
-function mostrarSelectorArmas() {
-    document.getElementById("contenedorSelectoresDinamicos").innerHTML = `
-        <div class="selector-box">
-            <label>Tipo</label>
-            <select id="tipoArma">
-                <option value="">-- Seleccionar --</option>
-                <option value="simple">Simple</option>
-                <option value="marcial">Marcial</option>
-            </select>
-        </div>
-
-        <div class="selector-box" id="armaSelector"></div>
-    `;
-
-    document.getElementById("tipoArma")
-        .addEventListener("change", function() {
-            mostrarSelectorIndividual(this.value);
-        });
+    const modSpan = input.nextElementSibling;
+    return parseInt(modSpan.textContent.replace("+", "")) || 0;
 }
 
-function mostrarSelectorIndividual(tipo) {
+function obtenerCompetencia() {
+    const comp = document.getElementById("competencia");
+    if (!comp) return 0;
+    return parseInt(comp.value.replace("+", "")) || 0;
+}
 
-    const selectorDiv = document.getElementById("armaSelector");
-    const detalleDiv = document.getElementById("combateContenido");
+function formatear(num) {
+    return num >= 0 ? `+${num}` : num;
+}
 
-    detalleDiv.innerHTML = "";
-    selectorDiv.innerHTML = "";
+/* ================================
+   SISTEMA MULTI-ATAQUE
+================================ */
+
+tipoCombate.addEventListener("change", () => {
+
+    contenido.innerHTML = `
+        <div id="listaAtaques"></div>
+        <button id="agregarAtaqueBtn" class="btn-ataque">
+            + Añadir Ataque
+        </button>
+    `;
+
+    agregarNuevoBloque(tipoCombate.value);
+
+    document.getElementById("agregarAtaqueBtn")
+        .addEventListener("click", () => {
+            agregarNuevoBloque(tipoCombate.value);
+        });
+});
+
+function agregarNuevoBloque(tipo) {
 
     if (!tipo) return;
 
-    const armas = armasDB[tipo];
+    const lista = document.getElementById("listaAtaques");
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("bloque-wrapper");
 
-    let html = `
-        <label>Arma</label>
-        <select id="armaElegida">
-            <option value="">-- Seleccionar arma --</option>
-    `;
+    lista.appendChild(wrapper);
 
-    for (let nombre in armas) {
-        html += `<option value="${nombre}">${nombre}</option>`;
-    }
-
-    html += `</select>`;
-
-    selectorDiv.innerHTML = html;
-
-    document.getElementById("armaElegida")
-        .addEventListener("change", function() {
-            mostrarDetalleArma(tipo, this.value);
-        });
+    if (tipo === "armas") renderArmas(wrapper);
+    if (tipo === "desarmado") renderDesarmado(wrapper);
+    if (tipo === "trucos") renderTrucos(wrapper);
 }
 
-function mostrarDetalleArma(tipo, nombre) {
-    const detalleDiv = document.getElementById("combateContenido");
+/* ================================
+   ARMAS
+================================ */
 
-    detalleDiv.innerHTML = "";
+function renderArmas(container) {
 
-    if (!nombre) return;
+    container.innerHTML = `
+        <div class="bloque-ataque">
 
-    const arma = armasDB[tipo][nombre];
+            <div class="fila-lineal">
+                <label>Tipo</label>
+                <select class="tipoArma">
+                    <option value="">--</option>
+                    <option value="simple">Simple</option>
+                    <option value="marcial">Marcial</option>
+                </select>
 
-    detalleDiv.innerHTML = `
-        <div class="combate-grid">
-            <div><strong>${nombre}</strong></div>
-            <div>Daño Base: ${arma.dano}</div>
-            <div>Distancia: ${arma.distancia}</div>
-            <div>Propiedades: ${arma.propiedad}</div>
-
-            <div id="modificadorArma"></div>
-
-            <label>
-                <input type="checkbox" id="competenteArma">
-                Competente
-            </label>
-
-            <div>
-                Total Ataque: <span id="totalAtaque">+0</span>
+                <label>Arma</label>
+                <select class="armaSelect">
+                    <option value="">--</option>
+                </select>
             </div>
 
-            <div>
-                Daño Total: <span id="danioTotalArma">${arma.dano} +0</span>
-            </div>
+            <div class="detalleArma"></div>
+
         </div>
     `;
 
-    configurarCalculoAtaque(arma.caracteristica, arma.dano);
-}
+    const tipoSelect = container.querySelector(".tipoArma");
+    const armaSelect = container.querySelector(".armaSelect");
+    const detalleDiv = container.querySelector(".detalleArma");
 
+    tipoSelect.addEventListener("change", () => {
 
+        armaSelect.innerHTML = `<option value="">--</option>`;
+        detalleDiv.innerHTML = "";
 
-function resolverModificador(tipo) {
+        const armas = armasDB[tipoSelect.value];
+        if (!armas) return;
 
-    function obtenerMod(statNombre) {
-        const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
-        if (!input) return 0;
-
-        const modSpan = input.nextElementSibling;
-        return parseInt(modSpan.textContent.replace("+","")) || 0;
-    }
-
-    const modFue = obtenerMod("Fuerza");
-    const modDes = obtenerMod("Destreza");
-
-    if (tipo === "fuerza") {
-        return `Fue ${modFue >= 0 ? "+" : ""}${modFue}`;
-    }
-
-    if (tipo === "destreza") {
-        return `Des ${modDes >= 0 ? "+" : ""}${modDes}`;
-    }
-
-    if (tipo === "fuerza_dest") {
-        return `
-            <label>Característica</label>
-            <select id="selectorCaracteristica">
-                <option value="fuerza">Fue ${modFue >= 0 ? "+" : ""}${modFue}</option>
-                <option value="destreza">Des ${modDes >= 0 ? "+" : ""}${modDes}</option>
-            </select>
-        `;
-    }
-
-    return "";
-}
-
-function configurarCalculoAtaque(tipoCar, danoBase) {
-
-    const check = document.getElementById("competenteArma");
-    const totalSpan = document.getElementById("totalAtaque");
-    const modDiv = document.getElementById("modificadorArma");
-    const danioTotalSpan = document.getElementById("danioTotalArma");
-
-    function obtenerMod(statNombre) {
-        const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
-        if (!input) return 0;
-
-        const modSpan = input.nextElementSibling;
-        return parseInt(modSpan.textContent.replace("+","")) || 0;
-    }
-
-    let selectorCar = null;
-
-    if (tipoCar === "fuerza_dest") {
-        modDiv.innerHTML = `
-            <label>Característica</label>
-            <select id="selectorCaracteristica">
-                <option value="Fuerza">Fuerza</option>
-                <option value="Destreza">Destreza</option>
-            </select>
-            <div id="modBaseTexto"></div>
-        `;
-        selectorCar = document.getElementById("selectorCaracteristica");
-    } else {
-        modDiv.innerHTML = `<div id="modBaseTexto"></div>`;
-    }
-
-    const modBaseTexto = document.getElementById("modBaseTexto");
-
-    function actualizar() {
-
-        let statElegida;
-
-        if (tipoCar === "fuerza") statElegida = "Fuerza";
-        if (tipoCar === "destreza") statElegida = "Destreza";
-        if (tipoCar === "fuerza_dest") statElegida = selectorCar.value;
-
-        const modBase = obtenerMod(statElegida);
-
-        const competencia = parseInt(
-            document.getElementById("competencia").value.replace("+","")
-        ) || 0;
-
-        let totalAtaque = modBase;
-
-        if (check.checked) {
-            totalAtaque += competencia;
+        for (let nombre in armas) {
+            armaSelect.innerHTML += `<option value="${nombre}">${nombre}</option>`;
         }
+    });
 
-        // Texto modificador
-        modBaseTexto.textContent =
-            `Modificador Base: ${modBase >= 0 ? "+" : ""}${modBase}`;
+    armaSelect.addEventListener("change", () => {
 
-        // Total ataque
-        totalSpan.textContent =
-            `${totalAtaque >= 0 ? "+" : ""}${totalAtaque}`;
+        detalleDiv.innerHTML = "";
 
-        // Daño total (NO suma competencia)
-        danioTotalSpan.textContent =
-            `${danoBase} ${modBase >= 0 ? "+" : ""}${modBase}`;
-    }
+        const tipo = tipoSelect.value;
+        const nombre = armaSelect.value;
+        if (!tipo || !nombre) return;
 
-    check.addEventListener("change", actualizar);
+        const arma = armasDB[tipo][nombre];
 
-    if (selectorCar) {
-        selectorCar.addEventListener("change", actualizar);
-    }
-
-    document.addEventListener("input", actualizar);
-    document.addEventListener("change", actualizar);
-
-    actualizar();
-}
-
-
-function mostrarDesarmado() {
-    contenido.innerHTML = `
-        <div class="combate-grid">
-
-            <div>
-                <label>Dado</label>
-                <select id="dadoDesarmado">
-                    <option value="1d4">1d4</option>
-                    <option value="1d6">1d6</option>
-                    <option value="1d8">1d8</option>
-                </select>
+        detalleDiv.innerHTML = `
+            <div class="fila-lineal encabezado-ataque">
+                <strong>${nombre}</strong>
+                <span>${arma.dano}</span>
+                <span>${arma.distancia}</span>
+                <span>${arma.propiedad}</span>
             </div>
 
-            <div>
-                <label>Característica</label>
-                <select id="caracteristicaDesarmado">
-                    <option value="Fuerza">Fuerza</option>
-                    <option value="Destreza">Destreza</option>
-                </select>
-            </div>
+            <div class="fila-lineal controles-ataque">
 
-            <label>
-                <input type="checkbox" id="competenteDesarmado">
-                Competente
-            </label>
+                <div class="selectorStat"></div>
 
-            <div>Distancia: Toque</div>
-
-            <div id="modBaseDesarmado"></div>
-
-            <div>
-                Total Ataque: <span id="totalAtaqueDesarmado">+0</span>
-            </div>
-
-            <div>
-                Daño Total: <span id="danioTotalDesarmado">1d4 +0</span>
-            </div>
-
-        </div>
-    `;
-
-    configurarDesarmado();
-}
-
-function mostrarTrucos() {
-
-    let html = `
-        <label>Seleccionar Truco</label>
-        <select id="trucoSelect">
-            <option value="">-- Seleccionar --</option>
-    `;
-
-    for (let t in trucosDB) {
-        html += `<option value="${t}">${t}</option>`;
-    }
-
-    html += `</select><div id="trucoDetalle"></div>`;
-
-    contenido.innerHTML = html;
-
-    document.getElementById("trucoSelect").addEventListener("change", function() {
-
-        const truco = trucosDB[this.value];
-        const detalle = document.getElementById("trucoDetalle");
-
-        if (!truco) return;
-
-        detalle.innerHTML = `
-            <div class="combate-grid">
-
-                <div>Componentes: ${truco.componentes}</div>
-                <div>Distancia: ${truco.distancia}</div>
-                <div>Tipo: ${truco.tipo}</div>
-                <div>${truco.dano || truco.efecto}</div>
+                <label>
+                    <input type="checkbox" class="competenteCheck">
+                    Competente
+                </label>
 
                 <div>
-                    <label>Característica</label>
-                    <select id="statTruco">
-                        <option value="Inteligencia">Inteligencia</option>
-                        <option value="Sabiduria">Sabiduria</option>
-                        <option value="Carisma">Carisma</option>
-                    </select>
+                    Ataque: <strong class="totalAtaque">+0</strong>
                 </div>
 
-                <div id="resultadoTruco"></div>
+                <div>
+                    Daño: <strong class="totalDanio">${arma.dano} +0</strong>
+                </div>
 
             </div>
         `;
 
-        configurarCalculoTruco(truco.tipo);
+        configurarCalculoArma(detalleDiv, arma);
     });
 }
 
-function configurarCalculoTruco(tipoTruco) {
+function configurarCalculoArma(detalleDiv, arma) {
 
-    const statSelect = document.getElementById("statTruco");
-    const resultado = document.getElementById("resultadoTruco");
+    const statDiv = detalleDiv.querySelector(".selectorStat");
+    const check = detalleDiv.querySelector(".competenteCheck");
+    const totalSpan = detalleDiv.querySelector(".totalAtaque");
+    const danioSpan = detalleDiv.querySelector(".totalDanio");
 
-    function obtenerMod(statNombre) {
+    let statActual = "";
 
-        const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
-        if (!input) return 0;
-
-        const modSpan = input.nextElementSibling;
-        return parseInt(modSpan.textContent.replace("+","")) || 0;
+    if (arma.caracteristica === "fuerza_dest") {
+        statDiv.innerHTML = `
+            <select class="statSelect">
+                <option value="Fuerza">Fuerza</option>
+                <option value="Destreza">Destreza</option>
+            </select>
+        `;
+        statActual = "Fuerza";
+    } else {
+        statActual = arma.caracteristica === "fuerza" ? "Fuerza" : "Destreza";
+        statDiv.innerHTML = `<span>${statActual}</span>`;
     }
+
+    const statSelect = detalleDiv.querySelector(".statSelect");
 
     function actualizar() {
 
-        const statElegida = statSelect.value;
+        if (statSelect) statActual = statSelect.value;
 
-        const mod = obtenerMod(statElegida);
+        const mod = obtenerMod(statActual);
+        const competencia = check.checked ? obtenerCompetencia() : 0;
 
-        const competencia = parseInt(
-            document.getElementById("competencia").value.replace("+","")
-        ) || 0;
-
-        if (tipoTruco === "ataque") {
-
-            const total = mod + competencia;
-
-            resultado.innerHTML =
-                `Bonificador Ataque: ${total >= 0 ? "+" : ""}${total}`;
-
-        }
-
-        if (tipoTruco === "salvacion") {
-
-            const cd = 8 + competencia + mod;
-
-            resultado.innerHTML =
-                `CD Salvación: ${cd}`;
-
-        }
+        totalSpan.textContent = formatear(mod + competencia);
+        danioSpan.textContent = `${arma.dano} ${formatear(mod)}`;
     }
 
-    statSelect.addEventListener("change", actualizar);
+    if (statSelect) statSelect.addEventListener("change", actualizar);
+    check.addEventListener("change", actualizar);
+
     document.addEventListener("input", actualizar);
     document.addEventListener("change", actualizar);
 
     actualizar();
 }
 
+/* ================================
+   DESARMADO
+================================ */
 
-function configurarDesarmado() {
+function renderDesarmado(container) {
 
-    const dadoSelect = document.getElementById("dadoDesarmado");
-    const statSelect = document.getElementById("caracteristicaDesarmado");
-    const check = document.getElementById("competenteDesarmado");
+    container.innerHTML = `
+        <div class="bloque-ataque">
 
-    const modBaseTexto = document.getElementById("modBaseDesarmado");
-    const totalAtaqueSpan = document.getElementById("totalAtaqueDesarmado");
-    const danioTotalSpan = document.getElementById("danioTotalDesarmado");
+            <div class="fila-lineal encabezado-ataque">
+                <strong>Golpe Desarmado</strong>
+                <span>Distancia: Toque</span>
+            </div>
 
-    function obtenerMod(statNombre) {
-        const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
-        if (!input) return 0;
+            <div class="fila-lineal controles-ataque">
 
-        const modSpan = input.nextElementSibling;
-        return parseInt(modSpan.textContent.replace("+","")) || 0;
-    }
+                <select class="dadoSelect">
+                    <option>1d4</option>
+                    <option>1d6</option>
+                    <option>1d8</option>
+                </select>
+
+                <select class="statSelect">
+                    <option value="Fuerza">Fuerza</option>
+                    <option value="Destreza">Destreza</option>
+                </select>
+
+                <label>
+                    <input type="checkbox" class="competenteCheck">
+                    Competente
+                </label>
+
+                <div>
+                    Ataque: <strong class="totalAtaque">+0</strong>
+                </div>
+
+                <div>
+                    Daño: <strong class="totalDanio">1d4 +0</strong>
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    const dado = container.querySelector(".dadoSelect");
+    const stat = container.querySelector(".statSelect");
+    const check = container.querySelector(".competenteCheck");
+    const total = container.querySelector(".totalAtaque");
+    const danio = container.querySelector(".totalDanio");
 
     function actualizar() {
 
-        const statElegida = statSelect.value;
-        const modBase = obtenerMod(statElegida);
+        const mod = obtenerMod(stat.value);
+        const competencia = check.checked ? obtenerCompetencia() : 0;
 
-        const competencia = parseInt(
-            document.getElementById("competencia").value.replace("+","")
-        ) || 0;
-
-        let totalAtaque = modBase;
-
-        if (check.checked) {
-            totalAtaque += competencia;
-        }
-
-        const dado = dadoSelect.value;
-
-        modBaseTexto.textContent =
-            `Modificador Base: ${modBase >= 0 ? "+" : ""}${modBase}`;
-
-        totalAtaqueSpan.textContent =
-            `${totalAtaque >= 0 ? "+" : ""}${totalAtaque}`;
-
-        danioTotalSpan.textContent =
-            `${dado} ${modBase >= 0 ? "+" : ""}${modBase}`;
+        total.textContent = formatear(mod + competencia);
+        danio.textContent = `${dado.value} ${formatear(mod)}`;
     }
 
-    dadoSelect.addEventListener("change", actualizar);
-    statSelect.addEventListener("change", actualizar);
+    dado.addEventListener("change", actualizar);
+    stat.addEventListener("change", actualizar);
     check.addEventListener("change", actualizar);
 
+    document.addEventListener("input", actualizar);
+    document.addEventListener("change", actualizar);
+
+    actualizar();
+}
+
+/* ================================
+   TRUCOS
+================================ */
+
+function renderTrucos(container) {
+
+    container.innerHTML = `
+        <div class="bloque-ataque">
+
+            <div class="fila-lineal">
+                <label>Truco</label>
+                <select class="trucoSelect">
+                    <option value="">--</option>
+                </select>
+            </div>
+
+            <div class="detalleTruco"></div>
+
+        </div>
+    `;
+
+    const select = container.querySelector(".trucoSelect");
+    const detalle = container.querySelector(".detalleTruco");
+
+    for (let t in trucosDB) {
+        select.innerHTML += `<option value="${t}">${t}</option>`;
+    }
+
+    select.addEventListener("change", () => {
+
+        detalle.innerHTML = "";
+
+        const truco = trucosDB[select.value];
+        if (!truco) return;
+
+        detalle.innerHTML = `
+            <div class="fila-lineal encabezado-ataque">
+                <strong>${select.value}</strong>
+                <span>${truco.componentes}</span>
+                <span>${truco.distancia}</span>
+                <span>${truco.tipo}</span>
+            </div>
+
+            <div class="fila-lineal controles-ataque">
+
+                <select class="statSelect">
+                    <option value="Inteligencia">Inteligencia</option>
+                    <option value="Sabiduria">Sabiduria</option>
+                    <option value="Carisma">Carisma</option>
+                </select>
+
+                <div class="resultado"></div>
+
+            </div>
+        `;
+
+        configurarTruco(detalle, truco);
+    });
+}
+
+function configurarTruco(detalle, truco) {
+
+    const statSelect = detalle.querySelector(".statSelect");
+    const resultado = detalle.querySelector(".resultado");
+
+    function actualizar() {
+
+        const mod = obtenerMod(statSelect.value);
+        const competencia = obtenerCompetencia();
+
+        if (truco.tipo === "ataque") {
+            resultado.textContent =
+                `Ataque: ${formatear(mod + competencia)}`;
+        }
+
+        if (truco.tipo === "salvacion") {
+            resultado.textContent =
+                `CD: ${8 + competencia + mod}`;
+        }
+    }
+
+    statSelect.addEventListener("change", actualizar);
     document.addEventListener("input", actualizar);
     document.addEventListener("change", actualizar);
 

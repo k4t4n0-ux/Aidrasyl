@@ -187,6 +187,8 @@ function renderArmas(inlineExtra, detalle) {
     });
 }
 
+
+
 /* ==========================
    ARMA PERSONALIZADA
 ========================== */
@@ -203,6 +205,20 @@ function renderPersonalizada(detalle) {
             <input type="text" class="distanciaCustom" placeholder="Distancia">
 
             <input type="text" class="propiedadCustom" placeholder="Propiedades">
+
+            <select class="maestriaSelect">
+                <option value="">Maestría</option>
+                ${Object.keys(maestriasDB)
+                    .map(m => `<option value="${m}">${m}</option>`)
+                    .join("")}
+            </select>
+
+            <a href="#" class="maestriaLink infoIcon" style="display:none;">ⓘ</a>
+
+            <label>
+                <input type="checkbox" class="checkMaestria">
+                Activa
+            </label>
 
             <select class="statSelect">
                 <option value="Fuerza">Fuerza</option>
@@ -225,6 +241,19 @@ function renderPersonalizada(detalle) {
 
         </div>
     `;
+
+    const selectMaestria = detalle.querySelector(".maestriaSelect");
+    const infoIcon = detalle.querySelector(".infoIcon");
+
+    selectMaestria.addEventListener("change", () => {
+        if (selectMaestria.value) {
+            infoIcon.style.display = "inline";
+            infoIcon.textContent = "ⓘ";
+            infoIcon.dataset.maestria = selectMaestria.value;
+        } else {
+            infoIcon.style.display = "none";
+        }
+    });
 
     configurarCalculoPersonalizado(detalle);
 }
@@ -408,10 +437,10 @@ document.addEventListener("click", function(e) {
 
         e.preventDefault();
 
-        const nombre = e.target.textContent;
+        const nombre = e.target.dataset.maestria || e.target.textContent;
+
         if (!maestriasDB[nombre]) return;
 
-        // Eliminar anteriores
         const anterior = document.querySelector(".tooltipMaestria");
         if (anterior) anterior.remove();
 
@@ -430,7 +459,6 @@ document.addEventListener("click", function(e) {
         tooltip.style.top = rect.bottom + window.scrollY + 8 + "px";
         tooltip.style.left = rect.left + window.scrollX + "px";
 
-        // Cerrar al click fuera
         setTimeout(() => {
             document.addEventListener("click", function cerrar(ev){
                 if (!tooltip.contains(ev.target)) {

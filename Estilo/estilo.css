@@ -394,3 +394,7 @@ button:hover {
 #bloqueDoteTransfondo {
     width: 100%;
 }
+
+.dote-descripcion {
+    white-space: pre-line;
+}

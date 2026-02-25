@@ -105,17 +105,131 @@ const armasDB = {
             propiedad: "De carga, Ligera",
             caracteristica: "destreza"
         },
+        "Ballesta de Pesada": {
+            dano: "1d10 Perforante",
+            distancia: "100/400",
+            propiedad: "De carga, Dos Manos",
+            caracteristica: "destreza"
+        },
+        "Cerbatana": {
+            dano: "1 Perforante",
+            distancia: "25/100",
+            propiedad: "De carga",
+            caracteristica: "destreza"
+        },
+        "Cimitarra": {
+            dano: "1d6 Cortante",
+            distancia: "",
+            propiedad: "Ligera, Sutil",
+            caracteristica: "fuerza_dest"
+        },
+        "Espada Corta": {
+            dano: "1d6 Perforante",
+            distancia: "",
+            propiedad: "Ligera, Sutil",
+            caracteristica: "fuerza_dest"
+        },
         "Espada Larga": {
-            dano: "1d8",
-            distancia: "Toque",
+            dano: "1d8 Cortante",
+            distancia: "",
             propiedad: "Versátil (1d10)",
             caracteristica: "fuerza"
         },
-        "Arco Largo": {
-            dano: "1d8",
-            distancia: "150/600",
-            propiedad: "Dos Manos",
+        "Espadadon": {
+            dano: "2d6 Cortante",
+            distancia: "",
+            propiedad: "Dos Manos, Pesada",
+            caracteristica: "fuerza"
+        },
+        "Estoque": {
+            dano: "1d8 Perforante",
+            distancia: "",
+            propiedad: "Sutil",
+            caracteristica: "fuerza_dest"
+        },
+        "Flagelo": {
+            dano: "1d8 Contundente",
+            distancia: "",
+            propiedad: "",
+            caracteristica: "fuerza"
+        },
+        "Gran Hacha": {
+            dano: "1d12 Cortante",
+            distancia: "",
+            propiedad: "Dos Manos, Pesada",
+            caracteristica: "fuerza"
+        },
+        "Guja": {
+            dano: "1d10 Cortante",
+            distancia: "5",
+            propiedad: "Dos Manos, Pesada",
+            caracteristica: "fuerza"
+        },
+        "Hacha de Batalla": {
+            dano: "1d8 Cortante",
+            distancia: "",
+            propiedad: "Versátil (1d10)",
+            caracteristica: "fuerza"
+        },
+        "Lanza": {
+            dano: "1d10 Perforante",
+            distancia: "5",
+            propiedad: "Pesado, Dos manos a menos que estes montado",
+            caracteristica: "fuerza"
+        },
+        "Latigo": {
+            dano: "1d4 Contundente",
+            distancia: "5",
+            propiedad: "Sutil",
+            caracteristica: "fuerza_dest"
+        },
+        "Lucero del Alba": {
+            dano: "1d8 Perforante",
+            distancia: "",
+            propiedad: "",
+            caracteristica: "fuerza"
+        },
+        "Martillo de Guerra": {
+            dano: "1d8 Contundente",
+            distancia: "",
+            propiedad: "Versátil (1d10)",
+            caracteristica: "fuerza"
+        }, 
+        "Maza de Guerra": {
+            dano: "2d6 Contundente",
+            distancia: "",
+            propiedad: "Dos Manos, Pesada",
+            caracteristica: "fuerza"
+        },
+        "Mosquete": {
+            dano: "1d12 Perforante",
+            distancia: "40/120",
+            propiedad: "De carga, Dos Manos",
             caracteristica: "destreza"
+        },
+        "Pica": {
+            dano: "1d10 Perforante",
+            distancia: "5",
+            propiedad: "Dos Manos, Pesada",
+            caracteristica: "fuerza"
+        },
+        "Pico de Guerra": {
+            dano: "1d8 Perforante",
+            distancia: "",
+            propiedad: "",
+            caracteristica: "fuerza"
+        },
+        "Pistola": {
+            dano: "1d10 Perforante",
+            distancia: "30/90",
+            propiedad: "De carga",
+            caracteristica: "destreza"
+        },
+        "Tridente": {
+            dano: "1d6 Perforante",
+            distancia: "",
+            propiedad: "Arrojadiza (20/60), Versátil (1d8)",
+            caracteristica: "fuerza"
         }
     }
 };

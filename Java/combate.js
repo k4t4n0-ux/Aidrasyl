@@ -325,9 +325,10 @@ function renderTrucos(inlineExtra, detalle) {
             <div class="fila-lineal ataque-detalle">
 
                 <strong>${select.value}</strong>
+
                 <span>${truco.distancia}</span>
-                <span>${truco.tipo}</span>
-                <span>${truco.dano || truco.efecto}</span>
+
+                <span>Componentes: ${truco.componentes}</span>
 
                 <select class="statSelect">
                     <option value="Inteligencia">Inteligencia</option>
@@ -335,7 +336,16 @@ function renderTrucos(inlineExtra, detalle) {
                     <option value="Carisma">Carisma</option>
                 </select>
 
+                <select class="nivelTruco">
+                    <option value="1">Nivel 1</option>
+                    <option value="5">Nivel 5</option>
+                    <option value="11">Nivel 11</option>
+                    <option value="17">Nivel 17</option>
+                </select>
+
                 <span class="resultado"></span>
+
+                <span class="danoFinal"></span>
 
             </div>
         `;
@@ -410,12 +420,31 @@ function configurarCalculoPersonalizado(detalle) {
 function configurarTruco(detalle, truco) {
 
     const stat = detalle.querySelector(".statSelect");
+    const nivel = detalle.querySelector(".nivelTruco");
     const resultado = detalle.querySelector(".resultado");
+    const danoFinal = detalle.querySelector(".danoFinal");
+
+    function obtenerDanoPorNivel() {
+        const nivelActual = parseInt(nivel.value);
+
+        let danoSeleccionado = truco.dano[1];
+
+        for (let n in truco.dano) {
+            if (nivelActual >= n) {
+                danoSeleccionado = truco.dano[n];
+            }
+        }
+
+        return danoSeleccionado;
+    }
 
     function actualizar() {
 
         const mod = obtenerMod(stat.value);
         const comp = obtenerCompetencia();
+
+        const dano = obtenerDanoPorNivel();
+        danoFinal.textContent = dano;
 
         if (truco.tipo === "ataque")
             resultado.textContent = `Ataque: ${f(mod + comp)}`;
@@ -425,6 +454,8 @@ function configurarTruco(detalle, truco) {
     }
 
     stat.addEventListener("change", actualizar);
+    nivel.addEventListener("change", actualizar);
+
     document.addEventListener("input", actualizar);
     document.addEventListener("change", actualizar);
 

@@ -442,15 +442,19 @@ function configurarTruco(detalle, truco) {
 
         const mod = obtenerMod(stat.value);
         const comp = obtenerCompetencia();
-
         const dano = obtenerDanoPorNivel();
+
         danoFinal.textContent = dano;
 
-        if (truco.tipo === "ataque")
+        if (truco.tipo === "ataque") {
             resultado.textContent = `Ataque: ${f(mod + comp)}`;
+        }
 
-        if (truco.tipo === "salvacion")
-            resultado.textContent = `CD: ${8 + comp + mod}`;
+        if (truco.tipo === "salvacion") {
+            const cd = 8 + comp + mod;
+            const ts = truco.ts || "";
+            resultado.textContent = `CD ${cd} TS ${ts}`;
+        }
     }
 
     stat.addEventListener("change", actualizar);

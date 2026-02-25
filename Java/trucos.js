@@ -1,4 +1,16 @@
 const trucosDB = {
+    "Salpicadura Ácida": {
+        componentes: "V, S",
+        distancia: "60 pies Radio 5 pies",
+        tipo: "salvacion , TS Destreza",
+        dano: {
+            1: "1d6 Ácido",
+            5: "2d6 Ácido",
+            11: "3d6 Ácido",
+            17: "4d6 Ácido"
+        }
+    },
+
     "Rayo de Fuego": {
         componentes: "V, S",
         distancia: "120 pies",

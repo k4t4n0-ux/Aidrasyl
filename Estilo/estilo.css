@@ -219,7 +219,11 @@ label {
     display: flex;
     align-items: center;
     gap: 16px;
-    flex-wrap: nowrap;   /* <-- clave */
+    flex-wrap: wrap; /* ahora puede romper línea */
+}
+
+.bloque-ataque > .fila-lineal:first-child {
+    flex-wrap: nowrap;
 }
 
 .inlineExtra {

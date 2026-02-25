@@ -367,3 +367,30 @@ button:hover {
     font-size: 13px;
     color: #2c3440;
 }
+
+.zona-inferior {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Columna izquierda fija */
+#caracteristicas {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Nueva columna derecha */
+.columna-derecha {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Asegura que no flote ni se meta lateral */
+#bloqueDoteTransfondo {
+    width: 100%;
+}

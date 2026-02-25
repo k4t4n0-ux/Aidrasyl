@@ -12,6 +12,13 @@ const trucosDB = {
         }
     },
 
+    "Sala de Cuchillas": {
+        componentes: "V, S",
+        distancia: "Personal Concentracion 1 minuto",
+        tipo: "otro",
+        dano: "Cada vez que una criatura realiza una tirada de ataque contra ti antes de que termine el hechizo, el atacante resta 1d4 de la tirada de ataque."
+    },
+
     "Rayo de Fuego": {
         componentes: "V, S",
         distancia: "120 pies",

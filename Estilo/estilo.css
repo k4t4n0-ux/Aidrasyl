@@ -331,3 +331,39 @@ button:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================
+   DOTE TRANSFONDO
+========================== */
+
+#bloqueDoteTransfondo {
+    margin-top: 25px;
+}
+
+.dote-container {
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dote-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.dote-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.doteInfo {
+    font-size: 13px;
+    color: #2c3440;
+}

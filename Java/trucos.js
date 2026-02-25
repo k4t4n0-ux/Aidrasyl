@@ -12,11 +12,16 @@ const trucosDB = {
         }
     },
 
-    "Sala de Cuchillas": {
+    "Toque Frío": {
         componentes: "V, S",
-        distancia: "Personal Concentracion 1 minuto",
-        tipo: "otro",
-        dano: "Cada vez que una criatura realiza una tirada de ataque contra ti antes de que termine el hechizo, el atacante resta 1d4 de la tirada de ataque."
+        distancia: "Toque",
+        tipo: "ataque",
+        dano: {
+            1: "1d10 Necrótico y no puede recuperar puntos de vida hasta el final del siguiente turno.",
+            5: "2d10 Necrótico y no puede recuperar puntos de vida hasta el final del siguiente turno.",
+            11: "3d10 Necrótico y no puede recuperar puntos de vida hasta el final del siguiente turno.",
+            17: "4d10 Necrótico y no puede recuperar puntos de vida hasta el final del siguiente turno."
+        }
     },
 
     "Rayo de Fuego": {

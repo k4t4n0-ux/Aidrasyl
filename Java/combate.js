@@ -147,6 +147,16 @@ function renderArmas(inlineExtra, detalle) {
                 <span>${arma.distancia}</span>
                 <span>${arma.propiedad}</span>
 
+                <span class="maestria-box">
+                    Maestría:
+                    <a href="#" class="maestriaLink">${arma.maestria || "—"}</a>
+
+                    <label>
+                        <input type="checkbox" class="checkMaestria">
+                        Activa
+                    </label>
+                </span>
+
                 <select class="statSelect">
                     ${
                         arma.caracteristica === "fuerza_dest"
@@ -391,3 +401,43 @@ function configurarTruco(detalle, truco) {
 
     actualizar();
 }
+
+document.addEventListener("click", function(e) {
+
+    if (e.target.classList.contains("maestriaLink")) {
+
+        e.preventDefault();
+
+        const nombre = e.target.textContent;
+        if (!maestriasDB[nombre]) return;
+
+        // Eliminar anteriores
+        const anterior = document.querySelector(".tooltipMaestria");
+        if (anterior) anterior.remove();
+
+        const tooltip = document.createElement("div");
+        tooltip.classList.add("tooltipMaestria");
+
+        tooltip.innerHTML = `
+            <strong>${nombre}</strong>
+            <p>${maestriasDB[nombre].descripcion}</p>
+        `;
+
+        document.body.appendChild(tooltip);
+
+        const rect = e.target.getBoundingClientRect();
+
+        tooltip.style.top = rect.bottom + window.scrollY + 8 + "px";
+        tooltip.style.left = rect.left + window.scrollX + "px";
+
+        // Cerrar al click fuera
+        setTimeout(() => {
+            document.addEventListener("click", function cerrar(ev){
+                if (!tooltip.contains(ev.target)) {
+                    tooltip.remove();
+                    document.removeEventListener("click", cerrar);
+                }
+            });
+        }, 10);
+    }
+});

@@ -332,3 +332,31 @@ label {
         font-size: 26px;
     }
 }
+
+.tooltipMaestria {
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid #cfd9e6;
+    border-radius: 14px;
+    padding: 14px 18px;
+    width: 260px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    font-size: 13px;
+    z-index: 9999;
+}
+
+.tooltipMaestria strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #3a4a5f;
+}
+
+.maestriaLink {
+    color: #5b7db1;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.maestriaLink:hover {
+    color: #2f4e85;
+}   

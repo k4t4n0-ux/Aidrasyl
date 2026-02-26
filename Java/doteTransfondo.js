@@ -230,7 +230,7 @@ Decantando. Cuando terminas un descanso largo, puedes crear uno Poción de curac
 
 Retiro oportuno. Puede realizar una acción de bonificación para realizar la acción Dash o la acción Desactivar. Puede utilizar este beneficio varias veces igual a su bonificación de competencia y recuperará todos los usos gastados cuando termine un descanso prolongado.
 
-el mismo plano de existencia, el vampiro puede comunicarse con usted telepáticamente y usted puede optar por permitir que el vampiro perciba a través de sus sentidos.
+Conexión vampírica. El DM determina el destino de tu antiguo maestro vampiro. Mientras usted y su antiguo maestro vampiro están en el mismo plano de existencia, el vampiro puede comunicarse con usted telepáticamente y usted puede optar por permitir que el vampiro perciba a través de sus sentidos.
         `
     },
 

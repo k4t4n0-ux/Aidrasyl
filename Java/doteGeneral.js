@@ -1,4 +1,4 @@
-const dotesDB = {
+const dotesGeneralesDB = {
 
     "Agente de la Alianza de los Señores": {
         descripcion: `
@@ -211,21 +211,21 @@ Familia primero. Si tienes Inspiración Heroica cuando lanzas Iniciativa, puedes
 
 };
 
-const bloque = document.getElementById("bloqueDoteGeneral");
+const bloqueGeneral = document.getElementById("bloqueDoteGeneral");
 
-if (bloque) {
+if (bloqueGeneral) {
 
-    bloque.innerHTML = `
+    bloqueGeneral.innerHTML = `
         <div class="dote-bloque-unico">
 
             <div class="dote-bloque-header">
-                <strong>Dotes Generals</strong>
+                <strong>Dotes Generales</strong>
             </div>
 
-            <div id="listaDotes"></div>
+            <div id="listaDotesGenerales"></div>
 
             <div class="dote-bloque-footer">
-                <button id="btnAgregarDote" class="btnAgregarDote">
+                <button id="btnAgregarDoteGeneral" class="btnAgregarDote">
                     + Añadir Dote
                 </button>
             </div>
@@ -233,10 +233,10 @@ if (bloque) {
         </div>
     `;
 
-    const listaDotes = document.getElementById("listaDotes");
-    const btnAgregar = document.getElementById("btnAgregarDote");
+    const lista = document.getElementById("listaDotesGenerales");
+    const btnAgregar = document.getElementById("btnAgregarDoteGeneral");
 
-    function crearBloqueDote() {
+    function crearBloqueDoteGeneral() {
 
         const contenedor = document.createElement("div");
         contenedor.classList.add("dote-item");
@@ -256,7 +256,7 @@ if (bloque) {
             <div class="dote-body">
                 <select class="doteSelect">
                     <option value="">Seleccionar Dote</option>
-                    ${Object.keys(dotesDB)
+                    ${Object.keys(dotesGeneralesDB)
                         .sort((a, b) => a.localeCompare(b))
                         .map(d => `<option value="${d}">${d}</option>`)
                         .join("")}
@@ -284,9 +284,8 @@ if (bloque) {
         select.addEventListener("change", () => {
 
             const nombre = select.value;
-            const dote = dotesDB[nombre];
+            const dote = dotesGeneralesDB[nombre];
 
-            // Cambiar título dinámico
             if (nombre) {
                 titulo.textContent = `Dote General (${nombre})`;
             } else {
@@ -308,11 +307,9 @@ if (bloque) {
             contenedor.remove();
         });
 
-        listaDotes.appendChild(contenedor);
+        lista.appendChild(contenedor);
     }
 
-    // Primera dote automática
-    crearBloqueDote();
-
-    btnAgregar.addEventListener("click", crearBloqueDote);
+    crearBloqueDoteGeneral();
+    btnAgregar.addEventListener("click", crearBloqueDoteGeneral);
 }

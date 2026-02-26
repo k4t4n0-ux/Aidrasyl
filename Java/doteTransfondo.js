@@ -216,11 +216,27 @@ const bloque = document.getElementById("bloqueDoteTransfondo");
 if (bloque) {
 
     bloque.innerHTML = `
-        <div class="dote-container">
+        <div class="dotes-wrapper">
+            <div id="listaDotes"></div>
+            <button id="btnAgregarDote" class="btnAgregarDote">+ Añadir Dote</button>
+        </div>
+    `;
 
+    const listaDotes = document.getElementById("listaDotes");
+    const btnAgregar = document.getElementById("btnAgregarDote");
+
+    function crearBloqueDote() {
+
+        const contenedor = document.createElement("div");
+        contenedor.classList.add("dote-container");
+
+        contenedor.innerHTML = `
             <div class="dote-header">
                 <strong>Dote de Origen</strong>
-                <button class="toggleDote">▼</button>
+                <div class="dote-header-botones">
+                    <button class="toggleDote">▼</button>
+                    <button class="btnEliminarDote">✖</button>
+                </div>
             </div>
 
             <div class="dote-body">
@@ -233,36 +249,49 @@ if (bloque) {
 
                 <div class="doteInfo"></div>
             </div>
-
-        </div>
-    `;
-
-    const toggle = bloque.querySelector(".toggleDote");
-    const body = bloque.querySelector(".dote-body");
-    const select = bloque.querySelector(".doteSelect");
-    const info = bloque.querySelector(".doteInfo");
-
-    // Empieza cerrada
-    body.style.display = "none";
-
-    toggle.addEventListener("click", () => {
-        const abierta = body.style.display === "block";
-        body.style.display = abierta ? "none" : "block";
-        toggle.textContent = abierta ? "▼" : "▲";
-    });
-
-    select.addEventListener("change", () => {
-
-        const dote = dotesDB[select.value];
-
-        if (!dote) {
-            info.innerHTML = "";
-            return;
-        }
-
-        info.innerHTML = `
-            <hr>
-            <p class="dote-descripcion">${dote.descripcion}</p>
         `;
+
+        const toggle = contenedor.querySelector(".toggleDote");
+        const body = contenedor.querySelector(".dote-body");
+        const select = contenedor.querySelector(".doteSelect");
+        const info = contenedor.querySelector(".doteInfo");
+        const btnEliminar = contenedor.querySelector(".btnEliminarDote");
+
+        // Empieza cerrado
+        body.style.display = "none";
+
+        toggle.addEventListener("click", () => {
+            const abierta = body.style.display === "block";
+            body.style.display = abierta ? "none" : "block";
+            toggle.textContent = abierta ? "▼" : "▲";
+        });
+
+        select.addEventListener("change", () => {
+            const dote = dotesDB[select.value];
+
+            if (!dote) {
+                info.innerHTML = "";
+                return;
+            }
+
+            info.innerHTML = `
+                <hr>
+                <p class="dote-descripcion">${dote.descripcion}</p>
+            `;
+        });
+
+        btnEliminar.addEventListener("click", () => {
+            contenedor.remove();
+        });
+
+        listaDotes.appendChild(contenedor);
+    }
+
+    // Primer bloque automático
+    crearBloqueDote();
+
+    // Botón añadir
+    btnAgregar.addEventListener("click", () => {
+        crearBloqueDote();
     });
 }

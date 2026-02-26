@@ -1,12 +1,16 @@
 const dotesDB = {
 
     "Iniciado Mágico": {
-        descripcion: "Aprendes dos trucos de tu elección de la lista de hechizos de Clérigo, Druida o Mago. Inteligencia, Sabiduría o Carisma es tu característica para lanzar estos hechizos (eliges al seleccionar esta dote)." +
-        "Elige un hechizo de nivel 1 de la misma lista que seleccionaste para los trucos. Siempre tienes ese hechizo preparado. Puedes lanzarlo una vez sin gastar espacio de conjuro y recuperas esta capacidad al finalizar un descanso largo. También puedes lanzarlo usando cualquier espacio de conjuro que tengas." +
-        "Cada vez que obtienes un nivel, puedes reemplazar uno de los hechizos elegidos por otro diferente del mismo nivel de la lista seleccionada." +
-        "Puedes escoger esta dote más de una vez, pero debes elegir una lista de hechizos diferente cada vez."
+        descripcion: `
+Aprendes dos trucos de tu elección de la lista de hechizos de Clérigo, Druida o Mago. Inteligencia, Sabiduría o Carisma es tu característica para lanzar estos hechizos (eliges al seleccionar esta dote).
 
-    },
+Elige un hechizo de nivel 1 de la misma lista que seleccionaste para los trucos. Siempre tienes ese hechizo preparado. Puedes lanzarlo una vez sin gastar espacio de conjuro y recuperas esta capacidad al finalizar un descanso largo. También puedes lanzarlo usando cualquier espacio de conjuro que tengas.
+
+Cada vez que obtienes un nivel, puedes reemplazar uno de los hechizos elegidos por otro diferente del mismo nivel de la lista seleccionada.
+
+Puedes escoger esta dote más de una vez, pero debes elegir una lista de hechizos diferente cada vez.
+        `
+    },  
 
     "Resistente": {
         descripcion: `
@@ -176,7 +180,7 @@ if (bloque) {
 
         info.innerHTML = `
             <hr>
-            <p>${dote.descripcion}</p>
+            <p class="dote-descripcion">${dote.descripcion}</p>
         `;
     });
 }

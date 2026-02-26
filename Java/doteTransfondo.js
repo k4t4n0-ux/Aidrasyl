@@ -216,9 +216,20 @@ const bloque = document.getElementById("bloqueDoteTransfondo");
 if (bloque) {
 
     bloque.innerHTML = `
-        <div class="dotes-wrapper">
+        <div class="dote-bloque-unico">
+
+            <div class="dote-bloque-header">
+                <strong>Dotes de Origen</strong>
+            </div>
+
             <div id="listaDotes"></div>
-            <button id="btnAgregarDote" class="btnAgregarDote">+ Añadir Dote</button>
+
+            <div class="dote-bloque-footer">
+                <button id="btnAgregarDote" class="btnAgregarDote">
+                    + Añadir Dote
+                </button>
+            </div>
+
         </div>
     `;
 
@@ -228,11 +239,14 @@ if (bloque) {
     function crearBloqueDote() {
 
         const contenedor = document.createElement("div");
-        contenedor.classList.add("dote-container");
+        contenedor.classList.add("dote-item");
 
         contenedor.innerHTML = `
             <div class="dote-header">
-                <strong>Dote de Origen</strong>
+                <strong class="tituloDote">
+                    Dote de Origen
+                </strong>
+
                 <div class="dote-header-botones">
                     <button class="toggleDote">▼</button>
                     <button class="btnEliminarDote">✖</button>
@@ -243,6 +257,7 @@ if (bloque) {
                 <select class="doteSelect">
                     <option value="">Seleccionar Dote</option>
                     ${Object.keys(dotesDB)
+                        .sort((a, b) => a.localeCompare(b))
                         .map(d => `<option value="${d}">${d}</option>`)
                         .join("")}
                 </select>
@@ -256,8 +271,8 @@ if (bloque) {
         const select = contenedor.querySelector(".doteSelect");
         const info = contenedor.querySelector(".doteInfo");
         const btnEliminar = contenedor.querySelector(".btnEliminarDote");
+        const titulo = contenedor.querySelector(".tituloDote");
 
-        // Empieza cerrado
         body.style.display = "none";
 
         toggle.addEventListener("click", () => {
@@ -267,7 +282,16 @@ if (bloque) {
         });
 
         select.addEventListener("change", () => {
-            const dote = dotesDB[select.value];
+
+            const nombre = select.value;
+            const dote = dotesDB[nombre];
+
+            // Cambiar título dinámico
+            if (nombre) {
+                titulo.textContent = `Dote de Origen (${nombre})`;
+            } else {
+                titulo.textContent = `Dote de Origen`;
+            }
 
             if (!dote) {
                 info.innerHTML = "";
@@ -287,11 +311,8 @@ if (bloque) {
         listaDotes.appendChild(contenedor);
     }
 
-    // Primer bloque automático
+    // Primera dote automática
     crearBloqueDote();
 
-    // Botón añadir
-    btnAgregar.addEventListener("click", () => {
-        crearBloqueDote();
-    });
+    btnAgregar.addEventListener("click", crearBloqueDote);
 }

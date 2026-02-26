@@ -443,3 +443,63 @@ button:hover {
     background: #ff6b6b;
     color: white;
 }
+
+.dote-bloque-unico {
+    background: #f8fbff;
+    border: 1px solid #d9e6f5;
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.dote-bloque-header {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.dote-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 14px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dote-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dote-header-botones {
+    display: flex;
+    gap: 8px;
+}
+
+.dote-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btnEliminarDote {
+    background: #ffe5e5;
+    border: 1px solid #ffb5b5;
+}
+
+.btnEliminarDote:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+.dote-bloque-footer {
+    display: flex;
+}
+
+.btnAgregarDote {
+    align-self: flex-start;
+}

@@ -4,11 +4,11 @@ const dotesGeneralesDB = {
         descripcion: `
 Requisito previo: Nivel 4+, Carisma 13+
 
-Aumento de la puntuación de habilidad. Aumenta tu puntuación de Charisma en 1, hasta un máximo de 20.
+Aumento de la puntuación de característica. Aumenta tu puntuación de Carisma en 1, hasta un máximo de 20.
 
-Suplantación. Si bien estás disfrazado de una persona real o ficticia, tienes controles de Ventaja en el Carisma (Engaño o Rendimiento) para convencer a otros de que eres esa persona.
+Suplantación. Mientras estés disfrazado de una persona real o ficticia, tienes ventaja en las pruebas de Carisma (Engaño o Interpretación) para convencer a otros de que eres esa persona.
 
-Mimetismo. Puedes imitar los sonidos de otras criaturas, incluido el habla. Una criatura que escucha el mimetismo debe tener éxito en una verificación de Sabiduría (Insight) para determinar que el efecto es falso (DC 8 más su modificador de Carisma y bonificación de competencia).
+Mimetismo. Puedes imitar los sonidos de otras criaturas, incluido el habla. Una criatura que escuche el mimetismo debe superar una prueba de Sabiduría (Perspicacia) contra CD 8 + tu modificador de Carisma + tu bonificación por competencia para determinar que el efecto es falso.
         `
     },
 
@@ -16,13 +16,13 @@ Mimetismo. Puedes imitar los sonidos de otras criaturas, incluido el habla. Una 
         descripcion: `
 Requisito previo: Nivel 4+, Fuerza o Destreza 13+
 
-Aumento de la puntuación de habilidad. Aumente su puntuación de Fuerza o Destreza en 1, hasta un máximo de 20.
+Aumento de la puntuación de característica. Aumenta tu puntuación de Fuerza o Destreza en 1, hasta un máximo de 20.
 
-Velocidad de subida. Obtienes una velocidad de ascenso igual a tu velocidad.
+Velocidad de escalada. Obtienes una velocidad de escalada igual a tu velocidad.
 
-Saltar. Cuando tienes la condición de Prone, puedes enderezarte con solo 5 pies de movimiento.
+Levantarse. Cuando tengas la condición de Prono, puedes levantarte gastando solo 5 pies de movimiento.
 
-Saltando. Puedes realizar un salto largo o alto corriendo después de moverte solo 5 pies.
+Salto ágil. Puedes realizar un salto largo o alto después de moverte solo 5 pies.
         `
     },
 
@@ -104,23 +104,23 @@ Sorteo rápido. Puedes sacar o guardar dos armas que carecen de la propiedad de 
         descripcion: `
 Requisito previo: Nivel 4+
 
-Aumento de la puntuación de habilidad. Aumente su puntuación de Constitución en 1, hasta un máximo de 20.
+Aumento de la puntuación de característica. Aumenta tu puntuación de Constitución en 1, hasta un máximo de 20.
 
-Desafiar la muerte. Tienes ventaja sobre los lanzamientos para salvar muertes.
+Desafiar la muerte. Tienes ventaja en las tiradas de salvación contra muerte.
 
-Recuperación rápida. Como acción de bonificación, puedes gastar uno de tus dados de puntos de vida, tirar el dado y recuperar una cantidad de puntos de vida igual a la tirada.
+Recuperación rápida. Como acción adicional, puedes gastar uno de tus Dados de Golpe, tirarlo y recuperar una cantidad de puntos de golpe igual al resultado.
         `
     },
 
     "Adepto elemental": {
         descripcion: `
-Requisito previo: Nivel 4+, Lanzamiento de hechizos o Función Pact Magic
+Requisito previo: Nivel 4+, Lanzamiento de conjuros o Rasgo Pact Magic
 
-Aumento de la puntuación de habilidad. Aumente su puntuación de Inteligencia, Sabiduría o Carisma en 1, hasta un máximo de 20.
+Aumento de la puntuación de característica. Aumenta tu puntuación de Inteligencia, Sabiduría o Carisma en 1, hasta un máximo de 20.
 
-Dominio de la energía. Elija uno de los siguientes tipos de daños: ácido, frío, fuego, relámpago o trueno. Los hechizos que lances ignoran Resistencia al daño del tipo elegido. Además, cuando lanzas daño por un hechizo que lanzas que inflige daño de ese tipo, puedes tratar cualquier 1 en un dado de daño como un 2.
+Dominio de la energía. Elige uno de los siguientes tipos de daño: ácido, frío, fuego, rayo o trueno. Los conjuros que lanzas ignoran la resistencia al tipo de daño elegido. Además, cuando tires daño para un conjuro que inflija daño de ese tipo, puedes tratar cualquier resultado de 1 en un dado de daño como un 2.
 
-Repetible. Puedes realizar esta hazaña más de una vez, pero debes elegir un tipo de daño diferente cada vez para el dominio de la energía.
+Repetible. Puedes elegir esta dote más de una vez, pero debes escoger un tipo de daño diferente cada vez.
         `
     },
 
@@ -152,11 +152,11 @@ Luchador rápido. No tienes que gastar más movimiento para mover una criatura a
         descripcion: `
 Requisito previo: Nivel 4+, Fuerza 13+
 
-Aumento de la puntuación de habilidad. Aumente su puntuación de Fuerza en 1, hasta un máximo de 20.
+Aumento de la puntuación de característica. Aumenta tu puntuación de Fuerza en 1, hasta un máximo de 20.
 
-Dominio de armas pesadas. Cuando golpeas a una criatura con un arma que tiene la propiedad Pesada como parte de la acción de Ataque en tu turno, puedes hacer que el arma cause daño adicional al objetivo. El daño adicional equivale a su bonificación de competencia.
+Dominio de armas pesadas. Cuando impactas a una criatura con un arma que tenga la propiedad Pesada como parte de la acción de Ataque en tu turno, puedes hacer que el arma cause daño adicional igual a tu bonificación por competencia.
 
-Hew. Inmediatamente después de obtener un golpe crítico con un arma cuerpo a cuerpo o reducir una criatura a 0 puntos de vida con uno, puedes realizar un ataque con la misma arma que una acción de bonificación.
+Corte. Inmediatamente después de conseguir un golpe crítico con un arma cuerpo a cuerpo o reducir una criatura a 0 puntos de golpe con ella, puedes realizar un ataque con la misma arma como acción adicional.
         `
     },
 
@@ -231,9 +231,9 @@ Competencia con armas. Obtienes competencia con las armas marciales.
         descripcion: `
 Requisito previo: Nivel 4+, Entrenamiento con armadura media
 
-Aumento de la puntuación de habilidad. Aumente su puntuación de Fuerza o Destreza en 1, hasta un máximo de 20.
+Aumento de la puntuación de característica. Aumenta tu puntuación de Fuerza o Destreza en 1, hasta un máximo de 20.
 
-Portador diestro. Mientras usas una armadura mediana, puedes agregar 3, en lugar de 2, a tu aire acondicionado si tienes una puntuación de destreza de 16 o más.
+Portador diestro. Mientras lleves armadura media, puedes añadir hasta +3 a tu Clase de Armadura por tu Destreza, en lugar de +2, si tienes Destreza 16 o superior.
         `
     },
     "Moderadamente blindado": {
@@ -249,13 +249,13 @@ Entrenamiento de armadura. Obtienes entrenamiento con armadura mediana.
         descripcion: `
 Requisito previo: Nivel 4+
 
-Aumento de la puntuación de habilidad. Aumente su puntuación de Fuerza, Destreza o Sabiduría en 1, hasta un máximo de 20.
+Aumento de la puntuación de característica. Aumenta tu puntuación de Fuerza, Destreza o Sabiduría en 1, hasta un máximo de 20.
 
-Golpe montado. Mientras está montado, tiene ventaja en las tiradas de ataque contra cualquier criatura desmontada dentro de 5 pies de su montura que sea al menos un tamaño más pequeño que la montura.
+Golpe montado. Mientras estés montado, tienes ventaja en las tiradas de ataque contra criaturas desmontadas a 5 pies de tu montura que sean al menos un tamaño menor que ella.
 
-Saltar a un lado. Si su montura está sujeta a un efecto que le permite realizar una tirada de salvación de Dexterity para recibir solo la mitad del daño, en cambio no recibe daño si tiene éxito en la tirada de salvación y solo la mitad del daño si falla. Para que tu montura obtenga este beneficio, debes montarla y ninguno de los dos puede tener la condición de Incapacitado.
+Esquiva montada. Si tu montura está sujeta a un efecto que le permite hacer una tirada de salvación de Destreza para recibir solo la mitad de daño, en su lugar no recibe daño si supera la tirada, y solo la mitad si falla. Para beneficiarse, debes estar montándola y ninguno de los dos puede estar Incapacitado.
 
-Veer. Mientras está montado, puede forzar un ataque que golpee su montura para golpearlo si no tiene la condición de incapacitado.
+Redirigir ataque. Mientras estés montado, puedes forzar que un ataque que impacte a tu montura te impacte a ti en su lugar si no estás Incapacitado.
         `
     },
     "Observador": {
@@ -347,24 +347,24 @@ Magia de las Sombras. Elige un hechizo de nivel 1 de la escuela de magia Illusio
         descripcion: `
 Requisito previo: Nivel 4+, Destreza 13+
 
-Aumento de la puntuación de habilidad. Aumente su puntuación de destreza en 1, hasta un máximo de 20.
+Aumento de la puntuación de característica. Aumenta tu puntuación de Destreza en 1, hasta un máximo de 20.
 
-Cubierta de derivación. Tus ataques a distancia con armas ignoran Half Cover y Three-Quarters Cover.
+Ignorar cobertura. Tus ataques a distancia con armas ignoran media cobertura y cobertura de tres cuartos.
 
-Disparando en cuerpo a cuerpo. Estar a menos de 5 pies de un enemigo no impone desventajas en tus tiradas de ataque con armas a distancia.
+Disparo en cuerpo a cuerpo. Estar a 5 pies de un enemigo no impone desventaja en tus tiradas de ataque con armas a distancia.
 
-Tiros largos. Atacar a larga distancia no impone desventajas en tus tiradas de ataque con armas a distancia.
+Tiros lejanos. Atacar a larga distancia no impone desventaja en tus tiradas de ataque con armas a distancia.
         `
     },
-        "Maestro Escudo": {
+    "Maestro Escudo": {
         descripcion: `
-Requisito previo: Nivel 4+, Entrenamiento Shield
+Requisito previo: Nivel 4+, Entrenamiento con escudos
 
-Aumento de la puntuación de habilidad. Aumente su puntuación de Fuerza en 1, hasta un máximo de 20.
+Aumento de la puntuación de característica. Aumenta tu puntuación de Fuerza en 1, hasta un máximo de 20.
 
-Golpe de escudo. Si atacas a una criatura a menos de 5 pies de ti como parte de la acción de ataque y golpeas con un arma cuerpo a cuerpo, puedes atacar inmediatamente al objetivo con tu Escudo si está equipado, obligándolo a realizar un lanzamiento de salvación de Fuerza (DC 8 más tu Modificador de fuerza y bonificación de competencia). En una salvada fallida, empujas el objetivo a 5 pies de ti o haces que tenga la condición de Prono (tu elección). Puedes utilizar este beneficio sólo una vez en cada uno de tus turnos.
+Golpe de escudo. Si impactas a una criatura a 5 pies de ti con un arma cuerpo a cuerpo como parte de la acción de Ataque, puedes usar una acción adicional para golpearla con tu escudo si lo tienes equipado. El objetivo debe superar una tirada de salvación de Fuerza (CD 8 + tu modificador de Fuerza + tu bonificación por competencia) o ser empujado 5 pies o quedar Prono (a tu elección). Solo una vez por turno.
 
-Interponer Escudo. Si estás sujeto a un efecto que te permite realizar un lanzamiento de salvación de destreza para recibir solo la mitad del daño, puedes realizar una reacción para no recibir daño si tienes éxito en el lanzamiento de salvación y sostienes un escudo.
+Interponer escudo. Si estás sujeto a un efecto que te permite hacer una tirada de salvación de Destreza para recibir solo la mitad de daño, puedes usar tu reacción para no recibir daño si superas la tirada y estás empuñando un escudo.
         `
     },    "Experto en habilidades": {
         descripcion: `

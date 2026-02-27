@@ -2,25 +2,25 @@ const dotesMarcaDB = {
 
     "Marca de dragón aberrante": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca.
 
-Fortaleza aberrante. Cuando fallas en una tirada de salvación de la Constitución, puedes tomar una reacción para tirar 1d4 y agregar el número obtenido a la tirada, lo que potencialmente convierte el fracaso en un éxito. Una vez que haya utilizado este beneficio, no podrá volver a utilizarlo hasta que termine un descanso prolongado.
+Fortaleza aberrante. Cuando fallas una tirada de salvación de Constitución, puedes usar tu reacción para tirar 1d4 y sumar el resultado a la tirada, pudiendo convertir el fallo en éxito. Recuperas este uso tras un descanso largo.
 
-Magia aberrante. Sabes que uno puede viajar de tu elección desde el Lista de hechiceros de hechicero. Además, elija un hechizo de nivel 1 de esa lista de hechizos. Siempre tienes ese hechizo preparado. Puedes lanzarlo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso corto o largo. También puedes lanzar este hechizo usando cualquier espacio para hechizos que tengas. La constitución es tu habilidad para lanzar hechizos para este hechizo.
+Magia aberrante. Aprendes un truco de la lista de Hechicero. Además, eliges un hechizo de nivel 1 de esa lista. Siempre lo tienes preparado. Puedes lanzarlo una vez sin gastar espacio de conjuro y recuperas ese uso tras un descanso corto o largo. Constitución es tu característica para lanzar este hechizo.
 
-Oleada aberrante. Cuando lanzas el hechizo de nivel 1 de esta hazaña, puedes gastar uno de tus dados Hit Point y tirarlo. Si arrojas un número par, obtienes un número de puntos de vida temporales igual al número obtenido. Si haces rodar un número impar, una criatura a menos de 30 pies de ti (sin incluirte) recibe un daño de Fuerza igual al número rodado. Si no hay otras criaturas dentro del alcance, recibirás el daño.
+Oleada aberrante. Cuando lanzas el hechizo de nivel 1 de esta dote, puedes gastar un Dado de Golpe y tirarlo. Si el resultado es par, obtienes puntos de golpe temporales iguales al resultado. Si es impar, una criatura a 30 pies recibe daño de fuerza igual al resultado (si no hay otra criatura, tú recibes el daño).
         `
     },
 
     "Marca de detección": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca.
 
-Intuición deductiva. Cuando realiza una verificación de Inteligencia (Investigación) o Sabiduría (Insight), puede tirar 1d4 y agregar el número obtenido a la verificación de habilidad.
+Intuición deductiva. Cuando realizas una prueba de Inteligencia (Investigación) o Sabiduría (Perspicacia), puedes tirar 1d4 y añadir el resultado.
 
-Detección mágica. Siempre tienes el Detectar magia y Detectar veneno y enfermedad hechizos preparados. Puedes lanzar cada hechizo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzar estos hechizos usando cualquier espacio para hechizos que tengas del nivel apropiado. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para estos hechizos (elige cuando seleccionas esta hazaña).
+Detección mágica. Siempre tienes preparados Detectar magia y Detectar veneno y enfermedad. Puedes lanzar cada uno una vez sin gastar espacio de conjuro y recuperas el uso tras un descanso largo. También puedes lanzarlos usando tus espacios de conjuro. La característica de lanzamiento es Inteligencia, Sabiduría o Carisma (a tu elección).
 
-Cuando alcanzas el nivel de personaje 3, también siempre tienes el Ver Invisibilidad hechizo preparado y puede lanzarlo de la misma manera.
+A nivel 3, también tienes preparado Ver invisibilidad bajo las mismas reglas.
 
 Hechizos de la Marca. Si tiene la función Spellcasting o Pact Magic, los hechizos en la tabla Marca de hechizos de detección se agregan a la lista de hechizos de esa función.
 
@@ -36,13 +36,13 @@ Nivel de hechizo	Hechizos
 
     "Marca de hallazgo": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca.
 
-La intuición del cazador. Cuando realiza una verificación de Sabiduría (Percepción o Supervivencia), puede tirar 1d4 y agregar el número obtenido a la verificación de habilidad.
+Intuición del cazador. Cuando realizas una prueba de Sabiduría (Percepción o Supervivencia), puedes tirar 1d4 y añadir el resultado.
 
-La magia del buscador. Siempre tienes el La marca del cazador hechizo preparado. Puedes lanzarlo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzarlo usando cualquier espacio para hechizos que tengas del nivel apropiado. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para este hechizo (elige cuando seleccionas esta hazaña).
+Magia del buscador. Siempre tienes preparado Marca del cazador. Puedes lanzarlo una vez sin gastar espacio de conjuro y recuperas el uso tras un descanso largo. También puedes lanzarlo usando espacios de conjuro. La característica de lanzamiento es Inteligencia, Sabiduría o Carisma (a tu elección).
 
-Cuando alcanzas el nivel de personaje 3, también siempre tienes el Localizar objeto hechizo preparado y puede lanzarlo de la misma manera.
+A nivel 3, también tienes preparado Localizar objeto bajo las mismas reglas.
 
 Hechizos de la Marca. Si tiene la función Spellcasting o Pact Magic, los hechizos en la tabla Marca de encontrar hechizos se agregan a la lista de hechizos de esa función.
 
@@ -80,13 +80,13 @@ Nivel de hechizo	Hechizos
 
     "Marca de curación": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca.
 
-Intuición médica. Cuando realiza una verificación de Sabiduría (Medicina) o una verificación de habilidad usando un kit de herboristería, puede tirar 1d4 y agregar el número obtenido a la verificación de habilidad.
+Intuición médica. Cuando realizas una prueba de Sabiduría (Medicina) o una prueba usando un kit de herboristería, puedes tirar 1d4 y añadir el resultado.
 
-Toque curativo. Siempre tienes el Curar heridas hechizo preparado. Puedes lanzarlo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzarlo usando cualquier espacio para hechizos que tengas del nivel apropiado. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para estos hechizos (elige cuando seleccionas esta hazaña).
+Toque curativo. Siempre tienes preparado Curar heridas. Puedes lanzarlo una vez sin gastar espacio de conjuro y recuperas el uso tras un descanso largo. También puedes lanzarlo usando espacios de conjuro. La característica de lanzamiento es Inteligencia, Sabiduría o Carisma (a tu elección).
 
-Cuando llegas al nivel de personaje 3, también siempre tienes el Restauración menor hechizo preparado y puede lanzarlo de la misma manera.
+A nivel 3, también tienes preparado Restauración menor bajo las mismas reglas.
 
 Hechizos de la Marca. Si tiene la función Spellcasting o Pact Magic, los hechizos en la tabla Marca de hechizos curativos se agregan a la lista de hechizos de esa función.
 
@@ -102,13 +102,13 @@ Nivel de hechizo	Hechizos
 
     "Marca de hospitalidad": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca.
 
-Siempre hospitalario. Cuando realiza una verificación de carisma (persuasión) o una verificación de habilidades utilizando suministros para cerveceros o utensilios de cocina, puede tirar 1d4 y agregar el número obtenido a la verificación de habilidades.
+Siempre hospitalario. Cuando realizas una prueba de Carisma (Persuasión) o usando utensilios de cocina o suministros de cervecero, puedes tirar 1d4 y añadir el resultado.
 
-La magia del posadero. Siempre tienes el Purificar Alimentos y Bebidas y Siervo invisible hechizos preparados. Puedes lanzar cada hechizo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzar estos hechizos usando cualquier espacio para hechizos que tengas del nivel apropiado. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para estos hechizos (elige cuando seleccionas esta hazaña).
+Magia del posadero. Siempre tienes preparados Purificar comida y bebida y Siervo invisible. Puedes lanzar cada uno una vez sin gastar espacio de conjuro y recuperas el uso tras un descanso largo. También puedes lanzarlos usando espacios de conjuro. La característica de lanzamiento es Inteligencia, Sabiduría o Carisma (a tu elección).
 
-Cuando llegas al nivel de personaje 3, también siempre tienes el Emociones tranquilas hechizo preparado y puede lanzarlo de la misma manera.
+A nivel 3, también tienes preparado Calmar emociones bajo las mismas reglas.
 
 Hechizos de la Marca. Si tiene la función Spellcasting o Pact Magic, los hechizos en la tabla Marca de hechizos de hospitalidad se agregan a la lista de hechizos de esa función.
 
@@ -124,11 +124,11 @@ Nivel de hechizo	Hechizos
 
     "Marca de creación": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca.
 
-La intuición del artesano. Cuando realiza una verificación de Inteligencia (Arcana) o una verificación de habilidad usando las Herramientas de Artisan, puede tirar 1d4 y agregar el número obtenido a la verificación de habilidad.
+Intuición del artesano. Cuando realizas una prueba de Inteligencia (Arcana) o usando herramientas de artesano, puedes tirar 1d4 y añadir el resultado.
 
-Hechicero. Ya sabes el Reparando no puedo viajar. También siempre tienes el Arma mágica hechizo preparado. Puedes lanzarlo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzarlo usando cualquier espacio para hechizos que tengas. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para estos hechizos (elige cuando seleccionas esta hazaña).
+Artífice de hechizos. Aprendes el truco Reparar. Siempre tienes preparado Arma mágica. Puedes lanzarlo una vez sin gastar espacio de conjuro y recuperas el uso tras un descanso largo. También puedes lanzarlo usando espacios de conjuro. La característica de lanzamiento es Inteligencia, Sabiduría o Carisma (a tu elección).
 
 Hechizos de la Marca. Si tiene la función Spellcasting o Pact Magic, los hechizos en la tabla Marca de creación de hechizos se agregan a la lista de hechizos de esa función.
 
@@ -144,13 +144,13 @@ Nivel de hechizo	Hechizos
 
     "Marca de paso": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca.
 
-La velocidad del mensajero. Tu velocidad aumenta en 5 pies.
+Velocidad del mensajero. Tu velocidad aumenta en 5 pies.
 
-Movimiento intuitivo. Cuando realizas una verificación de Fuerza (Atletismo) o Destreza (Acrobática), puedes tirar 1d4 y agregar el número obtenido a la verificación de habilidad.
+Movimiento intuitivo. Cuando realizas una prueba de Fuerza (Atletismo) o Destreza (Acrobacias), puedes tirar 1d4 y añadir el resultado.
 
-Pasaje Mágico. Siempre tienes el Paso brumoso hechizo preparado. Puedes lanzarlo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzarlo usando cualquier espacio para hechizos que tengas. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para este hechizo (elige cuando seleccionas esta hazaña).
+Pasaje mágico. Siempre tienes preparado Paso brumoso. Puedes lanzarlo una vez sin gastar espacio de conjuro y recuperas el uso tras un descanso largo. También puedes lanzarlo usando espacios de conjuro. La característica de lanzamiento es Inteligencia, Sabiduría o Carisma (a tu elección).
 
 Hechizos de la Marca. Si tiene la función Spellcasting o Pact Magic, los hechizos en la tabla Marca de hechizos de paso se agregan a la lista de hechizos de esa función.
 
@@ -194,13 +194,13 @@ Nivel de hechizo	Hechizos
 
     "Marca de centinela": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca.
 
-La intuición del centinela. Cuando realizas una verificación de Sabiduría (Insight o Percepción), puedes tirar 1d4 y agregar el número obtenido a la verificación de habilidad.
+Intuición del centinela. Cuando realizas una prueba de Sabiduría (Perspicacia o Percepción), puedes tirar 1d4 y añadir el resultado.
 
-Escudo del guardián. Siempre tienes el Escudo hechizo preparado. Puedes lanzarlo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzarlo usando cualquier espacio para hechizos que tengas. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para este hechizo (elige cuando seleccionas esta hazaña).
+Escudo del guardián. Siempre tienes preparado Escudo. Puedes lanzarlo una vez sin gastar espacio de conjuro y recuperas el uso tras un descanso largo. También puedes lanzarlo usando espacios de conjuro. La característica de lanzamiento es Inteligencia, Sabiduría o Carisma (a tu elección).
 
-Guardián vigilante. Cuando una criatura que puedes ver a menos de 5 pies de ti es golpeada por una tirada de ataque, puedes tomar una reacción para intercambiar lugares con esa criatura y, en su lugar, eres golpeado por el ataque. Puede utilizar esta función varias veces igual a su bonificación de competencia y recuperar todos los usos gastados cuando termine un descanso prolongado.
+Guardián vigilante. Cuando una criatura a 5 pies de ti es golpeada por un ataque, puedes usar tu reacción para intercambiar posiciones con ella y convertirte tú en el objetivo. Usos iguales a tu bonificación por competencia por descanso largo.
 
 Hechizos de la Marca. Si tiene la función Spellcasting o Pact Magic, los hechizos en la tabla Marca de hechizos centinela se agregan a la lista de hechizos de esa función.
 
@@ -235,15 +235,13 @@ Nivel de hechizo	Hechizos
         `
     },
 
-    "Marca de tormenta": {
+    "Marca de sombra": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca.
 
-La intuición de Windwright. Cuando realiza una verificación de destreza (acrobacia) o una verificación de habilidad usando las herramientas de Navigator, puede tirar 1d4 y agregar el número obtenido a la verificación de habilidad.
+Intuición astuta. Cuando realizas una prueba de Destreza (Sigilo) o Carisma (Interpretación), puedes tirar 1d4 y añadir el resultado.
 
-La bendición de la tormenta. Tienes resistencia al daño del rayo.
-
-Magia de tormenta. Ya sabes el Trueno no puedo viajar. Cuando llegas al nivel de personaje 3, también siempre tienes el Ráfaga de viento hechizo preparado. Puedes lanzarlo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzarlo usando cualquier espacio para hechizos que tengas del nivel apropiado. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para estos hechizos (elige cuando seleccionas esta hazaña).
+Sombras modeladas. Aprendes el truco Ilusión menor. Siempre tienes preparado Invisibilidad. Puedes lanzarlo una vez sin gastar espacio de conjuro y recuperas el uso tras un descanso largo. También puedes lanzarlo usando espacios de conjuro. La característica de lanzamiento es Inteligencia, Sabiduría o Carisma (a tu elección).
 
 Hechizos de la Marca. Si tiene la función Spellcasting o Pact Magic, los hechizos en la tabla Marca de hechizos de tormenta se agregan a la lista de hechizos de esa función.
 
@@ -312,13 +310,7 @@ Intuición mejorada. Cuando utilizas el beneficio Hunter's Intuition de tu haza�
 Búsqueda mejorada. Cuando usas el beneficio de Finder's Magic de tu Marca de Hallazgo para lanzar La marca del cazador sin una ranura para hechizos, el alcance del hechizo se duplica y puedes modificarlo para que el objetivo no pueda beneficiarse de la condición Invisible mientras dure.
         `
     },  
-    "Mayor marca de ": {
-        descripcion: `
-Requisito previo: Nivel 4+, Dote Marca de
-
-
-        `
-    },  
+ 
     "Mayor marca de manejo": {
         descripcion: `
 Requisito previo: Nivel 4+, Dote Marca de manipulación
@@ -436,15 +428,15 @@ Protección mejorada. Cuando una criatura realiza una tirada de ataque contra ti
 
     "Marca Potente": {
         descripcion: `
-Requisito previo: Nivel 4+, cualquier dote de Marca
+Requisito previo: Nivel 4+, cualquier dote de Marca.
 
-Aumento de la puntuación de habilidad. Aumenta la puntuación de habilidad de lanzamiento de hechizos utilizada por tu dote de Marca en 1, hasta un máximo de 20.
+Aumento de característica. Aumenta en 1 la característica usada para lanzar los hechizos de tu Marca, hasta un máximo de 20.
 
-Preparación de Dragonmark. Siempre tienes preparados los hechizos de tu lista de Hechizos de Marca (si los hay).
+Preparación de Marca. Siempre tienes preparados los hechizos otorgados por tu dote de Marca.
 
-Lanzamiento de hechizos de Dragonmark. Tienes un espacio de hechizos adicional para lanzar los hechizos otorgados por tu hazaña Dragonmark. El nivel de la tragamonedas de hechizos es la mitad de tu nivel (redondeado hacia arriba), hasta un máximo de nivel 5. Recuperas la ranura gastada cuando terminas un descanso corto o largo. Puedes usar esta ranura para hechizos para lanzar solo un hechizo que hayas preparado debido a tu hazaña Dragonmark o al beneficio de preparación Dragonmark de esta hazaña.
+Espacio adicional. Obtienes un espacio de conjuro especial cuyo nivel es la mitad de tu nivel (redondeado hacia arriba), hasta un máximo de nivel 5. Solo puede usarse para lanzar hechizos otorgados por tu Marca. Recuperas este espacio tras un descanso corto o largo.
         `
-    },
+    }
 
 };
 

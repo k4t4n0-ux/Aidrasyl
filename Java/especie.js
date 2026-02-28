@@ -305,8 +305,9 @@ if (bloqueEspecie) {
             bloqueRasgo.classList.add("rasgo-especie");
 
             const descripcionFormateada = descripcion
-                .split("\n\n")
-                .map(parrafo => `<p>${parrafo.trim()}</p>`)
+                .split("\n")
+                .filter(linea => linea.trim() !== "")
+                .map(linea => `<p>${linea.trim()}</p>`)
                 .join("");
 
             bloqueRasgo.innerHTML = `

@@ -52,12 +52,12 @@ Puedes usar esta arma de aliento varias veces igual a tu bonificación de compet
             "Vuelo dracónico.": ` Cuando alcanzas el nivel 5 de personaje, puedes canalizar magia dracónica para darte un vuelo temporal. Como acción de bonificación, te brotan alas espectrales en la espalda que duran 10 minutos o hasta que retraes las alas (no es necesario realizar ninguna acción) o tienes la condición de incapacitado. Durante ese tiempo, tienes una velocidad de vuelo igual a tu velocidad. Tus alas parecen estar hechas de la misma energía que tu arma de aliento. Una vez que uses este rasgo, no podrás usarlo nuevamente hasta que termines un Descanso Largo.`,            
         }
     },    
-    "Especie": {
+    "Enano": {
         tipo: "Humanoide",
-        visionOscuridad: false,
+        visionOscuridad: true,
         rasgos: {
-            "Tamaño base": ``,
-            "Velocidad base": ``,
+            "Tamaño base Medio": ``,
+            "Velocidad base 30 pies": ``,
             "habilidad": ``,
         }
     },    

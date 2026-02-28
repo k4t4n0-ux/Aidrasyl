@@ -34,12 +34,11 @@ Solo necesitas 4 horas para completar un descanso largo.
         }
     }
 
-    // Puedes seguir ampliando aquí
 };
 
 
 // =============================
-// CARGAR SELECT SUPERIOR
+// SELECT SUPERIOR
 // =============================
 
 const selectEspecie = document.getElementById("especieSelect");
@@ -57,7 +56,7 @@ if (selectEspecie) {
 
 
 // =============================
-// BLOQUE DESPLEGABLE ESPECIE
+// BLOQUE ESPECIE
 // =============================
 
 const bloqueEspecie = document.getElementById("bloqueEspecie");
@@ -76,18 +75,17 @@ if (bloqueEspecie) {
 
                 <div id="infoBaseEspecie"></div>
 
+                <div class="campo-resistencias">
+                    <label>Resistencias</label>
+                    <input type="text" id="resistenciasEspecie">
+
+                    <label>Inmunidades</label>
+                    <input type="text" id="inmunidadesEspecie">
+                </div>
+
+                <hr>
+
                 <div id="listaRasgosEspecie"></div>
-
-                <div class="dote-bloque-footer">
-                    <button id="btnAgregarRasgoEspecie" class="btnAgregarDote">
-                        + Añadir Rasgo
-                    </button>
-                </div>
-
-                <div class="campo-personalizado">
-                    <label>Habilidades personalizadas</label>
-                    <textarea id="habilidadesPersonalizadasEspecie" rows="4"></textarea>
-                </div>
 
             </div>
         </div>
@@ -95,9 +93,8 @@ if (bloqueEspecie) {
 
     const toggle = document.getElementById("toggleEspecie");
     const contenido = document.getElementById("contenidoEspecie");
-    const lista = document.getElementById("listaRasgosEspecie");
     const infoBase = document.getElementById("infoBaseEspecie");
-    const btnAgregar = document.getElementById("btnAgregarRasgoEspecie");
+    const lista = document.getElementById("listaRasgosEspecie");
     const titulo = document.getElementById("tituloEspecie");
 
     contenido.style.display = "none";
@@ -109,7 +106,7 @@ if (bloqueEspecie) {
     });
 
     // =============================
-    // Cuando cambias especie arriba
+    // CAMBIO DE ESPECIE
     // =============================
 
     selectEspecie.addEventListener("change", () => {
@@ -127,90 +124,26 @@ if (bloqueEspecie) {
 
         titulo.textContent = `Especie (${nombre})`;
 
+        // Información base
         infoBase.innerHTML = `
             <p><strong>Tipo:</strong> ${especie.tipo}</p>
             <p><strong>Visión en la Oscuridad:</strong> ${especie.visionOscuridad ? "Sí" : "No"}</p>
-            <hr>
         `;
+
+        // Mostrar TODOS los rasgos automáticamente
+        Object.entries(especie.rasgos).forEach(([nombreRasgo, descripcion]) => {
+
+            const bloqueRasgo = document.createElement("div");
+            bloqueRasgo.classList.add("rasgo-especie");
+
+            bloqueRasgo.innerHTML = `
+                <h4>${nombreRasgo}</h4>
+                <p>${descripcion}</p>
+            `;
+
+            lista.appendChild(bloqueRasgo);
+        });
 
     });
-
-    // =============================
-    // Crear bloque de rasgo
-    // =============================
-
-    function crearBloqueRasgo() {
-
-        const especieActual = especiesDB[selectEspecie.value];
-        if (!especieActual) return;
-
-        const contenedor = document.createElement("div");
-        contenedor.classList.add("dote-item");
-
-        contenedor.innerHTML = `
-            <div class="dote-header">
-                <strong class="tituloRasgo">Rasgo de Especie</strong>
-
-                <div class="dote-header-botones">
-                    <button class="toggleRasgo">▼</button>
-                    <button class="btnEliminarRasgo">✖</button>
-                </div>
-            </div>
-
-            <div class="dote-body">
-
-                <select class="rasgoSelect">
-                    <option value="">Seleccionar Rasgo</option>
-                    ${Object.keys(especieActual.rasgos)
-                        .map(r => `<option value="${r}">${r}</option>`)
-                        .join("")}
-                </select>
-
-                <div class="rasgoInfo"></div>
-
-            </div>
-        `;
-
-        const toggleR = contenedor.querySelector(".toggleRasgo");
-        const body = contenedor.querySelector(".dote-body");
-        const selectR = contenedor.querySelector(".rasgoSelect");
-        const infoR = contenedor.querySelector(".rasgoInfo");
-        const btnEliminar = contenedor.querySelector(".btnEliminarRasgo");
-        const tituloR = contenedor.querySelector(".tituloRasgo");
-
-        body.style.display = "none";
-
-        toggleR.addEventListener("click", () => {
-            const abierta = body.style.display === "block";
-            body.style.display = abierta ? "none" : "block";
-            toggleR.textContent = abierta ? "▼" : "▲";
-        });
-
-        selectR.addEventListener("change", () => {
-
-            const nombreRasgo = selectR.value;
-
-            if (!nombreRasgo) {
-                infoR.innerHTML = "";
-                tituloR.textContent = "Rasgo de Especie";
-                return;
-            }
-
-            tituloR.textContent = `Rasgo (${nombreRasgo})`;
-
-            infoR.innerHTML = `
-                <hr>
-                <p>${especieActual.rasgos[nombreRasgo]}</p>
-            `;
-        });
-
-        btnEliminar.addEventListener("click", () => {
-            contenedor.remove();
-        });
-
-        lista.appendChild(contenedor);
-    }
-
-    btnAgregar.addEventListener("click", crearBloqueRasgo);
 
 }

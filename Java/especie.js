@@ -10,15 +10,15 @@ const especiesDB = {
         rasgos: {
             "Tamaño base Mediano o Pequeño": ``,
             "Velocidad base 30 pies": ``,
-            "Resistencia Celestial":`Tienes resistencia al daño necrótico y al daño radiante.`,
-            "Manos Curativas":`Como acción mágica, tocas una criatura y haces rodar una cantidad de d4 igual a tu bonificación de competencia. La criatura recupera una cantidad de puntos de vida igual al total acumulado. Una vez que uses este rasgo, no podrás usarlo nuevamente hasta que termines un Descanso Largo.`,
-            "Portadir de Luz":`Ya sabes el truco Luz. Carisma es tu habilidad para lanzar hechizos.`,
-            "Revelación Celestial":`Cuando llegas al nivel de personaje 3, puedes transformarte como una acción de bonificación usando una de las siguientes opciones (elige la opción cada vez que transformes). La transformación dura 1 minuto o hasta finalizarla (no es necesario realizar ninguna acción). Una vez que te transformas, no podrás volver a hacerlo hasta que termines un Descanso Largo.
-Una vez en cada uno de tus turnos antes de que finalice la transformación, puedes causar daño adicional a un objetivo cuando le infliges daño con un ataque o un hechizo. El daño adicional equivale a su bonificación de competencia, y el tipo de daño adicional es Necrótico para Sábana Santa Necrótica o Radiante para Alas Celestiales y Resplandor Interior.
+            "Resistencias":`Tienes resistencia al daño necrótico y al daño radiante.`,
+            "Manos Curativas":`Como acción mágica, tocas una criatura y tiras una cantidad de d4 igual a tu bonificación de competencia. La criatura recupera una cantidad de puntos de vida igual al total acumulado. Una vez que uses este rasgo, no podrás usarlo nuevamente hasta que termines un Descanso Largo.`,
+            "Portadir de Luz":`Sabes el truco Luz. Carisma es tu habilidad para lanzar el truco.`,
+            "Revelación Celestial":`Cuando llegas al nivel de personaje 3, puedes transformarte como una acción adicional usando una de las siguientes opciones (elige la opción cada vez que transformes). La transformación dura 1 minuto o hasta finalizarla (no es necesario realizar ninguna acción). Una vez que te transformas, no podrás volver a hacerlo hasta que termines un Descanso Largo.
+Una vez en cada uno de tus turnos antes de que finalice la transformación, puedes causar daño adicional a un objetivo cuando le infliges daño con un ataque o un hechizo. El daño adicional equivale a tu bonificación de competencia, y el tipo de daño adicional es Necrótico para Manto Necrótica o Radiante para Alas Celestiales y Resplandor Interior.
 Aquí están las opciones de transformación:`,
             "Alas Celestiales":`Dos alas espectrales brotan temporalmente de tu espalda. Hasta que finalice la transformación, tendrás una velocidad de vuelo igual a tu velocidad.`,
-            "Resplandor interior":`La luz del oído irradia temporalmente desde los ojos y la boca. Mientras dure, arrojas Luz Brillante en un radio de 10 pies y Luz Dim durante 10 pies adicionales, y al final de cada uno de tus turnos, cada criatura dentro de 10 pies de ti recibe un daño Radiante igual a tu Bonificación de Competencia.`,
-            "Sudario necrótico":`Tus ojos se convierten brevemente en charcos de oscuridad y las alas no voladoras brotan temporalmente de tu espalda. Las criaturas que no sean tus aliados a menos de 10 pies de ti deben tener éxito en un lanzamiento de salvación de Charisma (DC 8 más tu modificador de Charisma y bonificación de competencia) o tener la condición de Asustado hasta el final de tu siguiente turno.`
+            "Resplandor Interno":`La luz del odio irradia temporalmente desde los ojos y la boca. Mientras dure, arrojas Luz Brillante en un radio de 10 pies y Luz tenue 10 pies adicionales, y al final de cada uno de tus turnos, cada criatura dentro de 10 pies de ti recibe un daño Radiante igual a tu Bonificación de Competencia.`,
+            "Manto Necrótico":`Tus ojos se convierten brevemente en charcos de oscuridad y las alas no voladoras brotan temporalmente de tu espalda. Las criaturas que no sean tus aliados a menos de 10 pies de ti deben tener éxito en una TS de Carisma (CD 8+ mod. de Carisma y bon. de competencia) o tener la condición de Asustado hasta el final de tu siguiente turno.`
         }
         
     },
@@ -30,6 +30,7 @@ Aquí están las opciones de transformación:`,
         rasgos: {
             "Tamaño base Medio": ``,
             "Velocidad base 30 pies": ``,
+            "Resistencias": `Tienes resistencia al tipo de daño determinado por tu rasgo de ascendencia dracónica.`,
             "Ascendencia dracónica": `Tu linaje proviene de un dragón progenitor. Elige el tipo de dragón de la tabla Ancestros dracónicos. Su elección afecta sus rasgos de arma de aliento y resistencia al daño, así como su apariencia.`,
             "Ancestros dracónicos": `Dragón	Tipo de daño.
 Negro	Ácido
@@ -41,9 +42,8 @@ Verde	Veneno
 Rojo	Fuego
 Plata	Frío
 Blanco	Frío`,
-            "Arma de aliento": `Cuando realizas la acción de Ataque en tu turno, puedes reemplazar uno de tus ataques con una exhalación de energía mágica en un Cono de 15 pies o una Línea de 30 pies de ancho (elige la forma cada vez). Cada criatura en esa área debe realizar una tirada de salvación de destreza (DC 8 más su modificador de Constitución y bonificación de competencia). En una salvación fallida, una criatura recibe un daño de 1d10 del tipo determinado por su rasgo de ascendencia dracónica. En una salvación exitosa, una criatura recibe la mitad de daño. Este daño aumenta en 1d10 cuando alcanzas los niveles de carácter 5 (2d10), 11 (3d10) y 17 (4d10).
+            "Arma de aliento": `Cuando realizas la acción de Ataque en tu turno, puedes reemplazar uno de tus ataques con una exhalación de energía mágica en un Cono de 15 pies o una Línea de 30 pies (elige la forma cada vez). Cada criatura en esa área debe realizar una TS de Destreza (CD 8 + tu mod. de Constitución y bon. de competencia). En una salvación fallida, una criatura recibe un daño de 1d10 del tipo determinado por su rasgo de ascendencia dracónica. En una salvación exitosa, una criatura recibe la mitad de daño. Este daño aumenta en 1d10 cuando alcanzas los niveles de carácter 5 (2d10), 11 (3d10) y 17 (4d10).
 Puedes usar esta arma de aliento varias veces igual a tu bonificación de competencia y recuperas todos los usos gastados cuando terminas un descanso largo.`,
-            "Resistencia al daño": `Tienes resistencia al tipo de daño determinado por tu rasgo de ascendencia dracónica.`,
             "Vuelo dracónico": ` Cuando alcanzas el nivel 5 de personaje, puedes canalizar magia dracónica para darte un vuelo temporal. Como acción de bonificación, te brotan alas espectrales en la espalda que duran 10 minutos o hasta que retraes las alas (no es necesario realizar ninguna acción) o tienes la condición de incapacitado. Durante ese tiempo, tienes una velocidad de vuelo igual a tu velocidad. Tus alas parecen estar hechas de la misma energía que tu arma de aliento. Una vez que uses este rasgo, no podrás usarlo nuevamente hasta que termines un Descanso Largo.`,            
         }
     },    
@@ -53,9 +53,9 @@ Puedes usar esta arma de aliento varias veces igual a tu bonificación de compet
         rasgos: {
             "Tamaño base Medio": ``,
             "Velocidad base 30 pies": ``,
-            "Resiliencia enana": `Tienes resistencia al daño por veneno. También tiene la ventaja de guardar los lanzamientos que realiza para evitar o poner fin a la condición de envenenamiento.`,
+            "Resistencias": `Tienes resistencia al daño por veneno. También tienes Ventaja en las tiradas de salvación que hagas para evitar o terminar la condición de Envenenado.`,
             "Dureza enana": `Su máximo de puntos de vida aumenta en 1 y aumenta en 1 nuevamente cada vez que gana un nivel.`,
-            "Astuto": `Como acción adicional, obtienes Tremorsense con un alcance de 60 pies durante 10 minutos. Debes estar sobre una superficie de piedra o tocando una superficie de piedra para usar este Tremorsense. La piedra puede ser natural o trabajada.
+            "Astuto": `Como acción adicional, obtienes Sentido sísmico con un alcance de 60 pies durante 10 minutos. Debes estar sobre una superficie de piedra o tocando una superficie de piedra para usar este Sentido sísmico. La piedra puede ser natural o trabajada.
 Puede utilizar esta acción de bonificación varias veces igual a su bonificación de competencia y lo recuperará todo usos gastados al finalizar un Descanso Largo.`,
         }
     },    

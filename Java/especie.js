@@ -287,8 +287,14 @@ Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para est
         visionOscuridad: true,
         rasgos: {
             "Tamaño base Mediano o Pequeño": ``,
-            "Velocidad base": ``,
-            "habilidad": ``,
+            "Velocidad base 35 pies": `Tienes una velocidad de ascenso igual a tu velocidad. Cuando alcanzas el nivel de personaje 3, puedes moverte hacia arriba, hacia abajo y a través de superficies verticales y a lo largo de techos mientras dejas las manos libres.`,
+            "Rastro de no-muerte": `Tienes resistencia al daño necrótico.`,
+            "Mordedura vampírica":`Cuando usas tu Golpe desarmado y infliges daño, puedes optar por morder con los colmillos. Usted inflige un daño de perforación igual a 1d4 más su modificador de Constitución en lugar del daño normal de un ataque desarmado.
+Además, cuando infliges este daño a una criatura que no es un Constructo o un No Muerto, puedes empoderarte de una de las siguientes maneras:`,
+            "Drenar":`Recuperas puntos de vida iguales al daño de perforación infligido.`,
+            "Fortalecer":`Obtienes una bonificación por la siguiente verificación de habilidad o tirada de ataque que realices en el siguiente minuto; la bonificación es igual al daño de perforación infligido.
+
+Puede potenciarse con este rasgo varias veces igual a su bonificación de competencia y recuperará todos los usos gastados cuando termine un descanso prolongado.`,
         }
     },
 

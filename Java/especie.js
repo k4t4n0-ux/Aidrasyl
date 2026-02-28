@@ -53,7 +53,10 @@ Puedes usar esta arma de aliento varias veces igual a tu bonificación de compet
         rasgos: {
             "Tamaño base Medio": ``,
             "Velocidad base 30 pies": ``,
-            "habilidad": ``,
+            "Resiliencia enana.": `Tienes resistencia al daño por veneno. También tiene la ventaja de guardar los lanzamientos que realiza para evitar o poner fin a la condición de envenenamiento.`,
+            "Dureza enana.": `Su máximo de puntos de vida aumenta en 1 y aumenta en 1 nuevamente cada vez que gana un nivel.`,
+            "Astuto.": `Como acción adicional, obtienes Tremorsense con un alcance de 60 pies durante 10 minutos. Debes estar sobre una superficie de piedra o tocando una superficie de piedra para usar este Tremorsense. La piedra puede ser natural o trabajada.
+Puede utilizar esta acción de bonificación varias veces igual a su bonificación de competencia y lo recuperará todo usos gastados al finalizar un Descanso Largo.`,
         }
     },    
     "Especie": {
@@ -63,6 +66,7 @@ Puedes usar esta arma de aliento varias veces igual a tu bonificación de compet
             "Tamaño base": ``,
             "Velocidad base": ``,
             "habilidad": ``,
+
         }
     },    
     "Especie": {

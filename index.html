@@ -226,7 +226,59 @@
             <div class="bloque-combate-detalle">
                 <div id="combateContenido"></div>
             </div>
+            <div class="bloque-desplegable">
+                <div class="cabecera-desplegable" onclick="toggleEspecie()">
+                    <span>Especie</span>
+                    <span id="iconoEspecie">▼</span>
+                </div>
 
+                <div class="contenido-desplegable" id="contenidoEspecie">
+
+                    <!-- Fila superior horizontal -->
+                    <div class="fila-especie">
+
+                        <div class="campo-especie">
+                            <label>Resistencias / Inmunidades</label>
+                            <input type="text" id="resistenciasEspecie" placeholder="Ej: Fuego, Veneno...">
+                        </div>
+
+                        <div class="campo-especie">
+                            <label>Tipo de criatura</label>
+                            <select id="tipoCriatura">
+                                <option value="">Seleccionar</option>
+                                <option>Aberración</option>
+                                <option>Bestia</option>
+                                <option>Celestial</option>
+                                <option>Constructo</option>
+                                <option>Dragón</option>
+                                <option>Elemental</option>
+                                <option>Feérico</option>
+                                <option>Gigante</option>
+                                <option>Humanoide</option>
+                                <option>Monstruosidad</option>
+                                <option>Muerto viviente</option>
+                                <option>Planta</option>
+                                <option>Demonio</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-especie-checkbox">
+                            <label>
+                                <input type="checkbox" id="visionOscuridad">
+                                Visión en la oscuridad
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <!-- Habilidades personalizadas -->
+                    <div class="habilidades-especie">
+                        <label>Habilidades de la especie</label>
+                        <textarea id="habilidadesEspecie" rows="4" placeholder="Describe aquí las habilidades raciales..."></textarea>
+                    </div>
+
+                </div>
+            </div>
             <div id="bloqueDoteTransfondo"></div>
             <div id="bloqueDoteGeneral"></div>
             <div id="bloqueEstilosLucha"></div>
@@ -254,6 +306,7 @@
     <script src="Java/doteBendicionEpica.js"></script>
     <script src="Java/DoteMarca.js"></script>
     <script src="Java/combate.js"></script>
+    <script src="Java/especie.js"></script>
 
 </div>
 </body>

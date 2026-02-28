@@ -76,11 +76,8 @@ if (bloqueEspecie) {
                 <div id="infoBaseEspecie"></div>
 
                 <div class="campo-resistencias">
-                    <label>Resistencias</label>
+                    <label>Resistencias a Inmunidades</label>
                     <input type="text" id="resistenciasEspecie">
-
-                    <label>Inmunidades</label>
-                    <input type="text" id="inmunidadesEspecie">
                 </div>
 
                 <hr>

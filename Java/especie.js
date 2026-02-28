@@ -6,10 +6,10 @@ const especiesDB = {
 
     "Aasimar": {
         tipo: "Humanoide",
-        visionOscuridad: false,
+        visionOscuridad: true,
         rasgos: {
-            "Tamaño Mediano o Pequeño": ``,
-            "Velocidad 30 pies": ``,
+            "Tamaño base Mediano o Pequeño": ``,
+            "Velocidad base 30 pies": ``,
             "Resistencia Celestial":`Tienes resistencia al daño necrótico y al daño radiante.`,
             "Manos Curativas":`Como acción mágica, tocas una criatura y haces rodar una cantidad de d4 igual a tu bonificación de competencia. La criatura recupera una cantidad de puntos de vida igual al total acumulado. Una vez que uses este rasgo, no podrás usarlo nuevamente hasta que termines un Descanso Largo.`,
             "Portadir de Luz":`Ya sabes el truco Luz. Carisma es tu habilidad para lanzar hechizos.`,
@@ -213,8 +213,12 @@ if (bloqueEspecie) {
                 <div id="infoBaseEspecie"></div>
 
                 <div class="campo-resistencias">
-                    <label>Resistencias a Inmunidades</label>
-                    <input type="text" id="resistenciasEspecie">
+                    <label>Resistencias e Inmunidades</label>
+                    <textarea id="resistenciasEspecie"
+                            class="autoResize"
+                            rows="1"
+                            placeholder="Ej: Resistencia al fuego, Inmunidad al veneno...">
+                    </textarea>
                 </div>
 
                 <hr>
@@ -281,3 +285,10 @@ if (bloqueEspecie) {
     });
 
 }
+
+document.addEventListener("input", function (e) {
+    if (e.target.classList.contains("autoResize")) {
+        e.target.style.height = "auto";
+        e.target.style.height = e.target.scrollHeight + "px";
+    }
+});

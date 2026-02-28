@@ -59,41 +59,70 @@ Puedes usar esta arma de aliento varias veces igual a tu bonificación de compet
 Puede utilizar esta acción de bonificación varias veces igual a su bonificación de competencia y lo recuperará todo usos gastados al finalizar un Descanso Largo.`,
         }
     },    
-    "Especie": {
+    "Elfo": {
         tipo: "Humanoide",
-        visionOscuridad: false,
+        visionOscuridad: true,
         rasgos: {
-            "Tamaño base": ``,
-            "Velocidad base": ``,
-            "habilidad": ``,
+            "Tamaño base Medio": ``,
+            "Velocidad base 30 pies": ``,
+            "Linaje élfico.": `Eres parte de un linaje que te otorga habilidades sobrenaturales. Elija un linaje de la tabla Linajes élficos. Obtienes el beneficio de nivel 1 de ese linaje.
+
+Cuando alcanzas los niveles de personaje 3 y 5, aprendes un hechizo de nivel superior, como se muestra en la tabla. Siempre tienes ese hechizo preparado. Puedes lanzarlo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzar el hechizo usando cualquier espacio para hechizos que tengas del nivel apropiado.
+
+Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para los hechizos que lanzas con este rasgo (elige la habilidad cuando seleccionas el linaje).`,
+            "Ascendencia Fey.": `Tienes la ventaja de guardar los lanzamientos que realices para evitar o poner fin a la condición Charmed`,
+            "Sentidos agudos.": `Tienes competencia en la habilidad Perspicacia, Percepción o Supervivencia.`,
+            "Trance": `No necesitas dormir y la magia no puede hacerte dormir. Puedes terminar un Descanso Largo en 4 horas si pasas esas horas en una meditación en trance, durante la cual conservas la conciencia.`,
+            "Linajes élficos": `Linaje	Nivel 1	Nivel 3	Nivel 5
+Drow	El alcance de tu Darkvision aumenta a 120 pies. También conoces el Luces danzantes no puedo viajar.	Fuego de hadas	Oscuridad
+Alto Elfo	Ya sabes el Prestidigitación no puedo viajar. Cada vez que termines un descanso largo, puedes reemplazar ese viaje cantrip con un viaje cantrip diferente de la lista de hechizos del Mago.	Detectar magia	Paso brumoso
+Elfo de madera	Tu velocidad aumenta a 35 pies. También conoces el Artesanía druida no puedo viajar.	Jinete largo	Pase sin rastro
+Elfo Lorwyn	Ya sabes el Látigo de espinas no puedo viajar. Siempre que termines un descanso largo, puedes reemplazar ese viaje cantrip con un viaje cantrip diferente de la lista de hechizos druidas.	Comando	Silencio
+Elfo de Shadowmoor	El alcance de tu Darkvision aumenta a 120 pies. También conoces el Wisp estrellado no puedo viajar.	Heroísmo	Reposo suave`,
 
         }
     },    
-    "Especie": {
+    "Gnomo": {
         tipo: "Humanoide",
-        visionOscuridad: false,
+        visionOscuridad: true,
         rasgos: {
-            "Tamaño base": ``,
-            "Velocidad base": ``,
-            "habilidad": ``,
+            "Tamaño base Pequeño": ``,
+            "Velocidad base 30 pies": ``,
+            "Astucia gnómica. ": `Tienes ventajas en lanzamientos de salvación de Inteligencia, Sabiduría y Carisma.`,
+            "Linaje gnomo.": `Eres parte de un linaje que te otorga habilidades sobrenaturales. Elige una de las siguientes opciones; cualquiera que elijas, Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para los hechizos que lanzas con este rasgo (elige la habilidad cuando seleccionas el linaje):`,
+            "Gnomo del bosque.": `Ya sabes el Ilusión menor no puedo viajar.
+También siempre tienes el Habla con animales hechizo preparado. Puedes lanzarlo sin una ranura para hechizos varias veces igual a tu bonificación de competencia y recuperas todos los usos gastados cuando terminas un descanso largo. También puedes usar cualquier espacio para hechizos que tengas para lanzar el hechizo.`,
+            "Gnomo de roca.": `Ya sabes el Reparando y Prestidigitación cantrips. Además, puedes dedicar 10 minutos a lanzar Prestidigitation para crear un pequeño dispositivo de relojería (CA 5,1 HP), como un juguete, un encendedor o una caja de música. Cuando creas el dispositivo, determinas su función eligiendo un efecto de Prestidigitación; el dispositivo produce ese efecto cada vez que usted u otra criatura realiza una acción de bonificación para activarlo con un toque. Si el efecto elegido tiene opciones dentro, elige una de esas opciones para el dispositivo cuando lo crea. Por ejemplo, si eliges el efecto de encendido-extinción del hechizo, determinas si el dispositivo enciende o apaga el fuego; el dispositivo no hace ambas cosas. Puedes tener tres de estos dispositivos a la vez, y cada uno se desmorona 8 horas después de su creación o cuando lo desmantelas con un toque como acción de Utilización.`,
+
         }
     },    
-    "Especie": {
+    "Goliat": {
         tipo: "Humanoide",
         visionOscuridad: false,
         rasgos: {
-            "Tamaño base": ``,
-            "Velocidad base": ``,
-            "habilidad": ``,
+            "Tamaño base Medio": ``,
+            "Velocidad base 35 pies": ``,
+            "Ascendencia gigante.": `Eres descendiente de Gigantes. Elija uno de los siguientes beneficios: una bendición sobrenatural de su ascendencia; puede utilizar el beneficio elegido varias veces igual a su bonificación de competencia y recuperará todos los usos gastados cuando termine un descanso prolongado:
+La excursión de la nube (Gigante de la nube). Como acción adicional, te teletransportas mágicamente hasta 30 pies a un espacio desocupado que puedas ver.
+Fire's Burn (Gigante del Fuego). Cuando golpeas un objetivo con una tirada de ataque y le infliges daño, también puedes infligir daño de fuego 1d10 a ese objetivo.
+Frost's Chill (Gigante de las heladas). Cuando golpeas un objetivo con una tirada de ataque y le infliges daño, también puedes infligir daño en frío 1d6 a ese objetivo y reducir su velocidad en 10 pies hasta el comienzo de tu siguiente turno.
+Hill's Tumble (Gigante de la colina). Cuando golpeas a una criatura grande o más pequeña con una tirada de ataque y le infliges daño, puedes darle a ese objetivo la condición de Prono.
+La resistencia de Stone (Gigante de Piedra). Cuando recibes daño, puedes tomar una reacción para rodar 1d12. Agregue su modificador de Constitución al número obtenido y reduzca el daño en ese total.
+Trueno de tormenta (Gigante de tormenta). Cuando recibes daño de una criatura a menos de 60 pies de ti, puedes tomar una reacción para infligir daño de 1d8 Thunder a esa criatura.`,
+            "Forma grande.": ` A partir del nivel de personaje 5, puedes cambiar tu tamaño a Grande como acción adicional si estás en un espacio lo suficientemente grande. Esta transformación dura 10 minutos o hasta finalizarla (no es necesario realizar ninguna acción). Durante ese tiempo, tendrá la ventaja de realizar comprobaciones de fuerza y su velocidad aumentará en 10 pies. Una vez que uses este rasgo, no podrás usarlo nuevamente hasta que termines un Descanso Largo.`,
+            "Construcción poderosa.": `Tiene ventajas en cualquier verificación de capacidad que realice para finalizar la condición Grappled. También cuenta como una talla más grande a la hora de determinar su capacidad de carga.`,
         }
     },    
-    "Especie": {
+    "Mediano": {
         tipo: "Humanoide",
-        visionOscuridad: false,
+        visionOscuridad: true,
         rasgos: {
-            "Tamaño base": ``,
-            "Velocidad base": ``,
-            "habilidad": ``,
+            "Tamaño base Pequeño": ``,
+            "Velocidad base 30 pies": ``,
+            "Valiente": `Tienes la ventaja de guardar los lanzamientos que realizas para evitar o poner fin a la condición de miedo.`,
+            "Ágilidad a medias.": `Puedes moverte por el espacio de cualquier criatura de tamaño mayor que tú, pero no puedes detenerte en el mismo espacio.`,
+            "Suerte.":`Cuando sacas un 1 en el d20 de una prueba D20, puedes volver a tirar el dado y debes usar el nuevo rollo.`,
+            "Naturalmente sigiloso.":`Puedes realizar la acción Ocultar incluso cuando estás oscurecido solo por una criatura que sea al menos un tamaño mayor que tú.`
         }
     },    
     "Especie": {

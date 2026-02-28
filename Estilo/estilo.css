@@ -527,3 +527,151 @@ textarea:focus {
     white-space: pre-line;
     line-height: 1.4;
 }
+
+/* ===================================================== */
+/* ============== AJUSTES FINOS RESPONSIVE ============= */
+/* ===================================================== */
+
+img,
+svg,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.hoja {
+    width: 100%;
+}
+
+.pg-botones {
+    margin-top: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.pg-botones button {
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    body {
+        padding: 20px 14px;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .cabecera-superior,
+    .bloque-combate-superior,
+    .barra-secundaria,
+    #caracteristicas,
+    .bloque-combate-detalle,
+    .dote-container,
+    .dote-bloque-unico {
+        padding: 14px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+    }
+
+    .zona-inferior {
+        gap: 16px;
+        margin-top: 16px;
+    }
+
+    #caracteristicas {
+        flex-basis: auto;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea,
+    button {
+        min-height: 36px;
+        font-size: 13px;
+    }
+
+    .bloque-combate-superior button {
+        height: auto;
+        font-size: 12px;
+    }
+
+    .fila-lineal {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 14px 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+        letter-spacing: 0.2px;
+    }
+
+    label {
+        font-size: 11px;
+    }
+
+    .datos-personales .fila-doble {
+        grid-template-columns: 1fr;
+        margin-bottom: 10px;
+    }
+
+    .nivel-total {
+        align-items: flex-start;
+    }
+
+    .nivel-total input {
+        width: 100%;
+        max-width: 120px;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    .barra-secundaria {
+        gap: 10px;
+    }
+
+    .mini-box {
+        text-align: left;
+    }
+
+    .mini-box span {
+        margin-top: 2px;
+    }
+
+    .dote-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .dote-header-botones {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .dote-header-botones button {
+        flex: 1 1 140px;
+    }
+
+    .bloque-ataque > .fila-lineal:first-child {
+        flex-wrap: wrap;
+    }
+
+    .inlineExtra {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .inlineExtra > * {
+        flex: 1 1 120px;
+    }
+}
+

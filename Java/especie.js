@@ -125,22 +125,26 @@ Trueno de tormenta (Gigante de tormenta). Cuando recibes daño de una criatura a
             "Naturalmente sigiloso.":`Puedes realizar la acción Ocultar incluso cuando estás oscurecido solo por una criatura que sea al menos un tamaño mayor que tú.`
         }
     },    
-    "Especie": {
+    "Humano": {
         tipo: "Humanoide",
         visionOscuridad: false,
         rasgos: {
-            "Tamaño base": ``,
-            "Velocidad base": ``,
-            "habilidad": ``,
+            "Tamaño base Mediano o Pequeño": ``,
+            "Velocidad base 30 pies": ``,
+            "Ingenioso.": ` Obtienes inspiración heroica cada vez que terminas un descanso prolongado.`,
+            "Habíl.":`Obtienes competencia en una habilidad de tu elección.`,
+            "Versátil":`Obtienes un dote de origen de tu elección.`,
         }
     },    
-    "Especie": {
+    "Orco": {
         tipo: "Humanoide",
-        visionOscuridad: false,
+        visionOscuridad: true,
         rasgos: {
-            "Tamaño base": ``,
-            "Velocidad base": ``,
-            "habilidad": ``,
+            "Tamaño base Mediano": ``,
+            "Velocidad base 30 pies": ``,
+            "Fiebre de adrenalina.": `Puede realizar la acción Dash como acción de bonificación. Cuando lo hace, obtiene una cantidad de puntos de vida temporales igual a su bonificación de competencia.
+Puede usar este rasgo varias veces igual a su bonificación de competencia y recuperará todos los usos gastados cuando termine un descanso corto o largo.`,
+            "Resistencia implacable":`Cuando te reducen a 0 puntos de vida pero no te matan directamente, puedes bajar a 1 punto de vida. Una vez que uses este rasgo, no podrás volver a hacerlo hasta que termines un descanso largo.`
         }
     },    
     "Especie": {

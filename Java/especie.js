@@ -161,7 +161,7 @@ Ctónico	Tienes resistencia al daño necrótico. También conoces el Toque frío
 Infernal Tienes resistencia al daño del fuego. También conoces el Perno de fuego no puedo viajar.	Rebuke infernal	Oscuridad`
         }
     },    
-    "Cambia formas": {
+    "Cambiaformas": {
         tipo: "Fey",
         visionOscuridad: false,
         rasgos: {
@@ -197,7 +197,7 @@ Permaneces en la nueva forma hasta que tomes una acción para volver a tu verdad
             "Versatilidad de habilidades":`Obtienes competencia en una habilidad o con una herramienta de tu elección. Siempre que termines un descanso largo, puedes reemplazarlo con otra habilidad o habilidad con la herramienta.`,
         }
     },    
-    "Cambia marchas": {
+    "Cambiamarchas": {
         tipo: "Humanoide",
         visionOscuridad: true,
         rasgos: {
@@ -227,36 +227,66 @@ Cada vez que cambias, obtienes el beneficio de una de las siguientes opciones (e
     },    
     "Boggart": {
         tipo: "Humanoide y Goblinoide por cualquier requisito previo o efecto que requiera que sea un goblinoide.",
-        visionOscuridad: false,
+        visionOscuridad: true,
         rasgos: {
-            "Tamaño base": ``,
-            "Velocidad base": ``,
-            "habilidad": ``,
+            "Tamaño base Pequeño": ``,
+            "Velocidad base 30 pies": ``,
+            "Ascendencia Fey": ` Tienes la ventaja de guardar los lanzamientos que hagas para evitar o poner fin a la condición de encantamiento en ti mismo.`,
+            "Furia de lo pequeño":`Cuando dañas a una criatura con un ataque o un hechizo y el tamaño de la criatura es mayor que el tuyo, puedes hacer que el ataque o el hechizo le causen daño adicional. El daño adicional equivale a su bonificación de competencia.
+Puedes usar este rasgo varias veces igual a tu bonificación de competencia, recuperando todos los usos gastados cuando termines un largo descanso, y no puedes usarlo más de una vez por turno.`,
+            "Escape ágil":`Puedes realizar la acción Desvincular u Ocultar como acción extra en cada uno de tus turnos.`,
         }
     },    
-    "Especie": {
-        tipo: "Humanoide",
-        visionOscuridad: false,
+    "Hada": {
+        tipo: "Fey",
+        visionOscuridad: true,
         rasgos: {
-            "Tamaño base": ``,
-            "Velocidad base": ``,
-            "habilidad": ``,
+            "Tamaño base Pequeño": ``,
+            "Velocidad base 30 pies": `Tienes una velocidad de vuelo igual a tu velocidad de marcha. No puedes usar esta velocidad de vuelo si llevas una armadura media o pesada.`,
+            "Magia de hadas": `Ya sabes el Artesanía druida no puedo viajar.
+A partir del tercer nivel, puedes lanzar el Fuego de hadas hechizo con este rasgo. A partir del quinto nivel, también puedes lanzar el Ampliar/Reducir hechizo con este rasgo. Una vez que elijas Fuego de hadas o Ampliar/Reducir con este rasgo, no puedes volver a lanzar ese hechizo con él hasta que termines un largo descanso. También puedes lanzar cualquiera de esos hechizos usando cualquier espacio para hechizos que tengas del nivel apropiado.
+Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para estos hechizos cuando los lanzas con este rasgo (elige cuando seleccionas esta raza).`,
+            "":``
         }
     },    
-    "Especie": {
+    "Flamekin": {
         tipo: "Humanoide",
-        visionOscuridad: false,
+        visionOscuridad: true,
         rasgos: {
-            "Tamaño base": ``,
-            "Velocidad base": ``,
-            "habilidad": ``,
+            "Tamaño base Mediano o Pequeño": ``,
+            "Velocidad base 30 pies": ``,
+            "Resistencia al fuego": `Tienes resistencia al daño por fuego.`,
+            "Llega al incendio":`Ya sabes el Producir llama no puedo viajar. A partir del tercer nivel, puedes lanzar el Manos Ardientes hechizo con este rasgo. A partir del quinto nivel, también puedes lanzar el Hoja de llama hechizo con este rasgo, sin requerir componente material. Una vez que elijas Manos Ardientes o Hoja de llama con este rasgo, no puedes volver a lanzar ese hechizo con él hasta que termines un largo descanso. También puedes lanzar cualquiera de esos hechizos usando cualquier espacio para hechizos que tengas del nivel apropiado.
+Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para estos hechizos cuando los lanzas con este rasgo (elige cuando seleccionas esta raza).`
         }
     },    
-    "Especie": {
-        tipo: "Humanoide",
-        visionOscuridad: false,
+    "Lorwyn Cambiaformas": {
+        tipo: "Fey",
+        visionOscuridad: true,
         rasgos: {
-            "Tamaño base": ``,
+            "Tamaño base mediano o Pequeño": ``,
+            "Velocidad base 30 pies": ``,
+            "Forma uno mismo": `Como acción, puedes remodelar tu cuerpo a una forma humanoide de dos patas o a una forma de bestia de cuatro patas. Si bien tienes una forma humanoide, puedes usar ropa y armaduras hechas para un humanoide de tu tamaño.`,
+            "Imitador encantador":`Tienes competencia en la habilidad Interpretación.`,
+            "Movimiento impredecible":`Cuando ejecuta Iniciativa y no tiene desventajas en esa tirada, puede realizar la acción Dash como reacción.`,
+        }
+    },    
+    "Rimekin": {
+        tipo: "Humanoide",
+        visionOscuridad: true,
+        rasgos: {
+            "Tamaño base Mediano o Pequeño": ``,
+            "Velocidad base 30 pies": ``,
+            "Magia de fuego frío": `Ya sabes el Rayo de escarcha no puedo viajar. Cuando alcanzas los niveles de personaje 3 y 5, aprendes el Cuchillo de hielo hechizo y el Hoja de llama hechizo, respectivamente. Siempre tienes esos hechizos preparados. Puedes lanzar cada uno una vez sin un espacio para hechizos y recuperas la capacidad de lanzar estos hechizos de esta manera cuando terminas un descanso largo. También puedes lanzar hechizos usando cualquier espacio para hechizos que tengas del nivel apropiado. Cuando lanzas Hoja de llama usando este rasgo, el hechizo inflige daño por frío en lugar de daño por fuego.
+Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para estos hechizos (elige la habilidad cuando seleccionas esta especie).`,
+            "Resistencia al frío":`Tienes resistencia al daño por frío.`,
+        }
+    },    
+    "Dhampir": {
+        tipo: "Humanoide",
+        visionOscuridad: true,
+        rasgos: {
+            "Tamaño base Mediano o Pequeño": ``,
             "Velocidad base": ``,
             "habilidad": ``,
         }

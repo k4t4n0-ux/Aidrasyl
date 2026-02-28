@@ -34,18 +34,18 @@ Aquí están las opciones de transformación:`,
             "Tamaño base Medio": ``,
             "Velocidad base 30 pies": ``,
             "Ascendencia dracónica": `Tu linaje proviene de un dragón progenitor. Elige el tipo de dragón de la tabla Ancestros dracónicos. Su elección afecta sus rasgos de arma de aliento y resistencia al daño, así como su apariencia.`,
-            "habilidad": `Ancestros dracónicos
-Dragón	Tipo de daño
-Negro	Ácido
-Azul	Rayo
-Latón	Fuego
-Bronce	Rayo
-Cobre	Ácido
-Oro	Fuego
-Verde	Veneno
-Rojo	Fuego
-Plata	Frío
-Blanco	Frío`,
+            "Ancestros dracónicos": ``,
+            "": `Dragón	Tipo de daño`,
+            "": `Negro	Ácido`,
+            "": `Azul	Rayo`,
+            "": `Latón	Fuego`,
+            "": `Bronce	Rayo`,
+            "": `Cobre	Ácido`,
+            "": `Oro	Fuego`,
+            "": `Verde	Veneno`,
+            "": `Rojo	Fuego`,
+            "": `Plata	Frío`,
+            "": `Blanco	Frío`,
             "Arma de aliento.": `Cuando realizas la acción de Ataque en tu turno, puedes reemplazar uno de tus ataques con una exhalación de energía mágica en un Cono de 15 pies o una Línea de 30 pies de ancho (elige la forma cada vez). Cada criatura en esa área debe realizar una tirada de salvación de destreza (DC 8 más su modificador de Constitución y bonificación de competencia). En una salvación fallida, una criatura recibe un daño de 1d10 del tipo determinado por su rasgo de ascendencia dracónica. En una salvación exitosa, una criatura recibe la mitad de daño. Este daño aumenta en 1d10 cuando alcanzas los niveles de carácter 5 (2d10), 11 (3d10) y 17 (4d10).
 
 Puedes usar esta arma de aliento varias veces igual a tu bonificación de competencia y recuperas todos los usos gastados cuando terminas un descanso largo.`,

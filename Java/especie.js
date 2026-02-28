@@ -4,6 +4,143 @@
 
 const especiesDB = {
 
+    "Aasimar": {
+        tipo: "Humanoide",
+        visionOscuridad: false,
+        rasgos: {
+            "Tamaño Mediano o Pequeño": ``,
+            "Velocidad 30 pies": ``,
+            "Resistencia Celestial":`Tienes resistencia al daño necrótico y al daño radiante.`,
+            "Manos Curativas":`Como acción mágica, tocas una criatura y haces rodar una cantidad de d4 igual a tu bonificación de competencia. La criatura recupera una cantidad de puntos de vida igual al total acumulado. Una vez que uses este rasgo, no podrás usarlo nuevamente hasta que termines un Descanso Largo.`,
+            "Portadir de Luz":`Ya sabes el truco Luz. Carisma es tu habilidad para lanzar hechizos.`,
+            "Revelación Celestial.":` 
+Cuando llegas al nivel de personaje 3, puedes transformarte como una acción de bonificación usando una de las siguientes opciones (elige la opción cada vez que transformes). La transformación dura 1 minuto o hasta finalizarla (no es necesario realizar ninguna acción). Una vez que te transformas, no podrás volver a hacerlo hasta que termines un Descanso Largo.
+
+Una vez en cada uno de tus turnos antes de que finalice la transformación, puedes causar daño adicional a un objetivo cuando le infliges daño con un ataque o un hechizo. El daño adicional equivale a su bonificación de competencia, y el tipo de daño adicional es Necrótico para Sábana Santa Necrótica o Radiante para Alas Celestiales y Resplandor Interior.
+
+Aquí están las opciones de transformación:`,
+            "Alas Celestiales":`Dos alas espectrales brotan temporalmente de tu espalda. Hasta que finalice la transformación, tendrás una velocidad de vuelo igual a tu velocidad.`,
+            "Resplandor interior":`La luz del oído irradia temporalmente desde los ojos y la boca. Mientras dure, arrojas Luz Brillante en un radio de 10 pies y Luz Dim durante 10 pies adicionales, y al final de cada uno de tus turnos, cada criatura dentro de 10 pies de ti recibe un daño Radiante igual a tu Bonificación de Competencia.`,
+            "Sudario necrótico":`Tus ojos se convierten brevemente en charcos de oscuridad y las alas no voladoras brotan temporalmente de tu espalda. Las criaturas que no sean tus aliados a menos de 10 pies de ti deben tener éxito en un lanzamiento de salvación de Charisma (DC 8 más tu modificador de Charisma y bonificación de competencia) o tener la condición de Asustado hasta el final de tu siguiente turno.`
+        }
+    },
+    "Humano": {
+        tipo: "Humanoide",
+        visionOscuridad: false,
+        rasgos: {
+            "Versatilidad Humana": `
+Obtienes competencia en una habilidad de tu elección.
+Además, ganas una dote de origen adicional.
+            `,
+            "Adaptabilidad": `
+Aumenta una puntuación de característica a tu elección en 1.
+            `
+        }
+    },
+    "Humano": {
+        tipo: "Humanoide",
+        visionOscuridad: false,
+        rasgos: {
+            "Versatilidad Humana": `
+Obtienes competencia en una habilidad de tu elección.
+Además, ganas una dote de origen adicional.
+            `,
+            "Adaptabilidad": `
+Aumenta una puntuación de característica a tu elección en 1.
+            `
+        }
+    },
+    "Humano": {
+        tipo: "Humanoide",
+        visionOscuridad: false,
+        rasgos: {
+            "Versatilidad Humana": `
+Obtienes competencia en una habilidad de tu elección.
+Además, ganas una dote de origen adicional.
+            `,
+            "Adaptabilidad": `
+Aumenta una puntuación de característica a tu elección en 1.
+            `
+        }
+    },
+    "Humano": {
+        tipo: "Humanoide",
+        visionOscuridad: false,
+        rasgos: {
+            "Versatilidad Humana": `
+Obtienes competencia en una habilidad de tu elección.
+Además, ganas una dote de origen adicional.
+            `,
+            "Adaptabilidad": `
+Aumenta una puntuación de característica a tu elección en 1.
+            `
+        }
+    },
+    "Humano": {
+        tipo: "Humanoide",
+        visionOscuridad: false,
+        rasgos: {
+            "Versatilidad Humana": `
+Obtienes competencia en una habilidad de tu elección.
+Además, ganas una dote de origen adicional.
+            `,
+            "Adaptabilidad": `
+Aumenta una puntuación de característica a tu elección en 1.
+            `
+        }
+    },
+    "Humano": {
+        tipo: "Humanoide",
+        visionOscuridad: false,
+        rasgos: {
+            "Versatilidad Humana": `
+Obtienes competencia en una habilidad de tu elección.
+Además, ganas una dote de origen adicional.
+            `,
+            "Adaptabilidad": `
+Aumenta una puntuación de característica a tu elección en 1.
+            `
+        }
+    },
+    "Humano": {
+        tipo: "Humanoide",
+        visionOscuridad: false,
+        rasgos: {
+            "Versatilidad Humana": `
+Obtienes competencia en una habilidad de tu elección.
+Además, ganas una dote de origen adicional.
+            `,
+            "Adaptabilidad": `
+Aumenta una puntuación de característica a tu elección en 1.
+            `
+        }
+    },
+    "Humano": {
+        tipo: "Humanoide",
+        visionOscuridad: false,
+        rasgos: {
+            "Versatilidad Humana": `
+Obtienes competencia en una habilidad de tu elección.
+Además, ganas una dote de origen adicional.
+            `,
+            "Adaptabilidad": `
+Aumenta una puntuación de característica a tu elección en 1.
+            `
+        }
+    },
+    "Humano": {
+        tipo: "Humanoide",
+        visionOscuridad: false,
+        rasgos: {
+            "Versatilidad Humana": `
+Obtienes competencia en una habilidad de tu elección.
+Además, ganas una dote de origen adicional.
+            `,
+            "Adaptabilidad": `
+Aumenta una puntuación de característica a tu elección en 1.
+            `
+        }
+    },
     "Humano": {
         tipo: "Humanoide",
         visionOscuridad: false,

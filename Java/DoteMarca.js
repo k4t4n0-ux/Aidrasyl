@@ -30,7 +30,7 @@ Nivel de hechizo	Hechizos
 2	Detectar pensamientos, Encuentra trampas
 3	Clarividencia, No detección
 4	Ojo Arcano, Adivinación
-5	Historia de la leyenda
+5	Conocimiento de leyendas
         `
     },
 
@@ -58,11 +58,11 @@ Nivel de hechizo	Hechizos
 
     "Marca de manipulación": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca
 
-Intuición salvaje. Cuando realiza una verificación de Inteligencia (Naturaleza) o Sabiduría (Manejo de animales), puede tirar 1d4 y agregar el número obtenido a la verificación de habilidad.
+Intuición salvaje. Cuando realizas una prueba de Inteligencia (Naturaleza) o Sabiduría (Manejo de animales), puedes tirar 1d4 y añadir el resultado.
 
-Conexión primordial. Siempre tienes el Amistad animal y Habla con animales hechizos preparados. Puedes lanzar cada hechizo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzar estos hechizos usando cualquier espacio para hechizos que tengas. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para estos hechizos (elige cuando seleccionas esta hazaña).
+Conexión primordial. Siempre tienes preparados los hechizos Amistad con los animales y Hablar con los animales. Puedes lanzar cada uno una vez sin gastar espacio de conjuro y recuperas ese uso tras un descanso largo. También puedes lanzarlos usando tus espacios de conjuro. Inteligencia, Sabiduría o Carisma es tu característica para lanzar estos hechizos (a tu elección al elegir esta dote).
 
 Conexiones monstruosas. Cuando alcanzas el nivel de personaje 3, puedes apuntar a una monstruosidad cuando lanzas Amistad animal o Habla con animales si la puntuación de Inteligencia de la criatura es 3 o menos.
 
@@ -166,15 +166,15 @@ Nivel de hechizo	Hechizos
 
     "Marca de escritura": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca
         `
     },
 
     "Marca de dragón aberrante": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca
 
-Escriba superdotado. Cuando realiza una verificación de Inteligencia (Historia) o una verificación de habilidad usando los Suministros de Calligrapher, puede tirar 1d4 y agregar el número obtenido a la verificación de habilidad.
+Escriba superdotado. Cuando realizas una prueba de Inteligencia (Historia) o una prueba usando suministros de calígrafo, puedes tirar 1d4 y añadir el resultado.
 
 La visión del escriba. Ya sabes el Mensaje no puedo viajar. También siempre tienes el Comprender idiomas hechizo preparado. Puedes lanzarlo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzarlo usando cualquier espacio para hechizos que tengas del nivel apropiado. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para este hechizo (elige cuando seleccionas esta hazaña).
 
@@ -216,11 +216,11 @@ Nivel de hechizo	Hechizos
 
     "Marca de sombra": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca
 
 Intuición astuta. Cuando realizas una verificación de destreza (sigilo) o carisma (rendimiento), puedes tirar 1d4 y agregar el número obtenido a la verificación de habilidad.
 
-Formar sombras. Ya sabes el Ilusión menor no puedo viajar. También siempre tienes el Invisibilidad hechizo preparado. Puedes lanzarlo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzarlo usando cualquier espacio para hechizos que tengas del nivel apropiado. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para estos hechizos (elige cuando seleccionas esta hazaña).
+Formar sombras. Conoces el truco Ilusión menor. Además, siempre tienes preparado el hechizo Invisibilidad. Puedes lanzarlo una vez sin gastar espacio de conjuro y recuperas ese uso tras un descanso largo. También puedes lanzarlo usando tus espacios de conjuro del nivel apropiado. Inteligencia, Sabiduría o Carisma es tu característica para lanzar este hechizo (a tu elección al elegir esta dote).
 
 Hechizos de la Marca. Si tiene la función Spellcasting o Pact Magic, los hechizos en la tabla Marca de hechizos de sombra se agregan a la lista de hechizos de esa función.
 
@@ -256,11 +256,11 @@ Nivel de hechizo	Hechizos
     },
     "Marca de protección": {
         descripcion: `
-Requisito previo: No puedo tener otra dote de Marca
+Requisito previo: No puedes tener otra dote de Marca
 
-La intuición del guardián. Cuando realiza una verificación de Inteligencia (Investigación) o una verificación de capacidad usando las herramientas Thieves’, puede tirar 1d4 y agregar el número obtenido a la verificación de capacidad.
+Intuición del guardián. Cuando realizas una prueba de Inteligencia (Investigación) o una prueba usando herramientas de ladrón, puedes tirar 1d4 y añadir el resultado.
 
-Barrios y Sellos. Siempre tienes el Alarma y Armadura de mago hechizos preparados. Puedes lanzar cada hechizo una vez sin un espacio para hechizos y recuperas la capacidad de lanzarlo de esa manera cuando terminas un descanso largo. También puedes lanzar estos hechizos usando cualquier espacio para hechizos que tengas del nivel apropiado. Inteligencia, Sabiduría o Carisma es tu habilidad para lanzar hechizos para estos hechizos (elige cuando seleccionas esta hazaña).
+Protecciones y sellos. Siempre tienes preparados los hechizos Alarma y Armadura de mago. Puedes lanzar cada uno una vez sin gastar espacio de conjuro y recuperas ese uso tras un descanso largo. También puedes lanzarlos usando tus espacios de conjuro del nivel apropiado. Inteligencia, Sabiduría o Carisma es tu característica para lanzar estos hechizos (a tu elección al elegir esta dote).
 
 Cuando llegas al nivel de personaje 3, también siempre tienes el Cerradura Arcana hechizo preparado y puede lanzarlo de la misma manera.
 

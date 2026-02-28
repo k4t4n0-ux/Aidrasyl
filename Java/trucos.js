@@ -189,10 +189,10 @@ const trucosDB = {
         tipo: "salvacion",
         ts: "Sabiduría",
         dano: {
-            1: "El objetivo debe tener éito en la TS o recibir 1d8 Necrotico o 1d12 si le falta alguno de sus puntos de vida.",
-            5: "El objetivo debe tener éito en la TS o recibir 2d8 Necrotico o 2d12 si le falta alguno de sus puntos de vida.",
-            11: "El objetivo debe tener éito en la TS o recibir 3d8 Necrotico o 3d12 si le falta alguno de sus puntos de vida.",
-            17: "El objetivo debe tener éito en la TS o recibir 4d8 Necrotico o 4d12 si le falta alguno de sus puntos de vida."
+            1: "El objetivo debe tener éxito en la TS o recibir 1d8 Necrotico o 1d12 si le falta alguno de sus puntos de vida.",
+            5: "El objetivo debe tener éxito en la TS o recibir 2d8 Necrotico o 2d12 si le falta alguno de sus puntos de vida.",
+            11: "El objetivo debe tener éxito en la TS o recibir 3d8 Necrotico o 3d12 si le falta alguno de sus puntos de vida.",
+            17: "El objetivo debe tener éxito en la TS o recibir 4d8 Necrotico o 4d12 si le falta alguno de sus puntos de vida."
         }
     },
 

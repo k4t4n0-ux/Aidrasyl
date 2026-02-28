@@ -505,9 +505,9 @@ button:hover {
 }
 
 .bloque-desplegable {
-    border: 1px solid #444;
+    border: 1px solid #000000;
     margin-bottom: 10px;
-    background-color: #1e1e1e;
+    background-color: #9fd4e5;
 }
 
 .cabecera-desplegable {
@@ -516,7 +516,7 @@ button:hover {
     padding: 8px;
     cursor: pointer;
     font-weight: bold;
-    background-color: #2a2a2a;
+    background-color: #d5ddee;
 }
 
 .contenido-desplegable {

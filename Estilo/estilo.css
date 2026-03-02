@@ -742,3 +742,10 @@ canvas {
 .oculto {
     display: none;
 }
+
+.rasgo-texto {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #2c3440;
+    white-space: pre-line; /* 🔥 esto hace que los \n funcionen */
+}

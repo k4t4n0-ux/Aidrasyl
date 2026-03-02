@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const rasgosSubclases = {
 
-        campeon: {
+        campeón: {
             3: {
                 "Crítico Mejorado": "Tus ataques críticos ocurren con 19-20."
             }

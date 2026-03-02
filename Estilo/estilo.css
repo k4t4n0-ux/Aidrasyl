@@ -675,3 +675,39 @@ canvas {
     }
 }
 
+.bloque-rasgos {
+    border: 1px solid #444;
+    margin-top: 10px;
+}
+
+.rasgos-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    background: #222;
+    cursor: pointer;
+}
+
+.rasgos-contenido {
+    padding: 8px;
+}
+
+.rasgo-item {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 6px;
+}
+
+.rasgo-titulo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rasgo-nivel {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.oculto {
+    display: none;
+}

@@ -98,6 +98,91 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const rasgosSubclases = {
 
+        alquimista: {
+            3: {
+                "Herramientas del Comercio":" Obtienes competencia con los suministros de Alchemist y el kit de herboristería. Si ya tienes una de estas competencias, obtienes competencia con otro tipo de Herramientas Artesanales de tu elección (o con otros dos tipos si tienes ambas). Cuando preparas una poción usando las reglas de elaboración de la Guía del Dungeon Master, la cantidad de tiempo necesaria para elaborarla se reduce a la mitad.",
+                "Hechizos de alquimista.":"Cuando alcanzas un nivel de Artífice especificado en la tabla, a partir de entonces siempre tendrás preparados los hechizos enumerados. Nivel 3: 	Palabra curativa, Rayo de enfermedad. Nivel 5: 	Esfera llameante, Flecha ácida de Melf. Nivel 9: Forma gaseosa, Palabra curativa masiva. Nivel 13: Sala de muerte, Esfera vitriólica. Nivel 17: 	Matanza de nubes, Levantar muerto",
+                "":"",
+            },
+            5: {
+                "":""
+            },
+            9: {
+                "":""
+            },
+            15: {
+                "":""
+            }
+        },
+
+        armero: {
+            3: {
+                "":"",
+                "Hechizos de alquimista.":"Cuando alcanzas un nivel de Artífice especificado en la tabla, a partir de entonces siempre tendrás preparados los hechizos enumerados. Nivel 3: Nivel 5: Nivel 9: Nivel 13: Nivel 17: ",
+                "":"",
+            },
+            5: {
+                "":""
+            },
+            9: {
+                "":""
+            },
+            15: {
+                "":""
+            }
+        },
+
+        artillero: {
+            3: {
+                "":"",
+                "Hechizos de alquimista.":"Cuando alcanzas un nivel de Artífice especificado en la tabla, a partir de entonces siempre tendrás preparados los hechizos enumerados. Nivel 3: Nivel 5: Nivel 9: Nivel 13: Nivel 17: ",
+                "":"",
+            },
+            5: {
+                "":""
+            },
+            9: {
+                "":""
+            },
+            15: {
+                "":""
+            }
+        },
+
+        batalla_smith: {
+            3: {
+                "":"",
+                "Hechizos de alquimista.":"Cuando alcanzas un nivel de Artífice especificado en la tabla, a partir de entonces siempre tendrás preparados los hechizos enumerados. Nivel 3: Nivel 5: Nivel 9: Nivel 13: Nivel 17: ",
+                "":"",
+            },
+            5: {
+                "":""
+            },
+            9: {
+                "":""
+            },
+            15: {
+                "":""
+            }
+        },
+
+        cartógrafo: {
+            3: {
+                "":"",
+                "Hechizos de alquimista.":"Cuando alcanzas un nivel de Artífice especificado en la tabla, a partir de entonces siempre tendrás preparados los hechizos enumerados. Nivel 3: Nivel 5: Nivel 9: Nivel 13: Nivel 17: ",
+                "":"",
+            },
+            5: {
+                "":""
+            },
+            9: {
+                "":""
+            },
+            15: {
+                "":""
+            }
+        },
+
         campeón: {
             3: {
                 "Crítico Mejorado": "Tus ataques críticos ocurren con 19-20."

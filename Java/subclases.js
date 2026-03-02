@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         monje: ["Camino de la Mano Abierta", "Camino de la Sombra"],
         explorador: ["Cazador", "Maestro de Bestias"],
         brujo: ["El Archifey", "El Infernal"],
-        artificiero: ["Alquimista", "Armero"],
+        artificiero: ["Alquimista", "Armero", "Artillero", "Batalla Smith", "Cartógrafo"],
         cazador_sangre: ["Orden del Fantasma", "Orden del Profano"],
         psionico: ["Telepata", "Telequinético"]
     };

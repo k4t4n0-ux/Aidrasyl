@@ -275,13 +275,25 @@ Bebiendo un elixir. Como acción adicional, una criatura puede beber el elixir o
         const div = document.createElement("div");
         div.classList.add("rasgo-item");
 
-        div.innerHTML = `
-            <div class="rasgo-titulo">
-                <strong>${nombre}</strong>
-                <span class="rasgo-nivel">${etiquetaNivel}</span>
-            </div>
-            <div class="rasgo-descripcion">${descripcion}</div>
-        `;
+        const header = document.createElement("div");
+        header.classList.add("rasgo-titulo");
+
+        const titulo = document.createElement("strong");
+        titulo.textContent = nombre;
+
+        const nivel = document.createElement("span");
+        nivel.classList.add("rasgo-nivel");
+        nivel.textContent = etiquetaNivel;
+
+        header.appendChild(titulo);
+        header.appendChild(nivel);
+
+        const texto = document.createElement("div");
+        texto.classList.add("rasgo-texto");
+        texto.textContent = descripcion; // 🔥 IMPORTANTE
+
+        div.appendChild(header);
+        div.appendChild(texto);
 
         contenido.appendChild(div);
     }

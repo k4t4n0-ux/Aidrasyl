@@ -675,37 +675,68 @@ canvas {
     }
 }
 
+/* ===================================================== */
+/* ===================== RASGOS ======================== */
+/* ===================================================== */
+
+#bloqueRasgos {
+    margin-top: 25px;
+}
+
 .bloque-rasgos {
-    border: 1px solid #444;
-    margin-top: 10px;
+    background: #f8fbff;
+    border: 1px solid #d9e6f5;
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 .rasgos-header {
     display: flex;
     justify-content: space-between;
-    padding: 6px;
-    background: #222;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
     cursor: pointer;
 }
 
 .rasgos-contenido {
-    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .rasgo-item {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 6px;
+    background: white;
+    border: 1px solid #e3ecf7;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .rasgo-titulo {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .rasgo-nivel {
     font-size: 12px;
-    opacity: 0.7;
+    color: #6c7a89;
+    font-weight: 500;
+}
+
+.rasgo-texto {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #2c3440;
+    white-space: pre-line;
 }
 
 .oculto {

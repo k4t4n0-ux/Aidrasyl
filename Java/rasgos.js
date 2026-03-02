@@ -126,7 +126,12 @@ Orientación mágica. Cuando terminas un descanso corto, recuperas todos los uso
                 "Herramientas del Comercio":` Competencia en herramientas. Obtienes competencia con los suministros de Alchemist y el kit de herboristería. Si ya tienes una de estas competencias, obtienes competencia con otro tipo de Herramientas Artesanales de tu elección (o con otros dos tipos si tienes ambas).
 Elaboración de pociones. Cuando preparas una poción usando las reglas de elaboración de la Guía del Dungeon Master, la cantidad de tiempo necesaria para elaborarla se reduce a la mitad.`,
                 "Hechizos de alquimista.":`Cuando alcanzas un nivel de Artífice especificado en la tabla, a partir de entonces siempre tendrás preparados los hechizos enumerados.
-Nivel 3: Palabra curativa, Rayo de enfermedad. Nivel 5: Esfera llameante, Flecha ácida de Melf. Nivel 9: Forma gaseosa, Palabra curativa masiva. Nivel 13: Sala de muerte, Esfera vitriólica. Nivel 17: Matanza de nubes, Levantar muerto`,
+Nivel de artífice	Hechizos
+3	Palabra curativa, Rayo de enfermedad
+5	Esfera llameante, Flecha ácida de Melf
+9	Forma gaseosa, Palabra curativa masiva
+13	Sala de muerte, Esfera vitriólica
+17	Matanza de nubes, Levantar muerto`,
                 "Elixir experimental":`Siempre que termines un descanso prolongado mientras sostienes los suministros de Alchemist, puedes usar esa herramienta para producir mágicamente dos elixires. Para cada elixir, gire sobre la mesa de Elixir experimental para conocer el efecto del elixir, que se activa cuando alguien bebe el elixir. El elixir aparece en un vial y desaparece cuando se bebe o se vierte el elixir. Si queda algún elixir al finalizar un descanso prolongado, el elixir y su vial desaparecen.
 Bebiendo un elixir. Como acción adicional, una criatura puede beber el elixir o administrarlo a otra criatura a menos de 5 pies de sí misma. Creando elixires adicionales. Como acción mágica mientras sostienes los suministros de Alchemist, puedes gastar un espacio de hechizo para crear otro elixir. Cuando lo haces, eliges su efecto de la mesa Experimental Elixir en lugar de rodar. Cuando alcanzas ciertos niveles de Artífice, puedes hacer un elixir adicional al final de cada Descanso Largo: un total de tres en el nivel 5, cuatro en el nivel 9 y cinco en el nivel 15.
 1 Curación. El bebedor recupera una cantidad de puntos de vida igual a 2d8 más su modificador de Inteligencia. La cantidad de puntos de vida restaurados aumenta en 1d8 cuando alcanza los niveles de artífice 9 (3d8) y 15 (4d8).
@@ -155,8 +160,13 @@ Caldero conjurado. Puedes lanzar El caldero burbujeante de Tasha sin gastar un e
                 "Herramientas del Comercio":`Entrenamiento de armadura. Obtienes entrenamiento con armadura pesada.
 Competencia en herramientas. Obtienes competencia con Smith's Tools. Si ya tiene este dominio de herramientas, obtendrá dominio con otro tipo de herramientas artesanales de su elección.
 Elaboración de armaduras. Cuando creas una armadura mágica o no mágica, la cantidad de tiempo necesaria para crearla se reduce a la mitad.`,
-                "Hechizos de alquimista.":`Cuando alcanzas un nivel de Artífice especificado en la tabla, a partir de entonces siempre tendrás preparados los hechizos enumerados.
-Nivel 3: Misil mágico, Onda de trueno. Nivel 5: Imagen espejo, Destrozar. Nivel 9: 	Patrón hipnótico, Perno relámpago. Nivel 13: Escudo de fuego, Mayor invisibilidad. Nivel 17: Muro de paso, Muro de fuerza`,
+                "Hechizos de Armero":`Cuando alcanza un nivel de Artífice especificado en la tabla de Hechizos de Armero, a partir de entonces siempre tendrá preparados los hechizos enumerados.
+Nivel de artífice	Hechizos
+3	Misil mágico, Onda de trueno
+5	Imagen espejo, Destrozar
+9	Patrón hipnótico, Perno relámpago
+13	Escudo de fuego, Mayor invisibilidad
+17	Muro de paso, Muro de fuerza`,
                 "Armadura Arcana":`Como acción mágica mientras tienes las Herramientas de Smith en la mano, puedes convertir una armadura que lleves en Armadura Arcana. La armadura sigue siendo Armadura Arcana hasta que te pones otra armadura o mueres.
 Sin requisito de fuerza. Si la armadura normalmente tiene un requisito de Fuerza, la Armadura Arcana carece de este requisito para usted.
 Quick Don y Doff. Puedes ponerte o quitarte la armadura como acción de Utilización. La armadura no se puede quitar contra tu voluntad.
@@ -200,52 +210,129 @@ Además, como acción de bonificación, puedes obtener una velocidad de vuelo ig
 
         artillero: {
             3: {
-                "":"",
-                "Hechizos de alquimista.":"Cuando alcanzas un nivel de Artífice especificado en la tabla, a partir de entonces siempre tendrás preparados los hechizos enumerados. Nivel 3: Nivel 5: Nivel 9: Nivel 13: Nivel 17: ",
-                "":"",
+                "Herramientas del Comercio":`Armamento a distancia. Obtienes competencia con armas a distancia marcial.
+Competencia en herramientas. Obtienes competencia con Woodcarver's Tools. Si ya tiene esta competencia, obtendrá competencia con otro tipo de herramientas artesanales de su elección.
+Elaboración de varitas. Cuando creas una Varita mágica, la cantidad de tiempo necesaria para crearla se reduce a la mitad.`,
+                "Hechizos de Artillero":`Cuando alcanza un nivel de Artífice especificado en la tabla de Hechizos de Artillero, a partir de entonces siempre tendrá preparados los hechizos enumerados.
+Nivel de artífice	Hechizos
+3	Escudo, Onda de trueno
+5	Rayo abrasador, Destrozar
+9	Bola de fuego, Muro de viento
+13	Tormenta de hielo, Muro de fuego
+17	Cono de frío, Muro de fuerza`,
+                "Cañón Eldritch":`Usando las herramientas de Smith o las herramientas de Woodcarver, puedes realizar una acción mágica para crear un cañón Eldritch pequeño o pequeño en un espacio desocupado sobre una superficie horizontal a 5 pies de ti mismo. Las estadísticas del juego del cañón aparecen a continuación. Usted determina su apariencia, incluso si lo lleva o no (y su elección de piernas o ruedas, para este último). Desaparece si se reduce a 0 puntos de vida o después de 1 hora. Puedes descartarlo temprano como una acción mágica.
+Una vez que creas un cañón, no puedes volver a hacerlo hasta que termines un descanso largo o gastes un espacio de hechizo para crear uno. Sólo puedes tener un cañón a la vez y no puedes crear uno mientras ya lo tengas.
+
+Cañón sobrenatural
+Objeto pequeño o diminuto
+Clasa armorului: 18
+Puncte de lovire: 5 x tu nivel de Artífice (lanzar la reparación del cañón le devuelve 2d6 puntos de vida)
+Inmunidades: Veneno, Psíquico
+Activar cañón (requiere que estés a menos de 60 pies del cañón): Como acción de bonificación, ordenas al cañón que use la opción Lanzallamas, Balista de fuerza o Protector a continuación; puedes indicarle al cañón que se mueva hasta 15 pies antes o después de esa opción:
+Lanzallamas: El cañón exhala fuego en un cono de 15 pies. Cada criatura en esa área realiza un lanzamiento de salvación de Dexterity contra tu hechizo salva a DC, recibiendo daño de Fuego 2d8 en una salvación fallida o la mitad de daño en una exitosa. Los objetos inflamables en el Cono que no se usan ni se transportan comienzan a arder.
+Balista de fuerza: Realiza un ataque de hechizo a distancia que se origina desde el cañón hacia una criatura u objeto a menos de 120 pies de ella. En un golpe, el objetivo recibe daño de Fuerza 2d8 y, si el objetivo es una criatura, se empuja hasta 5 pies de distancia del cañón.
+Protector: El cañón emite una ráfaga de energía positiva que le otorga a sí mismo y a cada criatura de su elección a menos de 10 pies de él una cantidad de puntos de vida temporales igual a 1d8 más su modificador de inteligencia (mínimo de 1).`,
             },
             5: {
-                "":""
+                "Arma de fuego arcana":`Cuando termines un descanso largo, puedes usar las herramientas de Woodcarver para tallar sellos especiales en un arma de caña, bastón, varita o alcance marcial y así convertirla en tu arma de fuego arcana. Los sigilos desaparecen del objeto si luego los tallas en un objeto diferente. Por lo demás, los sigilos duran indefinidamente.
+Puedes usar tu arma de fuego arcana como enfoque de lanzamiento de hechizos para tus hechizos de artífice. Cuando lanzas un hechizo de Artífice a través del arma de fuego, tira 1d8 y obtienes una bonificación por una de las tiradas de daño del hechizo igual al número lanzado.`
             },
             9: {
-                "":""
+                "Cañón explosivo":`Cada Cañón Eldritch que creas ahora es más destructivo. Obtienes los siguientes beneficios.
+Detonar. Cuando tu cañón sufre daño, puedes tomar una reacción para ordenarle que detone si estás a menos de 60 pies de él. Hacerlo destruye el cañón y obliga a cada criatura a 20 pies de él a realizar un lanzamiento de salvación de Dexterity contra tu hechizo para salvar a DC, recibiendo daño de 3d10 Force en una salvación fallida o la mitad de daño en una exitosa.
+Potencia de fuego. Las tiradas de daño del cañón y el número de puntos de vida temporales otorgados por Protector aumentan en 1d8.`
             },
             15: {
-                "":""
+                "Posición Fortificada":`Eres un maestro en formar emplazamientos bien defendidos usando tu Cañón Eldritch. Obtienes los siguientes beneficios.
+Doble potencia de fuego. Ahora puedes tener dos cañones al mismo tiempo y puedes crear dos con la misma acción mágica. (Si gastas una ranura para hechizos para crear el primer cañón, debes gastar otra ranura para hechizos para crear el segundo) Puedes activar ambos con la misma Acción de Bonificación, ordenándoles que utilicen la misma opción de activación o diferentes. No puedes crear un tercer cañón mientras tengas dos.
+Proyección de campo brillante. Tú y tus aliados tenéis media cobertura a menos de 10 pies de vuestro cañón Eldritch.`
             }
         },
 
         batalla_smith: {
             3: {
-                "":"",
-                "Hechizos de alquimista.":"Cuando alcanzas un nivel de Artífice especificado en la tabla, a partir de entonces siempre tendrás preparados los hechizos enumerados. Nivel 3: Nivel 5: Nivel 9: Nivel 13: Nivel 17: ",
-                "":"",
+                "Herramientas del Comercio":`Competencia en herramientas. Obtienes competencia con Smith's Tools. Si ya tiene esta competencia, obtendrá competencia con otro tipo de herramientas artesanales de su elección.
+Elaboración de armas. Cuando creas un arma mágica o no mágica, la cantidad de tiempo necesaria para fabricarla se reduce a la mitad.`,
+                "Hchizos de Battle Smith":`Cuando alcanzas un nivel de Artífice especificado en la tabla de Hechizos de Battle Smith, a partir de entonces siempre tendrás preparados los hechizos enumerados.
+Nivel de artífice	Hechizos
+3	Heroísmo, Escudo
+5	Golpe brillante, Vínculo de protección
+9	Aura de vitalidad, Prestidigitación
+13	Aura de pureza, Escudo de fuego
+17	Golpe de destierro, Heridas de curación masiva`,
+                "Listo para la batalla":`Tu entrenamiento de combate y tus experimentos con magia han dado sus frutos de dos maneras.
+Empoderamiento Arcano. Cuando atacas con un arma mágica, puedes usar tu modificador de Inteligencia, en lugar de tu modificador de Fuerza o Destreza, para las tiradas de ataque y daño.
+Conocimiento de armas. Obtienes competencia con las armas marciales. Puedes usar un arma con la que tengas competencia como enfoque de lanzamiento de hechizos para tus hechizos de Artífice.`,
+                "Defensor de Acero":`Tus retoques te han llevado un compañero, un Steel Defender (ver el bloque de estadísticas). Determinas la apariencia del defensor y si tiene dos o cuatro piernas; Tus elecciones no afectan las estadísticas del juego del defensor.
+El defensor es amigable contigo y tus aliados y te obedece. Desaparece si mueres.
+El defensor en combate. En combate, el defensor actúa durante tu turno. Puede moverse y realizar su reacción por sí solo, pero la única acción que realiza es la acción de esquivar a menos que realice una acción de bonificación para ordenarle que realice una acción. Si tienes la condición de Incapacitado, el defensor actúa por sí solo y no se limita a la acción de Dodge.
+Restaurar o reemplazar al defensor. Si el defensor ha muerto en la última hora, puedes realizar una acción mágica para tocarlo y gastar un espacio de hechizo. El defensor vuelve a la vida después de 1 minuto con todos sus puntos de vida restablecidos.
+Siempre que termines un descanso largo, puedes crear un nuevo defensor si tienes las herramientas de Smith en la mano. Si ya tienes un defensor de esta función, el primero desaparece.
+
+Defensor de acero
+Construcción media
+Clasa armorului: 12 + tu modificador de Inteligencia
+Puncte de lovire: HP 5 + cinco veces tu nivel de Artífice (el defensor tiene un número de Hit Dice [d8s] igual a tu nivel de Artífice)
+Velocidad: Velocidad 40 pies.
+STR (Mod/Guardar)	DEX (Mod/Guardar)	CON (Mod/Guardar)	INT (Mod/Guardar)	WIS (Mod/Guardar)	CHA (Mod/Guardar)
+14 (+2/+2)	12 (+1/+1)	14 (+2/+2)	4 (−3/-3)	10 (+0/+0)	6 (-2/-2)
+Inmunidades: Veneno; Encantado, Agotamiento, Envenenado
+Sentidos: Darkvision 60 pies., Percepción Pasiva 10
+Idiomas: Entiende los idiomas que conoces
+Calificación del desafío: Ninguno (XP 0; PB equivale a su bonificación de competencia)
+Rasgos
+Enlace de acero. Agregue su bonificación de competencia a cualquier verificación de habilidad o lanzamiento de ahorro que realice Steel Defender.
+Acciones
+Rend potenciado por la fuerza. Rollo de ataque cuerpo a cuerpo: La bonificación es igual a tu modificador de ataque de hechizo, alcanza los 5 pies. Golpe: 1d8 + 2 más tu modificador de Inteligencia Fuerza el daño.
+Reparación (3/Día). El defensor, o un constructo u objeto que pueda ver a menos de 5 pies de él, recupera una cantidad de puntos de vida igual a 2d8 más su modificador de Inteligencia.
+Reacciones
+Desviar ataque. Activador: Una criatura que el defensor puede ver a menos de 5 pies de ella hace una tirada de ataque dirigida a una criatura diferente. Respuesta: La criatura desencadenante hace que el ataque avance con Desventaja.`
             },
             5: {
-                "":""
+                "Ataque Extra":"Puedes atacar dos veces en lugar de una cada vez que realices la acción de Ataque en tu turno. Puedes renunciar a uno de tus ataques cuando realizas la acción de Ataque para ordenarle a tu Steel Defender que realice la acción Force-Empowered Rend."
             },
             9: {
-                "":""
+                "Sacudida Arcana":`Cuando golpeas un objetivo con una tirada de ataque usando un arma mágica o tu Steel Defender golpea un objetivo, puedes canalizar energía mágica a través del golpe para crear uno de los siguientes efectos:
+Energía destructiva. El objetivo recibe un daño adicional de Fuerza 2d6.
+Energía Restaurativa. Elija una criatura u objeto que pueda ver a menos de 30 pies del objetivo. La energía curativa fluye hacia el receptor elegido, devolviéndole 2d6 puntos de vida.
+Puedes usar esta energía un número de veces igual a tu modificador de Inteligencia (mínimo de una vez), pero no puedes hacerlo más de una vez por turno. Recuperas todos los usos gastados cuando terminas un descanso largo.`
             },
             15: {
-                "":""
+                "Defensor mejorado":`Tu Arcane Jolt y Steel Defender se han vuelto más poderosos, otorgando estos beneficios.
+Sacudida mejorada. Tanto el daño adicional como la curación de tu Arcane Jolt aumentan a 4d6.
+Deflexión mejorada. Siempre que tu Steel Defender usa su Deflect Attack, el atacante recibe un daño de Fuerza igual a 1d4 más tu modificador de Inteligencia.`
             }
         },
 
         cartógrafo: {
             3: {
-                "":"",
-                "Hechizos de alquimista.":"Cuando alcanzas un nivel de Artífice especificado en la tabla, a partir de entonces siempre tendrás preparados los hechizos enumerados. Nivel 3: Nivel 5: Nivel 9: Nivel 13: Nivel 17: ",
-                "":"",
+                "Herramientas del Comercio":`Competencia en herramientas. Obtiene competencia con los suministros de calígrafo y las herramientas de cartógrafo. Si ya tienes una de estas competencias, obtienes competencia con otro tipo de Herramientas Artesanales de tu elección (o con otros dos tipos si tienes ambas).
+Elaboración de pergaminos. Cuando escribes un Pergamino de hechizos usando las reglas de creación en el Manual del jugador, la cantidad de tiempo necesaria para crearlo se reduce a la mitad.`,
+                "Hechizos de cartógrafo":`Cuando alcanza un nivel de Artífice especificado en la tabla de Hechizos de Cartógrafo, a partir de entonces siempre tendrá preparados los hechizos enumerados.
+Nivel de artífice	Hechizos
+3	Fuego de hadas, Perno guía, Palabra curativa
+5	Localizar objeto, Pico mental
+9	Llame a Lightning, Clarividencia
+13	Desterramiento, Localizar criatura
+17	Gritando, Círculo de Teletransportación`,
+                "Atlas del aventurero":`Siempre que termines un Descanso Largo mientras sostienes las Herramientas del Cartógrafo, puedes usar esa herramienta para crear un conjunto de mapas mágicos tocando al menos dos criaturas (una de las cuales puede ser tú mismo), hasta un número máximo de criaturas igual a 1 más tu Modificador de Inteligencia (mínimo de dos criaturas). Cada objetivo recibe un mapa mágico, que se actualiza constantemente para mostrar la posición relativa de todos los poseedores del mapa, pero es ilegible para todos los demás. Los mapas duran hasta que mueras o hasta que uses esta función nuevamente, momento en el cual cualquier mapa existente creado por esta función desaparece inmediatamente.
+Mientras lleva el mapa, un objetivo obtiene los siguientes beneficios.
+Conciencia. El objetivo añade 1d4 a sus tiradas de Iniciativa.
+Posicionamiento. El objetivo conoce la ubicación de todos los demás poseedores de mapas que se encuentran en el mismo plano de existencia que él. Al lanzar un hechizo o crear otro efecto que requiera poder ver el objetivo del efecto, un titular de mapa puede apuntar a otro titular de mapa independientemente de la vista o la cobertura, siempre que el otro titular de mapa todavía esté dentro del rango del efecto.`,
+                "Mapeo de Magia":`Cartografía iluminada. Puedes lanzar Fuego de hadas sin gastar un espacio para hechizos, delinear a las criaturas afectadas como si estuvieran en tinta. Puedes hacerlo un número de veces igual a tu modificador de Inteligencia (mínimo de una vez) y recuperas todos los usos gastados cuando terminas un Descanso Largo.
+Salto de portal. En tu turno, puedes gastar una cantidad de movimiento igual a la mitad de tu velocidad (redondear hacia abajo) para teletransportarte a un espacio desocupado que puedes ver a 10 pies de ti mismo o a 5 pies de una criatura que está a 30 pies de ti y sosteniendo uno de los mapas del Atlas de tu Aventurero. No puedes utilizar este beneficio si tu velocidad es 0.`
             },
             5: {
-                "":""
+                "Precisión Guiada":`Una vez por turno, cada vez que lanzas un hechizo de tu lista de hechizos de cartógrafo o golpeas a una criatura afectada por tu Fuego de hadas con una tirada de ataque, puedes agregar tu modificador de Inteligencia a una tirada de daño del hechizo o ataque.
+Además, recibir daño no puede hacer que pierda la concentración Fuego de hadas.`
             },
             9: {
-                "":""
+                "Movimiento Ingenioso":"Cuando usas tu Flash of Genius, tú o una criatura voluntaria de tu elección que puedas ver a menos de 30 pies de ti mismo puedes teletransportarte hasta 30 pies a un espacio desocupado que puedas ver como parte de esa misma Reacción."
             },
             15: {
-                "":""
+                "Atlas Superior":`El Atlas de tu Aventurero mejora, obteniendo los siguientes beneficios.
+Refugio seguro. Cuando un titular de un mapa se reduce a 0 puntos de vida pero no se mata directamente, esa criatura puede destruir su mapa. En cambio, los puntos de vida de la criatura cambian a un número igual al doble de tu nivel de Artífice, y la criatura es teletransportada a un espacio desocupado a menos de 5 pies de ti u otro titular de mapa de su elección.
+Camino infalible. Si eres uno de los poseedores de mapas del Atlas de tu Aventurero, puedes lanzar Encuentra el camino sin gastar una ranura para hechizos, sin preparar el hechizo y sin necesidad de componentes del hechizo. Una vez que utilices este beneficio, no podrás volver a usarlo hasta que termines un descanso prolongado.`
             }
         },
 

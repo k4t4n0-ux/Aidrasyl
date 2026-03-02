@@ -23,6 +23,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // ===== BASE DE DATOS DE RASGOS =====
 
     const rasgosClases = {
+        artificiero: {
+            1: {
+                "Competencias": "Si obtienes esta clase como clase principal y no multi clase obtienes las siguientes competencias. Competencia en las toradas de salvación de Inteligencia y Constitución. Elija 2 habilidades: Arcanos, Historia, Investigación, Medicina, Naturaleza, Percepción o Juego de manos. Armas Simples. Herramientas de ladrón, herramientas de manitas y un tipo de herramientas de artesano de su elección. Armadura y Escudos Ligeros y Medianos.",
+                "Lanzamiento de hechizos":"",
+                "La magia de Manitas":"Aprendes el truco Reparación. Como acción mágica mientras sostienes las herramientas de Manitas, puedes crear un elemento en un espacio desocupado a 5 pies de ti mismo, eligiendo el elemento de la siguiente lista. El artículo dura hasta que terminas un Descanso Largo, momento en el que desaparece.Puede usar esta función un número de veces igual a su modificador de Inteligencia (mínimo de una vez) y recuperará todos los usos gastados cuando termine un descanso prolongado.:",
+                "":"Canicas, Matraz, Bolsa, Cesta, Gancho de agarre, Cuerda, Saco dormir, Trampa de caza, Saco, Campana, Jarra, Pala, Manta, Lámpara, Púas de Hierro, Polea y aparejo, Esposas, Cadena, Botella de Vidrio, Red, Yesero, Cubo, Aceite, Antorcha, Estrellas de púas, Papel, Vial, Vela, Pergamino, Palanca, Polo"
+
+            }
+        },
 
         barbaro: {
             1: {

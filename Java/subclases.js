@@ -46,10 +46,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     clase1.addEventListener("change", function () {
         actualizarSubclases(clase1, subclase1);
+        subclase1.dispatchEvent(new Event("change"));
     });
 
     clase2.addEventListener("change", function () {
         actualizarSubclases(clase2, subclase2);
+        subclase2.dispatchEvent(new Event("change"));
     });
 
 });

@@ -102,7 +102,15 @@ document.addEventListener("DOMContentLoaded", function () {
             3: {
                 "Herramientas del Comercio":" Obtienes competencia con los suministros de Alchemist y el kit de herboristería. Si ya tienes una de estas competencias, obtienes competencia con otro tipo de Herramientas Artesanales de tu elección (o con otros dos tipos si tienes ambas). Cuando preparas una poción usando las reglas de elaboración de la Guía del Dungeon Master, la cantidad de tiempo necesaria para elaborarla se reduce a la mitad.",
                 "Hechizos de alquimista.":"Cuando alcanzas un nivel de Artífice especificado en la tabla, a partir de entonces siempre tendrás preparados los hechizos enumerados. Nivel 3: 	Palabra curativa, Rayo de enfermedad. Nivel 5: 	Esfera llameante, Flecha ácida de Melf. Nivel 9: Forma gaseosa, Palabra curativa masiva. Nivel 13: Sala de muerte, Esfera vitriólica. Nivel 17: 	Matanza de nubes, Levantar muerto",
-                "":"",
+                "Elixir experimental":`Siempre que termines un descanso prolongado mientras sostienes los suministros de Alchemist, puedes usar esa herramienta para producir mágicamente dos elixires. Para cada elixir, gire sobre la mesa de Elixir experimental para conocer el efecto del elixir, que se activa cuando alguien bebe el elixir. El elixir aparece en un vial y desaparece cuando se bebe o se vierte el elixir. Si queda algún elixir al finalizar un descanso prolongado, el elixir y su vial desaparecen.
+Bebiendo un elixir. Como acción adicional, una criatura puede beber el elixir o administrarlo a otra criatura a menos de 5 pies de sí misma. Creando elixires adicionales. Como acción mágica mientras sostienes los suministros de Alchemist, puedes gastar un espacio de hechizo para crear otro elixir. Cuando lo haces, eliges su efecto de la mesa Experimental Elixir en lugar de rodar. Cuando alcanzas ciertos niveles de Artífice, puedes hacer un elixir adicional al final de cada Descanso Largo: un total de tres en el nivel 5, cuatro en el nivel 9 y cinco en el nivel 15.
+1 Curación. El bebedor recupera una cantidad de puntos de vida igual a 2d8 más su modificador de Inteligencia. La cantidad de puntos de vida restaurados aumenta en 1d8 cuando alcanza los niveles de artífice 9 (3d8) y 15 (4d8).
+2 Rapidez. La velocidad del bebedor aumenta en 10 pies durante 1 hora. Esta bonificación aumenta cuando alcanzas los niveles de Artífice 9 (15 pies) y 15 (20 pies).
+3 Resiliencia. El bebedor obtiene una bonificación de +1 a AC durante 10 minutos. La duración aumenta cuando se alcanzan los niveles de Artífice 9 (1 hora) y 15 (8 horas).
+4 Audacia. El bebedor puede tirar 1d4 y sumar el número tirado a cada tirada de ataque y lanzamiento de salvación que realiza durante el siguiente minuto. La duración aumenta cuando se alcanzan los niveles de Artífice 9 (10 minutos) y 15 (1 hora).
+5 Vuelo. El bebedor gana una velocidad de vuelo de 10 pies durante 10 minutos. La velocidad de vuelo aumenta cuando alcanzas los niveles de Artífice 9 (20 pies) y 15 (30 pies).
+6 Determinas el efecto del elixir eligiendo una de las otras filas de esta tabla.
+`,
             },
             5: {
                 "":""

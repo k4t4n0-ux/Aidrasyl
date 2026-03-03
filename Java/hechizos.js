@@ -4,38 +4,23 @@ const bloque = document.getElementById("bloquehechizos");
 if (!bloque) return;
 
 /* =====================================================
-   CONFIGURACIÓN CLASES
+   CONFIGURACIÓN DE CLASES
 ===================================================== */
 
 const clasesCompletas = ["bardo","clerigo","druida","hechicero","mago","psionico"];
 const clasesMedias = ["artificiero","paladin","explorador"];
-const clasesTercio = ["luchador","picaro"]; // SOLO si subclase válida
+const clasesTercio = ["luchador","picaro"];
+const clasesBrujo = ["brujo"];
+const clasesEspeciales = ["cazador_sangre"];
 
-const subclasesTercioValidas = [
-    "maestro_de_batalla",  // ejemplo futuro si quieres
-    "asesino"              // ejemplo editable
-];
+/* Subclases tercio lanzadoras */
+const subclasesTercioValidas = ["asesino"]; // añade aquí las reales
 
-const clasesEspeciales = ["brujo","cazador_sangre"];
-
-/* =====================================================
-   TABLA ESPACIOS
-===================================================== */
-
-const tablaEspacios = {
-1:[2],2:[3],3:[4,2],4:[4,3],5:[4,3,2],6:[4,3,3],
-7:[4,3,3,1],8:[4,3,3,2],9:[4,3,3,3,1],10:[4,3,3,3,2],
-11:[4,3,3,3,2,1],12:[4,3,3,3,2,1],
-13:[4,3,3,3,2,1,1],14:[4,3,3,3,2,1,1],
-15:[4,3,3,3,2,1,1,1],16:[4,3,3,3,2,1,1,1],
-17:[4,3,3,3,2,1,1,1,1],
-18:[4,3,3,3,3,1,1,1,1],
-19:[4,3,3,3,3,2,1,1,1],
-20:[4,3,3,3,3,2,2,1,1]
-};
+/* Subclase cazador tipo brujo */
+const subclasesCazadorBrujo = ["orden_del_profano"];
 
 /* =====================================================
-   BASE CONJUROS (estructura correcta)
+   BASE CONJUROS (estructura preparada)
 ===================================================== */
 
 const baseConjuros = [
@@ -48,7 +33,7 @@ tiempo:"1 acción",
 rango:"36m",
 componentes:"V,S",
 duracion:"Instantáneo",
-descripcion:"3 dardos mágicos impactan automáticamente.",
+descripcion:"3 dardos impactan automáticamente.",
 superior:"+1 dardo por nivel superior."
 },
 {
@@ -97,7 +82,7 @@ return Math.floor(((parseInt(input.value)||10)-10)/2);
 
 function calcularNivelLanzador(){
 
-let total=0;
+let total = 0;
 
 [
 {
@@ -112,90 +97,55 @@ sub:document.getElementById("subclase2")?.value
 }
 ].forEach(c=>{
 
-if(!c.clase||!c.nivel) return;
-if(clasesEspeciales.includes(c.clase)) return;
+if(!c.clase || !c.nivel) return;
 
 if(clasesCompletas.includes(c.clase)){
-total+=c.nivel;
+total += c.nivel;
 }
-
 else if(clasesMedias.includes(c.clase)){
-total+=Math.floor(c.nivel/2);
+total += c.nivel * 0.5;
 }
-
 else if(clasesTercio.includes(c.clase)){
 if(subclasesTercioValidas.includes(c.sub)){
-total+=Math.floor(c.nivel/3);
+total += c.nivel * (1/3);
 }
 }
-
 });
 
-return total;
+return Math.floor(total);
 }
 
 /* =====================================================
-   RENDER BLOQUE PRINCIPAL
+   BLOQUE PRINCIPAL (NO SE RECONSTRUYE)
 ===================================================== */
 
-function render(){
+const contenedorPrincipal = document.createElement("div");
+bloque.appendChild(contenedorPrincipal);
 
-bloque.innerHTML="";
+const tituloNivel = document.createElement("h3");
+contenedorPrincipal.appendChild(tituloNivel);
 
-const botonToggle=document.createElement("button");
-botonToggle.textContent="Mostrar / Ocultar Conjuros";
-botonToggle.type="button";
+const zonaEspacios = document.createElement("div");
+contenedorPrincipal.appendChild(zonaEspacios);
 
-const contenedor=document.createElement("div");
-contenedor.style.display="none";
+const botonAgregar = document.createElement("button");
+botonAgregar.textContent="Añadir Conjuro";
+botonAgregar.type="button";
+contenedorPrincipal.appendChild(botonAgregar);
 
-botonToggle.onclick=()=>{
-contenedor.style.display=
-contenedor.style.display==="none"?"block":"none";
-};
+const listaConjuros = document.createElement("div");
+contenedorPrincipal.appendChild(listaConjuros);
 
-bloque.appendChild(botonToggle);
-bloque.appendChild(contenedor);
+/* =====================================================
+   ACTUALIZAR ESPACIOS (SIN BORRAR CONJUROS)
+===================================================== */
 
-/* ===== ESPACIOS ===== */
+function actualizarEspacios(){
 
-const nivel=calcularNivelLanzador();
+const nivel = calcularNivelLanzador();
+tituloNivel.textContent = "Nivel Lanzador Total: " + nivel;
 
-const titulo=document.createElement("h3");
-titulo.textContent=`Nivel Lanzador Total: ${nivel}`;
-contenedor.appendChild(titulo);
-
-if(tablaEspacios[nivel]){
-tablaEspacios[nivel].forEach((cant,i)=>{
-const fila=document.createElement("div");
-fila.textContent=`Nivel ${i+1}: `;
-for(let x=0;x<cant;x++){
-const c=document.createElement("input");
-c.type="checkbox";
-fila.appendChild(c);
-}
-contenedor.appendChild(fila);
-});
-}
-
-/* ===== CARACTERÍSTICA ===== */
-
-const selectStat=document.createElement("select");
-["Inteligencia","Sabiduria","Carisma"].forEach(s=>{
-const o=document.createElement("option");
-o.textContent=s;
-selectStat.appendChild(o);
-});
-contenedor.appendChild(selectStat);
-
-/* ===== AÑADIR CONJURO ===== */
-
-const btnAdd=document.createElement("button");
-btnAdd.textContent="Añadir Conjuro";
-btnAdd.type="button";
-contenedor.appendChild(btnAdd);
-
-btnAdd.onclick=()=>crearConjuro(contenedor,selectStat);
+zonaEspacios.innerHTML="";
 
 }
 
@@ -203,37 +153,44 @@ btnAdd.onclick=()=>crearConjuro(contenedor,selectStat);
    CREAR CONJURO
 ===================================================== */
 
-function crearConjuro(parent,selectStat){
+function crearConjuro(){
 
-const wrapper=document.createElement("div");
+const wrapper = document.createElement("div");
 wrapper.className="conjuro";
 
-const header=document.createElement("button");
+const header = document.createElement("button");
 header.textContent="Conjuro";
 header.type="button";
 
-const body=document.createElement("div");
+const body = document.createElement("div");
 body.style.display="none";
 
 header.onclick=()=>{
-body.style.display=body.style.display==="none"?"block":"none";
+body.style.display = body.style.display==="none"?"block":"none";
 };
 
-/* NIVEL */
+const selectClase = document.createElement("select");
+["Inteligencia","Sabiduria","Carisma"].forEach(stat=>{
+const o=document.createElement("option");
+o.textContent=stat;
+selectClase.appendChild(o);
+});
+body.appendChild(selectClase);
 
-const selectNivel=document.createElement("select");
+const selectNivel = document.createElement("select");
 for(let i=0;i<=9;i++){
-const op=document.createElement("option");
-op.value=i;
-op.textContent=i===0?"Truco":`Nivel ${i}`;
-selectNivel.appendChild(op);
+const o=document.createElement("option");
+o.value=i;
+o.textContent=i===0?"Truco":"Nivel "+i;
+selectNivel.appendChild(o);
 }
 body.appendChild(selectNivel);
 
-/* LISTA */
-
-const selectConjuro=document.createElement("select");
+const selectConjuro = document.createElement("select");
 body.appendChild(selectConjuro);
+
+const descripcion = document.createElement("div");
+body.appendChild(descripcion);
 
 function actualizarLista(){
 
@@ -243,74 +200,69 @@ selectConjuro.innerHTML="";
 baseConjuros
 .filter(c=>c.nivel===nivel)
 .forEach(c=>{
-const op=document.createElement("option");
-op.value=c.nombre;
-op.textContent=c.nombre;
-selectConjuro.appendChild(op);
+const o=document.createElement("option");
+o.value=c.nombre;
+o.textContent=c.nombre;
+selectConjuro.appendChild(o);
 });
+
 }
 
 selectNivel.addEventListener("change",actualizarLista);
-actualizarLista();
-
-/* DESCRIPCIÓN */
-
-const desc=document.createElement("div");
-body.appendChild(desc);
 
 selectConjuro.addEventListener("change",()=>{
 
 const data=baseConjuros.find(c=>c.nombre===selectConjuro.value);
 if(!data) return;
 
-header.textContent=`Conjuro (${data.nombre})`;
+header.textContent="Conjuro ("+data.nombre+")";
 
 let extra="";
 
 if(data.tipo==="ataque"){
-extra=`<p><strong>Bonificador Ataque:</strong> ${
-(competencia()+mod(selectStat.value)>=0?"+":"")
-+(competencia()+mod(selectStat.value))
-}</p>`;
+extra="<p><strong>Ataque:</strong> "+
+((competencia()+mod(selectClase.value))>=0?"+":"")+
+(competencia()+mod(selectClase.value))+"</p>";
 }
 
 if(data.tipo==="salvacion"){
-extra=`<p><strong>CD Salvación:</strong> ${
-8+competencia()+mod(selectStat.value)
-}</p>`;
+extra="<p><strong>CD:</strong> "+
+(8+competencia()+mod(selectClase.value))+"</p>";
 }
 
-desc.innerHTML=`
-<p><strong>Escuela:</strong> ${data.escuela}</p>
-<p><strong>Tiempo:</strong> ${data.tiempo}</p>
-<p><strong>Rango:</strong> ${data.rango}</p>
-<p><strong>Componentes:</strong> ${data.componentes}</p>
-<p><strong>Duración:</strong> ${data.duracion}</p>
-${extra}
-<p>${data.descripcion}</p>
-<p><em>${data.superior}</em></p>
-`;
+descripcion.innerHTML=
+"<p><strong>Escuela:</strong> "+data.escuela+"</p>"+
+"<p><strong>Tiempo:</strong> "+data.tiempo+"</p>"+
+"<p><strong>Rango:</strong> "+data.rango+"</p>"+
+"<p><strong>Componentes:</strong> "+data.componentes+"</p>"+
+"<p><strong>Duración:</strong> "+data.duracion+"</p>"+
+extra+
+"<p>"+data.descripcion+"</p>"+
+"<p><em>"+data.superior+"</em></p>";
 
 });
 
-/* ELIMINAR */
+actualizarLista();
 
 const eliminar=document.createElement("button");
-eliminar.textContent="Eliminar";
+eliminar.textContent="Quitar";
 eliminar.type="button";
 eliminar.onclick=()=>wrapper.remove();
+
 body.appendChild(eliminar);
 
 wrapper.appendChild(header);
 wrapper.appendChild(body);
-parent.appendChild(wrapper);
+listaConjuros.appendChild(wrapper);
 }
+
+botonAgregar.onclick=crearConjuro;
 
 /* ===================================================== */
 
-document.addEventListener("input",render);
-document.addEventListener("change",render);
+document.addEventListener("input",actualizarEspacios);
+document.addEventListener("change",actualizarEspacios);
 
-render();
+actualizarEspacios();
 
 });

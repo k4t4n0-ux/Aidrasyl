@@ -392,15 +392,83 @@ Camino infalible. Si eres uno de los poseedores de mapas del Atlas de tu Aventur
             }
         },
 
-        campeón: {
+        camino_del_berserker: {
             3: {
-                "Crítico Mejorado": "Tus ataques críticos ocurren con 19-20."
+                "Frenesí": "Si usas Reckless Attack mientras tu Rage está activo, infliges daño adicional al primer objetivo que golpees en tu turno con un ataque basado en la Fuerza. Para determinar el daño adicional, enrolle una cantidad de d6 igual a su bonificación de daño por ira y agréguelos. El daño tiene el mismo tipo que el arma o Golpe Desarmado utilizado para el ataque."
+            },
+            6: {
+                "Rabia sin sentido":"Tienes inmunidad a las condiciones encantadas y asustadas mientras tu ira está activa. Si estás encantado o asustado cuando entras en tu ira, la condición termina contigo."
+            },
+            10: {
+                "Represalias":"Cuando recibes daño de una criatura que está a 5 pies de ti, puedes tomar una reacción para realizar un ataque cuerpo a cuerpo contra esa criatura, usando un arma o un ataque desarmado."
+            },
+            14: {
+                "Presencia intimidante":`Como acción adicional, puedes infundir terror en los demás con tu presencia amenazadora y tu poder primordial. Cuando lo hagas, cada criatura de tu elección en una Emanación de 30 pies que se origina en ti debe realizar un lanzamiento de salvación de Sabiduría (DC 8 más tu modificador de Fuerza y Bono de Competencia). En una salvación fallida, una criatura tiene la condición de Asustado durante 1 minuto. Al final de cada uno de los giros de la criatura asustada, la criatura repite la salvación, poniendo fin al efecto sobre sí misma en el éxito.
+Una vez que uses esta función, no podrás usarla nuevamente hasta que termines un Descanso Largo a menos que gastes el uso de tu Rabia (no es necesario realizar ninguna acción) para restaurarla.`
+            },
+        },
+
+        camino_del_corazón_salvaje: {
+            3: {
+                "Altavoz de animales": "Puedes lanzar el Sentido de bestia y Habla con animales hechizos pero sólo como Rituales. La sabiduría es tu habilidad para lanzar hechizos para ellos.",
+                "La ira de la naturaleza":`Your Rage aprovecha el poder primordial de los animales. Cada vez que activas tu Rage, obtienes una de las siguientes opciones de tu elección.
+Oso. Mientras tu Rage está activo, tienes Resistencia a todo tipo de daño excepto Fuerza, Necrótico, Psíquico y Radiante.
+Águila. Cuando activas tu Rage, puedes realizar las acciones Disengage y Dash como parte de esa acción de bonificación. Mientras tu Rage esté activo, puedes realizar una acción de bonificación para realizar ambas acciones.
+Lobo. Mientras tu Rage está activo, tus aliados tienen ventaja en las tiradas de ataque contra cualquier enemigo tuyo a menos de 5 pies de ti.`
+            },
+            6: {
+                "Aspecto de lo salvaje":`Obtienes una de las siguientes opciones de tu elección. Siempre que termines un Descanso Largo, podrás cambiar tu elección.
+Búho. Tienes Darkvision con un alcance de 60 pies. Si ya tienes Darkvision, su alcance aumenta en 60 pies.
+Pantera. Tienes una velocidad de ascenso igual a tu velocidad.
+Salmón. Tienes una velocidad de natación igual a tu velocidad.`
+            },
+            10: {
+                "Orador de Naturaleza":"Puedes lanzar el Comuna con la Naturaleza hechizo pero sólo como Ritual. La sabiduría es tu habilidad para lanzar hechizos."
+            },
+            14: {
+                "El poder de la naturaleza":`Cada vez que activas tu Rage, obtienes una de las siguientes opciones de tu elección.
+Halcón. Mientras tu Rage está activo, tienes una velocidad de vuelo igual a tu velocidad si no llevas ninguna armadura.
+León. Mientras tu Rage está activo, cualquiera de tus enemigos a menos de 5 pies de ti tiene desventajas en las tiradas de ataque contra objetivos distintos a ti u otro bárbaro que tenga esta opción activa.
+Carnero. Mientras tu ira está activa, puedes hacer que una criatura grande o más pequeña tenga la condición de propensa cuando la golpeas con un ataque cuerpo a cuerpo.`
             }
         },
 
-        maestro_de_batalla: {
+        camino_del_árbol_mundo: {
             3: {
-                "Dados de Superioridad": "Aprendes maniobras especiales..."
+                "Vitalidad del Árbol":`Your Rage aprovecha la fuerza vital del Árbol del Mundo. Obtienes los siguientes beneficios.
+Aumento de vitalidad. Cuando activas tu Rage, obtienes una cantidad de puntos de vida temporales igual a tu nivel bárbaro.
+Fuerza vivificante. Al comienzo de cada uno de tus turnos mientras tu Rage está activo, puedes elegir otra criatura a menos de 10 pies de ti mismo para ganar puntos de vida temporales. Para determinar la cantidad de puntos de vida temporales, obtenga una cantidad de d6 iguales a su bonificación de daño por ira y agréguelos. Si alguno de estos puntos de vida temporales permanece cuando termina tu ira, desaparecen.`
+            },
+            6: {
+                "Ramas del Árbol":"Cada vez que una criatura que puedas ver comienza su turno a 30 pies de ti mientras tu Rabia está activa, puedes tomar una Reacción para convocar ramas espectrales del Árbol del Mundo a su alrededor. El objetivo debe tener éxito en un lanzamiento de ahorro de fuerza (DC 8 más su modificador de fuerza y bonificación de competencia) o ser teletransportado a un espacio desocupado que pueda ver a menos de 5 pies de usted mismo o en el espacio desocupado más cercano que pueda ver. Después de que el objetivo se teletransporte, puedes reducir su velocidad a 0 hasta el final del turno actual."
+            },
+            10: {
+                "Raíces que golpean":"Durante tu turno, tu alcance es 10 pies mayor con cualquier arma cuerpo a cuerpo que tenga la propiedad Pesada o Versátil, ya que los zarcillos del Árbol del Mundo se extienden desde ti. Cuando golpeas con un arma de este tipo en tu turno, puedes activar la propiedad de dominio Empujar o Derribar además de una propiedad de dominio diferente que estás usando con esa arma."
+            },
+            14: {
+                "Viaja a lo largo del Árbol":"Cuando activas tu Rage y como acción adicional mientras tu Rage está activo, puedes teletransportarte hasta 60 pies a un espacio desocupado que puedas ver. Además, una vez por Rage, puedes aumentar el alcance de ese teletransporte a 150 pies. Cuando lo hagas, también podrás criar hasta seis criaturas dispuestas que se encuentren a 10 pies de ti. Cada criatura se teletransporta a un espacio desocupado de su elección dentro de los 10 pies de su espacio de destino."
+            }
+        },
+        camino_del_fanático: {
+            3: {
+                "Furia Divina":"Puedes canalizar el poder divino en tus golpes. En cada uno de tus turnos mientras tu Rage está activo, la primera criatura que golpees con un arma o un Golpe Desarmado recibe un daño adicional igual a 1d6 más la mitad de tu nivel Bárbaro (redondeado hacia abajo). El daño extra es Necrótico o Radiante; eliges el tipo cada vez que infliges el daño.",
+                "Guerrero de los Dioses":`Una entidad divina ayuda a garantizar que puedas continuar la lucha. Tienes un grupo de cuatro d12 que puedes gastar para curarte. Como acción de bonificación, puedes gastar dados del grupo, tirarlos y recuperar una cantidad de puntos de vida igual al total de la tirada.
+Tu grupo recupera todos los dados gastados cuando terminas un descanso largo.
+El número máximo de dados del grupo aumenta en uno cuando alcanzas los niveles bárbaros 6 (5 dados), 12 (6 dados) y 17 (7 dados).`
+            },
+            6: {
+                "Enfoque fanático":"Una vez por Rage activo, si fallas en un lanzamiento de salvación, puedes volver a tirarlo con una bonificación igual a tu bonificación de Rage Damage y debes usar la nueva tirada."
+            },
+            10: {
+                "Presencia celosa":`Como acción adicional, desatas un grito de batalla infundido con energía divina. Hasta otras diez criaturas de tu elección dentro de los 60 pies de ti obtienen ventaja en tiradas de ataque y lanzamientos de salvación hasta el comienzo de tu siguiente turno.
+Una vez que uses esta función, no podrás usarla nuevamente hasta que termines un Descanso Largo a menos que gastes el uso de tu Rabia (no es necesario realizar ninguna acción) para restaurarla.`
+            },
+            14: {
+                "La ira de los dioses":`Cuando activas tu Rage, puedes asumir la forma de un guerrero divino. Este formulario dura 1 minuto o hasta que bajes a 0 puntos de vida. Una vez que utilice esta función, no podrá volver a hacerlo hasta que finalice un descanso prolongado.
+Mientras esté en esta forma, obtendrá los beneficios a continuación.
+Vuelo. Tienes una velocidad de vuelo igual a tu velocidad y puedes flotar.
+Resistencia. Tienes resistencia al daño necrótico, psíquico y radiante.
+Revivificación. Cuando una criatura a 30 pies de ti cae a 0 puntos de vida, puedes tomar una reacción para gastar el uso de tu ira y, en su lugar, cambiar los puntos de vida del objetivo a un número igual a tu nivel bárbaro.`
             }
         }
 

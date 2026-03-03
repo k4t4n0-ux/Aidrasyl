@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const subclasesPorClase = {
 
-        barbaro: ["Camino del Berserker", "Camino del Tótem"],
+        barbaro: ["Camino del Berserker", "Camino del corazón salvaje", "Camino Del Árbol Mundo", "Camino del fanático"],
         bardo: ["Colegio del Saber", "Colegio del Valor"],
         clerigo: ["Dominio de la Vida", "Dominio de la Guerra"],
         druida: ["Círculo de la Luna", "Círculo de la Tierra"],

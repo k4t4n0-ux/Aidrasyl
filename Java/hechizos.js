@@ -57,12 +57,40 @@ return Math.floor(total);
 }
 
 function obtenerNivelBrujoTotal(){
-let total=0;
-[{clase:document.getElementById("clase")?.value,nivel:parseInt(document.getElementById("nivel1")?.value)||0,sub:document.getElementById("subclase")?.value},{clase:document.getElementById("clase2")?.value,nivel:parseInt(document.getElementById("nivel2")?.value)||0,sub:document.getElementById("subclase2")?.value}].forEach(c=>{
-if(c.clase==="brujo")total+=c.nivel;
-else if(c.clase==="cazador_sangre"&&subclasesCazadorBrujo.includes(c.sub))total+=c.nivel;
+
+let totalBrujo = 0;
+let totalCazadorProfano = 0;
+
+[
+{
+clase:document.getElementById("clase")?.value,
+nivel:parseInt(document.getElementById("nivel1")?.value)||0,
+sub:document.getElementById("subclase")?.value
+},
+{
+clase:document.getElementById("clase2")?.value,
+nivel:parseInt(document.getElementById("nivel2")?.value)||0,
+sub:document.getElementById("subclase2")?.value
+}
+].forEach(c=>{
+
+if(!c.clase || !c.nivel) return;
+
+if(c.clase==="brujo"){
+totalBrujo += c.nivel;
+}
+
+if(c.clase==="cazador_sangre" &&
+subclasesCazadorBrujo.includes(c.sub)){
+totalCazadorProfano += c.nivel;
+}
+
 });
-return total;
+
+/* Cada 3 niveles de cazador = 1 nivel brujo */
+const equivalenteCazador = Math.floor(totalCazadorProfano / 3);
+
+return totalBrujo + equivalenteCazador;
 }
 
 const contenedorPrincipal=document.createElement("div");

@@ -800,3 +800,55 @@ canvas {
     color: #2c3440;
     white-space: pre-line; /* 🔥 ESTO HACE QUE FUNCIONEN LOS \n */
 }
+
+/* ===================================================== */
+/* ================= COMPETENCIAS ====================== */
+/* ===================================================== */
+
+.bloque-competencias {
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.competencias-header {
+    font-size: 16px;
+    font-weight: 600;
+    color: #3a4a5f;
+}
+
+.competencias-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.competencia-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.competencia-col textarea {
+    width: 100%;
+    min-height: 32px;
+    resize: none;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #d6dfeb;
+    padding: 6px 10px;
+    font-size: 13px;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    transition: border 0.2s ease;
+}
+
+.competencia-col textarea:focus {
+    outline: none;
+    border-color: #7a9cc6;
+    box-shadow: 0 0 0 2px rgba(122,156,198,0.15);
+}

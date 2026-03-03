@@ -42,3 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     actualizarTodo();
 });
+
+document.addEventListener("input", function (e) {
+    if (e.target.classList.contains("autoResize")) {
+        e.target.style.height = "auto";
+        e.target.style.height = e.target.scrollHeight + "px";
+    }
+});

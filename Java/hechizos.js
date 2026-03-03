@@ -42,8 +42,22 @@ const baseConjuros = [
 {nombre:"Bola de Fuego",nivel:3,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"45m",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Explosión ígnea de 6m.",superior:"+1d6 por nivel superior."},
 ];
 
-function competencia(){return parseInt(document.getElementById("competencia")?.value.replace("+",""))||0;}
-function mod(stat){const input=document.querySelector(`[data-stat="${stat}"]`);if(!input)return 0;return Math.floor(((parseInt(input.value)||10)-10)/2);}
+function obtenerMod(statNombre) {
+    const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
+    if (!input) return 0;
+    const modSpan = input.nextElementSibling;
+    return parseInt(modSpan.textContent.replace("+", "")) || 0;
+}
+
+function obtenerCompetencia() {
+    const comp = document.getElementById("competencia");
+    if (!comp) return 0;
+    return parseInt(comp.value.replace("+", "")) || 0;
+}
+
+function f(n) {
+    return n >= 0 ? `+${n}` : n;
+}
 
 function calcularNivelLanzador(){
 let total=0;
@@ -201,18 +215,67 @@ actualizarDescripcion();
 }
 
 function actualizarDescripcion(){
-const nombre=selectNombre.value;
-const data=baseConjuros.find(c=>c.nombre===nombre);
-if(!data||!nombre){
-descripcion.innerHTML="";
-return;
+
+    const nombre = selectNombre.value;
+    const data = baseConjuros.find(c=>c.nombre===nombre);
+
+    if(!data || !nombre){
+        descripcion.innerHTML="";
+        return;
+    }
+
+    const mod = obtenerMod(selectStat.value);
+    const comp = obtenerCompetencia();
+
+    let extra="";
+
+    if(data.tipo==="ataque"){
+        extra = `<span>Ataque: <strong>${f(mod + comp)}</strong></span>`;
+    }
+
+    if(data.tipo==="salvacion"){
+        const cd = 8 + mod + comp;
+        extra = `<span>CD ${cd}</span>`;
+    }
+
+    descripcion.innerHTML = `
+        <div class="fila-lineal ataque-detalle">
+
+            <strong>${data.nombre}</strong>
+
+            <span>${data.rango}</span>
+            <span>${data.componentes}</span>
+            <span>${data.duracion}</span>
+
+            <select class="statSelectInterno">
+                <option value="Inteligencia" ${selectStat.value==="Inteligencia"?"selected":""}>Inteligencia</option>
+                <option value="Sabiduria" ${selectStat.value==="Sabiduria"?"selected":""}>Sabiduria</option>
+                <option value="Carisma" ${selectStat.value==="Carisma"?"selected":""}>Carisma</option>
+            </select>
+
+            ${extra}
+
+        </div>
+
+        <div class="descripcionHechizo">
+            <p><strong>Escuela:</strong> ${data.escuela}</p>
+            <p><strong>Tiempo:</strong> ${data.tiempo}</p>
+            <p>${data.descripcion}</p>
+            <p><em>${data.superior}</em></p>
+        </div>
+    `;
+
+    const statInterno = descripcion.querySelector(".statSelectInterno");
+
+    statInterno.addEventListener("change", ()=>{
+        selectStat.value = statInterno.value;
+        actualizarDescripcion();
+    });
 }
-const bonus=competencia()+mod(selectStat.value);
-let extra="";
-if(data.tipo==="ataque")extra="<p><strong>Ataque:</strong> "+(bonus>=0?"+":"")+bonus+"</p>";
-if(data.tipo==="salvacion"){const cd=8+bonus;extra="<p><strong>CD:</strong> "+cd+"</p>";}
-descripcion.innerHTML="<p><strong>Escuela:</strong> "+data.escuela+"</p><p><strong>Tiempo:</strong> "+data.tiempo+"</p><p><strong>Rango:</strong> "+data.rango+"</p><p><strong>Componentes:</strong> "+data.componentes+"</p><p><strong>Duración:</strong> "+data.duracion+"</p>"+extra+"<p>"+data.descripcion+"</p><p><em>"+data.superior+"</em></p>";
-}
+
+// 🔄 Actualización automática como en combate.js
+document.addEventListener("input", actualizarDescripcion);
+document.addEventListener("change", actualizarDescripcion);
 
 selectNivel.addEventListener("change",actualizarLista);
 selectNombre.addEventListener("change",actualizarDescripcion);

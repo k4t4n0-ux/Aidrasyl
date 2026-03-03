@@ -1003,3 +1003,23 @@ button:hover {
         width: 100%;
     }
 }
+
+.conjuro {
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.fila-lineal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.descripcionHechizo {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}

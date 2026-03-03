@@ -846,12 +846,12 @@ button:hover {
     }
 
     .dote-header-botones {
-        display: flex;
+        display: flex !important;
         flex-direction: row !important;
         justify-content: flex-end;
         gap: 6px;
         width: auto;
-    }
+    }   
 
     .dote-header-botones button {
         width: auto !important;
@@ -879,6 +879,10 @@ button:hover {
         width: 100%;
         min-height: 40px;
         font-size: 14px;
+    }
+
+    .dote-header-botones button {
+        width: auto !important;
     }
 }
 

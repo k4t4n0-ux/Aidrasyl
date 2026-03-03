@@ -11,7 +11,7 @@ const clasesCompletas = ["bardo","clerigo","druida","hechicero","mago","psionico
 const clasesMedias = ["artificiero","paladin","explorador"];
 const clasesTercio = ["luchador","picaro"];
 const clasesBrujo = ["brujo"];
-const clasesEspeciales = ["cazador_sangre"];
+const clasesEspeciales = ["cazador_sangre"];    
 
 /* Subclases tercio lanzadoras */
 const subclasesTercioValidas = ["asesino"]; // añade aquí las reales

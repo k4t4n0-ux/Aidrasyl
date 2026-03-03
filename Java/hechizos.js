@@ -1,344 +1,177 @@
-// ===============================
-// BLOQUE HECHIZOS DINÁMICO
-// ===============================
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", iniciarHechizos);
-
-function iniciarHechizos() {
     const contenedor = document.getElementById("bloquehechizos");
     if (!contenedor) return;
 
-    contenedor.appendChild(crearBloqueHechizos(1));
-    contenedor.appendChild(crearBloqueHechizos(2));
-}
+    /* =====================================================
+       CONFIGURACIÓN
+    ===================================================== */
 
-// ===============================
-// CREAR BLOQUE PRINCIPAL
-// ===============================
+    const multiplicadores = {
 
-function crearBloqueHechizos(indice) {
+        // 0.33
+        barbaro: 0.33,
+        luchador: 0.33,
+        monje: 0.33,
+        picaro: 0.33,
 
-    const bloque = document.createElement("div");
-    bloque.className = "bloque-hechizos";
+        // 0.5
+        artificiero: 0.5,
+        paladin: 0.5,
+        explorador: 0.5,
 
-    bloque.innerHTML = `
-        <div class="hechizos-header">
-            <h3 class="hechizos-titulo">Conjuros</h3>
-            <button class="toggle-hechizos">▼</button>
-        </div>
-
-        <div class="hechizos-contenido" style="display:none;">
-
-            <div class="fila-hechizos">
-
-                <div>
-                    <label>Clase</label>
-                    <select class="clase-hechizo">
-                        <option value="">-- Clase --</option>
-                        <option>Artificiero</option>
-                        <option>Bárbaro</option>
-                        <option>Bardo</option>
-                        <option>Clérigo</option>
-                        <option>Druida</option>
-                        <option>Luchador</option>
-                        <option>Monje</option>
-                        <option>Paladín</option>
-                        <option>Explorador</option>
-                        <option>Pícaro</option>
-                        <option>Hechicero</option>
-                        <option>Brujo</option>
-                        <option>Mago</option>
-                        <option>Cazador de sangre</option>
-                        <option>Psíonico</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label>Nivel</label>
-                    <input type="number" class="nivel-hechizo" min="1" max="30" value="1">
-                </div>
-
-                <div>
-                    <label>Característica</label>
-                    <select class="stat-hechizo">
-                        <option>Inteligencia</option>
-                        <option>Sabiduria</option>
-                        <option>Carisma</option>
-                    </select>
-                </div>
-
-            </div>
-
-            <div class="fila-calculos">
-
-                <div class="mini-calc">
-                    <label>CD Salvación</label>
-                    <span class="cd-salvacion">8</span>
-                </div>
-
-                <div class="mini-calc">
-                    <label>Bonif. Ataque</label>
-                    <span class="ataque-hechizo">+0</span>
-                </div>
-
-            </div>
-
-            <div class="espacios-container"></div>
-
-            <div class="lista-conjuros"></div>
-
-            <button class="btn-add-conjuro">+ Añadir Conjuro</button>
-
-        </div>
-    `;
-
-    // Eventos
-    const toggle = bloque.querySelector(".toggle-hechizos");
-    const contenido = bloque.querySelector(".hechizos-contenido");
-    const claseSelect = bloque.querySelector(".clase-hechizo");
-    const nivelInput = bloque.querySelector(".nivel-hechizo");
-    const statSelect = bloque.querySelector(".stat-hechizo");
-
-    toggle.addEventListener("click", () => {
-        contenido.style.display =
-            contenido.style.display === "none" ? "block" : "none";
-    });
-
-    claseSelect.addEventListener("change", () => {
-        const titulo = bloque.querySelector(".hechizos-titulo");
-        const clase = claseSelect.value;
-        titulo.textContent = clase ? `Conjuros (${clase})` : "Conjuros";
-    });
-
-    nivelInput.addEventListener("input", () => {
-        generarEspacios(bloque);
-        actualizarCalculosHechizo(bloque);
-    });
-
-    statSelect.addEventListener("change", () => {
-        actualizarCalculosHechizo(bloque);
-    });
-
-    bloque.querySelector(".btn-add-conjuro")
-        .addEventListener("click", () => agregarConjuro(bloque));
-
-    generarEspacios(bloque);
-    actualizarCalculosHechizo(bloque);
-
-    return bloque;
-}
-
-// ===============================
-// CÁLCULOS
-// ===============================
-
-function actualizarCalculosHechizo(bloque) {
-
-    const competencia = parseInt(
-        document.getElementById("competencia")?.value.replace("+","")
-    ) || 0;
-
-    const statSeleccionada = bloque.querySelector(".stat-hechizo").value;
-    const statInput = document.querySelector(`[data-stat="${statSeleccionada}"]`);
-
-    const valorStat = parseInt(statInput?.value) || 10;
-    const mod = Math.floor((valorStat - 10) / 2);
-
-    const cd = 8 + competencia + mod;
-    const ataque = competencia + mod;
-
-    bloque.querySelector(".cd-salvacion").textContent = cd;
-    bloque.querySelector(".ataque-hechizo").textContent =
-        ataque >= 0 ? "+" + ataque : ataque;
-}
-
-// ===============================
-// ESPACIOS DE CONJURO (Simplificado PHB)
-// ===============================
-
-function generarEspacios(bloque) {
-
-    const nivel = parseInt(
-        bloque.querySelector(".nivel-hechizo").value
-    ) || 1;
-
-    const contenedor = bloque.querySelector(".espacios-container");
-    contenedor.innerHTML = "";
-
-    const tablaEspacios = {
-        1:  [2],
-        2:  [3],
-        3:  [4,2],
-        4:  [4,3],
-        5:  [4,3,2],
-        6:  [4,3,3],
-        7:  [4,3,3,1],
-        8:  [4,3,3,2],
-        9:  [4,3,3,3,1],
-        10: [4,3,3,3,2],
-        11: [4,3,3,3,2,1],
-        12: [4,3,3,3,2,1],
-        13: [4,3,3,3,2,1,1],
-        14: [4,3,3,3,2,1,1],
-        15: [4,3,3,3,2,1,1,1],
-        16: [4,3,3,3,2,1,1,1],
-        17: [4,3,3,3,2,1,1,1,1],
-        18: [4,3,3,3,3,1,1,1,1],
-        19: [4,3,3,3,3,2,1,1,1],
-        20: [4,3,3,3,3,2,2,1,1]
+        // 1
+        bardo: 1,
+        clerigo: 1,
+        druida: 1,
+        hechicero: 1,
+        mago: 1,
+        psionico: 1
     };
 
-    const niveles = tabla[Math.min(nivel,9)] || [4,3,3,3,2,1];
+    const clasesEspeciales = ["brujo", "cazador_sangre"];
 
-    niveles.forEach((cantidad, i) => {
+    const tablaEspacios = {
+        1:[2],2:[3],3:[4,2],4:[4,3],5:[4,3,2],6:[4,3,3],
+        7:[4,3,3,1],8:[4,3,3,2],9:[4,3,3,3,1],10:[4,3,3,3,2],
+        11:[4,3,3,3,2,1],12:[4,3,3,3,2,1],
+        13:[4,3,3,3,2,1,1],14:[4,3,3,3,2,1,1],
+        15:[4,3,3,3,2,1,1,1],16:[4,3,3,3,2,1,1,1],
+        17:[4,3,3,3,2,1,1,1,1],
+        18:[4,3,3,3,3,1,1,1,1],
+        19:[4,3,3,3,3,2,1,1,1],
+        20:[4,3,3,3,3,2,2,1,1]
+    };
 
-        const fila = document.createElement("div");
-        fila.className = "fila-espacio";
+    /* =====================================================
+       UTILIDADES
+    ===================================================== */
 
-        fila.innerHTML = `
-            <span>Nivel ${i+1} (${cantidad})</span>
-            <div class="marcadores"></div>
-        `;
+    function getCompetencia() {
+        const el = document.getElementById("competencia");
+        return el ? parseInt(el.value.replace("+","")) || 0 : 0;
+    }
 
-        const marcadores = fila.querySelector(".marcadores");
+    function getMod(stat) {
+        const input = document.querySelector(`[data-stat="${stat}"]`);
+        if (!input) return 0;
+        const v = parseInt(input.value) || 10;
+        return Math.floor((v - 10) / 2);
+    }
 
-        for (let j=0; j<cantidad; j++){
-            const box = document.createElement("input");
-            box.type = "checkbox";
-            marcadores.appendChild(box);
-        }
+    function obtenerClases() {
 
-        contenedor.appendChild(fila);
-    });
-}
+        const clasePrincipal = document.getElementById("clase")?.value;
+        const nivelPrincipal = parseInt(document.getElementById("nivel1")?.value) || 0;
 
-// ===============================
-// CONJUROS DINÁMICOS
-// ===============================
+        const claseSecundaria = document.getElementById("clase2")?.value;
+        const nivelSecundaria = parseInt(document.getElementById("nivel2")?.value) || 0;
 
-function agregarConjuro(bloque){
+        return [
+            { clase: clasePrincipal, nivel: nivelPrincipal },
+            { clase: claseSecundaria, nivel: nivelSecundaria }
+        ].filter(c => c.clase && c.nivel > 0);
+    }
 
-    const lista = bloque.querySelector(".lista-conjuros");
+    function calcularNivelLanzador() {
 
-    const conjuro = document.createElement("div");
-    conjuro.className = "conjuro-item";
+        let total = 0;
 
-    conjuro.innerHTML = `
-        <div class="conjuro-header">
-            <span>Conjuro</span>
-            <button class="toggle-conjuro">▼</button>
-            <button class="eliminar-conjuro">X</button>
-        </div>
+        const clases = obtenerClases();
 
-        <div class="conjuro-body" style="display:none;">
-            <label>Nivel</label>
-            <select class="nivel-conjuro">
-                <option value="0">Truco</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-            </select>
+        clases.forEach(c => {
 
-            <div class="descripcion-conjuro">
-                <p><strong>Escuela:</strong></p>
-                <p><strong>Tiempo:</strong></p>
-                <p><strong>Rango:</strong></p>
-                <p><strong>Componentes:</strong></p>
-                <p><strong>Duración:</strong></p>
-                <p><strong>Descripción:</strong></p>
-                <p><strong>Superior:</strong></p>
-            </div>
-        </div>
-    `;
+            if (clasesEspeciales.includes(c.clase)) return;
 
-    conjuro.querySelector(".toggle-conjuro")
-        .addEventListener("click", () => {
-            const body = conjuro.querySelector(".conjuro-body");
-            body.style.display =
-                body.style.display === "none" ? "block" : "none";
+            const mult = multiplicadores[c.clase] ?? 1;
+            total += c.nivel * mult;
         });
 
-    conjuro.querySelector(".eliminar-conjuro")
-        .addEventListener("click", () => conjuro.remove());
+        return Math.floor(total);
+    }
 
-    lista.appendChild(conjuro);
-}
+    /* =====================================================
+       GENERAR ESPACIOS
+    ===================================================== */
 
-function obtenerModStat(nombreStat) {
-    const input = document.querySelector(`[data-stat="${nombreStat}"]`);
-    if (!input) return 0;
+    function generarEspacios(nivel) {
 
-    const valor = parseInt(input.value) || 10;
-    return Math.floor((valor - 10) / 2);
-}
+        contenedor.innerHTML = "";
 
-function actualizarCDyAtaque(bloque) {
+        if (nivel < 1 || !tablaEspacios[nivel]) return;
 
-    const selectStat = bloque.querySelector(".stat-hechizo");
-    if (!selectStat) return;
+        const titulo = document.createElement("h3");
+        titulo.textContent = `Nivel de Lanzador: ${nivel}`;
+        contenedor.appendChild(titulo);
 
-    const statElegida = selectStat.value;
+        tablaEspacios[nivel].forEach((cantidad, i) => {
 
-    const mod = obtenerModStat(statElegida);
-    const competencia = obtenerCompetencia();
+            const nivelHechizo = i + 1;
 
-    const cd = 8 + competencia + mod;
-    const ataque = competencia + mod;
+            const fila = document.createElement("div");
+            fila.className = "fila-espacios";
 
-    bloque.querySelector(".cd-hechizo").textContent = cd;
-    bloque.querySelector(".ataque-hechizo").textContent =
-        ataque >= 0 ? "+" + ataque : ataque;
-}
+            const label = document.createElement("span");
+            label.textContent = `Nivel ${nivelHechizo}: `;
+            fila.appendChild(label);
 
-function actualizarCDyAtaque(bloque) {
+            for (let j = 0; j < cantidad; j++) {
+                const check = document.createElement("input");
+                check.type = "checkbox";
+                fila.appendChild(check);
+            }
 
-    const selectStat = bloque.querySelector(".stat-hechizo");
-    if (!selectStat) return;
+            contenedor.appendChild(fila);
+        });
+    }
 
-    const statElegida = selectStat.value;
+    /* =====================================================
+       PANEL CD Y ATAQUE
+    ===================================================== */
 
-    const mod = obtenerModStat(statElegida);
-    const competencia = obtenerCompetencia();
+    const panel = document.createElement("div");
+    panel.innerHTML = `
+        <hr>
+        <label>Característica Lanzamiento</label>
+        <select id="statHechizos">
+            <option>Inteligencia</option>
+            <option>Sabiduria</option>
+            <option>Carisma</option>
+        </select>
 
-    const cd = 8 + competencia + mod;
-    const ataque = competencia + mod;
+        <div>CD Salvación: <span id="cdHechizos">10</span></div>
+        <div>Bonif. Ataque: <span id="ataqueHechizos">+0</span></div>
+    `;
 
-    bloque.querySelector(".cd-hechizo").textContent = cd;
-    bloque.querySelector(".ataque-hechizo").textContent =
-        ataque >= 0 ? "+" + ataque : ataque;
-}
+    contenedor.after(panel);
 
-function generarEspacios(nivel, contenedor) {
+    function actualizarCD() {
 
-    contenedor.innerHTML = "";
+        const stat = document.getElementById("statHechizos").value;
+        const mod = getMod(stat);
+        const competencia = getCompetencia();
 
-    const espacios = tablaEspacios[nivel];
-    if (!espacios) return;
+        const cd = 8 + competencia + mod;
+        const ataque = competencia + mod;
 
-    espacios.forEach((cantidad, i) => {
+        document.getElementById("cdHechizos").textContent = cd;
+        document.getElementById("ataqueHechizos").textContent =
+            ataque >= 0 ? "+" + ataque : ataque;
+    }
 
-        const nivelHechizo = i + 1;
+    /* =====================================================
+       ACTUALIZACIÓN GLOBAL
+    ===================================================== */
 
-        const fila = document.createElement("div");
-        fila.className = "fila-espacios";
+    function actualizarHechizos() {
 
-        fila.innerHTML = `
-            <strong>Nivel ${nivelHechizo}:</strong>
-            <span>${cantidad}</span>
-        `;
+        const nivelLanzador = calcularNivelLanzador();
+        generarEspacios(nivelLanzador);
+        actualizarCD();
+    }
 
-        for (let j = 0; j < cantidad; j++) {
-            const checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            fila.appendChild(checkbox);
-        }
+    document.addEventListener("input", actualizarHechizos);
+    document.addEventListener("change", actualizarHechizos);
 
-        contenedor.appendChild(fila);
-    });
-}
+    actualizarHechizos();
+});

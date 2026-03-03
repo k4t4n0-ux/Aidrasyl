@@ -96,14 +96,70 @@ Orientación mágica. Cuando terminas un descanso corto, recuperas todos los uso
 
         barbaro: {
             1: {
-                "Ira": "Puedes entrar en un estado de furia...",
-                "Defensa sin Armadura": "Mientras no lleves armadura..."
+                "Furia":`Como acción adicional si no llevas una armadura pesada.
+Puedes ingresar tu Rage la cantidad de veces que se muestra para tu nivel de Barbarian en la columna Rages de la tabla Características de Barbarian. Recuperas un uso gastado cuando terminas un descanso corto y recuperas todos los usos gastados cuando terminas un descanso largo.
+Mientras está activo, tu Rage sigue las reglas a continuación.
+Resistencia al daño. Tienes resistencia al daño contundente, perforante y cortante.
+Daño por ira. Cuando realizas un ataque usando Strength— con un arma o un Strike— desarmado y infliges daño al objetivo, obtienes una bonificación al daño que aumenta a medida que ganas niveles como bárbaro, como se muestra en la columna Daño de ira de la tabla Características bárbaras.
+Ventaja de fuerza. Tienes ventajas en controles de fuerza y lanzamientos de ahorro de fuerza.
+Sin concentración ni hechizos. No puedes mantener la concentración y no puedes lanzar hechizos.
+Duración. The Rage dura hasta el final de tu siguiente turno y termina temprano si te pones una armadura pesada o tienes la condición de incapacitado. Si tu Rage todavía está activo en tu siguiente turno, puedes extender el Rage por otra ronda haciendo una de las siguientes cosas:
+Haz una tirada de ataque contra un enemigo.
+Obliga a un enemigo a realizar un tiro salvador.
+Realice una acción adicional para extender su ira.
+Cada vez que se extiende Rage, dura hasta el final de tu siguiente turno. Puedes mantener un Rage por hasta 10 minutos.`,
+                "Defensa sin Armadura": "Si bien no llevas ninguna armadura, tu clase de armadura base es igual a 10 más tus modificadores de destreza y constitución. Puedes usar un Escudo y aun así obtener este beneficio.",
+                "Dominio de armas":`Tu entrenamiento con armas te permite usar el propiedades de dominio de 2 armas cuerpo a cuerpo simples o marciales de tu elección, como Greataxes y Handaxes. Siempre que termines un descanso prolongado, podrás practicar ejercicios con armas y cambiar una de esas opciones de armas.
+Obtienes la capacidad de usar las propiedades de dominio de una arma extra en los niveles de barbaro 4 (3) y 10 (4).`
             },
             2: {
-                "Ataque Temerario": "Puedes atacar con ventaja..."
+                "Sentido de peligro": "Obtienes una extraña sensación de cuando las cosas no son como deberían ser, lo que te da una ventaja cuando esquivas peligros. Tienes ventaja sobre los lanzamientos de ahorro de destreza a menos que tengas la condición de incapacitado.",
+                "Ataque imprudente":"Puedes dejar de lado toda preocupación por la defensa para atacar con mayor ferocidad. Cuando haces que tu primer ataque avance en tu turno, puedes decidir atacar imprudentemente. Hacerlo te da ventaja en las tiradas de ataque usando Fuerza hasta el comienzo de tu siguiente turno, pero las tiradas de ataque en tu contra tienen ventaja durante ese tiempo."
+            },
+            3: {
+                "Conocimiento primordial":`Obtienes competencia en otra habilidad de tu elección de la lista de habilidades disponible para los bárbaros en el nivel 1.
+Además, mientras tu Rage está activo, puedes canalizar el poder primario cuando intentas ciertas tareas; Siempre que realizas una verificación de habilidad usando una de las siguientes habilidades, puedes realizarla como una verificación de fuerza incluso si normalmente usa una habilidad diferente: acrobacia, intimidación, percepción, sigilo o supervivencia. Cuando usas esta habilidad, tu Fuerza representa el poder primordial que corre a través de ti, perfeccionando tu agilidad, porte y sentidos.`
+            },
+            4: {
+                "Mejora de la puntuación de habilidad":"Obtienes 2 puntos a mejorar las caracteristicas o un dote de tu elección para el cual calificas. Obtienes esta característica nuevamente en los niveles 8, 12 y 16 de Barbaro."
             },
             5: {
-                "Ataque Extra": "Puedes atacar dos veces..."
+                "Ataque Extra":"Puedes atacar dos veces en lugar de una cada vez que realices la acción de Ataque en tu turno.",
+                "Movimiento rápido":"Tu velocidad aumenta en 10 pies mientras no llevas armadura pesada."
+            },
+            7: {
+                "Instinto salvaje":"Tus instintos están tan perfeccionados que tienes ventajas en las listas de Iniciativa.",
+                "Salto instintivo":"Como parte de la acción de bonificación que realizas para ingresar a tu Rage, puedes moverte hasta la mitad de tu velocidad."
+            },
+            9: {
+                "Golpe Brutal":`Si usa Reckless Attack, puede renunciar a cualquier ventaja en una tirada de ataque basada en la fuerza de su elección en su turno. La tirada de ataque elegida no debe tener desventajas. Si la tirada de ataque elegida golpea, el objetivo recibe un daño 1d10 adicional del mismo tipo infligido por el arma o el Golpe desarmado, y puedes causar un efecto de Golpe Brutal de tu elección.
+Golpe contundente. El objetivo se empuja 15 pies de distancia de usted. Luego puedes mover hasta la mitad de tu velocidad directamente hacia el objetivo sin provocar ataques de oportunidad.
+Golpe en el tendón de la corva. La velocidad del objetivo se reduce en 15 pies hasta el inicio de tu siguiente turno. Un objetivo puede verse afectado por un solo golpe en el tendón de la corva a la vez — el más reciente.`
+            },
+            11: {
+                "Rabia implacable":`Tu ira puede mantenerte luchando a pesar de las graves heridas. Si bajas a 0 puntos de vida mientras tu rabia está activa y no mueres directamente, puedes realizar un lanzamiento de salvación de DC 10 Constitution. Si lo logras, tus puntos de vida cambian a un número igual al doble de tu nivel bárbaro.
+Cada vez que utiliza esta función después de la primera, la CD aumenta en 5. Cuando terminas un descanso corto o largo, el CD se restablece a 10.`
+            },
+            13: {
+                "Golpe brutal mejorado":`Has perfeccionado nuevas formas de atacar furiosamente. Los siguientes efectos se encuentran ahora entre sus opciones de Brutal Strike.
+Golpe asombroso. El objetivo tiene una desventaja en el siguiente lanzamiento de salvación que realiza y no puede realizar ataques de oportunidad hasta el comienzo del siguiente turno.
+Golpe de ruptura. Antes del inicio de tu siguiente turno, la siguiente tirada de ataque realizada por otra criatura contra el objetivo obtiene una bonificación de +5 en la tirada. Una tirada de ataque sólo puede obtener una bonificación de Golpe de Soltura.`
+            },
+            15: {
+                "Rabia persistente":`Cuando lanzas Iniciativa, puedes recuperar todos los usos gastados de Rage. Después de recuperar el uso de Rage de esta manera, no podrás volver a hacerlo hasta que termines un descanso largo.
+Además, tu Rage es tan feroz que ahora dura 10 minutos sin necesidad de hacer nada para extenderlo de una ronda a otra. Tu ira termina temprano si tienes la condición Inconsciente (no solo la condición Incapacitada) o te pones una armadura pesada.`
+            },
+            17: {
+                "Golpe brutal mejorado":"El daño adicional de tu Brutal Strike aumenta a 2d10. Además, puedes usar dos efectos Brutal Strike diferentes cada vez que uses tu función Brutal Strike."
+            },
+            18: {
+                "Poder indomable":"Si su total para una verificación de Fuerza o un lanzamiento de salvación de Fuerza es menor que su puntaje de Fuerza, puede usar ese puntaje en lugar del total."
+            },
+            19: {
+                "Bendición épica":"Obtienes una dote de Dendición Épica u otra dote de tu elección para la que califiques."
+            },
+            20: {
+                "Campeón Primario":"Encarnas el poder primordial. Tus puntuaciones de Fuerza y Constitución aumentan en 4, hasta un máximo de 25."
             }
         },
 

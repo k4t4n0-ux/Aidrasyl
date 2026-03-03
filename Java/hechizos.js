@@ -1,232 +1,256 @@
-const spellsData = {
-    Mago: [
-        {
-            name: "Rayo de Fuego",
-            level: 3,
-            school: "Evocación",
-            castingTime: "1 acción",
-            range: "36 metros",
-            components: "V, S, M (una astilla de sulfuro)",
-            duration: "Instantánea",
-            description: "Lanzas un rayo de fuego hacia una criatura que puedas ver dentro del rango.",
-            upcast: "Cuando lanzas este hechizo usando un espacio de hechizo de nivel 4 o superior, el daño aumenta en 1d6 por cada nivel de espacio por encima del 3."
-        },
-        {
-            name: "Truco de Magia",
-            level: 0,
-            school: "Transmutación",
-            castingTime: "1 acción",
-            range: "30 metros",
-            components: "V, S",
-            duration: "1 ronda",
-            description: "Realizas un efecto mágico menor que produce una consecuencia mágica inofensiva.",
-            upcast: "N/A"
-        }
-    ],
-    Clérigo: [
-        {
-            name: "Curación",
-            level: 1,
-            school: "Evocación",
-            castingTime: "1 acción",
-            range: "Toque",
-            components: "V, S",
-            duration: "Instantánea",
-            description: "Una criatura que toques recupera golpes de éxito iguales a 1d8 + tu modificador de lanzador.",
-            upcast: "Cuando lanzas este hechizo usando un espacio de hechizo de nivel 2 o superior, la curación aumenta en 1d8 por cada nivel de espacio por encima del 1."
-        }
-    ]
-};
+// ===============================
+// BLOQUE HECHIZOS DINÁMICO
+// ===============================
 
-const characteristics = ["Fuerza", "Destreza", "Constitución", "Inteligencia", "Sabiduría", "Carisma"];
-const proficiencyBonus = { 1: 2, 5: 3, 9: 4, 13: 5, 17: 6, 20: 6 };
+document.addEventListener("DOMContentLoaded", iniciarHechizos);
 
-function initSpellsInterface() {
-    const container = document.getElementById("bloquehechizos");
-    
-    const classSelect = document.createElement("select");
-    classSelect.id = "classSelect";
-    classSelect.innerHTML = `<option value="">Selecciona una clase</option>
-        <option value="Mago">Mago</option>
-        <option value="Clérigo">Clérigo</option>`;
-    
-    const spellsContent = document.createElement("div");
-    spellsContent.id = "spellsContent";
-    spellsContent.style.display = "none";
-    
-    container.appendChild(classSelect);
-    container.appendChild(spellsContent);
-    
-    classSelect.addEventListener("change", (e) => {
-        if (e.target.value) {
-            spellsContent.style.display = "block";
-            renderSpellsInterface(e.target.value, spellsContent);
-        } else {
-            spellsContent.style.display = "none";
-        }
-    });
+function iniciarHechizos() {
+    const contenedor = document.getElementById("bloquehechizos");
+    if (!contenedor) return;
+
+    contenedor.appendChild(crearBloqueHechizos(1));
+    contenedor.appendChild(crearBloqueHechizos(2));
 }
 
-function renderSpellsInterface(className, container) {
-    container.innerHTML = "";
-    
-    const levelSection = document.createElement("div");
-    levelSection.className = "spell-level-section";
-    
-    const levelLabel = document.createElement("label");
-    levelLabel.textContent = "Nivel de Hechizo: ";
-    
-    const levelInput = document.createElement("input");
-    levelInput.type = "number";
-    levelInput.min = "1";
-    levelInput.max = "30";
-    levelInput.value = "1";
-    
-    const characteristicLabel = document.createElement("label");
-    characteristicLabel.textContent = "Característica: ";
-    
-    const characteristicSelect = document.createElement("select");
-    characteristics.forEach(char => {
-        const option = document.createElement("option");
-        option.value = char;
-        option.textContent = char;
-        characteristicSelect.appendChild(option);
+// ===============================
+// CREAR BLOQUE PRINCIPAL
+// ===============================
+
+function crearBloqueHechizos(indice) {
+
+    const bloque = document.createElement("div");
+    bloque.className = "bloque-hechizos";
+
+    bloque.innerHTML = `
+        <div class="hechizos-header">
+            <h3 class="hechizos-titulo">Conjuros</h3>
+            <button class="toggle-hechizos">▼</button>
+        </div>
+
+        <div class="hechizos-contenido" style="display:none;">
+
+            <div class="fila-hechizos">
+
+                <div>
+                    <label>Clase</label>
+                    <select class="clase-hechizo">
+                        <option value="">-- Clase --</option>
+                        <option>Mago</option>
+                        <option>Clérigo</option>
+                        <option>Druida</option>
+                        <option>Bardo</option>
+                        <option>Brujo</option>
+                        <option>Paladín</option>
+                        <option>Explorador</option>
+                        <option>Hechicero</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Nivel</label>
+                    <input type="number" class="nivel-hechizo" min="1" max="30" value="1">
+                </div>
+
+                <div>
+                    <label>Característica</label>
+                    <select class="stat-hechizo">
+                        <option>Fuerza</option>
+                        <option>Destreza</option>
+                        <option>Constitucion</option>
+                        <option>Inteligencia</option>
+                        <option>Sabiduria</option>
+                        <option>Carisma</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="fila-calculos">
+
+                <div class="mini-calc">
+                    <label>CD Salvación</label>
+                    <span class="cd-salvacion">8</span>
+                </div>
+
+                <div class="mini-calc">
+                    <label>Bonif. Ataque</label>
+                    <span class="ataque-hechizo">+0</span>
+                </div>
+
+            </div>
+
+            <div class="espacios-container"></div>
+
+            <div class="lista-conjuros"></div>
+
+            <button class="btn-add-conjuro">+ Añadir Conjuro</button>
+
+        </div>
+    `;
+
+    // Eventos
+    const toggle = bloque.querySelector(".toggle-hechizos");
+    const contenido = bloque.querySelector(".hechizos-contenido");
+    const claseSelect = bloque.querySelector(".clase-hechizo");
+    const nivelInput = bloque.querySelector(".nivel-hechizo");
+    const statSelect = bloque.querySelector(".stat-hechizo");
+
+    toggle.addEventListener("click", () => {
+        contenido.style.display =
+            contenido.style.display === "none" ? "block" : "none";
     });
-    
-    levelSection.appendChild(levelLabel);
-    levelSection.appendChild(levelInput);
-    levelSection.appendChild(characteristicLabel);
-    levelSection.appendChild(characteristicSelect);
-    
-    container.appendChild(levelSection);
-    
-    const statsSection = document.createElement("div");
-    statsSection.className = "spell-stats-section";
-    
-    const cdLabel = document.createElement("div");
-    cdLabel.className = "stat-block";
-    cdLabel.innerHTML = `<strong>CD Salvación:</strong> <span id="cdValue">10</span>`;
-    
-    const attackLabel = document.createElement("div");
-    attackLabel.className = "stat-block";
-    attackLabel.innerHTML = `<strong>Bonificador Ataque:</strong> <span id="attackValue">2</span>`;
-    
-    statsSection.appendChild(cdLabel);
-    statsSection.appendChild(attackLabel);
-    
-    container.appendChild(statsSection);
-    
-    const slotsSection = document.createElement("div");
-    slotsSection.className = "spell-slots-section";
-    
-    levelInput.addEventListener("change", () => {
-        const level = parseInt(levelInput.value);
-        const characteristic = characteristicSelect.value;
-        updateStats(level, characteristic, cdLabel, attackLabel);
-        renderSpellSlots(level, slotsSection);
+
+    claseSelect.addEventListener("change", () => {
+        const titulo = bloque.querySelector(".hechizos-titulo");
+        const clase = claseSelect.value;
+        titulo.textContent = clase ? `Conjuros (${clase})` : "Conjuros";
     });
-    
-    characteristicSelect.addEventListener("change", () => {
-        const level = parseInt(levelInput.value);
-        const characteristic = characteristicSelect.value;
-        updateStats(level, characteristic, cdLabel, attackLabel);
+
+    nivelInput.addEventListener("input", () => {
+        generarEspacios(bloque);
+        actualizarCalculosHechizo(bloque);
     });
-    
-    container.appendChild(slotsSection);
-    
-    const addSpellBtn = document.createElement("button");
-    addSpellBtn.className = "add-spell-btn";
-    addSpellBtn.textContent = "Añadir Conjuro";
-    addSpellBtn.addEventListener("click", () => renderSpellSelector(container, className));
-    
-    container.appendChild(addSpellBtn);
-    
-    renderSpellSlots(1, slotsSection);
-    updateStats(1, "Inteligencia", cdLabel, attackLabel);
+
+    statSelect.addEventListener("change", () => {
+        actualizarCalculosHechizo(bloque);
+    });
+
+    bloque.querySelector(".btn-add-conjuro")
+        .addEventListener("click", () => agregarConjuro(bloque));
+
+    generarEspacios(bloque);
+    actualizarCalculosHechizo(bloque);
+
+    return bloque;
 }
 
-function updateStats(level, characteristic, cdElement, attackElement) {
-    const profBonus = getProficiencyBonus(level);
-    const charBonus = 2;
-    
-    const cd = 8 + profBonus + charBonus;
-    const attack = profBonus + charBonus;
-    
-    cdElement.querySelector("span").textContent = cd;
-    attackElement.querySelector("span").textContent = attack;
+// ===============================
+// CÁLCULOS
+// ===============================
+
+function actualizarCalculosHechizo(bloque) {
+
+    const competencia = parseInt(
+        document.getElementById("competencia")?.value.replace("+","")
+    ) || 0;
+
+    const statSeleccionada = bloque.querySelector(".stat-hechizo").value;
+    const statInput = document.querySelector(`[data-stat="${statSeleccionada}"]`);
+
+    const valorStat = parseInt(statInput?.value) || 10;
+    const mod = Math.floor((valorStat - 10) / 2);
+
+    const cd = 8 + competencia + mod;
+    const ataque = competencia + mod;
+
+    bloque.querySelector(".cd-salvacion").textContent = cd;
+    bloque.querySelector(".ataque-hechizo").textContent =
+        ataque >= 0 ? "+" + ataque : ataque;
 }
 
-function getProficiencyBonus(level) {
-    if (level <= 4) return 2;
-    if (level <= 8) return 3;
-    if (level <= 12) return 4;
-    if (level <= 16) return 5;
-    return 6;
-}
+// ===============================
+// ESPACIOS DE CONJURO (Simplificado PHB)
+// ===============================
 
-function renderSpellSlots(level, container) {
-    container.innerHTML = "";
-    const slotsPerLevel = {
-        1: 2, 2: 2, 3: 3, 4: 3, 5: 4, 6: 4, 7: 5, 8: 5, 9: 6,
-        10: 6, 11: 7, 12: 7, 13: 8, 14: 8, 15: 9, 16: 9, 17: 10,
-        18: 10, 19: 11, 20: 11, 21: 12, 22: 12, 23: 13, 24: 13, 25: 14,
-        26: 14, 27: 15, 28: 15, 29: 16, 30: 16
+function generarEspacios(bloque) {
+
+    const nivel = parseInt(
+        bloque.querySelector(".nivel-hechizo").value
+    ) || 1;
+
+    const contenedor = bloque.querySelector(".espacios-container");
+    contenedor.innerHTML = "";
+
+    const tabla = {
+        1: [2],
+        2: [3],
+        3: [4,2],
+        4: [4,3],
+        5: [4,3,2],
+        6: [4,3,3],
+        7: [4,3,3,1],
+        8: [4,3,3,2],
+        9: [4,3,3,3,1]
     };
-    
-    const title = document.createElement("h4");
-    title.textContent = `Espacios de Nivel ${level}`;
-    container.appendChild(title);
-    
-    const slotsDiv = document.createElement("div");
-    slotsDiv.className = "spell-slots";
-    
-    const totalSlots = slotsPerLevel[level] || 2;
-    
-    for (let i = 0; i < totalSlots; i++) {
-        const slot = document.createElement("div");
-        slot.className = "spell-slot";
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        slot.appendChild(checkbox);
-        slotsDiv.appendChild(slot);
-    }
-    
-    container.appendChild(slotsDiv);
-}
 
-function renderSpellSelector(container, className) {
-    const spells = spellsData[className] || [];
-    const selector = document.createElement("div");
-    selector.className = "spell-selector";
-    
-    spells.forEach(spell => {
-        const spellCard = document.createElement("div");
-        spellCard.className = "spell-card";
-        spellCard.innerHTML = `
-            <div class="spell-card-header">
-                <span>${spell.name} (Nivel ${spell.level})</span>
-                <button class="add-btn">+</button>
-            </div>
-            <div class="spell-details" style="display: none;">
-                <p><strong>Escuela:</strong> ${spell.school}</p>
-                <p><strong>Tiempo de Casteo:</strong> ${spell.castingTime}</p>
-                <p><strong>Rango:</strong> ${spell.range}</p>
-                <p><strong>Componentes:</strong> ${spell.components}</p>
-                <p><strong>Duración:</strong> ${spell.duration}</p>
-                <p><strong>Descripción:</strong> ${spell.description}</p>
-                <p><strong>Amplificación:</strong> ${spell.upcast}</p>
-            </div>
+    const niveles = tabla[Math.min(nivel,9)] || [4,3,3,3,2,1];
+
+    niveles.forEach((cantidad, i) => {
+
+        const fila = document.createElement("div");
+        fila.className = "fila-espacio";
+
+        fila.innerHTML = `
+            <span>Nivel ${i+1} (${cantidad})</span>
+            <div class="marcadores"></div>
         `;
-        
-        spellCard.querySelector(".spell-card-header").addEventListener("click", () => {
-            const details = spellCard.querySelector(".spell-details");
-            details.style.display = details.style.display === "none" ? "block" : "none";
-        });
-        
-        selector.appendChild(spellCard);
+
+        const marcadores = fila.querySelector(".marcadores");
+
+        for (let j=0; j<cantidad; j++){
+            const box = document.createElement("input");
+            box.type = "checkbox";
+            marcadores.appendChild(box);
+        }
+
+        contenedor.appendChild(fila);
     });
-    
-    container.appendChild(selector);
 }
 
-document.addEventListener("DOMContentLoaded", initSpellsInterface);
+// ===============================
+// CONJUROS DINÁMICOS
+// ===============================
+
+function agregarConjuro(bloque){
+
+    const lista = bloque.querySelector(".lista-conjuros");
+
+    const conjuro = document.createElement("div");
+    conjuro.className = "conjuro-item";
+
+    conjuro.innerHTML = `
+        <div class="conjuro-header">
+            <span>Conjuro</span>
+            <button class="toggle-conjuro">▼</button>
+            <button class="eliminar-conjuro">X</button>
+        </div>
+
+        <div class="conjuro-body" style="display:none;">
+            <label>Nivel</label>
+            <select class="nivel-conjuro">
+                <option value="0">Truco</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <div class="descripcion-conjuro">
+                <p><strong>Escuela:</strong></p>
+                <p><strong>Tiempo:</strong></p>
+                <p><strong>Rango:</strong></p>
+                <p><strong>Componentes:</strong></p>
+                <p><strong>Duración:</strong></p>
+                <p><strong>Descripción:</strong></p>
+                <p><strong>Superior:</strong></p>
+            </div>
+        </div>
+    `;
+
+    conjuro.querySelector(".toggle-conjuro")
+        .addEventListener("click", () => {
+            const body = conjuro.querySelector(".conjuro-body");
+            body.style.display =
+                body.style.display === "none" ? "block" : "none";
+        });
+
+    conjuro.querySelector(".eliminar-conjuro")
+        .addEventListener("click", () => conjuro.remove());
+
+    lista.appendChild(conjuro);
+}

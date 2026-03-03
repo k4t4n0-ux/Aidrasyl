@@ -13,10 +13,19 @@ function actualizarCombate(){
 
     // ===== INICIATIVA =====
     const destreza = document.querySelector('[data-stat="Destreza"]');
-    if(destreza){
+
+    if (destreza) {
+
         const modDes = calcularMod(parseInt(destreza.value) || 10);
+
+        const bonificadorExtra = parseInt(
+            document.getElementById("bonificadorIniciativa")?.value
+        ) || 0;
+
+        const totalIniciativa = modDes + bonificadorExtra;
+
         document.getElementById("iniciativa").textContent =
-            modDes >= 0 ? "+" + modDes : modDes;
+            totalIniciativa >= 0 ? "+" + totalIniciativa : totalIniciativa;
     }
 
     // ===== PERCEPCIÓN PASIVA =====

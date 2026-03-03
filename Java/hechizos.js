@@ -37,7 +37,6 @@ const tablaBrujo = {
 };
 
 const baseConjuros = [
-{nombre:"Truco",nivel:0,tipo:"",escuela:"",tiempo:"",rango:"",componentes:"",duracion:"",descripcion:"",superior:""},
 {nombre:"Luz",nivel:0,tipo:"utilidad",escuela:"Evocación",tiempo:"1 acción",rango:"Toque",componentes:"V,M",duracion:"1 hora",descripcion:"Objeto brilla.",superior:"—"},
 {nombre:"Proyectil Mágico",nivel:1,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"36m",componentes:"V,S",duracion:"Instantáneo",descripcion:"3 dardos impactan automáticamente.",superior:"+1 dardo por nivel superior."},
 {nombre:"Bola de Fuego",nivel:3,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"45m",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Explosión ígnea de 6m.",superior:"+1d6 por nivel superior."},
@@ -103,7 +102,7 @@ if(nivelBrujo<=0)return;
 const data=tablaBrujo[nivelBrujo];
 if(!data)return;
 const bloqueBrujo=document.createElement("div");
-bloqueBrujo.innerHTML="<h3>Pact Magic / Ritual Profano</h3>";
+bloqueBrujo.innerHTML="<h3>Pacto Mágico</h3>";
 const fila=document.createElement("div");
 fila.textContent="Nivel "+data.nivel+" ("+data.espacios+" espacios): ";
 for(let i=0;i<data.espacios;i++){const check=document.createElement("input");check.type="checkbox";fila.appendChild(check);}

@@ -846,24 +846,29 @@ button:hover {
     }
 
     .dote-header-botones {
-        width: 100%;
         display: flex;
-        flex-direction: column;
-        gap: 8px;
+        flex-direction: row !important;
+        justify-content: flex-end;
+        gap: 6px;
+        width: auto;
     }
 
     .dote-header-botones button {
-        width: 100%;
+        width: auto !important;
+        min-height: 30px;
+        padding: 4px 10px;
+        font-size: 12px;
     }
 
     .pg-botones {
-        grid-template-columns: 1fr;
-        gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
     }
 
     .armaduras-grid {
-        grid-template-columns: 1fr;
-        gap: 8px;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
     }
 
     input[type="text"],

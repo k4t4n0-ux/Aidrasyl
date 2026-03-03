@@ -112,7 +112,7 @@ zonaEspacios.appendChild(bloqueBrujo);
 }
 
 function actualizarEspacios(){
-tituloNivel.textContent="Nivel Lanzador Total: "+calcularNivelLanzador();
+tituloNivel.textContent="Conjuros"
 zonaEspacios.innerHTML="";
 renderEspaciosNormales();
 renderBrujo();

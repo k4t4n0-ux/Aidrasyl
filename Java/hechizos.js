@@ -11,7 +11,7 @@ const clasesCompletas = ["bardo","clerigo","druida","hechicero","mago","psionico
 const clasesMedias = ["artificiero","paladin","explorador"];
 const clasesTercio = ["luchador","picaro"];
 const clasesBrujo = ["brujo"];
-const clasesEspeciales = ["cazador_sangre"];    
+const clasesEspeciales = ["cazador_sangre"];
 
 /* Subclases tercio lanzadoras */
 const subclasesTercioValidas = ["asesino"]; // añade aquí las reales
@@ -142,11 +142,16 @@ contenedorPrincipal.appendChild(listaConjuros);
 
 function actualizarEspacios(){
 
-const nivel = calcularNivelLanzador();
-tituloNivel.textContent = "Nivel Lanzador Total: " + nivel;
+tituloNivel.textContent="Nivel Lanzador Total: "+calcularNivelLanzador();
 
 zonaEspacios.innerHTML="";
+contenedorPrincipal.querySelectorAll("div").forEach(d=>{
+if(d!==zonaEspacios) d.remove();
+});
 
+renderEspaciosNormales();
+renderBrujo();
+renderCazadorBrujo();
 }
 
 /* =====================================================
@@ -266,3 +271,157 @@ document.addEventListener("change",actualizarEspacios);
 actualizarEspacios();
 
 });
+
+const tablaEspacios = {
+1:[2],
+2:[3],
+3:[4,2],
+4:[4,3],
+5:[4,3,2],
+6:[4,3,3],
+7:[4,3,3,1],
+8:[4,3,3,2],
+9:[4,3,3,3,1],
+10:[4,3,3,3,2],
+11:[4,3,3,3,2,1],
+12:[4,3,3,3,2,1],
+13:[4,3,3,3,2,1,1],
+14:[4,3,3,3,2,1,1],
+15:[4,3,3,3,2,1,1,1],
+16:[4,3,3,3,2,1,1,1],
+17:[4,3,3,3,2,1,1,1,1],
+18:[4,3,3,3,3,1,1,1,1],
+19:[4,3,3,3,3,2,1,1,1],
+20:[4,3,3,3,3,2,2,1,1]
+};
+
+const tablaBrujo = {
+1:{espacios:1,nivel:1},
+2:{espacios:2,nivel:1},
+3:{espacios:2,nivel:2},
+4:{espacios:2,nivel:2},
+5:{espacios:2,nivel:3},
+6:{espacios:2,nivel:3},
+7:{espacios:2,nivel:4},
+8:{espacios:2,nivel:4},
+9:{espacios:2,nivel:5},
+10:{espacios:2,nivel:5},
+11:{espacios:3,nivel:5},
+12:{espacios:3,nivel:5},
+13:{espacios:3,nivel:5},
+14:{espacios:3,nivel:5},
+15:{espacios:3,nivel:5},
+16:{espacios:3,nivel:5},
+17:{espacios:4,nivel:5},
+18:{espacios:4,nivel:5},
+19:{espacios:4,nivel:5},
+20:{espacios:4,nivel:5}
+};
+
+function obtenerNivelClase(idClase,idNivel){
+return {
+clase:document.getElementById(idClase)?.value,
+nivel:parseInt(document.getElementById(idNivel)?.value)||0
+};
+}
+
+function renderEspaciosNormales(){
+
+const nivel = calcularNivelLanzador();
+if(nivel<=0) return;
+
+const bloqueNormal=document.createElement("div");
+bloqueNormal.innerHTML="<h3>Espacios de Conjuro</h3>";
+
+tablaEspacios[nivel].forEach((cantidad,i)=>{
+
+const fila=document.createElement("div");
+fila.textContent="Nivel "+(i+1)+": ";
+
+for(let x=0;x<cantidad;x++){
+const check=document.createElement("input");
+check.type="checkbox";
+fila.appendChild(check);
+}
+
+bloqueNormal.appendChild(fila);
+});
+
+contenedorPrincipal.appendChild(bloqueNormal);
+}
+
+function renderBrujo(){
+
+let totalBrujo=0;
+
+const c1=obtenerNivelClase("clase","nivel1");
+const c2=obtenerNivelClase("clase2","nivel2");
+
+if(c1.clase==="brujo") totalBrujo+=c1.nivel;
+if(c2.clase==="brujo") totalBrujo+=c2.nivel;
+
+if(totalBrujo<=0) return;
+
+const data=tablaBrujo[totalBrujo];
+if(!data) return;
+
+const bloqueBrujo=document.createElement("div");
+bloqueBrujo.innerHTML="<h3>Pact Magic (Brujo)</h3>";
+
+const fila=document.createElement("div");
+fila.textContent="Nivel "+data.nivel+" ("+data.espacios+" espacios): ";
+
+for(let i=0;i<data.espacios;i++){
+const check=document.createElement("input");
+check.type="checkbox";
+fila.appendChild(check);
+}
+
+bloqueBrujo.appendChild(fila);
+contenedorPrincipal.appendChild(bloqueBrujo);
+}
+
+function renderCazadorBrujo(){
+
+let total=0;
+
+[
+{
+clase:document.getElementById("clase")?.value,
+nivel:parseInt(document.getElementById("nivel1")?.value)||0,
+sub:document.getElementById("subclase")?.value
+},
+{
+clase:document.getElementById("clase2")?.value,
+nivel:parseInt(document.getElementById("nivel2")?.value)||0,
+sub:document.getElementById("subclase2")?.value
+}
+].forEach(c=>{
+
+if(c.clase==="cazador_sangre" &&
+subclasesCazadorBrujo.includes(c.sub)){
+total+=c.nivel;
+}
+
+});
+
+if(total<=0) return;
+
+const data=tablaBrujo[total];
+if(!data) return;
+
+const bloque=document.createElement("div");
+bloque.innerHTML="<h3>Ritual Profano (Cazador)</h3>";
+
+const fila=document.createElement("div");
+fila.textContent="Nivel "+data.nivel+" ("+data.espacios+" espacios): ";
+
+for(let i=0;i<data.espacios;i++){
+const check=document.createElement("input");
+check.type="checkbox";
+fila.appendChild(check);
+}
+
+bloque.appendChild(fila);
+contenedorPrincipal.appendChild(bloque);
+}

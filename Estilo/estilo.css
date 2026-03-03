@@ -624,8 +624,6 @@ button:hover {
     }
 }
 
-
-
 @media (max-width: 480px) {
     body {
         padding: 10px 8px;
@@ -798,6 +796,36 @@ button:hover {
     .dote-header-botones button {
         width: auto !important;
     }
+
+.bloque-combate-detalle .btn-eliminar {
+    width: auto !important;
+    min-height: 32px;
+    padding: 6px 12px;
+    align-self: flex-end;
+}
+
+.bloque-combate-detalle button:first-of-type {
+    width: auto !important;
+    min-height: 32px;
+    padding: 6px 12px;
+
+}.bloque-combate-detalle p {
+    margin: 4px 0;
+}
+
+.bloque-combate-detalle h4 {
+    margin-bottom: 6px;
+}
+
+.bloque-combate-detalle select {
+    max-width: 200px;
+    margin: 8px auto;
+}
+
+.bloque-combate-detalle {
+    padding: 12px;
+    gap: 8px;
+}
 }
 
 @media (max-width: 480px) {

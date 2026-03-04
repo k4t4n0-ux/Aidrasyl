@@ -161,20 +161,25 @@ renderBrujo();
 
 function crearConjuro(){
 const wrapper=document.createElement("div");
-wrapper.className="conjuro";
-wrapper.style.display="flex";
-wrapper.style.alignItems="center";
-wrapper.style.gap="8px";
+wrapper.className="conjuro-card";
 
-const toggle=document.createElement("button");
-toggle.type="button";
-toggle.textContent="▼";
-toggle.style.width="24px";
-toggle.style.padding="4px";
+const header = document.createElement("div");
+header.className = "conjuro-header";
 
-const body=document.createElement("div");
-body.style.display="none";
-body.style.flex="1";
+const body = document.createElement("div");
+body.className = "conjuro-body";
+body.style.display = "none";
+
+header.appendChild(toggle);
+header.appendChild(selectNivel);
+header.appendChild(selectNombre);
+header.appendChild(eliminar);
+
+body.appendChild(selectStat);
+body.appendChild(descripcion);
+
+wrapper.appendChild(header);
+wrapper.appendChild(body);
 
 toggle.onclick=()=>{
 const isOpen=body.style.display!=="none";

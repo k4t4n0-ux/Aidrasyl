@@ -182,9 +182,9 @@ wrapper.appendChild(header);
 wrapper.appendChild(body);
 
 toggle.onclick=()=>{
-const isOpen=body.style.display!=="none";
-body.style.display=isOpen?"none":"block";
-toggle.textContent=isOpen?"▼":"▲";
+const abierto = body.style.display === "block";
+body.style.display = abierto ? "none" : "block";
+toggle.textContent = abierto ? "▼" : "▲";
 };
 
 const eliminar=document.createElement("button");

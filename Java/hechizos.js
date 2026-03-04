@@ -217,10 +217,12 @@ function actualizarDescripcion(){
         return;
     }
 
-    const statSelect = descripcion.querySelector(".statSelectInterno");
-    const statUsado = statSelect ? statSelect.value : "Inteligencia";
+    // 🔥 Guardar stat actual antes de reconstruir
+    const statActual =
+        descripcion.querySelector(".statSelectInterno")?.value
+        || "Inteligencia";
 
-    const mod = obtenerMod(statUsado);
+    const mod = obtenerMod(statActual);
     const comp = obtenerCompetencia();
 
     let extra="";
@@ -261,11 +263,12 @@ function actualizarDescripcion(){
         </div>
     `;
 
-    const statInterno = descripcion.querySelector(".statSelectInterno");
+    // 🔥 Restaurar valor seleccionado
+    const statSelectNuevo = descripcion.querySelector(".statSelectInterno");
+    statSelectNuevo.value = statActual;
 
-    statInterno.addEventListener("change", ()=>{
-        actualizarDescripcion();
-    });
+    // 🔥 Listener limpio
+    statSelectNuevo.addEventListener("change", actualizarDescripcion);
 }
 
 // 🔄 Actualización automática como en combate.js

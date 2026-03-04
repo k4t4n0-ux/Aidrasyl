@@ -173,10 +173,10 @@ const body=document.createElement("div");
 body.style.display="none";
 body.style.flex="1";
 
-toggle.onclick=()=>{
-const isOpen=body.style.display!=="none";
-body.style.display=isOpen?"none":"block";
-toggle.textContent=isOpen?"▼":"▲";
+toggle.onclick = ()=>{
+const abierto = body.style.display === "block";
+body.style.display = abierto ? "none" : "block";
+toggle.textContent = abierto ? "▼" : "▲";
 };
 
 const eliminar=document.createElement("button");
@@ -192,10 +192,6 @@ body.appendChild(selectNivel);
 
 const selectNombre=document.createElement("select");
 body.appendChild(selectNombre);
-
-const selectStat=document.createElement("select");
-["Inteligencia","Sabiduria","Carisma"].forEach(stat=>{const o=document.createElement("option");o.value=stat;o.textContent=stat;selectStat.appendChild(o);});
-body.appendChild(selectStat);
 
 const descripcion=document.createElement("div");
 body.appendChild(descripcion);
@@ -221,7 +217,10 @@ function actualizarDescripcion(){
         return;
     }
 
-    const mod = obtenerMod(selectStat.value);
+    const statInterno = descripcion.querySelector(".statSelectInterno");
+    const statUsado = statInterno ? statInterno.value : "Inteligencia";
+
+    const mod = obtenerMod(statUsado);
     const comp = obtenerCompetencia();
 
     let extra="";
@@ -277,9 +276,16 @@ selectNombre.addEventListener("change",actualizarDescripcion);
 selectStat.addEventListener("change",actualizarDescripcion);
 actualizarLista();
 
-wrapper.appendChild(toggle);
+const header = document.createElement("div");
+header.className = "conjuro-header";
+
+header.appendChild(selectNivel);
+header.appendChild(selectNombre);
+header.appendChild(toggle);
+header.appendChild(eliminar);
+
+wrapper.appendChild(header);
 wrapper.appendChild(body);
-wrapper.appendChild(eliminar);
 listaConjuros.appendChild(wrapper);
 }
 

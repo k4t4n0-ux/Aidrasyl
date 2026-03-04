@@ -160,77 +160,55 @@ renderBrujo();
 }
 
 function crearConjuro(){
+const wrapper=document.createElement("div");
+wrapper.className="conjuro-card";
 
-const wrapper = document.createElement("div");
-wrapper.className = "conjuro-card";
-
-/* ---------- HEADER ---------- */
-
-const header = document.createElement("div");
-header.className = "conjuro-header";
-
-const toggle = document.createElement("button");
+const toggle=document.createElement("button");
 toggle.type="button";
 toggle.textContent="▼";
+toggle.style.width="24px";
+toggle.style.padding="4px";
 
-const selectNivel=document.createElement("select");
-for(let i=0;i<=9;i++){
-    const o=document.createElement("option");
-    o.value=i;
-    o.textContent=i===0?"Trucos":"Nivel "+i;
-    selectNivel.appendChild(o);
-}
+const body=document.createElement("div");
+body.style.display="none";
+body.style.flex="1";
 
-const selectNombre=document.createElement("select");
+toggle.onclick=()=>{
+const isOpen=body.style.display!=="none";
+body.style.display=isOpen?"none":"block";
+toggle.textContent=isOpen?"▼":"▲";
+};
 
 const eliminar=document.createElement("button");
 eliminar.type="button";
 eliminar.textContent="✕";
+eliminar.style.width="24px";
+eliminar.padding="4px";
 eliminar.onclick=()=>wrapper.remove();
 
-header.appendChild(toggle);
-header.appendChild(selectNivel);
-header.appendChild(selectNombre);
-header.appendChild(eliminar);
+const selectNivel=document.createElement("select");
+for(let i=0;i<=9;i++){const o=document.createElement("option");o.value=i;o.textContent=i===0?"Truco":"Nivel "+i;selectNivel.appendChild(o);}
+body.appendChild(selectNivel);
 
-/* ---------- BODY ---------- */
+const selectNombre=document.createElement("select");
+body.appendChild(selectNombre);
 
-const body=document.createElement("div");
-body.className="conjuro-body";
-body.style.display="none";
+const selectStat=document.createElement("select");
+["Inteligencia","Sabiduria","Carisma"].forEach(stat=>{const o=document.createElement("option");o.value=stat;o.textContent=stat;selectStat.appendChild(o);});
+body.appendChild(selectStat);
 
 const descripcion=document.createElement("div");
 body.appendChild(descripcion);
 
-/* ---------- TOGGLE ---------- */
-
-toggle.onclick=()=>{
-    const abierto = body.style.display==="block";
-    body.style.display = abierto?"none":"block";
-    toggle.textContent = abierto?"▼":"▲";
-};
-
-/* ---------- FUNCIONES ---------- */
-
 function actualizarLista(){
-    const nivel=parseInt(selectNivel.value);
-    selectNombre.innerHTML="";
-
-    const baseOption=document.createElement("option");
-    baseOption.value="";
-    baseOption.textContent=nivel===0?"Truco":"Conjuro";
-    selectNombre.appendChild(baseOption);
-
-    baseConjuros
-        .filter(c=>c.nivel===nivel)
-        .forEach(c=>{
-            const o=document.createElement("option");
-            o.value=c.nombre;
-            o.textContent=c.nombre;
-            selectNombre.appendChild(o);
-        });
-
-    actualizarDescripcion();
+const nivel=parseInt(selectNivel.value);
+selectNombre.innerHTML="";
+const defaultOption=document.createElement("option");
+defaultOption.value="";
+defaultOption.textContent=nivel===0?"Truco":"Conjuro";
+selectNombre.appendChild(defaultOption);
+baseConjuros.filter(c=>c.nivel===nivel).forEach(c=>{const o=document.createElement("option");o.value=c.nombre;o.textContent=c.nombre;selectNombre.appendChild(o);});
+actualizarDescripcion();
 }
 
 function actualizarDescripcion(){
@@ -238,29 +216,42 @@ function actualizarDescripcion(){
     const nombre = selectNombre.value;
     const data = baseConjuros.find(c=>c.nombre===nombre);
 
-    if(!data){
+    if(!data || !nombre){
         descripcion.innerHTML="";
         return;
     }
 
-    const mod = obtenerMod("Inteligencia");
+    const mod = obtenerMod(selectStat.value);
     const comp = obtenerCompetencia();
 
     let extra="";
+
     if(data.tipo==="ataque"){
-        extra = `<span><strong>${f(mod+comp)}</strong></span>`;
-    }
-    if(data.tipo==="salvacion"){
-        extra = `<span>CD ${8+mod+comp}</span>`;
+        extra = `<span>Ataque: <strong>${f(mod + comp)}</strong></span>`;
     }
 
-    descripcion.innerHTML=`
-        <div class="fila-lineal">
+    if(data.tipo==="salvacion"){
+        const cd = 8 + mod + comp;
+        extra = `<span>CD ${cd}</span>`;
+    }
+
+    descripcion.innerHTML = `
+        <div class="fila-lineal ataque-detalle">
+
             <strong>${data.nombre}</strong>
+
             <span>${data.rango}</span>
             <span>${data.componentes}</span>
             <span>${data.duracion}</span>
+
+            <select class="statSelectInterno">
+                <option value="Inteligencia" ${selectStat.value==="Inteligencia"?"selected":""}>Inteligencia</option>
+                <option value="Sabiduria" ${selectStat.value==="Sabiduria"?"selected":""}>Sabiduria</option>
+                <option value="Carisma" ${selectStat.value==="Carisma"?"selected":""}>Carisma</option>
+            </select>
+
             ${extra}
+
         </div>
 
         <div class="descripcionHechizo">
@@ -270,22 +261,34 @@ function actualizarDescripcion(){
             <p><em>${data.superior}</em></p>
         </div>
     `;
+
+    const statInterno = descripcion.querySelector(".statSelectInterno");
+
+    statInterno.addEventListener("change", ()=>{
+        selectStat.value = statInterno.value;
+        actualizarDescripcion();
+    });
 }
+
+// 🔄 Actualización automática como en combate.js
+document.addEventListener("input", actualizarDescripcion);
+document.addEventListener("change", actualizarDescripcion);
 
 selectNivel.addEventListener("change",actualizarLista);
 selectNombre.addEventListener("change",actualizarDescripcion);
-
+selectStat.addEventListener("change",actualizarDescripcion);
 actualizarLista();
 
-/* ---------- MONTAJE ---------- */
-
-wrapper.appendChild(header);
+wrapper.appendChild(toggle);
 wrapper.appendChild(body);
+wrapper.appendChild(eliminar);
 listaConjuros.appendChild(wrapper);
 }
 
 botonAgregar.onclick=crearConjuro;
 
+document.addEventListener("input",actualizarEspacios);
+document.addEventListener("change",actualizarEspacios);
 
 actualizarEspacios();
 

@@ -161,10 +161,7 @@ renderBrujo();
 
 function crearConjuro(){
 const wrapper=document.createElement("div");
-wrapper.className="conjuro";
-wrapper.style.display="flex";
-wrapper.style.alignItems="center";
-wrapper.style.gap="8px";
+wrapper.className="conjuro-card";
 
 const toggle=document.createElement("button");
 toggle.type="button";
@@ -274,8 +271,6 @@ function actualizarDescripcion(){
 }
 
 // 🔄 Actualización automática como en combate.js
-document.addEventListener("input", actualizarDescripcion);
-document.addEventListener("change", actualizarDescripcion);
 
 selectNivel.addEventListener("change",actualizarLista);
 selectNombre.addEventListener("change",actualizarDescripcion);
@@ -292,6 +287,14 @@ botonAgregar.onclick=crearConjuro;
 
 document.addEventListener("input",actualizarEspacios);
 document.addEventListener("change",actualizarEspacios);
+
+document.addEventListener("input", () => {
+    document.querySelectorAll(".conjuro").forEach(conj => {
+        const evento = new Event("change");
+        const select = conj.querySelector("select");
+        if(select) select.dispatchEvent(evento);
+    });
+});
 
 actualizarEspacios();
 

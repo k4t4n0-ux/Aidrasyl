@@ -1177,3 +1177,24 @@ button:hover {
     gap:20px;
     flex-wrap:wrap;
 }
+
+.conjuro-card{
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom:12px;
+}
+
+.fila-lineal{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.descripcionHechizo {
+    margin-top: 10px;
+    font-size:0.9rem;
+    opacity:0.9;
+}

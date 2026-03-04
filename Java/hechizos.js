@@ -217,8 +217,8 @@ function actualizarDescripcion(){
         return;
     }
 
-    const statInterno = descripcion.querySelector(".statSelectInterno");
-    const statUsado = statInterno ? statInterno.value : "Inteligencia";
+    const statSelect = descripcion.querySelector(".statSelectInterno");
+    const statUsado = statSelect ? statSelect.value : "Inteligencia";
 
     const mod = obtenerMod(statUsado);
     const comp = obtenerCompetencia();
@@ -244,9 +244,9 @@ function actualizarDescripcion(){
             <span>${data.duracion}</span>
 
             <select class="statSelectInterno">
-                <option value="Inteligencia" ${selectStat.value==="Inteligencia"?"selected":""}>Inteligencia</option>
-                <option value="Sabiduria" ${selectStat.value==="Sabiduria"?"selected":""}>Sabiduria</option>
-                <option value="Carisma" ${selectStat.value==="Carisma"?"selected":""}>Carisma</option>
+                <option value="Inteligencia">Inteligencia</option>
+                <option value="Sabiduria">Sabiduría</option>
+                <option value="Carisma">Carisma</option>
             </select>
 
             ${extra}
@@ -273,7 +273,6 @@ function actualizarDescripcion(){
 
 selectNivel.addEventListener("change",actualizarLista);
 selectNombre.addEventListener("change",actualizarDescripcion);
-selectStat.addEventListener("change",actualizarDescripcion);
 actualizarLista();
 
 const header = document.createElement("div");
@@ -293,14 +292,6 @@ botonAgregar.onclick=crearConjuro;
 
 document.addEventListener("input",actualizarEspacios);
 document.addEventListener("change",actualizarEspacios);
-
-document.addEventListener("input", () => {
-    document.querySelectorAll(".conjuro").forEach(conj => {
-        const evento = new Event("change");
-        const select = conj.querySelector("select");
-        if(select) select.dispatchEvent(evento);
-    });
-});
 
 actualizarEspacios();
 

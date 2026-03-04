@@ -161,7 +161,10 @@ renderBrujo();
 
 function crearConjuro(){
 const wrapper=document.createElement("div");
-wrapper.className="conjuro-card";
+wrapper.className="conjuro";
+wrapper.style.display="flex";
+wrapper.style.alignItems="center";
+wrapper.style.gap="8px";
 
 const toggle=document.createElement("button");
 toggle.type="button";

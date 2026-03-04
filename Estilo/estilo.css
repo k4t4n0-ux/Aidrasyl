@@ -1023,3 +1023,59 @@ button:hover {
     font-size: 0.9rem;
     opacity: 0.9;
 }
+
+/* Contenedor tarjeta */
+.conjuro-card{
+    background:#f3f4f6;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    padding:12px;
+    margin-bottom:12px;
+}
+
+/* Fila superior */
+.conjuro-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+/* Toggle y eliminar pequeños */
+.conjuro-header button{
+    width:28px;
+    height:28px;
+    padding:0;
+    border-radius:6px;
+}
+
+/* Selects superiores */
+.conjuro-header select{
+    padding:4px 8px;
+    border-radius:8px;
+}
+
+/* Cuerpo */
+.conjuro-body{
+    margin-top:12px;
+}
+
+/* Línea horizontal tipo imagen */
+.fila-lineal{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    font-size:0.95rem;
+}
+
+/* Nombre del conjuro grande */
+.fila-lineal strong{
+    font-size:1.1rem;
+}
+
+/* Descripción */
+.descripcionHechizo{
+    margin-top:10px;
+    font-size:0.9rem;
+    opacity:0.85;
+}

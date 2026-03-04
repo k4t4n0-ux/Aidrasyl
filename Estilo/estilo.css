@@ -1024,30 +1024,6 @@ button:hover {
     opacity: 0.9;
 }
 
-/* Contenedor tarjeta */
-.conjuro-card{
-    background:#f3f4f6;
-    border:1px solid #d1d5db;
-    border-radius:12px;
-    padding:12px;
-    margin-bottom:12px;
-}
-
-/* Fila superior */
-.conjuro-header{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-/* Toggle y eliminar pequeños */
-.conjuro-header button{
-    width:28px;
-    height:28px;
-    padding:0;
-    border-radius:6px;
-}
-
 /* Selects superiores */
 .conjuro-header select{
     padding:4px 8px;
@@ -1059,49 +1035,11 @@ button:hover {
     margin-top:12px;
 }
 
-/* Línea horizontal tipo imagen */
-.fila-lineal{
-    display:flex;
-    align-items:center;
-    gap:16px;
-    flex-wrap:wrap;
-    font-size:0.95rem;
-}
+
 
 /* Nombre del conjuro grande */
 .fila-lineal strong{
     font-size:1.1rem;
-}
-
-/* Descripción */
-.descripcionHechizo{
-    margin-top:10px;
-    font-size:0.9rem;
-    opacity:0.85;
-}
-
-.conjuro-card{
-    background:#f3f4f6;
-    border:1px solid #d1d5db;
-    border-radius:14px;
-    padding:12px 16px;
-    margin-bottom:12px;
-}
-
-.conjuro-header{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.conjuro-header button{
-    width:28px;
-    height:28px;
-    padding:0;
-    border-radius:6px;
-    border:1px solid #d1d5db;
-    background:white;
-    cursor:pointer;
 }
 
 .conjuro-header select{
@@ -1115,13 +1053,7 @@ button:hover {
     margin-top:14px;
 }
 
-.fila-lineal{
-    display:flex;
-    align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
-    font-size:0.95rem;
-}
+
 
 .fila-lineal strong{
     font-size:1.1rem;
@@ -1131,35 +1063,6 @@ button:hover {
     font-weight:600;
 }
 
-.descripcionHechizo{
-    margin-top:10px;
-    font-size:0.9rem;
-    opacity:0.85;
-}
-
-.conjuro-card{
-    background:#f3f4f6;
-    border:1px solid #d1d5db;
-    border-radius:14px;
-    padding:12px 16px;
-    margin-bottom:12px;
-}
-
-.conjuro-header{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.conjuro-header button{
-    width:28px;
-    height:28px;
-    border-radius:6px;
-    border:1px solid #d1d5db;
-    background:white;
-    cursor:pointer;
-}
-
 .conjuro-header select{
     padding:4px 10px;
     border-radius:8px;
@@ -1171,46 +1074,10 @@ button:hover {
     margin-top:14px;
 }
 
-.fila-lineal{
-    display:flex;
-    align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.conjuro-card{
-    background: #f3f4f6;
-    border: 1px solid #d1d5db;
-    border-radius: 12px;
-    padding: 12px;
-    margin-bottom:12px;
-}
-
-.fila-lineal{
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
 .descripcionHechizo {
     margin-top: 10px;
     font-size:0.9rem;
     opacity:0.9;
-}
-
-.conjuro-card{
-    background:#f3f4f6;
-    border:1px solid #d1d5db;
-    border-radius:12px;
-    padding:12px;
-    margin-bottom:12px;
-}
-
-.conjuro-header{
-    display:flex;
-    align-items:center;
-    gap:10px;
 }
 
 .conjuro-header select{
@@ -1223,13 +1090,157 @@ button:hover {
     height:28px;
 }
 
-.fila-lineal{
+/* ===================================================== */
+/* ================= HECHIZOS LIMPIO =================== */
+/* ===================================================== */
+
+.conjuro-card{
+    background:#f8fbff;
+    border:1px solid #d9e6f5;
+    border-radius:16px;
+    padding:16px;
+    margin-bottom:16px;
+    transition:all 0.2s ease;
+}
+
+.conjuro-card:hover{
+    box-shadow:0 4px 14px rgba(0,0,0,0.05);
+}
+
+/* ---------- HEADER ---------- */
+
+.conjuro-header{
     display:flex;
     align-items:center;
-    gap:16px;
+    gap:12px;
     flex-wrap:wrap;
 }
 
+/* Selects superiores */
+.conjuro-header select{
+    height:34px;
+    padding:0 10px;
+    border-radius:10px;
+    font-size:13px;
+}
+
+/* Botones pequeños (▲ y X) */
+.conjuro-header .btnToggle,
+.conjuro-header .btnEliminar{
+    width:36px;
+    height:36px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    border-radius:10px;
+    padding:0;
+}
+
+/* ---------- BOTÓN ELIMINAR GLOBAL ---------- */
+
+.btnEliminar,
+.btnEliminarDote,
+button.btnEliminar{
+    background:#ffe5e5;
+    border:1px solid #ffb3b3;
+    color:#a30000;
+}
+
+.btnEliminar:hover,
+.btnEliminarDote:hover,
+button.btnEliminar:hover{
+    background:#e63946;
+    border-color:#e63946;
+    color:white;
+}
+
+/* ---------- CUERPO ---------- */
+
+.conjuro-body{
+    margin-top:14px;
+}
+
+.fila-lineal{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    font-size:14px;
+}
+
+.fila-lineal strong{
+    font-size:18px;
+}
+
 .descripcionHechizo{
-    margin-top:10px;
+    margin-top:12px;
+    font-size:14px;
+    line-height:1.6;
+    opacity:0.9;
+}
+
+/* ===================================================== */
+/* ================= RESPONSIVE HECHIZOS =============== */
+/* ===================================================== */
+
+@media (max-width: 768px){
+
+    .conjuro-header{
+        flex-direction:row;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .conjuro-header select{
+        flex:1;
+        min-width:120px;
+    }
+
+    .conjuro-header .btnToggle,
+    .conjuro-header .btnEliminar{
+        width:40px;
+        height:40px;
+        font-size:16px;
+    }
+
+    .fila-lineal{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8px;
+    }
+
+    .fila-lineal strong{
+        font-size:16px;
+    }
+
+    .descripcionHechizo{
+        font-size:13px;
+    }
+}
+
+@media (max-width: 480px){
+
+    .conjuro-card{
+        padding:12px;
+    }
+
+    .conjuro-header{
+        gap:8px;
+    }
+
+    .conjuro-header select{
+        width:100%;
+    }
+
+    .conjuro-header .btnToggle,
+    .conjuro-header .btnEliminar{
+        width:42px;
+        height:42px;
+        font-size:18px;
+    }
+
+    .descripcionHechizo{
+        font-size:13px;
+    }
 }

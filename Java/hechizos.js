@@ -264,7 +264,6 @@ function actualizarDescripcion(){
     const statInterno = descripcion.querySelector(".statSelectInterno");
 
     statInterno.addEventListener("change", ()=>{
-        selectStat.value = statInterno.value;
         actualizarDescripcion();
     });
 }
@@ -290,8 +289,28 @@ listaConjuros.appendChild(wrapper);
 
 botonAgregar.onclick=crearConjuro;
 
-document.addEventListener("input",actualizarEspacios);
-document.addEventListener("change",actualizarEspacios);
+[
+"clase","nivel1","subclase",
+"clase2","nivel2","subclase2"
+].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el){
+        el.addEventListener("change",actualizarEspacios);
+    }
+});
+
+function actualizarTodosLosConjuros(){
+    document.querySelectorAll(".conjuro-card").forEach(card=>{
+        const evento = new Event("change");
+        const selectNombre = card.querySelector("select:nth-child(2)");
+        if(selectNombre){
+            selectNombre.dispatchEvent(evento);
+        }
+    });
+}
+
+document.addEventListener("input",actualizarTodosLosConjuros);
+document.addEventListener("change",actualizarTodosLosConjuros);
 
 actualizarEspacios();
 

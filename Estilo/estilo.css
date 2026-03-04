@@ -1079,3 +1079,60 @@ button:hover {
     font-size:0.9rem;
     opacity:0.85;
 }
+
+.conjuro-card{
+    background:#f3f4f6;
+    border:1px solid #d1d5db;
+    border-radius:14px;
+    padding:12px 16px;
+    margin-bottom:12px;
+}
+
+.conjuro-header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.conjuro-header button{
+    width:28px;
+    height:28px;
+    padding:0;
+    border-radius:6px;
+    border:1px solid #d1d5db;
+    background:white;
+    cursor:pointer;
+}
+
+.conjuro-header select{
+    padding:4px 10px;
+    border-radius:8px;
+    border:1px solid #d1d5db;
+    background:white;
+}
+
+.conjuro-body{
+    margin-top:14px;
+}
+
+.fila-lineal{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    font-size:0.95rem;
+}
+
+.fila-lineal strong{
+    font-size:1.1rem;
+}
+
+.dato-extra{
+    font-weight:600;
+}
+
+.descripcionHechizo{
+    margin-top:10px;
+    font-size:0.9rem;
+    opacity:0.85;
+}

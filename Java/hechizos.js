@@ -40,6 +40,71 @@ const baseConjuros = [
 {nombre:"Luz",nivel:0,tipo:"utilidad",escuela:"Evocación",tiempo:"1 acción",rango:"Toque",componentes:"V,M",duracion:"1 hora",descripcion:"Objeto brilla.",superior:"—"},
 {nombre:"Proyectil Mágico",nivel:1,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"36m",componentes:"V,S",duracion:"Instantáneo",descripcion:"3 dardos impactan automáticamente.",superior:"+1 dardo por nivel superior."},
 {nombre:"Bola de Fuego",nivel:3,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"45m",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Explosión ígnea de 6m.",superior:"+1d6 por nivel superior."},
+{nombre:"Salpicadura Ácida",nivel:0,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Burbuja ácida explota en radio de 1.5m. Criaturas dentro hacen TS Destreza o reciben 1d6 ácido.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
+
+{nombre:"Guardia de Cuchillas",nivel:0,tipo:"buff",escuela:"Abjuración",tiempo:"1 acción",rango:"Personal",componentes:"V,S",duracion:"Concentración 1 min",descripcion:"Cuando una criatura te ataque, resta 1d4 a su tirada de ataque.",superior:"—"},
+
+{nombre:"Toque Helado",nivel:0,tipo:"ataque",escuela:"Nigromancia",tiempo:"1 acción",rango:"Toque",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque cuerpo a cuerpo. 1d10 necrótico y el objetivo no puede recuperar PG hasta el final de su siguiente turno.",superior:"Nivel 5:2d10, 11:3d10, 17:4d10."},
+
+{nombre:"Luces Danzantes",nivel:0,tipo:"utilidad",escuela:"Ilusión",tiempo:"1 acción",rango:"36m",componentes:"V,S,M",duracion:"Concentración 1 min",descripcion:"Creas hasta cuatro luces flotantes que iluminan 3m. Puedes moverlas 18m como acción adicional.",superior:"—"},
+
+{nombre:"Artesanía Druídica",nivel:0,tipo:"utilidad",escuela:"Transmutación",tiempo:"1 acción",rango:"9m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Creas pequeños efectos naturales: predecir clima, hacer florecer plantas, efectos sensoriales o encender/apagar fuego.",superior:"—"},
+
+{nombre:"Explosión Sobrenatural",nivel:0,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"36m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque a distancia que inflige 1d10 de fuerza.",superior:"Nivel 5:2 rayos, 11:3 rayos, 17:4 rayos."},
+
+{nombre:"Elementalismo",nivel:0,tipo:"utilidad",escuela:"Transmutación",tiempo:"1 acción",rango:"9m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Pequeños efectos elementales: crear brisa, polvo, brasas, niebla, agua o moldear un elemento pequeño.",superior:"—"},
+
+{nombre:"Rayo de Fuego",nivel:0,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"36m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque a distancia que inflige 1d10 fuego. Puede prender objetos inflamables.",superior:"Nivel 5:2d10, 11:3d10, 17:4d10."},
+
+{nombre:"Amigos",nivel:0,tipo:"salvacion",escuela:"Encantamiento",tiempo:"1 acción",rango:"3m",componentes:"S,M",duracion:"Concentración 1 min",descripcion:"Una criatura hace TS Sabiduría o queda Encantada mientras dure el conjuro. Al terminar sabe que fue encantada.",superior:"—"},
+
+{nombre:"Orientación",nivel:0,tipo:"buff",escuela:"Adivinación",tiempo:"1 acción",rango:"Toque",componentes:"V,S",duracion:"Concentración 1 min",descripcion:"Una criatura añade 1d4 a pruebas de una habilidad elegida.",superior:"—"},
+
+{nombre:"Mano de Mago",nivel:0,tipo:"utilidad",escuela:"Conjuración",tiempo:"1 acción",rango:"9m",componentes:"V,S",duracion:"1 min",descripcion:"Mano espectral que manipula objetos a distancia. No puede atacar ni cargar más de 4.5 kg.",superior:"—"},
+
+{nombre:"Reparar",nivel:0,tipo:"utilidad",escuela:"Transmutación",tiempo:"1 min",rango:"Toque",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Repara una rotura de hasta 30 cm en un objeto.",superior:"—"},
+
+{nombre:"Mensaje",nivel:0,tipo:"utilidad",escuela:"Transmutación",tiempo:"1 acción",rango:"36m",componentes:"S,M",duracion:"1 ronda",descripcion:"Susurras un mensaje a una criatura que puede responderte en voz baja.",superior:"—"},
+
+{nombre:"Astilla Mental",nivel:0,tipo:"salvacion",escuela:"Encantamiento",tiempo:"1 acción",rango:"18m",componentes:"V",duracion:"1 ronda",descripcion:"Una criatura hace TS Inteligencia o recibe 1d6 psíquico y resta 1d4 a su próxima TS.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
+
+{nombre:"Ilusión Menor",nivel:0,tipo:"utilidad",escuela:"Ilusión",tiempo:"1 acción",rango:"9m",componentes:"S,M",duracion:"1 min",descripcion:"Creas un sonido o imagen estática pequeña (máx. cubo de 1.5m).",superior:"—"},
+
+{nombre:"Rocío Venenoso",nivel:0,tipo:"ataque",escuela:"Nigromancia",tiempo:"1 acción",rango:"9m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque a distancia que inflige 1d12 veneno.",superior:"Nivel 5:2d12, 11:3d12, 17:4d12."},
+
+{nombre:"Prestidigitación",nivel:0,tipo:"utilidad",escuela:"Transmutación",tiempo:"1 acción",rango:"3m",componentes:"V,S",duracion:"1 hora",descripcion:"Pequeños trucos mágicos: chispas, limpiar objetos, crear marcas o efectos sensoriales.",superior:"—"},
+
+{nombre:"Producir Llama",nivel:0,tipo:"ataque",escuela:"Conjuración",tiempo:"Acción adicional",rango:"Personal",componentes:"V,S",duracion:"10 min",descripcion:"Creas una llama en la mano que ilumina y puede lanzarse para infligir 1d8 fuego.",superior:"Nivel 5:2d8, 11:3d8, 17:4d8."},
+
+{nombre:"Rayo de Escarcha",nivel:0,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque a distancia que inflige 1d8 frío y reduce la velocidad 3m hasta tu siguiente turno.",superior:"Nivel 5:2d8, 11:3d8, 17:4d8."},
+
+{nombre:"Resistencia",nivel:0,tipo:"buff",escuela:"Abjuración",tiempo:"1 acción",rango:"Toque",componentes:"V,S",duracion:"Concentración 1 min",descripcion:"Una criatura reduce en 1d4 el daño recibido de un tipo elegido.",superior:"—"},
+
+{nombre:"Llama Sagrada",nivel:0,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Una criatura hace TS Destreza o recibe 1d8 radiante. Ignora cobertura parcial.",superior:"Nivel 5:2d8, 11:3d8, 17:4d8."},
+
+{nombre:"Shillelagh",nivel:0,tipo:"buff",escuela:"Transmutación",tiempo:"Acción adicional",rango:"Personal",componentes:"V,S,M",duracion:"1 min",descripcion:"Un bastón o garrote usa tu característica de conjuro y causa 1d8 daño.",superior:"Nivel 5:d10, 11:d12, 17:2d6."},
+
+{nombre:"Agarre Impactante",nivel:0,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"Toque",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque cuerpo a cuerpo que inflige 1d8 relámpago e impide ataques de oportunidad.",superior:"Nivel 5:2d8, 11:3d8, 17:4d8."},
+
+{nombre:"Explosión Hechicera",nivel:0,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"36m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque a distancia que inflige 1d8 del tipo elegido.",superior:"Nivel 5:2d8, 11:3d8, 17:4d8."},
+
+{nombre:"Auxilio a los Moribundos",nivel:0,tipo:"utilidad",escuela:"Nigromancia",tiempo:"1 acción",rango:"4.5m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Una criatura con 0 PG se vuelve estable.",superior:"Nivel 5:9m, 11:18m, 17:36m."},
+
+{nombre:"Luz Estelar",nivel:0,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque a distancia que inflige 1d8 radiante e impide invisibilidad hasta tu siguiente turno.",superior:"Nivel 5:2d8, 11:3d8, 17:4d8."},
+
+{nombre:"Taumaturgia",nivel:0,tipo:"utilidad",escuela:"Transmutación",tiempo:"1 acción",rango:"9m",componentes:"V",duracion:"1 min",descripcion:"Pequeños efectos divinos: voz amplificada, abrir puertas, sonidos, temblores o cambiar ojos.",superior:"—"},
+
+{nombre:"Látigo de Espinas",nivel:0,tipo:"ataque",escuela:"Transmutación",tiempo:"1 acción",rango:"9m",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Ataque que inflige 1d6 perforante y atrae al objetivo 3m.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
+
+{nombre:"Trueno",nivel:0,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"Personal",componentes:"S",duracion:"Instantáneo",descripcion:"Criaturas a 1.5m hacen TS Constitución o reciben 1d6 trueno.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
+
+{nombre:"Doblar a los Muertos",nivel:0,tipo:"salvacion",escuela:"Nigromancia",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"TS Sabiduría o 1d8 necrótico (1d12 si el objetivo ya está herido).",superior:"Nivel 5:2 dados, 11:3 dados, 17:4 dados."},
+
+{nombre:"Golpe Verdadero",nivel:0,tipo:"ataque",escuela:"Adivinación",tiempo:"1 acción",rango:"Personal",componentes:"S,M",duracion:"Instantáneo",descripcion:"Realizas un ataque con arma usando tu característica de conjuro.",superior:"Nivel 5:+1d6 radiante, 11:+2d6, 17:+3d6."},
+
+{nombre:"Burla Viciosa",nivel:0,tipo:"salvacion",escuela:"Encantamiento",tiempo:"1 acción",rango:"18m",componentes:"V",duracion:"Instantáneo",descripcion:"TS Sabiduría o 1d6 psíquico y desventaja en el siguiente ataque.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
+
+{nombre:"Palabra de Resplandor",nivel:0,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"Personal",componentes:"V,M",duracion:"Instantáneo",descripcion:"Criaturas elegidas a 1.5m hacen TS Constitución o reciben 1d6 radiante.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
 ];
 
 function obtenerMod(statNombre) {

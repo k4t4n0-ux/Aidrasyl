@@ -143,6 +143,84 @@ const baseConjuros = [
 {nombre:"Susurros Disonantes",nivel:1,escuela:"Encantamiento",tiempo:"1 acción",rango:"60 pies",componentes:"V",duracion:"Instantáneo",descripcion:"Una criatura hace TS Sabiduría o recibe 3d6 psíquico y usa su reacción para huir lo más lejos posible de ti.",superior:"El daño aumenta en 1d6 por nivel superior a 1."},
 
 {nombre:"Favor Divino",nivel:1,escuela:"Transmutación",tiempo:"1 acción bonus",rango:"Personal",componentes:"V,S",duracion:"1 minuto",descripcion:"Tus ataques con armas infligen 1d4 radiante adicional durante la duración."},
+
+{nombre:"Castigo Divino",nivel:1,tipo:"ataque",escuela:"Evocación",tiempo:"Acción adicional",rango:"Personal",componentes:"V",duracion:"Instantáneo",descripcion:"Tras golpear con un ataque cuerpo a cuerpo o desarmado, el objetivo recibe 2d8 de daño radiante adicional. Si es infernal o no muerto, el daño aumenta en 1d8.",superior:"+1d8 por cada nivel de espacio de conjuro superior."},
+
+{nombre:"Golpe Enredador",nivel:1,tipo:"salvacion",escuela:"Conjuración",tiempo:"Acción adicional",rango:"Personal",componentes:"V",duracion:"Concentración, 1 minuto",descripcion:"Tras golpear con un arma, surgen lianas que obligan al objetivo a hacer TS de Fuerza. Si falla queda Restringido. Mientras lo esté recibe 1d6 perforante al inicio de cada turno. Puede intentar liberarse con Atletismo.",superior:"+1d6 de daño por nivel de espacio superior."},
+
+{nombre:"Enredar",nivel:1,tipo:"salvacion",escuela:"Conjuración",tiempo:"1 acción",rango:"27m",componentes:"V,S",duracion:"Concentración, 1 minuto",descripcion:"Plantas brotan en un área de 6m convirtiendo el terreno en difícil. Las criaturas dentro deben hacer TS de Fuerza o quedan Restringidas hasta que el conjuro termine."},
+
+{nombre:"Retirada Expeditiva",nivel:1,tipo:"utilidad",escuela:"Transmutación",tiempo:"Acción adicional",rango:"Personal",componentes:"V,S",duracion:"Concentración, 10 minutos",descripcion:"Realizas inmediatamente la acción Correr y mientras dure el conjuro puedes usar Correr como acción adicional."},
+
+{nombre:"Fuego Feérico",nivel:1,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"18m",componentes:"V",duracion:"Concentración, 1 minuto",descripcion:"Criaturas en un cubo de 6m deben hacer TS de Destreza o quedan iluminadas. No pueden beneficiarse de invisibilidad y los ataques contra ellas tienen ventaja."},
+
+{nombre:"Vida Falsa",nivel:1,tipo:"defensa",escuela:"Nigromancia",tiempo:"1 acción",rango:"Personal",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Obtienes 2d4+4 puntos de golpe temporales.",superior:"+5 PG temporales por nivel de espacio superior."},
+
+{nombre:"Caída de Pluma",nivel:1,tipo:"reaccion",escuela:"Transmutación",tiempo:"Reacción",rango:"18m",componentes:"V,M",duracion:"1 minuto",descripcion:"Hasta 5 criaturas que caen reducen su velocidad de descenso a 18m por ronda y no reciben daño de caída si aterrizan antes de terminar el conjuro."},
+
+{nombre:"Encontrar Familiar",nivel:1,tipo:"invocacion",escuela:"Conjuración",tiempo:"1 hora o ritual",rango:"3m",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Invocas un espíritu que adopta forma animal (gato, búho, rata, etc). Obedece tus órdenes y puedes comunicarte telepáticamente con él a 30m."},
+
+{nombre:"Nube de Niebla",nivel:1,tipo:"control",escuela:"Conjuración",tiempo:"1 acción",rango:"36m",componentes:"V,S",duracion:"Concentración, 1 hora",descripcion:"Creas una esfera de niebla de 6m de radio que está fuertemente oscurecida.",superior:"El radio aumenta 6m por nivel de espacio superior."},
+
+{nombre:"Buenas Bayas",nivel:1,tipo:"curacion",escuela:"Conjuración",tiempo:"1 acción",rango:"Personal",componentes:"V,S,M",duracion:"24 horas",descripcion:"Creas 10 bayas mágicas. Cada una cura 1 punto de golpe y alimenta a una criatura durante un día."},
+
+{nombre:"Grasa",nivel:1,tipo:"control",escuela:"Conjuración",tiempo:"1 acción",rango:"18m",componentes:"V,S,M",duracion:"1 minuto",descripcion:"Un área de 3m se cubre de grasa convirtiéndose en terreno difícil. Las criaturas deben hacer TS de Destreza o quedan derribadas."},
+
+{nombre:"Proyectil Guiado",nivel:1,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"36m",componentes:"V,S",duracion:"1 asalto",descripcion:"Realizas un ataque de conjuro a distancia. Si impacta inflige 4d6 radiante y el siguiente ataque contra el objetivo tiene ventaja.",superior:"+1d6 de daño por nivel superior."},
+
+{nombre:"Lluvia de Espinas",nivel:1,tipo:"salvacion",escuela:"Conjuración",tiempo:"Acción adicional",rango:"Personal",componentes:"V",duracion:"Instantáneo",descripcion:"Tras golpear con un arma a distancia, el objetivo y criaturas cercanas hacen TS de Destreza o reciben 1d10 perforante.",superior:"+1d10 por nivel superior."},
+
+{nombre:"Palabra Curativa",nivel:1,tipo:"curacion",escuela:"Abjuración",tiempo:"Acción adicional",rango:"18m",componentes:"V",duracion:"Instantáneo",descripcion:"Una criatura recupera 2d4 + tu modificador de conjuro.",superior:"+2d4 por nivel superior."},
+
+{nombre:"Reprensión Infernal",nivel:1,tipo:"reaccion",escuela:"Evocación",tiempo:"Reacción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Una criatura que te daña hace TS de Destreza o recibe 2d10 fuego.",superior:"+1d10 por nivel superior."},
+
+{nombre:"Heroísmo",nivel:1,tipo:"buff",escuela:"Encantamiento",tiempo:"1 acción",rango:"Toque",componentes:"V,S",duracion:"Concentración, 1 minuto",descripcion:"Una criatura es inmune al miedo y gana puntos de golpe temporales iguales a tu modificador de conjuro cada turno.",superior:"Afecta a una criatura adicional por nivel superior."},
+
+{nombre:"Maldición (Hex)",nivel:1,tipo:"debuff",escuela:"Encantamiento",tiempo:"Acción adicional",rango:"27m",componentes:"V,S,M",duracion:"Concentración, 1 hora",descripcion:"Infliges 1d6 necrótico adicional al objetivo cuando lo golpeas y tiene desventaja en pruebas de una característica elegida."},
+
+{nombre:"Marca del Cazador",nivel:1,tipo:"buff",escuela:"Adivinación",tiempo:"Acción adicional",rango:"27m",componentes:"V",duracion:"Concentración, 1 hora",descripcion:"Marcas a una criatura. Infliges 1d6 de fuerza adicional al golpearla y tienes ventaja para rastrearla."},
+
+{nombre:"Cuchillo de Hielo",nivel:1,tipo:"ataque",escuela:"Conjuración",tiempo:"1 acción",rango:"18m",componentes:"S,M",duracion:"Instantáneo",descripcion:"Ataque de conjuro a distancia que inflige 1d10 perforante. Luego explota causando 2d6 frío a criaturas cercanas.",superior:"+1d6 frío por nivel superior."},
+
+{nombre:"Identificar",nivel:1,tipo:"utilidad",escuela:"Adivinación",tiempo:"1 minuto o ritual",rango:"Toque",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Aprendes las propiedades mágicas de un objeto o los conjuros que afectan a una criatura."},
+
+{nombre:"Escritura Ilusoria",nivel:1,tipo:"ilusion",escuela:"Ilusión",tiempo:"1 minuto o ritual",rango:"Toque",componentes:"S,M",duracion:"10 días",descripcion:"Escribes un texto que solo ciertas criaturas pueden leer correctamente. Para otros parece un lenguaje incomprensible."},
+
+{nombre:"Infligir Heridas",nivel:1,tipo:"salvacion",escuela:"Nigromancia",tiempo:"1 acción",rango:"Toque",componentes:"V,S",duracion:"Instantáneo",descripcion:"Una criatura hace TS de Constitución o recibe 2d10 necrótico.",superior:"+1d10 por nivel superior."},
+
+{nombre:"Salto",nivel:1,tipo:"buff",escuela:"Transmutación",tiempo:"Acción adicional",rango:"Toque",componentes:"V,S,M",duracion:"1 minuto",descripcion:"Una criatura puede saltar hasta 9m gastando 3m de movimiento."},
+
+{nombre:"Zancada Larga",nivel:1,tipo:"buff",escuela:"Transmutación",tiempo:"1 acción",rango:"Toque",componentes:"V,S,M",duracion:"1 hora",descripcion:"La velocidad de la criatura aumenta en 3m.",superior:"Afecta a una criatura adicional por nivel superior."},
+
+{nombre:"Armadura de Mago",nivel:1,tipo:"defensa",escuela:"Abjuración",tiempo:"1 acción",rango:"Toque",componentes:"V,S,M",duracion:"8 horas",descripcion:"La CA base del objetivo pasa a ser 13 + modificador de Destreza mientras no lleve armadura."},
+
+{nombre:"Misil Mágico",nivel:1,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"36m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Tres dardos de fuerza impactan automáticamente causando 1d4+1 cada uno.",superior:"Creas un dardo adicional por nivel superior."},
+
+{nombre:"Protección contra el Bien y el Mal",nivel:1,tipo:"defensa",escuela:"Abjuración",tiempo:"1 acción",rango:"Toque",componentes:"V,S,M",duracion:"Concentración, 10 minutos",descripcion:"Criaturas aberración, celestial, elemental, feérico, infernal o no muerto tienen desventaja al atacar al objetivo y no pueden poseerlo ni asustarlo."},
+
+{nombre:"Purificar Comida y Bebida",nivel:1,tipo:"utilidad",escuela:"Transmutación",tiempo:"1 acción o ritual",rango:"3m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Eliminas venenos y podredumbre de comida y bebida no mágicas."},
+
+{nombre:"Rayo de Enfermedad",nivel:1,tipo:"ataque",escuela:"Nigromancia",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque de conjuro que inflige 2d8 veneno y deja Envenenado hasta tu próximo turno.",superior:"+1d8 por nivel superior."},
+
+{nombre:"Santuario",nivel:1,tipo:"defensa",escuela:"Abjuración",tiempo:"Acción adicional",rango:"9m",componentes:"V,S,M",duracion:"1 minuto",descripcion:"Las criaturas deben superar TS de Sabiduría para atacar al objetivo o pierden el ataque."},
+
+{nombre:"Castigo Abrasador",nivel:1,tipo:"ataque",escuela:"Evocación",tiempo:"Acción adicional",rango:"Personal",componentes:"V",duracion:"1 minuto",descripcion:"Tras golpear con un arma el objetivo recibe 1d6 fuego y sigue recibiendo 1d6 cada turno hasta superar TS de Constitución.",superior:"+1d6 por nivel superior."},
+
+{nombre:"Escudo",nivel:1,tipo:"reaccion",escuela:"Abjuración",tiempo:"Reacción",rango:"Personal",componentes:"V,S",duracion:"1 asalto",descripcion:"Obtienes +5 a la CA hasta tu próximo turno y no recibes daño de Misil Mágico."},
+
+{nombre:"Escudo de Fe",nivel:1,tipo:"defensa",escuela:"Abjuración",tiempo:"Acción adicional",rango:"18m",componentes:"V,S,M",duracion:"Concentración, 10 minutos",descripcion:"Una criatura obtiene +2 a la CA."},
+
+{nombre:"Imagen Silenciosa",nivel:1,tipo:"ilusion",escuela:"Ilusión",tiempo:"1 acción",rango:"18m",componentes:"V,S,M",duracion:"Concentración, 10 minutos",descripcion:"Creas una ilusión visual de hasta 4.5m de tamaño que puedes mover con una acción."},
+
+{nombre:"Dormir",nivel:1,tipo:"control",escuela:"Encantamiento",tiempo:"1 acción",rango:"18m",componentes:"V,S,M",duracion:"Concentración, 1 minuto",descripcion:"Criaturas en un área deben superar TS de Sabiduría o quedan incapacitados y luego inconscientes."},
+
+{nombre:"Hablar con Animales",nivel:1,tipo:"utilidad",escuela:"Adivinación",tiempo:"1 acción o ritual",rango:"Personal",componentes:"V,S",duracion:"10 minutos",descripcion:"Puedes comunicarte verbalmente con bestias y obtener información básica."},
+
+{nombre:"Destello de Fuego de Hechizo",nivel:1,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque de conjuro a distancia que inflige 2d10 radiante e ignora media cobertura.",superior:"Creas un disparo adicional por nivel superior."},
+
+{nombre:"Risa Horrible de Tasha",nivel:1,tipo:"salvacion",escuela:"Encantamiento",tiempo:"1 acción",rango:"9m",componentes:"V,S,M",duracion:"Concentración, 1 minuto",descripcion:"TS de Sabiduría o la criatura cae derribada e incapacitada mientras se ríe. Puede repetir la salvación cada turno o al recibir daño."},
+
+{nombre:"Disco Flotante de Tenser",nivel:1,tipo:"utilidad",escuela:"Conjuración",tiempo:"1 acción o ritual",rango:"9m",componentes:"V,S,M",duracion:"1 hora",descripcion:"Creas un disco flotante de fuerza de 1m de diámetro que puede transportar hasta 225kg."}
 ];
 
 function obtenerMod(statNombre) {

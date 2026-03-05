@@ -1,124 +1,125 @@
 const trucosDB = {
+
     "Salpicadura Ácida": {
         componentes: "V, S",
-        distancia: "60 distancia; Radio 5 pies impacto",
+        distancia: "60 pies; radio de impacto 5 pies",
         tipo: "salvacion",
         ts: "Destreza",
         dano: {
-            1: "1d6 Ácido",
-            5: "2d6 Ácido",
-            11: "3d6 Ácido",
-            17: "4d6 Ácido"
+            1: "La criatura debe superar la TS o recibir 1d6 de daño Ácido.",
+            5: "La criatura debe superar la TS o recibir 2d6 de daño Ácido.",
+            11: "La criatura debe superar la TS o recibir 3d6 de daño Ácido.",
+            17: "La criatura debe superar la TS o recibir 4d6 de daño Ácido."
         }
     },
 
-    "Toque Frío": {
+    "Toque Helado": {
         componentes: "V, S",
         distancia: "Toque",
         tipo: "ataque",
         dano: {
-            1: "1d10 Necrótico y no puede recuperar puntos de vida hasta el final del siguiente turno.",
-            5: "2d10 Necrótico y no puede recuperar puntos de vida hasta el final del siguiente turno.",
-            11: "3d10 Necrótico y no puede recuperar puntos de vida hasta el final del siguiente turno.",
-            17: "4d10 Necrótico y no puede recuperar puntos de vida hasta el final del siguiente turno."
+            1: "En un golpe, el objetivo recibe 1d10 Necrótico y no puede recuperar puntos de vida hasta el final de su siguiente turno.",
+            5: "En un golpe, el objetivo recibe 2d10 Necrótico y no puede recuperar puntos de vida hasta el final de su siguiente turno.",
+            11: "En un golpe, el objetivo recibe 3d10 Necrótico y no puede recuperar puntos de vida hasta el final de su siguiente turno.",
+            17: "En un golpe, el objetivo recibe 4d10 Necrótico y no puede recuperar puntos de vida hasta el final de su siguiente turno."
         }
     },
 
-    "Explosión sobrenatural": {
+    "Explosión Sobrenatural": {
         componentes: "V, S",
-        distancia: "120",
+        distancia: "120 pies",
         tipo: "ataque",
         dano: {
-            1: "Realiza 1 ataque de hechizo. En un golpe, el objetivo recibe daño de 1d10 Fuerza.",
-            5: "Realiza 2 ataque de hechizo. En un golpe, el objetivo recibe daño de 1d10 Fuerza.",
-            11: "Realiza 3 ataque de hechizo. En un golpe, el objetivo recibe daño de 1d10 Fuerza.",
-            17: "Realiza 4 ataque de hechizo. En un golpe, el objetivo recibe daño de 1d10 Fuerza."
+            1: "Realizas 1 ataque de hechizo. En un golpe, el objetivo recibe 1d10 de daño de Fuerza.",
+            5: "Realizas 2 ataques de hechizo. En un golpe, el objetivo recibe 1d10 de daño de Fuerza.",
+            11: "Realizas 3 ataques de hechizo. En un golpe, el objetivo recibe 1d10 de daño de Fuerza.",
+            17: "Realizas 4 ataques de hechizo. En un golpe, el objetivo recibe 1d10 de daño de Fuerza."
         }
     },
 
     "Rayo de Fuego": {
         componentes: "V, S",
-        distancia: "120",
+        distancia: "120 pies",
         tipo: "ataque",
         dano: {
-            1: "1d10 Fuego. Un objeto inflamable golpeado por este hechizo comienza a arder si no se usa ni se lleva.",
-            5: "2d10 Fuego. Un objeto inflamable golpeado por este hechizo comienza a arder si no se usa ni se lleva.",
-            11: "3d10 Fuego. Un objeto inflamable golpeado por este hechizo comienza a arder si no se usa ni se lleva.",
-            17: "4d10 Fuego. Un objeto inflamable golpeado por este hechizo comienza a arder si no se usa ni se lleva."
+            1: "En un golpe, el objetivo recibe 1d10 de daño de Fuego. Un objeto inflamable impactado por este hechizo comienza a arder si no se lleva ni se usa.",
+            5: "En un golpe, el objetivo recibe 2d10 de daño de Fuego. Un objeto inflamable impactado por este hechizo comienza a arder si no se lleva ni se usa.",
+            11: "En un golpe, el objetivo recibe 3d10 de daño de Fuego. Un objeto inflamable impactado por este hechizo comienza a arder si no se lleva ni se usa.",
+            17: "En un golpe, el objetivo recibe 4d10 de daño de Fuego. Un objeto inflamable impactado por este hechizo comienza a arder si no se lleva ni se usa."
         }
     },
 
     "Astilla Mental": {
         componentes: "V",
-        distancia: "60",
+        distancia: "60 pies",
         tipo: "salvacion",
         ts: "Inteligencia",
         dano: {
-            1: "El objetivo debe tener éxito en la TS o recibir 1d6 Psíquico y restar 1d4 de la siguiente TS que realice antes del final de su siguiente turno.",
-            5: "El objetivo debe tener éxito en la TS o recibir 2d6 Psíquico y restar 1d4 de la siguiente TS que realice antes del final de su siguiente turno.",
-            11: "El objetivo debe tener éxito en la TS o recibir 3d6 Psíquico y restar 1d4 de la siguiente TS que realice antes del final de su siguiente turno.",
-            17: "El objetivo debe tener éxito en la TS o recibir 4d6 Psíquico y restar 1d4 de la siguiente TS que realice antes del final de su siguiente turno."
+            1: "El objetivo debe superar la TS o recibir 1d6 de daño Psíquico y restar 1d4 a la siguiente TS que realice antes del final de su siguiente turno.",
+            5: "El objetivo debe superar la TS o recibir 2d6 de daño Psíquico y restar 1d4 a la siguiente TS que realice antes del final de su siguiente turno.",
+            11: "El objetivo debe superar la TS o recibir 3d6 de daño Psíquico y restar 1d4 a la siguiente TS que realice antes del final de su siguiente turno.",
+            17: "El objetivo debe superar la TS o recibir 4d6 de daño Psíquico y restar 1d4 a la siguiente TS que realice antes del final de su siguiente turno."
         }
     },
 
-    "Spray Venenoso": {
+    "Rocío Venenoso": {
         componentes: "V, S",
-        distancia: "30",
+        distancia: "30 pies",
         tipo: "ataque",
         dano: {
-            1: "1d12 Veneno",
-            5: "2d12 Veneno",
-            11: "3d12 Veneno",
-            17: "4d12 Veneno"
+            1: "En un golpe, el objetivo recibe 1d12 de daño Veneno.",
+            5: "En un golpe, el objetivo recibe 2d12 de daño Veneno.",
+            11: "En un golpe, el objetivo recibe 3d12 de daño Veneno.",
+            17: "En un golpe, el objetivo recibe 4d12 de daño Veneno."
         }
     },
 
-    "Producir LLama": {
+    "Producir Llama": {
         componentes: "V, S",
-        distancia: "Accion adicional. Efecto a ti mismo duracion 10 Minutos",
+        distancia: "Acción adicional; efecto personal; duración 10 minutos",
         tipo: "ataque",
         dano: {
-            1: "Creas una llama que no produce calor ni quema, pero produce luz brillante a 20 pies y luz tenue a 20 pies adicionales. Hasta el final del hechizo, puedes usar una acción para lanzar un ataque a 60 pies. En un golpe, el objetivo recibe daño de 1d8 Fuego.",
-            5: "Creas una llama que no produce calor ni quema, pero produce luz brillante a 20 pies y luz tenue a 20 pies adicionales. Hasta el final del hechizo, puedes usar una acción para lanzar un ataque a 60 pies. En un golpe, el objetivo recibe daño de 2d8 Fuego.",
-            11: "Creas una llama que no produce calor ni quema, pero produce luz brillante a 20 pies y luz tenue a 20 pies adicionales. Hasta el final del hechizo, puedes usar una acción para lanzar un ataque a 60 pies. En un golpe, el objetivo recibe daño de 3d8 Fuego.",
-            17: "Creas una llama que no produce calor ni quema, pero produce luz brillante a 20 pies y luz tenue a 20 pies adicionales. Hasta el final del hechizo, puedes usar una acción para lanzar un ataque a 60 pies. En un golpe, el objetivo recibe daño de 4d8 Fuego."
+            1: "Creas una llama que no produce calor ni quema, pero emite luz brillante en 20 pies y luz tenue en 20 pies adicionales. Mientras dure el conjuro, puedes usar una acción para lanzar un ataque a 60 pies. En un golpe, el objetivo recibe 1d8 de daño de Fuego.",
+            5: "Creas una llama que no produce calor ni quema, pero emite luz brillante en 20 pies y luz tenue en 20 pies adicionales. Mientras dure el conjuro, puedes usar una acción para lanzar un ataque a 60 pies. En un golpe, el objetivo recibe 2d8 de daño de Fuego.",
+            11: "Creas una llama que no produce calor ni quema, pero emite luz brillante en 20 pies y luz tenue en 20 pies adicionales. Mientras dure el conjuro, puedes usar una acción para lanzar un ataque a 60 pies. En un golpe, el objetivo recibe 3d8 de daño de Fuego.",
+            17: "Creas una llama que no produce calor ni quema, pero emite luz brillante en 20 pies y luz tenue en 20 pies adicionales. Mientras dure el conjuro, puedes usar una acción para lanzar un ataque a 60 pies. En un golpe, el objetivo recibe 4d8 de daño de Fuego."
         }
     },
 
     "Rayo de Escarcha": {
         componentes: "V, S",
-        distancia: "60",
+        distancia: "60 pies",
         tipo: "ataque",
         dano: {
-            1: "En un golpe, recibe 1d8 de daño en frío y la velocidad del objetivo se reduce en 10 pies hasta el inicio de su siguiente turno.",
-            5: "En un golpe, recibe 2d8 de daño en frío y la velocidad del objetivo se reduce en 10 pies hasta el inicio de su siguiente turno.",
-            11: "En un golpe, recibe 3d8 de daño en frío y la velocidad del objetivo se reduce en 10 pies hasta el inicio de su siguiente turno.",
-            17: "En un golpe, recibe 4d8 de daño en frío y la velocidad del objetivo se reduce en 10 pies hasta el inicio de su siguiente turno."
+            1: "En un golpe, el objetivo recibe 1d8 de daño Frío y su velocidad se reduce en 10 pies hasta el inicio de su siguiente turno.",
+            5: "En un golpe, el objetivo recibe 2d8 de daño Frío y su velocidad se reduce en 10 pies hasta el inicio de su siguiente turno.",
+            11: "En un golpe, el objetivo recibe 3d8 de daño Frío y su velocidad se reduce en 10 pies hasta el inicio de su siguiente turno.",
+            17: "En un golpe, el objetivo recibe 4d8 de daño Frío y su velocidad se reduce en 10 pies hasta el inicio de su siguiente turno."
         }
     },
 
     "Llama Sagrada": {
         componentes: "V, S",
-        distancia: "60",
+        distancia: "60 pies",
         tipo: "salvacion",
         ts: "Destreza",
         dano: {
-            1: "El objetivo debe tener éxito en la TS o recibir 1d8 Radiante. El objetivo no obtiene ningún beneficio de Cobertura Media o Tres Cuartos hasta el inicio de su siguiente turno.",
-            5: "El objetivo debe tener éxito en la TS o recibir 2d8 Radiante. El objetivo no obtiene ningún beneficio de Cobertura Media o Tres Cuartos hasta el inicio de su siguiente turno.",
-            11: "El objetivo debe tener éxito en la TS o recibir 3d8 Radiante. El objetivo no obtiene ningún beneficio de Cobertura Media o Tres Cuartos hasta el inicio de su siguiente turno.",
-            17: "El objetivo debe tener éxito en la TS o recibir 4d8 Radiante. El objetivo no obtiene ningún beneficio de Cobertura Media o Tres Cuartos hasta el inicio de su siguiente turno."
+            1: "El objetivo debe superar la TS o recibir 1d8 de daño Radiante. No obtiene beneficio de cobertura media ni tres cuartos hasta el inicio de su siguiente turno.",
+            5: "El objetivo debe superar la TS o recibir 2d8 de daño Radiante. No obtiene beneficio de cobertura media ni tres cuartos hasta el inicio de su siguiente turno.",
+            11: "El objetivo debe superar la TS o recibir 3d8 de daño Radiante. No obtiene beneficio de cobertura media ni tres cuartos hasta el inicio de su siguiente turno.",
+            17: "El objetivo debe superar la TS o recibir 4d8 de daño Radiante. No obtiene beneficio de cobertura media ni tres cuartos hasta el inicio de su siguiente turno."
         }
     },
 
-    "Garrote": {
-        componentes: "V, S, M (Muerdago)",
-        distancia: "Propio; Duración 1 minuto",
+    "Shillelagh (Garrote)": {
+        componentes: "V, S, M (muérdago)",
+        distancia: "Propio; duración 1 minuto",
         tipo: "ataque",
         dano: {
-            1: "Imbuyes tu cuerpo o una arma del poder de la naturaleza. Mientras dure, puedes usar tu habilidad de lanzamiento de hechizos en lugar de Fuerza para las tiradas de ataque y daño de los ataques, y el dado de daño del arma se convierte en 1d8. Si el ataque causa daño, puede ser daño de fuerza o el tipo de daño normal del arma. El hechizo termina temprano si lo lanzas de nuevo o si sueltas el arma.",
-            5: "Imbuyes tu cuerpo o una arma del poder de la naturaleza. Mientras dure, puedes usar tu habilidad de lanzamiento de hechizos en lugar de Fuerza para las tiradas de ataque y daño de los ataques, y el dado de daño del arma se convierte en 1d10. Si el ataque causa daño, puede ser daño de fuerza o el tipo de daño normal del arma. El hechizo termina temprano si lo lanzas de nuevo o si sueltas el arma.",
-            11: "Imbuyes tu cuerpo o una arma del poder de la naturaleza. Mientras dure, puedes usar tu habilidad de lanzamiento de hechizos en lugar de Fuerza para las tiradas de ataque y daño de los ataques, y el dado de daño del arma se convierte en 1d12. Si el ataque causa daño, puede ser daño de fuerza o el tipo de daño normal del arma. El hechizo termina temprano si lo lanzas de nuevo o si sueltas el arma.",
-            17: "Imbuyes tu cuerpo o una arma del poder de la naturaleza. Mientras dure, puedes usar tu habilidad de lanzamiento de hechizos en lugar de Fuerza para las tiradas de ataque y daño de los ataques, y el dado de daño del arma se convierte en 2d6. Si el ataque causa daño, puede ser daño de fuerza o el tipo de daño normal del arma. El hechizo termina temprano si lo lanzas de nuevo o si sueltas el arma."
+            1: "Imbuyes un bastón o garrote con poder natural. Puedes usar tu característica de conjuro para las tiradas de ataque y daño, y el dado de daño del arma pasa a ser 1d8.",
+            5: "Imbuyes un bastón o garrote con poder natural. Puedes usar tu característica de conjuro para las tiradas de ataque y daño, y el dado de daño del arma pasa a ser 1d10.",
+            11: "Imbuyes un bastón o garrote con poder natural. Puedes usar tu característica de conjuro para las tiradas de ataque y daño, y el dado de daño del arma pasa a ser 1d12.",
+            17: "Imbuyes un bastón o garrote con poder natural. Puedes usar tu característica de conjuro para las tiradas de ataque y daño, y el dado de daño del arma pasa a ser 2d6."
         }
     },
 
@@ -127,22 +128,22 @@ const trucosDB = {
         distancia: "Toque",
         tipo: "ataque",
         dano: {
-            1: "Con un golpe, el objetivo recibe 1d8 Rayo y no puede realizar ataques de oportunidad hasta el comienzo de su siguiente turno.",
-            5: "Con un golpe, el objetivo recibe 2d8 Rayo y no puede realizar ataques de oportunidad hasta el comienzo de su siguiente turno.",
-            11: "Con un golpe, el objetivo recibe 3d8 Rayo y no puede realizar ataques de oportunidad hasta el comienzo de su siguiente turno.",
-            17: "Con un golpe, el objetivo recibe 4d8 Rayo y no puede realizar ataques de oportunidad hasta el comienzo de su siguiente turno."
+            1: "En un golpe, el objetivo recibe 1d8 de daño Relámpago y no puede realizar ataques de oportunidad hasta el comienzo de su siguiente turno.",
+            5: "En un golpe, el objetivo recibe 2d8 de daño Relámpago y no puede realizar ataques de oportunidad hasta el comienzo de su siguiente turno.",
+            11: "En un golpe, el objetivo recibe 3d8 de daño Relámpago y no puede realizar ataques de oportunidad hasta el comienzo de su siguiente turno.",
+            17: "En un golpe, el objetivo recibe 4d8 de daño Relámpago y no puede realizar ataques de oportunidad hasta el comienzo de su siguiente turno."
         }
     },
 
     "Explosión Hechicera": {
         componentes: "V, S",
-        distancia: "120",
+        distancia: "120 pies",
         tipo: "ataque",
         dano: {
-            1: "Con un golpe, el objetivo recibe 1d8 de daño del tipo que elijas: ácido, frío, fuego, relámpago, veneno, psíquico o trueno. Si sacas un 8 en un d8 para este hechizo, puedes tirar otro d8 y agregarlo al daño. La cantidad máxima de estos d8 es igual a tu Modificador de la Caracteristica de este truco.",
-            5: "Con un golpe, el objetivo recibe 2d8 de daño del tipo que elijas: ácido, frío, fuego, relámpago, veneno, psíquico o trueno. Si sacas un 8 en un d8 para este hechizo, puedes tirar otro d8 y agregarlo al daño. La cantidad máxima de estos d8 es igual a tu Modificador de la Caracteristica de este truco.",
-            11: "Con un golpe, el objetivo recibe 3d8 de daño del tipo que elijas: ácido, frío, fuego, relámpago, veneno, psíquico o trueno. Si sacas un 8 en un d8 para este hechizo, puedes tirar otro d8 y agregarlo al daño. La cantidad máxima de estos d8 es igual a tu Modificador de la Caracteristica de este truco.",
-            17: "Con un golpe, el objetivo recibe 4d8 de daño del tipo que elijas: ácido, frío, fuego, relámpago, veneno, psíquico o trueno. Si sacas un 8 en un d8 para este hechizo, puedes tirar otro d8 y agregarlo al daño. La cantidad máxima de estos d8 es igual a tu Modificador de la Caracteristica de este truco."
+            1: "En un golpe, el objetivo recibe 1d8 de daño del tipo que elijas: ácido, frío, fuego, relámpago, veneno, psíquico o trueno. Si obtienes un 8 en el d8, puedes tirar otro d8 y añadirlo al daño.",
+            5: "En un golpe, el objetivo recibe 2d8 de daño del tipo que elijas: ácido, frío, fuego, relámpago, veneno, psíquico o trueno. Si obtienes un 8 en el d8, puedes tirar otro d8 y añadirlo al daño.",
+            11: "En un golpe, el objetivo recibe 3d8 de daño del tipo que elijas: ácido, frío, fuego, relámpago, veneno, psíquico o trueno. Si obtienes un 8 en el d8, puedes tirar otro d8 y añadirlo al daño.",
+            17: "En un golpe, el objetivo recibe 4d8 de daño del tipo que elijas: ácido, frío, fuego, relámpago, veneno, psíquico o trueno. Si obtienes un 8 en el d8, puedes tirar otro d8 y añadirlo al daño."
         }
     },
 

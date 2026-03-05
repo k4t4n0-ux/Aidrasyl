@@ -86,21 +86,21 @@ const baseConjuros = [
 
 {nombre:"Auxilio a los Moribundos",nivel:0,tipo:"utilidad",escuela:"Nigromancia",tiempo:"1 acción",rango:"4.5m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Una criatura con 0 PG se vuelve estable.",superior:"Nivel 5:9m, 11:18m, 17:36m."},
 
-{nombre:"Luz Estelar",nivel:0,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque a distancia que inflige 1d8 radiante e impide invisibilidad hasta tu siguiente turno.",superior:"Nivel 5:2d8, 11:3d8, 17:4d8."},
-
 {nombre:"Taumaturgia",nivel:0,tipo:"utilidad",escuela:"Transmutación",tiempo:"1 acción",rango:"9m",componentes:"V",duracion:"1 min",descripcion:"Pequeños efectos divinos: voz amplificada, abrir puertas, sonidos, temblores o cambiar ojos.",superior:"—"},
 
-{nombre:"Látigo de Espinas",nivel:0,tipo:"ataque",escuela:"Transmutación",tiempo:"1 acción",rango:"9m",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Ataque que inflige 1d6 perforante y atrae al objetivo 3m.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
+{nombre:"Rastro Estrellado",nivel:0,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Ataque a distancia que inflige 1d8 radiante. Hasta el final de tu siguiente turno el objetivo emite luz tenue en un radio de 3m y no puede beneficiarse de la condición Invisible.",superior:"Nivel 5:2d8, 11:3d8, 17:4d8."},
 
-{nombre:"Trueno",nivel:0,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"Personal",componentes:"S",duracion:"Instantáneo",descripcion:"Criaturas a 1.5m hacen TS Constitución o reciben 1d6 trueno.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
+{nombre:"Látigo de Espinas",nivel:0,tipo:"ataque",escuela:"Transmutación",tiempo:"1 acción",rango:"9m",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Ataque que inflige 1d6 perforante y, si el objetivo es Grande o más pequeño, lo atrae hasta 3m hacia ti.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
 
-{nombre:"Doblar a los Muertos",nivel:0,tipo:"salvacion",escuela:"Nigromancia",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"TS Sabiduría o 1d8 necrótico (1d12 si el objetivo ya está herido).",superior:"Nivel 5:2 dados, 11:3 dados, 17:4 dados."},
+{nombre:"Trueno",nivel:0,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"Personal",componentes:"S",duracion:"Instantáneo",descripcion:"Las criaturas a 1.5m de ti hacen una TS de Constitución o reciben 1d6 de daño de trueno. El estruendo puede oírse hasta a 30m.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
 
-{nombre:"Golpe Verdadero",nivel:0,tipo:"ataque",escuela:"Adivinación",tiempo:"1 acción",rango:"Personal",componentes:"S,M",duracion:"Instantáneo",descripcion:"Realizas un ataque con arma usando tu característica de conjuro.",superior:"Nivel 5:+1d6 radiante, 11:+2d6, 17:+3d6."},
+{nombre:"Llamar a los Muertos",nivel:0,tipo:"salvacion",escuela:"Nigromancia",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"TS de Sabiduría o el objetivo recibe 1d8 necrótico, o 1d12 si le faltan puntos de vida.",superior:"Nivel 5:2 dados, 11:3 dados, 17:4 dados."},
 
-{nombre:"Burla Viciosa",nivel:0,tipo:"salvacion",escuela:"Encantamiento",tiempo:"1 acción",rango:"18m",componentes:"V",duracion:"Instantáneo",descripcion:"TS Sabiduría o 1d6 psíquico y desventaja en el siguiente ataque.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
+{nombre:"Golpe Verdadero",nivel:0,tipo:"ataque",escuela:"Adivinación",tiempo:"1 acción",rango:"Personal",componentes:"S,M",duracion:"Instantáneo",descripcion:"Realizas un ataque con el arma usada para lanzar el truco. El ataque y el daño usan tu característica de lanzamiento de conjuros en lugar de Fuerza o Destreza. El daño puede ser radiante o el tipo normal del arma.",superior:"Nivel 5:+1d6, 11:+2d6, 17:+3d6."},
 
-{nombre:"Palabra de Resplandor",nivel:0,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"Personal",componentes:"V,M",duracion:"Instantáneo",descripcion:"Criaturas elegidas a 1.5m hacen TS Constitución o reciben 1d6 radiante.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
+{nombre:"Burla Viciosa",nivel:0,tipo:"salvacion",escuela:"Encantamiento",tiempo:"1 acción",rango:"18m",componentes:"V",duracion:"Instantáneo",descripcion:"TS de Sabiduría o el objetivo recibe 1d6 psíquico y tiene desventaja en la siguiente tirada de ataque que haga antes del final de su siguiente turno.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
+
+{nombre:"Palabra de Resplandor",nivel:0,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"Personal",componentes:"V,M",duracion:"Instantáneo",descripcion:"Las criaturas de tu elección que puedas ver a 1.5m hacen una TS de Constitución o reciben 1d6 radiante.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
 ];
 
 function obtenerMod(statNombre) {

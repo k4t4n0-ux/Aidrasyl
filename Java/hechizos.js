@@ -37,10 +37,6 @@ const tablaBrujo = {
 };
 
 const baseConjuros = [
-{nombre:"Luz",nivel:0,tipo:"utilidad",escuela:"Evocación",tiempo:"1 acción",rango:"Toque",componentes:"V,M",duracion:"1 hora",descripcion:"Objeto brilla.",superior:"—"},
-{nombre:"Proyectil Mágico",nivel:1,tipo:"ataque",escuela:"Evocación",tiempo:"1 acción",rango:"36m",componentes:"V,S",duracion:"Instantáneo",descripcion:"3 dardos impactan automáticamente.",superior:"+1 dardo por nivel superior."},
-{nombre:"Bola de Fuego",nivel:3,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"45m",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Explosión ígnea de 6m.",superior:"+1d6 por nivel superior."},
-{nombre:"Salpicadura Ácida",nivel:0,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"18m",componentes:"V,S",duracion:"Instantáneo",descripcion:"Burbuja ácida explota en radio de 1.5m. Criaturas dentro hacen TS Destreza o reciben 1d6 ácido.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
 
 {nombre:"Guardia de Cuchillas",nivel:0,tipo:"buff",escuela:"Abjuración",tiempo:"1 acción",rango:"Personal",componentes:"V,S",duracion:"Concentración 1 min",descripcion:"Cuando una criatura te ataque, resta 1d4 a su tirada de ataque.",superior:"—"},
 

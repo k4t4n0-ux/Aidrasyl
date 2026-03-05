@@ -101,6 +101,48 @@ const baseConjuros = [
 {nombre:"Burla Viciosa",nivel:0,tipo:"salvacion",escuela:"Encantamiento",tiempo:"1 acción",rango:"18m",componentes:"V",duracion:"Instantáneo",descripcion:"TS de Sabiduría o el objetivo recibe 1d6 psíquico y tiene desventaja en la siguiente tirada de ataque que haga antes del final de su siguiente turno.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
 
 {nombre:"Palabra de Resplandor",nivel:0,tipo:"salvacion",escuela:"Evocación",tiempo:"1 acción",rango:"Personal",componentes:"V,M",duracion:"Instantáneo",descripcion:"Las criaturas de tu elección que puedas ver a 1.5m hacen una TS de Constitución o reciben 1d6 radiante.",superior:"Nivel 5:2d6, 11:3d6, 17:4d6."},
+
+{nombre:"Alarma",nivel:1,escuela:"Abjuración",tiempo:"1 minuto o ritual",rango:"30 pies",componentes:"V,S,M",duracion:"8 horas",descripcion:"Creas una alarma en una puerta, ventana o área de hasta 20 pies. Cuando una criatura entra o toca el área protegida recibes una alerta. Puede ser sonora (campana durante 10 segundos en 60 pies) o mental si estás a menos de 1 milla. Puedes designar criaturas que no la activen."},
+
+{nombre:"Amistad animal",nivel:1,escuela:"Encantamiento",tiempo:"1 acción",rango:"30 pies",componentes:"V,S,M",duracion:"24 horas",descripcion:"Una bestia que puedas ver debe superar TS de Sabiduría o queda Encantada durante la duración. Si tú o tus aliados le hacéis daño el efecto termina.",superior:"Puedes afectar una bestia adicional por cada nivel de conjuro superior a 1."},
+
+{nombre:"Armadura de Agathys",nivel:1,escuela:"Abjuración",tiempo:"1 acción bonus",rango:"Personal",componentes:"V,S,M",duracion:"1 hora",descripcion:"Obtienes 5 puntos de golpe temporales. Si una criatura te golpea con un ataque cuerpo a cuerpo mientras los tengas, recibe 5 de daño frío. El conjuro termina si pierdes esos puntos.",superior:"Los PG temporales y el daño aumentan en 5 por cada nivel superior a 1."},
+
+{nombre:"Armas de Hadar",nivel:1,escuela:"Conjuración",tiempo:"1 acción",rango:"Personal",componentes:"V,S",duracion:"Instantáneo",descripcion:"Tentáculos surgen de ti. Criaturas en 10 pies hacen TS Fuerza. Fallo: 2d6 necrótico y no pueden usar reacciones hasta su siguiente turno. Éxito: mitad de daño.",superior:"El daño aumenta en 1d6 por nivel superior a 1."},
+
+{nombre:"Perdición",nivel:1,escuela:"Encantamiento",tiempo:"1 acción",rango:"30 pies",componentes:"V,S,M",duracion:"Concentración, 1 minuto",descripcion:"Hasta tres criaturas deben superar TS Carisma. Mientras dure, restan 1d4 a tiradas de ataque y TS.",superior:"Afecta a una criatura adicional por nivel superior a 1."},
+
+{nombre:"Bendición",nivel:1,escuela:"Encantamiento",tiempo:"1 acción",rango:"30 pies",componentes:"V,S,M",duracion:"Concentración, 1 minuto",descripcion:"Hasta tres criaturas añaden 1d4 a tiradas de ataque y TS mientras dure el conjuro.",superior:"Afecta a una criatura adicional por nivel superior a 1."},
+
+{nombre:"Manos Ardientes",nivel:1,escuela:"Evocación",tiempo:"1 acción",rango:"Personal",componentes:"V,S",duracion:"Instantáneo",descripcion:"Un cono de fuego de 15 pies. Criaturas hacen TS Destreza o reciben 3d6 fuego, mitad en éxito. Objetos inflamables sin portar se encienden.",superior:"El daño aumenta en 1d6 por nivel superior a 1."},
+
+{nombre:"Persona Encantadora",nivel:1,escuela:"Encantamiento",tiempo:"1 acción",rango:"30 pies",componentes:"V,S",duracion:"1 hora",descripcion:"Un humanoide hace TS Sabiduría con ventaja si está en combate contigo. Fallo: queda Encantado y te considera amistoso hasta que termine el conjuro o le dañéis.",superior:"Puedes afectar una criatura adicional por nivel superior a 1."},
+
+{nombre:"Orbe Cromático",nivel:1,escuela:"Evocación",tiempo:"1 acción",rango:"90 pies",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Ataque de conjuro a distancia que causa 3d8 de ácido, frío, fuego, rayo, veneno o trueno. Si dos dados muestran el mismo número, el orbe salta a otro objetivo a 30 pies." ,superior:"El daño aumenta en 1d8 por nivel superior a 1."},
+
+{nombre:"Color Spray",nivel:1,escuela:"Ilusión",tiempo:"1 acción",rango:"Personal",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Un cono de luces de 15 pies. Criaturas hacen TS Constitución o quedan Cegadas hasta el final de tu siguiente turno."},
+
+{nombre:"Comando",nivel:1,escuela:"Encantamiento",tiempo:"1 acción",rango:"60 pies",componentes:"V",duracion:"Instantáneo",descripcion:"Una criatura hace TS Sabiduría o sigue un comando de una palabra en su próximo turno (acercarse, soltar, huir, tumbarse o detenerse).",superior:"Afecta a una criatura adicional por nivel superior a 1."},
+
+{nombre:"Duelo Obligado",nivel:1,escuela:"Encantamiento",tiempo:"1 acción bonus",rango:"30 pies",componentes:"V",duracion:"Concentración, 1 minuto",descripcion:"Una criatura hace TS Sabiduría. Fallo: tiene desventaja al atacar a otros y no puede alejarse más de 30 pies de ti voluntariamente."},
+
+{nombre:"Comprender Idiomas",nivel:1,escuela:"Adivinación",tiempo:"1 acción o ritual",rango:"Personal",componentes:"V,S,M",duracion:"1 hora",descripcion:"Comprendes el significado literal de cualquier idioma hablado o escrito que veas. Leer una página tarda aproximadamente 1 minuto."},
+
+{nombre:"Crear o Destruir Agua",nivel:1,escuela:"Transmutación",tiempo:"1 acción",rango:"30 pies",componentes:"V,S,M",duracion:"Instantáneo",descripcion:"Creas hasta 10 galones de agua en un recipiente o lluvia en un cubo de 30 pies que apaga llamas, o destruyes esa cantidad de agua.",superior:"Creas o destruyes 10 galones adicionales por nivel superior a 1."},
+
+{nombre:"Curar Heridas",nivel:1,escuela:"Abjuración",tiempo:"1 acción",rango:"Toque",componentes:"V,S",duracion:"Instantáneo",descripcion:"Una criatura que tocas recupera 2d8 + tu modificador de característica de conjuro.",superior:"La curación aumenta en 2d8 por nivel superior a 1."},
+
+{nombre:"Detectar el Bien y el Mal",nivel:1,escuela:"Adivinación",tiempo:"1 acción",rango:"Personal",componentes:"V,S",duracion:"Concentración, 10 minutos",descripcion:"Detectas aberraciones, celestiales, elementales, fey, demonios y no muertos a 30 pies, así como la presencia del conjuro Santificar."},
+
+{nombre:"Detectar Magia",nivel:1,escuela:"Adivinación",tiempo:"1 acción o ritual",rango:"Personal",componentes:"V,S",duracion:"Concentración, 10 minutos",descripcion:"Sientes la presencia de magia a 30 pies y puedes ver auras mágicas alrededor de criaturas u objetos."},
+
+{nombre:"Detectar Veneno y Enfermedad",nivel:1,escuela:"Adivinación",tiempo:"1 acción o ritual",rango:"Personal",componentes:"V,S,M",duracion:"Concentración, 10 minutos",descripcion:"Detectas venenos, criaturas venenosas o enfermedades a 30 pies y conoces su tipo."},
+
+{nombre:"Disfrazarse",nivel:1,escuela:"Ilusión",tiempo:"1 acción",rango:"Personal",componentes:"V,S",duracion:"1 hora",descripcion:"Cambias tu apariencia, ropa y equipo. La ilusión no resiste inspección física y puede descubrirse con una prueba de Investigación contra tu CD de conjuro."},
+
+{nombre:"Susurros Disonantes",nivel:1,escuela:"Encantamiento",tiempo:"1 acción",rango:"60 pies",componentes:"V",duracion:"Instantáneo",descripcion:"Una criatura hace TS Sabiduría o recibe 3d6 psíquico y usa su reacción para huir lo más lejos posible de ti.",superior:"El daño aumenta en 1d6 por nivel superior a 1."},
+
+{nombre:"Favor Divino",nivel:1,escuela:"Transmutación",tiempo:"1 acción bonus",rango:"Personal",componentes:"V,S",duracion:"1 minuto",descripcion:"Tus ataques con armas infligen 1d4 radiante adicional durante la duración."},
 ];
 
 function obtenerMod(statNombre) {

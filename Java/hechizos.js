@@ -36,7 +36,7 @@ const tablaBrujo = {
 19:{espacios:4,nivel:5},20:{espacios:4,nivel:5}
 };
 
-const hechizosDB = {
+const baseConjuros = {
 
   "Misil Mágico": {
     nivel: 1,

@@ -262,14 +262,20 @@ const defaultOption=document.createElement("option");
 defaultOption.value="";
 defaultOption.textContent=nivel===0?"Truco":"Conjuro";
 selectNombre.appendChild(defaultOption);
-baseConjuros.filter(c=>c.nivel===nivel).forEach(c=>{const o=document.createElement("option");o.value=c.nombre;o.textContent=c.nombre;selectNombre.appendChild(o);});
-actualizarDescripcion();
+Object.entries(baseConjuros)
+    .filter(([nombre, data]) => data.nivel === nivel)
+    .forEach(([nombre, data]) => {
+        const o = document.createElement("option");
+        o.value = nombre;
+        o.textContent = nombre;
+        selectNombre.appendChild(o);
+    });actualizarDescripcion();
 }
 
 function actualizarDescripcion(){
 
     const nombre = selectNombre.value;
-    const data = baseConjuros.find(c=>c.nombre===nombre);
+    const data = baseConjuros[nombre];
 
     if(!data || !nombre){
         descripcion.innerHTML="";

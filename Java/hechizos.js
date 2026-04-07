@@ -300,11 +300,17 @@ function actualizarDescripcion(){
         const cd = 8 + mod + comp;
         extra = `<span>CD ${cd}</span>`;
     }
+    const efectoHTML = data.efecto
+        ? data.efecto.map(e => `<p>${e}</p>`).join("")
+        : "";
 
+    const escaladoHTML = data.escalado
+        ? `<p><em>${data.escalado.efecto}</em></p>`
+        : "";
     descripcion.innerHTML = `
         <div class="fila-lineal ataque-detalle">
 
-            <strong>${data.nombre}</strong>
+            <strong>${nombre}</strong>
 
             <span>${data.rango}</span>
             <span>${data.componentes}</span>
@@ -320,12 +326,14 @@ function actualizarDescripcion(){
 
         </div>
 
-        <div class="descripcionHechizo">
-            <p><strong>Escuela:</strong> ${data.escuela}</p>
-            <p><strong>Tiempo:</strong> ${data.tiempo}</p>
-            <p>${data.descripcion}</p>
-            <p><em>${data.superior}</em></p>
-        </div>
+    <div class="descripcionHechizo">
+        <p><strong>Escuela:</strong> ${data.escuela}</p>
+        <p><strong>Tiempo:</strong> ${data.tiempo}</p>
+
+        ${efectoHTML}
+
+        ${escaladoHTML}
+    </div>
     `;
 
     // 🔥 Restaurar valor seleccionado

@@ -289,22 +289,52 @@
             </div>
         </div>
         <div class="columna-derecha">
-            <div class="bloque-combate-detalle">
-                <div id="combateContenido"></div>
+
+            <!-- 🔹 BOTONES -->
+            <div class="menu-secciones">
+                <button data-seccion="combate">Ataques</button>
+                <button data-seccion="especie">Especie</button>
+                <button data-seccion="dotes">Dotes</button>
+                <button data-seccion="clase">Clase</button>
+                <button data-seccion="conjuros">Conjuros</button>
             </div>
-            <div id="bloqueEspecie"></div>
-            <div id="bloqueDoteTransfondo"></div>
-            <div id="bloqueDoteGeneral"></div>
-            <div id="bloqueEstilosLucha"></div>
-            <div id="bloqueDoteBendicionEpica"></div>
-            <div id="bloqueDoteMarca"></div>
-            <div id="bloqueRasgos"></div>
+
+            <!-- 🔹 CONTENEDOR DINÁMICO -->
+            <div id="contenedor-secciones">
+
+                <div class="seccion" data-seccion="combate">
+                    <div class="bloque-combate-detalle">
+                        <div id="combateContenido"></div>
+                    </div>
+                </div>
+
+                <div class="seccion" data-seccion="especie">
+                    <div id="bloqueEspecie"></div>
+                </div>
+
+                <div class="seccion" data-seccion="dotes">
+                    <div id="bloqueDoteTransfondo"></div>
+                    <div id="bloqueDoteGeneral"></div>
+                    <div id="bloqueEstilosLucha"></div>
+                    <div id="bloqueDoteBendicionEpica"></div>
+                    <div id="bloqueDoteMarca"></div>
+                </div>
+
+                <div class="seccion" data-seccion="clase">
+                    <div id="bloqueRasgos"></div>
+                </div>
+
+                <div class="seccion" data-seccion="conjuros">
+                    <div id="bloquehechizos"></div>
+                </div>
+
+            </div>
+
         </div>
-    </div>
-    <div id="bloquehechizos"></div>
     
 
     <!-- Archivos JavaScript -->
+    <script src="Java/index.js"></script>
     <script src="Java/stats.js"></script>
     <script src="Java/competencia.js"></script>
     <script src="Java/dadosgolpe.js"></script>

@@ -1180,6 +1180,24 @@ button.btnEliminar:hover{
     opacity:0.9;
 }
 
+.seccion {
+    display: none;
+}
+
+.seccion.activa {
+    display: block;
+}
+
+.menu-secciones {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.menu-secciones button.activo {
+    background: #444;
+    color: white;
+}
 /* ===================================================== */
 /* ================= RESPONSIVE HECHIZOS =============== */
 /* ===================================================== */

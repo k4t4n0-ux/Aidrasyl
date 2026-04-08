@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", () => {
+    crearSistemaDotes({
+        contenedorId: "bloqueDoteMarca",
+        titulo: "Dotes de Marca",
+        tipoTexto: "Marca",
+        db: dotesMarcaDB,
+        storageKey: "dotes_marcas"
+    });
+});
+
 const dotesMarcaDB = {
 
     "Marca de dragón aberrante": {

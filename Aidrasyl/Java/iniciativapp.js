@@ -12,7 +12,7 @@ function actualizarCombate(){
     ) || 0;
 
     // ===== INICIATIVA =====
-    const destreza = document.querySelector('[data-stat="Destreza"]');
+    const destreza = document.getElementById("stat-Destreza");
 
     if (destreza) {
 
@@ -29,7 +29,7 @@ function actualizarCombate(){
     }
 
     // ===== PERCEPCIÓN PASIVA =====
-    const sabiduria = document.querySelector('[data-stat="Sabiduria"]');
+    const sabiduria = document.getElementById("stat-Sabiduria");
     if(!sabiduria) return;
 
     const modSab = calcularMod(parseInt(sabiduria.value) || 10);
@@ -37,20 +37,15 @@ function actualizarCombate(){
     let bonus = modSab;
 
     // buscar skill Percepción correctamente
-    const skills = document.querySelectorAll(".skill-row");
+    const prof = document.getElementById("prof-Sabiduria-Percepción")?.checked;
+    const exp = document.getElementById("exp-Sabiduria-Percepción")?.checked;
 
-    skills.forEach(row=>{
-        if(row.dataset.skill === "Percepción"){
-            const prof = row.querySelector(".skill-prof").checked;
-            const exp = row.querySelector(".skill-exp").checked;
-
-            if(prof) bonus += competencia;
-            if(exp) bonus += competencia;
-        }
-    });
+    if (exp) {
+        bonus += competencia * 2;
+    } else if (prof) {
+        bonus += competencia;
+    }
 
     document.getElementById("percepcionPasiva").textContent =
         10 + bonus;
 }
-
-actualizarCombate();

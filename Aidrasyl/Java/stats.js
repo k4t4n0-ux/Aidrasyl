@@ -22,18 +22,20 @@ document.addEventListener("DOMContentLoaded", () => {
             <h3>${nombre}</h3>
             Valor:
             <input type="number" value="10" min="1" max="30"
-                   class="stat" data-stat="${nombre}">
+                class="stat" id="stat-${nombre}">
             Mod:
             <span class="mod">+0</span>
             <br><br>
         `;
 
         habilidades.forEach(hab=>{
+            const safeHab = hab.replace(/\s+/g, "_");
+
             div.innerHTML += `
-                <div class="skill-row" data-skill="${hab}">
+                <div class="skill-row">
                     ${hab}
-                    <input type="checkbox" class="skill-prof"> C
-                    <input type="checkbox" class="skill-exp"> P
+                    <input type="checkbox" id="prof-${nombre}-${safeHab}" class="skill-prof"> C
+                    <input type="checkbox" id="exp-${nombre}-${safeHab}" class="skill-exp"> P
                     <span class="skill-total">+0</span>
                 </div>
             `;
@@ -66,13 +68,14 @@ document.addEventListener("DOMContentLoaded", () => {
             bloque.querySelectorAll(".skill-row").forEach(row=>{
 
                 let total = mod;
+                const prof = row.querySelector(".skill-prof").checked;
+                const exp = row.querySelector(".skill-exp").checked;
 
-                if(row.querySelector(".skill-prof").checked)
+                if (exp) {
+                    total += competencia * 2;
+                } else if (prof) {
                     total += competencia;
-
-                if(row.querySelector(".skill-exp").checked)
-                    total += competencia;
-
+                }
                 row.querySelector(".skill-total").textContent =
                     formato(total);
             });
@@ -82,5 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("input", actualizar);
     document.addEventListener("change", actualizar);
 
-    actualizar();
+    setTimeout(()=>{
+        actualizar();
+        document.dispatchEvent(new Event("change"));
+    }, 0);
 });

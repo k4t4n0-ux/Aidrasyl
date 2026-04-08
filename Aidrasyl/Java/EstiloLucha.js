@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", () => {
+    crearSistemaDotes({
+        contenedorId: "bloqueEstilosLucha",
+        titulo: "Estilos de Lucha",
+        tipoTexto: "Estilo",
+        db: estilosLuchaDB,
+        storageKey: "dotes_estilos"
+    });
+});
+
 const estilosLuchaDB = {
 
     "Tiro con arco": {

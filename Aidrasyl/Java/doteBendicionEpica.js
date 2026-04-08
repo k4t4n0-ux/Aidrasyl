@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", () => {
+    crearSistemaDotes({
+        contenedorId: "bloqueDoteBendicionEpica",
+        titulo: "Bendiciones Épicas",
+        tipoTexto: "Bendición",
+        db: bendicionesEpicasDB,
+        storageKey: "dotes_bendiciones"
+    });
+});
+
 const bendicionesEpicasDB = {
 
     "Bendición de la destreza en el combate": {
@@ -434,3 +444,4 @@ if (bloqueBendicion) {
 
     btnAgregar.addEventListener("click", crearBloqueBendicion);
 }
+

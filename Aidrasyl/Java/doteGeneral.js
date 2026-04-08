@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", () => {
+    crearSistemaDotes({
+        contenedorId: "bloqueDoteGeneral",
+        titulo: "Dotes Generales",
+        tipoTexto: "Dote",
+        db: dotesGeneralesDB,
+        storageKey: "dotes_generales"
+    });
+});
+
 const dotesGeneralesDB = {
 
     "Actor": {

@@ -5,7 +5,7 @@ const contenido = document.getElementById("combateContenido");
 ========================== */
 
 function obtenerMod(statNombre) {
-    const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
+    const input = document.getElementById(`stat-${statNombre}`);
     if (!input) return 0;
     const modSpan = input.nextElementSibling;
     return parseInt(modSpan.textContent.replace("+", "")) || 0;
@@ -410,12 +410,24 @@ function configurarCalculoPersonalizado(detalle) {
     check.addEventListener("change", actualizar);
     bonus.addEventListener("input", actualizar);
     dado.addEventListener("input", actualizar);
+    
+    // Agregar estos listeners para disparar guardado
+    const nombreCustom = detalle.querySelector(".nombreCustom");
+    const distanciaCustom = detalle.querySelector(".distanciaCustom");
+    const propiedadCustom = detalle.querySelector(".propiedadCustom");
+    const maestriaSelect = detalle.querySelector(".maestriaSelect");
+    
+    nombreCustom?.addEventListener("input", guardarCombate);
+    distanciaCustom?.addEventListener("input", guardarCombate);
+    propiedadCustom?.addEventListener("input", guardarCombate);
+    maestriaSelect?.addEventListener("change", guardarCombate);
 
     document.addEventListener("input", actualizar);
     document.addEventListener("change", actualizar);
 
     actualizar();
 }
+
 
 function configurarTruco(detalle, truco) {
 
@@ -466,6 +478,101 @@ function configurarTruco(detalle, truco) {
     actualizar();
 }
 
+function renderArmas(inlineExtra, detalle) {
+
+    inlineExtra.innerHTML = `
+        <select class="tipoArma">
+            <option value="">Tipo</option>
+            <option value="simple">Simple</option>
+            <option value="marcial">Marcial</option>
+            <option value="personalizada">Personalizada</option>
+        </select>
+
+        <select class="armaSelect" style="display:none;">
+            <option value="">Arma</option>
+        </select>
+    `;
+
+    const tipoArma = inlineExtra.querySelector(".tipoArma");
+    const armaSelect = inlineExtra.querySelector(".armaSelect");
+
+    tipoArma.addEventListener("change", () => {
+
+        armaSelect.innerHTML = `<option value="">Arma</option>`;
+        detalle.innerHTML = "";
+
+        if (tipoArma.value === "personalizada") {
+            armaSelect.style.display = "none";
+            renderPersonalizada(detalle);
+            return;
+        }
+
+        armaSelect.style.display = "inline-block";
+        const armas = armasDB[tipoArma.value];
+        if (!armas) return;
+
+        for (let nombre in armas) {
+            armaSelect.innerHTML += `<option value="${nombre}">${nombre}</option>`;
+        }
+    });
+
+    armaSelect.addEventListener("change", () => {
+
+        detalle.innerHTML = "";
+
+        if (!tipoArma.value || !armaSelect.value) return;
+
+        const arma = armasDB[tipoArma.value][armaSelect.value];
+
+        detalle.innerHTML = `
+            <div class="fila-lineal ataque-detalle">
+
+                <strong>${armaSelect.value}</strong>
+                <span>${arma.dano}</span>
+                <span>${arma.distancia}</span>
+                <span>${arma.propiedad}</span>
+
+                <span class="maestria-box">
+                    Maestría:
+                    <a href="#" class="maestriaLink">${arma.maestria || "—"}</a>
+
+                    <label>
+                        <input type="checkbox" class="checkMaestria">
+                        Activa
+                    </label>
+                </span>
+
+                <select class="statSelect">
+                    ${
+                        arma.caracteristica === "fuerza_dest"
+                        ? `
+                        <option value="Fuerza">Fuerza</option>
+                        <option value="Destreza">Destreza</option>
+                        `
+                        : `
+                        <option value="${arma.caracteristica === "fuerza" ? "Fuerza" : "Destreza"}">
+                        ${arma.caracteristica === "fuerza" ? "Fuerza" : "Destreza"}
+                        </option>
+                        `
+                    }
+                </select>
+
+                <label>
+                    <input type="checkbox" class="competente">
+                    Competente
+                </label>
+
+                <span>Ataque: <strong class="totalAtaque">+0</strong></span>
+                <span>Daño: <strong class="totalDanio">${arma.dano} +0</strong></span>
+
+            </div>
+        `;
+
+        configurarCalculoArma(detalle, arma.dano);
+    });
+}
+
+//Guardado//
 document.addEventListener("click", function(e) {
 
     if (e.target.classList.contains("maestriaLink")) {
@@ -504,3 +611,171 @@ document.addEventListener("click", function(e) {
         }, 10);
     }
 });
+
+const STORAGE_COMBATE = "aidrasyl_combate";
+
+function guardarCombate() {
+    const bloques = document.querySelectorAll(".bloque-ataque");
+    const datos = [];
+
+    bloques.forEach(bloque => {
+        const tipo = bloque.querySelector(".tipoGeneral").value;
+
+        if (!tipo) return;
+
+        const ataque = { tipo };
+
+        if (tipo === "armas") {
+            const tipoArma = bloque.querySelector(".tipoArma")?.value;
+            ataque.tipoArma = tipoArma;
+
+            if (tipoArma === "personalizada") {
+                ataque.personalizada = true;
+                ataque.nombre = bloque.querySelector(".nombreCustom")?.value;
+                ataque.dado = bloque.querySelector(".dadoCustom")?.value;
+                ataque.distancia = bloque.querySelector(".distanciaCustom")?.value;
+                ataque.propiedad = bloque.querySelector(".propiedadCustom")?.value;
+                ataque.maestria = bloque.querySelector(".maestriaSelect")?.value;
+                ataque.checkMaestria = bloque.querySelector(".checkMaestria")?.checked;
+                ataque.stat = bloque.querySelector(".statSelect")?.value;
+                ataque.bonusMagico = bloque.querySelector(".bonusMagico")?.value;
+                ataque.competente = bloque.querySelector(".competente")?.checked;
+            } else {
+                ataque.arma = bloque.querySelector(".armaSelect")?.value;
+                ataque.stat = bloque.querySelector(".statSelect")?.value;
+                ataque.competente = bloque.querySelector(".competente")?.checked;
+                ataque.maestria = bloque.querySelector(".checkMaestria")?.checked;
+            }
+        } else if (tipo === "desarmado") {
+            ataque.dado = bloque.querySelector(".dado")?.value;
+            ataque.stat = bloque.querySelector(".statSelect")?.value;
+            ataque.competente = bloque.querySelector(".competente")?.checked;
+        } else if (tipo === "trucos") {
+            ataque.truco = bloque.querySelector(".trucoSelect")?.value;
+            ataque.stat = bloque.querySelector(".statSelect")?.value;
+            ataque.nivel = bloque.querySelector(".nivelTruco")?.value;
+        }
+
+        datos.push(ataque);
+    });
+
+    localStorage.setItem(STORAGE_COMBATE, JSON.stringify(datos));
+}
+
+function cargarCombate() {
+    const data = localStorage.getItem(STORAGE_COMBATE);
+    if (!data) return;
+
+    try {
+        const ataques = JSON.parse(data);
+        ataques.forEach(ataque => reconstruirAtaque(ataque));
+    } catch (e) {
+        console.error("Error al cargar combate:", e);
+    }
+}
+
+function reconstruirAtaque(ataque) {
+    crearBloque();
+    const lista = document.getElementById("listaAtaques");
+    const bloque = lista.lastElementChild;
+    const tipoGeneral = bloque.querySelector(".tipoGeneral");
+
+    tipoGeneral.value = ataque.tipo;
+    tipoGeneral.dispatchEvent(new Event("change"));
+
+    const waitForElement = (selector, timeout = 500) => {
+        return new Promise((resolve) => {
+            const startTime = Date.now();
+            const checkElement = () => {
+                const element = bloque.querySelector(selector);
+                if (element) {
+                    resolve(element);
+                } else if (Date.now() - startTime < timeout) {
+                    requestAnimationFrame(checkElement);
+                } else {
+                    resolve(null);
+                }
+            };
+            checkElement();
+        });
+    };
+
+    (async () => {
+        if (ataque.tipo === "armas") {
+            const tipoArma = await waitForElement(".tipoArma");
+            if (tipoArma) {
+                tipoArma.value = ataque.tipoArma;
+                tipoArma.dispatchEvent(new Event("change"));
+
+                if (ataque.tipoArma === "personalizada") {
+                    const nombreCustom = await waitForElement(".nombreCustom");
+                    const dadoCustom = await waitForElement(".dadoCustom");
+                    const distanciaCustom = await waitForElement(".distanciaCustom");
+                    const propiedadCustom = await waitForElement(".propiedadCustom");
+                    const maestriaSelect = await waitForElement(".maestriaSelect");
+                    const statSelect = await waitForElement(".statSelect");
+                    const bonusMagico = await waitForElement(".bonusMagico");
+
+                    if (nombreCustom) {
+                        nombreCustom.value = ataque.nombre || "";
+                        dadoCustom.value = ataque.dado || "1d8";
+                        distanciaCustom.value = ataque.distancia || "";
+                        propiedadCustom.value = ataque.propiedad || "";
+                        maestriaSelect.value = ataque.maestria || "";
+                        statSelect.value = ataque.stat || "Fuerza";
+                        bonusMagico.value = ataque.bonusMagico || "0";
+
+                        bloque.querySelector(".checkMaestria").checked = ataque.checkMaestria || false;
+                        bloque.querySelector(".competente").checked = ataque.competente || false;
+
+                        dadoCustom.dispatchEvent(new Event("input"));
+                    }
+                } else {
+                    const armaSelect = await waitForElement(".armaSelect");
+                    if (armaSelect) {
+                        armaSelect.value = ataque.arma;
+                        armaSelect.dispatchEvent(new Event("change"));
+                    }
+
+                    const statSelect = await waitForElement(".statSelect");
+                    if (statSelect) {
+                        statSelect.value = ataque.stat;
+                        bloque.querySelector(".competente").checked = ataque.competente;
+                        bloque.querySelector(".checkMaestria").checked = ataque.maestria;
+                    }
+                }
+            }
+        } else if (ataque.tipo === "desarmado") {
+            const dado = await waitForElement(".dado");
+            const statSelect = await waitForElement(".statSelect");
+            if (dado && statSelect) {
+                dado.value = ataque.dado;
+                statSelect.value = ataque.stat;
+                bloque.querySelector(".competente").checked = ataque.competente;
+            }
+        } else if (ataque.tipo === "trucos") {
+            const trucoSelect = await waitForElement(".trucoSelect");
+            if (trucoSelect) {
+                trucoSelect.value = ataque.truco;
+                trucoSelect.dispatchEvent(new Event("change"));
+
+                const statSelect = await waitForElement(".statSelect");
+                const nivelTruco = await waitForElement(".nivelTruco");
+                if (statSelect && nivelTruco) {
+                    statSelect.value = ataque.stat;
+                    nivelTruco.value = ataque.nivel;
+                    nivelTruco.dispatchEvent(new Event("change"));
+                }
+            }
+        }
+    })();
+}
+
+document.addEventListener("input", guardarCombate);
+document.addEventListener("change", guardarCombate);
+document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("btnEliminar")) {
+        guardarCombate();
+    }
+});
+document.addEventListener("DOMContentLoaded", cargarCombate);

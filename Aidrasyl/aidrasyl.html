@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hoja Aidrasyl</title>
+    <link rel="stylesheet" href="Estilo/estilo.css">
+</head>
+<body>
+<!-- 🔹 BOTÓN MENÚ -->
+<button id="toggleMenu" class="menu-btn">☰</button>
+
+<!-- 🔹 MENÚ DESPLEGABLE -->
+<div id="menuLateral" class="menu-lateral">
+    <br><br>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="aidrasyl.html">Hoja Aidrasyl</a>
+        <a href="pesoaidrasyl.html">Peso Aidrasyl</a>
+        <a href="../Keres/keres.html">Hoja Keres</a>
+    </nav>
+</div>
+    <div class="hoja">
+
+    <h1>Hoja Editable Aidrasyl</h1>
+
+        <div class="cabecera-superior">
+
+            <!-- IZQUIERDA -->
+            <div class="datos-personales">
+                <div class="fila-doble">
+                    <div>
+                        <label>Nombre</label>
+                        <input type="text" id="nombrehoja">
+                    </div>
+                    <div>
+                        <label>Transfondo</label>
+                        <input type="text" id="transfondo">
+                    </div>
+                </div>
+
+                <div class="fila-doble">
+                    <div>
+                        <label>Especie</label>
+                        <select id="especieSelect">
+                            <option value="">-- Especie --</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Alineamiento</label>
+                        <select id="alineamiento">
+                            <option value="">-- Alineamiento --</option>
+                            <option value="legal_bueno">Legal Bueno</option>
+                            <option value="neutral_bueno">Neutral Bueno</option>
+                            <option value="caotico_bueno">Caótico Bueno</option>
+                            <option value="legal_neutral">Legal Neutral</option>
+                            <option value="neutral_verdadero">Neutral Verdadero</option>
+                            <option value="caotico_neutral">Caótico Neutral</option>
+                            <option value="legal_maligno">Legal Maligno</option>
+                            <option value="neutral_maligno">Neutral Maligno</option>
+                            <option value="caotico_maligno">Caótico Maligno</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CENTRO NIVEL -->
+            <div class="nivel-total">
+                <label>Nivel Total</label>
+                <input type="number" id="nivelTotal" readonly>
+                <span>XP</span>
+                <input type="number" id="experiencia" min="1">
+            </div>
+
+            <!-- DERECHA -->
+            <div class="datos-clase">
+                <label>Clase</label>
+                <select id="clase">
+                    <option value="">-- Clase --</option>
+                    <option value="artificiero">Artificiero</option>
+                    <option value="barbaro">Bárbaro</option>
+                    <option value="bardo">Bardo</option>
+                    <option value="clerigo">Clérigo</option>
+                    <option value="druida">Druida</option>
+                    <option value="luchador">Luchador</option>
+                    <option value="monje">Monje</option>
+                    <option value="paladin">Paladín</option>
+                    <option value="explorador">Explorador</option>
+                    <option value="picaro">Pícaro</option>
+                    <option value="hechicero">Hechicero</option>
+                    <option value="brujo">Brujo</option>
+                    <option value="mago">Mago</option>
+                    <option value="cazador_sangre">Cazador de Sangre</option>
+                    <option value="psionico">Psiónico</option>
+                </select><br>
+
+                <label>Subclase</label>
+                <select id="subclase">
+                    <option value="">-- Subclase --</option>
+                </select>
+
+                <div class="nivel-principal">
+                    <label>Nivel Clase Principal</label>
+                    <input type="number" id="nivel1" min="1" max="30" value="1">
+                </div>
+
+            </div>
+
+            <div class="datos-clase">
+                <label>Clase Secundaria</label>
+                <select id="clase2">
+                    <option value="">-- Ninguna --</option>
+                    <option value="artificiero">Artificiero</option>
+                    <option value="barbaro">Bárbaro</option>
+                    <option value="bardo">Bardo</option>
+                    <option value="clerigo">Clérigo</option>
+                    <option value="druida">Druida</option>
+                    <option value="luchador">Luchador</option>
+                    <option value="monje">Monje</option>
+                    <option value="paladin">Paladín</option>
+                    <option value="explorador">Explorador</option>
+                    <option value="picaro">Pícaro</option>
+                    <option value="hechicero">Hechicero</option>
+                    <option value="brujo">Brujo</option>
+                    <option value="mago">Mago</option>
+                    <option value="cazador_sangre">Cazador de Sangre</option>
+                    <option value="psionico">Psiónico</option>
+                </select><br>
+
+                <label>Subclase Secundaria</label>
+                <select id="subclase2">
+                    <option value="">-- Subclase --</option>
+                </select>
+                
+                <div class="nivel-secundaria">
+                    <label>Nivel Clase Secundaria</label>
+                    <input type="number" id="nivel2" min="0" max="30" value="0">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bloque-combate-superior">
+
+            <div class="bloque-ca">
+                <div class="ca-destacada">
+                    <span>CA</span>
+                    <input type="number" id="ca" min="0" data-base="0">
+                </div>
+
+                <label>
+                    <input type="checkbox" id="escudo">
+                    Escudo (+2)
+                </label>
+            </div>
+
+            <div class="pg-maximos">
+                <label>PG Máx</label>
+                <input type="number" id="pgMaximos" value="100" min="0">
+                <div class="pg-botones">
+                    <button type="button" onclick="modificarPGMax(-1)">-1</button>
+                    <button type="button" onclick="modificarPGMax(-10)">-10</button>
+                    <button type="button" onclick="modificarPGMax(10)">+10</button>
+                    <button type="button" onclick="modificarPGMax(1)">+1</button>
+                </div>
+            </div>
+
+                <div class="pg-actuales">
+                <label>PG Act</label>
+                <input type="number" id="pgActuales" value="100" min="0">
+                <div class="pg-botones">
+                    <button type="button" onclick="modificarPG(-1)">-1</button>
+                    <button type="button" onclick="modificarPG(-10)">-10</button>
+                    <button type="button" onclick="modificarPG(10)">+10</button>
+                    <button type="button" onclick="modificarPG(1)">+1</button>
+                </div>
+            </div>
+
+            <div class="pg-temporales">
+                <label>Temp</label>
+                <input type="number" id="pgTemporales" value="0" min="0">
+                <div class="pg-botones">
+                    <button type="button" onclick="modificarPGTemp(-1)">-1</button>
+                    <button type="button" onclick="modificarPGTemp(-10)">-10</button>
+                    <button type="button" onclick="modificarPGTemp(10)">+10</button>
+                    <button type="button" onclick="modificarPGTemp(1)">+1</button>
+                </div>
+            </div>
+
+            <div class="dados-bloque">
+                <div class="dados-titulo">Dados de Golpe</div>
+
+                <div id="dadosContainer"></div>
+
+                <div class="dados-mini">
+                    <!-- aquí irá lo que tú generes como dados de reserva -->
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- BARRA SECUNDARIA -->
+        <div class="barra-secundaria">
+
+            <div class="mini-box">
+                <label>Bonificador</label>
+                <input type="text" id="competencia" value="+2" readonly>
+            </div>
+
+            <div class="mini-box">
+                <label>Bonif. Ini</label>
+                <input type="number" id="bonificadorIniciativa" value="0">
+            </div>
+
+            <div class="mini-box">
+                <label>Iniciativa</label>
+                <span id="iniciativa">+0</span>
+            </div>
+
+            <div class="mini-box">
+                <label>Velocidad</label>
+                <input type="number" id="velocidad" value="30" min="1">
+            </div>
+
+            <div class="mini-box">
+                <label>Tamaño</label>
+                <select id="tamaño">
+                    <option>Diminuto</option>
+                    <option>Pequeño</option>
+                    <option selected>Mediano</option>
+                    <option>Grande</option>
+                    <option>Enorme</option>
+                    <option>Gargantuesco</option>
+                </select>
+            </div>
+
+            <div class="mini-box">
+                <label>Percep. Pasiva</label>
+                <span id="percepcionPasiva">10</span>
+            </div>
+
+        </div>
+
+        <div class="zona-inferior">
+
+            <div class="columna-izquierda">
+
+                <div id="caracteristicas"></div>
+
+                <div id="bloqueCompetencias" class="bloque-competencias">
+
+                    <div class="competencias-header">
+                        <span>Competencias</span>
+                    </div>
+
+                    <div class="competencias-grid">
+
+                        <div class="competencia-col">
+                            <label>Armaduras</label>
+
+                            <div class="armaduras-grid">
+
+                                <label class="check-item">
+                                    <input type="checkbox" id="armLigera">
+                                    Ligera
+                                </label>
+
+                                <label class="check-item">
+                                    <input type="checkbox" id="armIntermedia">
+                                    Intermedia
+                                </label>
+
+                                <label class="check-item">
+                                    <input type="checkbox" id="armPesada">
+                                    Pesada
+                                </label>
+
+                                <label class="check-item">
+                                    <input type="checkbox" id="armEscudos">
+                                    Escudos
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <div class="competencia-col">
+                            <label>Armas</label>
+                            <textarea id="compArmas" rows="1" class="autoResize"></textarea>
+                        </div>
+
+                        <div class="competencia-col">
+                            <label>Herramientas</label>
+                            <textarea id="compHerramientas" rows="1" class="autoResize"></textarea>
+                        </div>
+
+                        <div class="competencia-col">
+                            <label>Idiomas</label>
+                            <textarea id="compIdiomas" rows="1" class="autoResize"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columna-derecha">
+
+                <!-- 🔹 BOTONES -->
+                <div class="menu-secciones">
+                    <button data-seccion="combate">Ataques</button>
+                    <button data-seccion="especie">Especie</button>
+                    <button data-seccion="dotes">Dotes</button>
+                    <button data-seccion="clase">Clase</button>
+                    <button data-seccion="conjuros">Conjuros</button>
+                </div>
+
+                <!-- 🔹 CONTENEDOR DINÁMICO -->
+                <div id="contenedor-secciones">
+
+                    <div class="seccion" data-seccion="combate">
+                        <div class="bloque-combate-detalle">
+                            <div id="combateContenido"></div>
+                        </div>
+                    </div>
+
+                    <div class="seccion" data-seccion="especie">
+                        <div id="bloqueEspecie"></div>
+                    </div>
+
+                    <div class="seccion" data-seccion="dotes">
+                        <div id="bloqueDoteTransfondo"></div>
+                        <div id="bloqueDoteGeneral"></div>
+                        <div id="bloqueEstilosLucha"></div>
+                        <div id="bloqueDoteBendicionEpica"></div>
+                        <div id="bloqueDoteMarca"></div>
+                    </div>
+
+                    <div class="seccion" data-seccion="clase">
+                        <div id="bloqueRasgos"></div>
+                    </div>
+
+                    <div class="seccion" data-seccion="conjuros">
+                        <div id="bloquehechizos"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        
+
+        <!-- Archivos JavaScript -->
+        <script src="Java/dotesBase.js"></script>
+        <script src="Java/index.js"></script>
+        <script src="Java/stats.js"></script>
+        <script src="Java/competencia.js"></script>
+        <script src="Java/dadosgolpe.js"></script>
+        <script src="Java/script.js"></script>
+        <script src="Java/subclases.js"></script>
+        <script src="Java/ca.js"></script>
+        <script src="Java/pg.js"></script>
+        <script src="Java/iniciativapp.js"></script>
+        <script src="Java/armas.js"></script>
+        <script src="Java/trucos.js"></script>
+        <script src="Java/doteTransfondo.js"></script>
+        <script src="Java/doteGeneral.js"></script>
+        <script src="Java/EstiloLucha.js"></script>
+        <script src="Java/doteBendicionEpica.js"></script>
+        <script src="Java/DoteMarca.js"></script>
+        <script src="Java/combate.js"></script>
+        <script src="Java/especie.js"></script>
+        <script src="Java/rasgos.js"></script>
+        <script src="Java/hechizos.js"></script>
+        <script src="Java/guardado.js"></script>
+
+    </div>
+</body>
+</html>

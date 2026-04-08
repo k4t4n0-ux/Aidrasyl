@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
        UTILIDADES
     ========================== */
 
+    function dispararCambio(el) {
+        el.dispatchEvent(new Event("input", { bubbles: true }));
+        el.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+
     function getMax() {
         return parseInt(pgMaximosInput.value) || 0;
     }
@@ -40,38 +45,21 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    /* =========================
-       PG ACTUALES
-    ========================== */
-
     window.modificarPG = function(cantidad) {
         clampActual(getActual() + cantidad);
+        dispararCambio(pgActualesInput);
     };
-
-    pgActualesInput.addEventListener("input", function() {
-        clampActual(getActual());
-    });
-
-    /* =========================
-       PG MÁXIMOS
-    ========================== */
 
     window.modificarPGMax = function(cantidad) {
         clampMax(getMax() + cantidad);
+        dispararCambio(pgMaximosInput);
     };
-
-    pgMaximosInput.addEventListener("input", function() {
-        clampMax(getMax());
-    });
-
-    /* =========================
-       PG TEMPORALES
-    ========================== */
 
     window.modificarPGTemp = function(cantidad) {
         let nuevo = getTemp() + cantidad;
         if (nuevo < 0) nuevo = 0;
-        pgTemporalesInput.value = nuevo;
-    };
 
+        pgTemporalesInput.value = nuevo;
+        dispararCambio(pgTemporalesInput);
+    };
 });

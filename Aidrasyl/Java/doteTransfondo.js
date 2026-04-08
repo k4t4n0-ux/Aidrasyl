@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", () => {
+    crearSistemaDotes({
+        contenedorId: "bloqueDoteTransfondo",
+        titulo: "Dotes de Origen",
+        tipoTexto: "Dote",
+        db: dotesDB,
+        storageKey: "dotes_origen"
+    });
+});
+
 const dotesDB = {
 
     "Agente de la Alianza de los Señores": {

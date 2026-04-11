@@ -87,10 +87,10 @@ const baseConjuros = {
 ========================================================= */
 
 function obtenerMod(statNombre) {
-    const input = document.querySelector(`.stat[data-stat="${statNombre}"]`);
+    const input = document.getElementById(`stat-${statNombre}`);
     if (!input) return 0;
-    const modSpan = input.nextElementSibling;
-    return parseInt(modSpan.textContent.replace("+", "")) || 0;
+    const valor = parseInt(input.value) || 10;
+    return Math.floor((valor - 10) / 2);
 }
 
 function obtenerCompetencia() {

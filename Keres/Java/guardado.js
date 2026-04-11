@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const STORAGE_KEY = "aidrasyl_data";
+    const STORAGE_KEY = "keres_data";
 
     // 🔹 GUARDAR
     function guardarDatos() {

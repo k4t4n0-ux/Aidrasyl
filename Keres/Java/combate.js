@@ -612,7 +612,7 @@ document.addEventListener("click", function(e) {
     }
 });
 
-const STORAGE_COMBATE = "aidrasyl_combate";
+const STORAGE_COMBATE = "keres_combate";
 
 function guardarCombate() {
     const bloques = document.querySelectorAll(".bloque-ataque");

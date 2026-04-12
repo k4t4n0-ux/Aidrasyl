@@ -26,10 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
         artificiero: {
             1: {
                 "Competencias": `Si obtienes esta clase como clase principal y no multi clase obtienes las siguientes competencias.
-Competencia en las toradas de salvación de Inteligencia y Constitución.
+Competencia en las tiradas de salvación de Inteligencia y Constitución.
 Elija 2 habilidades: Arcanos, Historia, Investigación, Medicina, Naturaleza, Percepción o Juego de manos.
 Armas Simples. Herramientas de ladrón, herramientas de manitas y un tipo de herramientas de artesano de su elección. Armadura y Escudos Ligeros y Medianos.`,
-                "Lanzamiento de hechizos":"",
+                "Lanzamiento de hechizos":`Puedes usar las herramientas de artesano con las que tengas competencia como enfoque de lanzamiento de hechizos, y debes tener uno de esos enfoques en la mano cuando lanzas un hechizo de artífice.
+Trucos. Conoces dos trucos de Artífice de tu elección. Cada vez que termines un descanso largo, puedes reemplazar uno de tus trucos de esta función con otro truco de Artífice de tu elección. Cuando alcanza los niveles 10 y 14 de Artificer, aprende truco de Artifice de su elección, como se muestra en la columna Cantrips de la tabla Características de Artificer.`,
                 "La magia de Manitas":`Aprendes el truco Reparación.
 Como acción mágica mientras sostienes las herramientas de Manitas, puedes crear un elemento en un espacio desocupado a 5 pies de ti mismo, eligiendo el elemento de la siguiente lista. El artículo dura hasta que terminas un Descanso Largo, momento en el que desaparece.
 Puede usar esta función un número de veces igual a su modificador de Inteligencia (mínimo de una vez) y recuperará todos los usos gastados cuando termine un descanso prolongado.:

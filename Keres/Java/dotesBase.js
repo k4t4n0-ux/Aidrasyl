@@ -6,7 +6,11 @@ function crearSistemaDotes({
     storageKey
 }) {
     const bloque = document.getElementById(contenedorId);
-    if (!bloque) return;
+
+    if (!bloque) {
+        console.warn("No existe el contenedor:", contenedorId);
+        return;
+    }
 
     bloque.innerHTML = `
         <div class="dote-bloque-unico">

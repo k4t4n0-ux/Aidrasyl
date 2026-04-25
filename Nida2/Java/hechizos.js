@@ -1,4 +1,4 @@
-const STORAGE_KEY = "aidrasyl_hechizos";
+const STORAGE_KEY = "nida2_hechizos";
 
 document.addEventListener("DOMContentLoaded", () => {
 

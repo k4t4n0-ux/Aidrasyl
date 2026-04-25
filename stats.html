@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Stats D&D</title>
+    <link rel="stylesheet" href="Estilo/estilo.css">
+
+</head>
+<body>
+
+<!-- 🔹 BOTÓN MENÚ -->
+<button id="toggleMenu" class="menu-btn">☰</button>
+
+<!-- 🔹 MENÚ DESPLEGABLE -->
+<div id="menuLateral" class="menu-lateral">
+    <br><br>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="stats.html">Calculo Stats</a>
+        <a href="Aidrasyl/aidrasyl.html">Hoja Aidrasyl</a>
+        <a href="AidrasylOS/aidrasylOS.html">One Shot Aidrasyl</a>
+        <a href="Aidrasyl/pesoaidrasyl.html">Peso Aidrasyl</a>
+        <a href="Keres/keres.html">Hoja Keres</a>
+        <a href="Nida2/nida2.html">Hoja Nida 2</a>
+    </nav>
+</div>
+    <div class="container">
+        <h1>Calculadora de Stats D&D</h1>
+        <div class="buttons">
+            <button onclick="initAidrasyl()">Aidrasyl</button>
+            <button onclick="init5Eon()">5 Eon</button>
+            <button onclick="initOtro()">Otro</button>
+        </div>
+
+        <div class="info">
+            <div class="info-item">Puntos disponibles: <span id="points">0</span></div>
+            <div class="info-item">Modo: <span id="mode">Selecciona un modo</span></div>
+        </div>
+
+        <div class="stats" id="statsContainer"></div>
+    </div>
+
+    <script>
+        let stats = {};
+        let mode = '';
+        let config = {};
+
+        function initAidrasyl() {
+            mode = 'Aidrasyl';
+            config = {
+                statNames: ['Fuerza', 'Destreza', 'Constitución', 'Inteligencia', 'Sabiduría', 'Carisma'],
+                initial: 1,
+                points: 69,
+                max: 20
+            };
+            initStats();
+        }
+
+        function initOtro() {
+            mode = 'Otro';
+            config = {
+                statNames: ['Fuerza', 'Destreza', 'Constitución', 'Inteligencia', 'Sabiduría', 'Carisma'],
+                initial: 8,
+                points: 27,
+                max: 15
+            };
+            initStats();
+        }
+
+        function init5Eon() {
+            mode = '5 Eon';
+            config = {
+                statNames: ['Fuerza', 'Destreza', 'Constitución', 'Inteligencia', 'Sabiduría', 'Carisma', 'Suerte'],
+                initial: 8,
+                points: 32,
+                max: 16
+            };
+            initStats();
+        }
+
+        function initStats() {
+            stats = {};
+            config.statNames.forEach(name => {
+                stats[name] = { value: config.initial, bonus: '' };
+            });
+            config.remaining = config.points;
+            renderStats();
+            document.getElementById('mode').textContent = mode;
+        }
+
+        function renderStats() {
+            const container = document.getElementById('statsContainer');
+            container.innerHTML = '';
+            
+            config.statNames.forEach(name => {
+                const stat = stats[name];
+                const div = document.createElement('div');
+                div.className = 'stat-block';
+                
+                div.innerHTML = `
+                    <div class="stat-header">${name}</div>
+                    <div class="stat-value">${stat.value}</div>
+                    <div class="buttons-group">
+                        <button class="btn-small" onclick="addPoints('${name}', 1)">+1</button>
+                        <button class="btn-small" onclick="removePoints('${name}', 1)">-1</button>
+                    </div>
+                    <div class="bonus-buttons">
+                        <button class="bonus-btn ${stat.bonus === '+2/+1' ? 'selected' : ''}" onclick="setBonus('${name}', '+2/+1')">+2/+1</button>
+                        <button class="bonus-btn ${stat.bonus === '+1/+1/+1' ? 'selected' : ''}" onclick="setBonus('${name}', '+1/+1/+1')">+1/+1/+1</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            
+            document.getElementById('points').textContent = config.remaining;
+        }
+
+        function addPoints(statName, amount) {
+            if (config.remaining >= amount && stats[statName].value < config.max) {
+                stats[statName].value += amount;
+                config.remaining -= amount;
+                renderStats();
+            }
+        }
+
+        function removePoints(statName, amount) {
+            if (stats[statName].value > config.initial) {
+                stats[statName].value -= amount;
+                config.remaining += amount;
+                renderStats();
+            }
+        }
+
+        function setBonus(statName, bonus) {
+            stats[statName].bonus = stats[statName].bonus === bonus ? '' : bonus;
+            renderStats();
+        }
+    </script>
+
+<!-- Archivos JavaScript -->
+<script src="Java/index.js"></script>
+<style>
+/* ===================================================== */
+/* ================= STATS (CALCULADORA) =============== */
+/* ===================================================== */
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Grid de stats */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+/* Caja individual */
+.stat-block {
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Nombre del stat */
+.stat-header {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3a4a5f;
+}
+
+/* Valor grande */
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3440;
+}
+
+/* Botones +1 -1 */
+.buttons-group {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-small {
+    height: 28px;
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+/* Botones de bonus */
+.bonus-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.bonus-btn {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+/* Seleccionado */
+.bonus-btn.selected {
+    background: #7a9cc6;
+    color: white;
+    border-color: #7a9cc6;
+}
+
+/* Info superior */
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    gap: 10px;
+}
+
+.info-item {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ===================================================== */
+/* ================= RESPONSIVE STATS ================== */
+/* ===================================================== */
+
+@media (max-width: 900px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+</style>
+</body>
+</html>

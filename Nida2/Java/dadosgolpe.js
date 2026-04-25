@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const STORAGE_KEY = "aidrasyl_dados";
+    const STORAGE_KEY = "nida2_dados";
 
     const clase1 = document.getElementById("clase");
     const nivel1 = document.getElementById("nivel1");
